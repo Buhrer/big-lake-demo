@@ -1,0 +1,10 @@
+Produtos, matéria-prima e trocas feitas nos clientes Perdas ?
+
+[AJUDA: Controle de perdas Anote tudo o que se perdeu: paletas e potes que estragaram aqui, matéria-prima que venceu e produtos que venceram no cliente e foram trocados. No fim do mês você vê quanto dinheiro se perdeu e onde.]
+Simulação · dados de exemplo {{addTxt}} {{regTit}} Editando o registro de {{editData}} ?
+
+[AJUDA: Um registro, vários itens Escolha o tipo de perda, toque em cada item que se perdeu e digite a quantidade. Pode colocar quantos itens quiser no mesmo registro, por exemplo 3 sabores trocados no mesmo cliente. No fim, toque em Salvar perda.]
+✕ Fechar O que se perdeu? {{o.label}} {{o.sub}} Qual cliente? {{ddPdcli.sel}} {{ddPdcli.seta}} {{dI.marca}} {{dI.label}} {{escolhaTxt}} {{p.nome}} {{p.cTxt}} Itens deste registro Item Quantidade Valor {{i.nome}} Quantidade de {{i.nome}} {{i.u}} {{i.vTxt}} Remover Nenhum item ainda. Toque nos itens acima para colocar aqui. Valor da perda ({{valorObs}}) {{totalTxt}} Por quê? {{m.label}} Observação Os produtos novos entregues na troca saem do estoque. O cliente não paga por eles, por isso entram como perda. {{salvarTxt}} Cancelar edição Perdido em outubro {{tot.total}} {{tot.n}} registros Produtos prontos {{tot.prod}} paletas, potes, picolés Matéria-prima e insumos {{tot.mp}} leite, fruta, potes vazios Trocas em clientes {{tot.troca}} {{tot.nTroca}} Trocas por cliente · outubro ?
+
+[AJUDA: Trocas por cliente Mostra em quais clientes os produtos mais vencem. Se um cliente troca muito, vale entregar menos de cada vez para ele.]
+{{pc.cli}} · {{pc.txt}} {{pc.vTxt}} Perdas de outubro {{t.label}} ✓ {{salvoTxt}} ✓ O registro de {{excluidoData}} foi excluído. Desfazer Data O que se perdeu Motivo Valor {{p.d}} {{p.o}} {{p.sub}} Excluir este registro? {{p.m}} {{p.vTxt}} Editar Excluir Sim Não

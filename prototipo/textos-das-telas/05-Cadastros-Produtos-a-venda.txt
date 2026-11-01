@@ -1,0 +1,13 @@
+Clientes, fornecedores e produtos que a Big Lake vende Cadastros ?
+
+[AJUDA: Cadastros Tudo o que se cadastra num lugar só. "Clientes" são quem compra por encomenda, "Fornecedores" são quem vende mercadoria para a Big Lake e "Produtos à venda" são as paletas, picolés, potes e açaí. O preço vem da categoria, definido em Receitas. Toque na aba para trocar.]
+Simulação · dados de exemplo {{addTxt}} Clientes (7) Fornecedores (5) Produtos à venda {{t.label}} {{formTit}} Editando um produto ✕ Fechar Categoria ?
+
+[AJUDA: Categoria O tipo do produto: paleta, picolé, pote, açaí. Se a Big Lake começar a vender algo novo, como milk-shake, crie a categoria aqui mesmo na lista. Ela passa a aparecer também nos filtros.]
+{{catSel}} {{catSeta}} {{o.marca}} {{o.label}} Remover em uso · {{o.uso}} Remover? Sim Não Nome novo + Criar Só dá para remover uma categoria que não tem produtos. Nome / sabor Vendido como ?
+
+[AJUDA: Vendido como Como o cliente leva o produto: uma unidade (paleta, picolé, casquinha), um pote ou um copo.]
+{{ddVemb.sel}} {{ddVemb.seta}} {{dI.marca}} {{dI.label}} Peso ou volume ?
+
+[AJUDA: Peso ou volume Quanto vem em cada um. Paleta e picolé se medem em gramas (g). Pote e copo, em litros (L) ou mililitros (ml).]
+Medida {{ddVun.sel}} {{ddVun.seta}} {{dI.marca}} {{dI.label}} Receita usada {{ddVrec.sel}} {{ddVrec.seta}} {{dI.marca}} {{dI.label}} Preço de venda · fixo da categoria {{ex.catNome}} O mesmo para todos os produtos desta categoria. Para mudar, vá em Produção e Receitas › Receitas. Balcão {{ex.balR}} Atacado {{ex.ataR}} Mudar em Receitas Custo de cada um {{ex.custoTxt}} vem de Produção e Receitas Lucro no balcão {{ex.lucroTxt}} por unidade vendida Lucro no atacado {{ex.lucroAtaTxt}} {{ex.lucroAtaObs}} {{salvarTxt}} Cancelar ✓ {{salvoMsg}} ✓ "{{excluidoNome}}" foi excluído da lista. Desfazer Produto Custo Balcão Atacado Lucro no balcão {{r.nome}} {{r.tipoNome}} · {{r.tam}} Excluir este produto? {{r.custoTxt}} {{r.balTxt}} {{r.ataTxt}} {{r.lucroTxt}} Editar Excluir Sim Não

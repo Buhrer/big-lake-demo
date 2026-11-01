@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Big Lake · Produção e Receitas · Receitas</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Baloo+2:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF7DE;color:#2A1E10;font-family:'Atkinson Hyperlegible',system-ui,sans-serif;font-size:18px;line-height:1.4}
+a{color:#A61B1B}a:hover{color:#7A1010}
+h1,h2,h3{font-family:'Baloo 2',sans-serif;line-height:1.15;margin:0}
+.nav{display:flex;align-items:center;gap:14px;min-height:50px;white-space:nowrap;padding:0 14px;border-radius:12px;color:#2A1E10;text-decoration:none;font-weight:700;font-size:19px}
+.nav:hover{background:#FFDD70;color:#2A1E10}
+.nav.on,.nav.on:hover{background:#2A1E10;color:#FFD54F}
+.badge{margin-left:auto;min-width:28px;height:28px;border-radius:14px;background:#C62828;color:#FFFFFF;font-size:15px;display:inline-flex;align-items:center;justify-content:center}
+@media (max-height:820px){.nav{min-height:43px}}
+.ic{width:26px;height:26px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;box-sizing:border-box;border-radius:12px;border:2px solid #C62828;background:#C62828;color:#FFFFFF;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;text-decoration:none}
+.btn:hover{background:#A61B1B;border-color:#A61B1B;color:#FFFFFF}
+.btn2{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 20px;box-sizing:border-box;border-radius:12px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;text-decoration:none}
+.btn2:hover{background:#FFF0C2;color:#2A1E10}
+.card{background:#FFFFFF;border:2px solid #F0E2B6;border-radius:18px;padding:24px;box-sizing:border-box}
+.tbl{width:100%;border-collapse:collapse;font-size:18px}
+.tbl th{text-align:left;padding:12px 14px;background:#FFF0C2;font-size:16px;font-weight:700}
+.tbl td{padding:12px 14px;border-bottom:1px solid #F0E6CC;vertical-align:middle}
+.num,.tbl th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;padding:4px 12px;border-radius:999px;font-size:16px;font-weight:700;white-space:nowrap}
+.ok{background:#DDF3E3;color:#14532D}.low{background:#FDE0DE;color:#8E1414}
+.grp{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.grp-t{width:190px;flex:none;font-weight:700;font-size:18px}
+.rec{min-height:52px;padding:0 22px;border-radius:999px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer}
+.rec.on{background:#2A1E10;color:#FFD54F}
+.opt{min-height:56px;border-radius:12px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 17px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;line-height:1.2;padding:6px}
+.opt.on{background:#FFC93C}
+.qb{width:56px;height:56px;border-radius:12px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 28px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;flex:none}
+.qb:hover{background:#FFF0C2}
+.seg{display:flex;flex-wrap:wrap;gap:6px;padding:6px;background:#FFFFFF;border:2px solid #2A1E10;border-radius:16px}
+.sg{min-height:54px;padding:0 22px;border:none;border-radius:11px;background:transparent;color:#2A1E10;font:700 19px 'Atkinson Hyperlegible',sans-serif;cursor:pointer}
+.sg:hover{background:#FFF0C2}
+.sg.on,.sg.on:hover{background:#2A1E10;color:#FFD54F}
+a.sg{display:inline-flex;align-items:center;text-decoration:none}a.sg:hover{color:#2A1E10}
+.big{width:110px;height:56px;box-sizing:border-box;border:2px solid #2A1E10;border-radius:12px;background:#FFFFFF;color:#2A1E10;font:700 28px 'Atkinson Hyperlegible',sans-serif;text-align:center;font-variant-numeric:tabular-nums}
+.sim{display:inline-block;padding:6px 14px;border-radius:999px;background:#2A1E10;color:#FFD54F;font-size:15px;font-weight:700}
+.muted{color:#5E4B33}
+.line{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-bottom:1px solid #F0E6CC}
+.line span:last-child{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;padding:10px 14px;background:#FFFFFF;border:2px solid #F0E2B6;border-radius:14px}
+.bk{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:#14532D;font-size:16px}
+.tb{min-height:44px;min-width:44px;padding:0 12px;box-sizing:border-box;border-radius:10px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 17px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none}
+.tb:hover{background:#FFF0C2;color:#2A1E10}
+.tb.on,.tb.on:hover{background:#C62828;border-color:#C62828;color:#FFFFFF}
+.help{position:relative;display:inline-flex;vertical-align:middle;flex:none}
+.help>button{width:34px;height:34px;border-radius:50%;border:2px solid #C62828;background:#FFFFFF;color:#C62828;font:700 19px 'Atkinson Hyperlegible',sans-serif;cursor:help;display:inline-flex;align-items:center;justify-content:center;padding:0}
+.help:hover>button,.help:focus-within>button{background:#C62828;color:#FFFFFF}
+.tip{display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);width:330px;max-width:80vw;background:#2A1E10;color:#FFFFFF;padding:14px 16px;border-radius:12px;font:400 16px/1.5 'Atkinson Hyperlegible',sans-serif;text-align:left;white-space:normal;z-index:60;box-shadow:0 8px 24px rgba(42,30,16,.3)}
+.tip b{display:block;color:#FFD54F;font-size:17px;margin-bottom:4px}
+.help:hover .tip,.help:focus-within .tip{display:block}
+.tip.l{left:0;transform:none}.tip.r{left:auto;right:0;transform:none}
+.nohelp .help{display:none}
+.hrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+header>.hrow,header>.sim{flex:none}
+.qin{width:110px;min-height:48px;box-sizing:border-box;border:2px solid #2A1E10;border-radius:10px;padding:0 10px;font:700 19px 'Atkinson Hyperlegible',sans-serif;text-align:right;font-variant-numeric:tabular-nums;background:#FFFFFF;color:#2A1E10}
+.inp{display:block;width:100%;min-height:52px;box-sizing:border-box;border:2px solid #CDBF9C;border-radius:10px;padding:0 14px;font:18px 'Atkinson Hyperlegible',sans-serif;background:#FFFFFF;color:#2A1E10}
+.lb{display:flex;align-items:center;min-height:34px;font-weight:700;font-size:17px;margin-bottom:6px}
+button.inp>span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1 1 auto}button.inp>span:last-child{flex:none}
+.see{min-height:48px;padding:0 18px;border-radius:10px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 17px 'Atkinson Hyperlegible',sans-serif;cursor:pointer}
+.see:hover{background:#FFF0C2}
+.kpi{background:#FFF7DE;border:2px solid #F0E2B6;border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:2px}
+.kpi .k{font-weight:700;color:#5E4B33;font-size:16px}
+.kpi .v{font-size:28px;font-weight:700;font-variant-numeric:tabular-nums}
+.stp{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#2A1E10;color:#FFD54F;font:800 22px 'Baloo 2',sans-serif;flex:none}
+.al{display:grid;grid-template-columns:minmax(200px,2fr) minmax(150px,1.2fr) minmax(150px,1.2fr) minmax(190px,1.3fr);gap:10px 16px;align-items:center;padding:14px 0;border-top:1px solid #F3C9C4}
+.ddpanel{position:absolute;z-index:40;top:calc(100% + 6px);left:0;right:0;min-width:0;background:#FFFFFF;border:2px solid #2A1E10;border-radius:14px;box-shadow:0 10px 28px rgba(42,30,16,.25);padding:6px;box-sizing:border-box}
+.ddpanel.dr{left:auto;right:0;width:260px}
+.ddlist{max-height:300px;overflow-y:auto}
+.ddrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:6px 8px;padding:3px 4px;border-bottom:1px solid #F0E6CC}
+.ddrow:last-child{border-bottom:none}
+.mdl-bg{position:fixed;inset:0;z-index:100;background:rgba(42,30,16,.55);display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box}
+.mdl{width:min(980px,100%);max-height:calc(100vh - 32px);overflow-y:auto;background:#FFFFFF;border:2px solid #2A1E10;border-radius:18px;padding:24px;box-sizing:border-box;box-shadow:0 16px 40px rgba(42,30,16,.35);display:flex;flex-direction:column;gap:16px}
+.mdl>section.card{border:none;padding:0;border-radius:0;background:transparent;box-shadow:none}
+.mdl-h{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mdl-x{flex:none;margin-left:auto}
+</style>
+</helmet>
+<div class="{{appCls}}" style="display: flex; flex-wrap: wrap; min-height: 100vh">
+<nav aria-label="Menu principal" style="flex: 0 0 292px; background: #FFC93C; padding: 20px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 4px">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 0 8px 14px; text-decoration: none; color: #2A1E10">
+<svg width="44" height="52" viewBox="0 0 48 56" aria-hidden="true"><path d="M12 24 L24 54 L36 24 Z" fill="#C68B3E" stroke="#2A1E10" stroke-width="2.5" stroke-linejoin="round"></path><path d="M16 31 L32 31 M19 39 L29 39" stroke="#2A1E10" stroke-width="2"></path><circle cx="24" cy="16" r="13" fill="#C62828" stroke="#2A1E10" stroke-width="2.5"></circle><circle cx="19" cy="11" r="3" fill="#FFFFFF" opacity="0.7"></circle></svg>
+<span style="display: flex; flex-direction: column; line-height: 1"><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: 0.5px">BIG LAKE</span><span style="font-size: 16px; font-weight: 700; margin-top: 4px">Sorveteria</span></span>
+</a>
+<a class="nav" href="Main.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path></svg>Início</a>
+<a class="nav" href="Pedidos.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="12" rx="2"></rect><path d="M7 8V4h10v4M7 14h4"></path></svg>Vendas e Pedidos</a>
+<a class="nav" href="Clientes.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="4"></circle><path d="M2 21c0-4 3-6 7-6s7 2 7 6M16 4a4 4 0 010 8M22 21c0-3-2-5-4-6"></path></svg>Cadastros</a>
+<a class="nav on" aria-current="page" href="Producao.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="18" rx="2"></rect><path d="M9 2h6v4H9zM9 13l2 2 4-4"></path></svg>Produção e Receitas</a>
+<a class="nav" href="Estoque.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4zM3 7v10l9 4 9-4V7M12 11v10"></path></svg>Estoque e Insumos</a>
+<a class="nav" href="Perdas.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"></path></svg>Perdas</a>
+<a class="nav" href="Contas.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>Contas a pagar<span class="badge" aria-label="2 vencem logo">2</span></a>
+<a class="nav" href="Socios.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v9h9"></path></svg>Sócios</a>
+<a class="nav" href="Patrimonio.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l8-3 8 3v16M9 21v-5h6v5M9 9h.01M15 9h.01M9 13h.01M15 13h.01"></path></svg>Patrimônio</a>
+<a class="nav" href="Relatorios.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-5M12 16V6M17 16v-8"></path></svg>Relatórios</a>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; padding: 20px 32px 48px; box-sizing: border-box">
+<div style="zoom: {{zoom}}; max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px">
+<div class="top">
+<div class="hrow">
+<span class="bk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"></path></svg>Cópia de segurança feita hoje, 08:02</span>
+<span class="help"><button type="button" aria-label="Ajuda: cópia de segurança">?</button><span class="tip l" role="tooltip"><b>Cópia de segurança automática</b>Toda vez que o sistema é fechado, ele copia todos os dados para o pen drive e para uma pasta do computador. Se o computador estragar, nada se perde.</span></span>
+</div>
+<div class="hrow" style="gap: 8px">
+<span class="help"><button type="button" aria-label="Ajuda: tamanho da letra">?</button><span class="tip r" role="tooltip"><b>Tamanho da letra</b>A+ aumenta tudo na tela e A− diminui. Bom para quem enxerga melhor com letra grande. O tamanho padrão fica salvo em Configurações.</span></span>
+<button type="button" class="tb" aria-label="Diminuir a letra" onClick="{{zOut}}">A−</button>
+<button type="button" class="tb" aria-label="Aumentar a letra" onClick="{{zIn}}">A+</button>
+<button type="button" class="{{helpBtn}}" onClick="{{toggleHelp}}">{{helpTxt}}</button>
+<a class="tb" href="Config.dc.html">Configurações</a>
+</div>
+</div>
+
+<header style="display: flex; flex-wrap: nowrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div style="min-width: 0; flex: 1 1 auto">
+<p class="muted" style="margin: 0 0 4px; font-size: 18px">Planejar o que fazer e quanto custa cada receita</p>
+<div class="hrow"><h1 style="font-size: 44px">Produção e Receitas</h1><span class="help"><button type="button" aria-label="Ajuda: produção e receitas">?</button><span class="tip l" role="tooltip"><b>Produção e Receitas</b>Em "Planejar produção" você diz o que quer fazer e o sistema confere se tem ingrediente no estoque. Em "Receitas" fica quanto custa fazer cada sorvete ou paleta e quanto sobra de lucro em cada um.</span></span></div>
+</div>
+<div class="hrow" style="gap: 12px">
+<span class="sim">Simulação · dados de exemplo</span>
+<button type="button" class="{{novoCls}}" onClick="{{novaReceita}}">{{novoTxt}}</button>
+</div>
+</header>
+
+<nav class="seg" aria-label="Escolha a parte" style="align-self: flex-start">
+<a class="sg" href="Producao.dc.html">Planejar produção</a>
+<a class="sg on" aria-current="page" href="Receitas.dc.html">Receitas</a>
+</nav>
+
+
+<sc-if value="{{aberto}}" hint-placeholder-val="{{ false }}">
+<div class="mdl-bg">
+<div class="mdl" role="dialog" aria-modal="true" aria-label="Receita">
+<div class="mdl-h"><h2 style="font-size: 28px">{{mdlTit}}</h2><button type="button" class="btn2 mdl-x" onClick="{{fechar}}">✕ Fechar</button></div>
+<div style="display: flex; flex-direction: column; gap: 24px">
+<section class="card" aria-labelledby="t-ing" style="display: flex; flex-direction: column; gap: 16px">
+<div class="hrow"><span class="stp">1</span><h2 id="t-ing" style="font-size: 28px">Nome e ingredientes</h2><span class="help"><button type="button" aria-label="Ajuda: ingredientes">?</button><span class="tip l" role="tooltip"><b>Ingredientes da receita</b>Coloque tudo o que vai na receita inteira (a panela toda), não de uma paleta só. O preço de cada ingrediente vem sozinho do último valor pago em Estoque e Insumos.</span></span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: end">
+<div style="flex: 3 1 360px"><label class="lb" for="r-nome">Nome da receita</label><input id="r-nome" class="inp" placeholder="Ex.: Paleta de Morango recheada" value="{{r.nome}}" onChange="{{setNome}}"></div>
+<div style="flex: 1 1 220px"><label class="lb" for="r-un">Categoria do produto</label><div style="position: relative"><button type="button" class="inp" id="r-un" aria-haspopup="listbox" aria-expanded="{{ddRun.aberto}}" onClick="{{ddRun.toggle}}" style="display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; text-align: left; cursor: pointer; font-weight: 700"><span>{{ddRun.sel}}</span><span aria-hidden="true">{{ddRun.seta}}</span></button><sc-if value="{{ddRun.aberto}}" hint-placeholder-val="{{ false }}"><div class="ddpanel" style="{{ddRun.pst}}"><div class="ddlist" role="listbox"><sc-for list="{{ddRun.itens}}" as="dI" hint-placeholder-count="4"><div class="ddrow"><button type="button" role="option" onClick="{{dI.pick}}" style="{{dI.st}}">{{dI.marca}} {{dI.label}}</button></div></sc-for></div></div></sc-if></div></div>
+</div>
+<table class="tbl">
+<thead><tr><th>Ingrediente</th><th class="num">Quantidade na receita</th><th class="num">Preço pago</th><th class="num">Custo</th><th></th></tr></thead>
+<tbody>
+<sc-for list="{{ings}}" as="i" hint-placeholder-count="7">
+<tr>
+<td style="font-weight: 700">{{i.nome}}</td>
+<td class="num"><label for="{{i.fid}}" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Quantidade de {{i.nome}}</label><input id="{{i.fid}}" class="qin" inputmode="decimal" value="{{i.qTxt}}" onChange="{{i.setQ}}"> <span style="display: inline-block; min-width: 44px; text-align: left">{{i.u}}</span></td>
+<td class="num muted">{{i.pTxt}}</td>
+<td class="num" style="font-weight: 700">{{i.cTxt}}</td>
+<td style="text-align: right"><button type="button" class="see" onClick="{{i.rem}}">Remover</button></td>
+</tr>
+</sc-for>
+<sc-if value="{{semIng}}" hint-placeholder-val="{{ false }}"><tr><td colspan="5" class="muted" style="padding: 20px 14px">Nenhum ingrediente ainda. Toque em "+ Adicionar ingrediente" logo abaixo.</td></tr></sc-if>
+</tbody>
+<tfoot><tr><td colspan="3" style="font-weight: 700; font-size: 20px; padding: 16px 14px">Custo dos ingredientes</td><td class="num" style="font-weight: 700; font-size: 24px; padding: 16px 14px">{{ingTxt}}</td><td></td></tr></tfoot>
+</table>
+<sc-if value="{{addFechado}}" hint-placeholder-val="{{ true }}"><div><button type="button" class="btn2" onClick="{{abrirAdd}}">+ Adicionar ingrediente</button></div></sc-if>
+<sc-if value="{{addAberto}}" hint-placeholder-val="{{ false }}">
+<div style="background: #FFF0C2; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+<div class="hrow" style="justify-content: space-between"><span style="font-weight: 700; font-size: 19px">Toque no ingrediente para colocar na receita</span><button type="button" class="btn2" onClick="{{fecharAdd}}">Fechar</button></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 10px">
+<sc-for list="{{disp}}" as="d" hint-placeholder-count="6">
+<button type="button" class="opt" style="text-align: left; padding: 8px 14px" onClick="{{d.add}}"><div>{{d.nome}}</div><div class="muted" style="font-size: 15px; font-weight: 400">{{d.pTxt}}</div></button>
+</sc-for>
+</div>
+<p class="muted" style="margin: 0">Falta algum? Cadastre primeiro em Estoque e Insumos, com o preço pago.</p>
+</div>
+</sc-if>
+</section>
+
+<section class="card" aria-labelledby="t-emb" style="display: flex; flex-direction: column; gap: 16px">
+<div class="hrow"><span class="stp">2</span><h2 id="t-emb" style="font-size: 28px">Embalagem de cada unidade</h2><span class="help"><button type="button" aria-label="Ajuda: embalagem">?</button><span class="tip l" role="tooltip"><b>Etiqueta, plástico e palito</b>Marque o que vai em cada unidade pronta. O sistema multiplica pela quantidade que a receita rende. Ex.: 100 paletas usam 100 palitos, 100 saquinhos e 100 etiquetas. Receita que não usa, é só deixar desmarcado.</span></span></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px" role="group" aria-label="Itens de embalagem">
+<sc-for list="{{embs}}" as="e" hint-placeholder-count="6">
+<button type="button" class="{{e.cls}}" aria-pressed="{{e.on}}" style="text-align: left; padding: 8px 14px" onClick="{{e.toggle}}"><div>{{e.marca}} {{e.nome}}</div><div style="font-size: 15px; font-weight: 400">{{e.pTxt}} cada</div></button>
+</sc-for>
+</div>
+<sc-if value="{{temEmb}}" hint-placeholder-val="{{ true }}">
+<table class="tbl">
+<thead><tr><th>Item</th><th class="num">Preço de cada</th><th class="num">Quantidade</th><th class="num">Custo</th></tr></thead>
+<tbody>
+<sc-for list="{{embSel}}" as="e" hint-placeholder-count="3">
+<tr><td style="font-weight: 700">{{e.nome}}</td><td class="num muted">{{e.pTxt}}</td><td class="num">{{e.qTxt}}</td><td class="num" style="font-weight: 700">{{e.cTxt}}</td></tr>
+</sc-for>
+</tbody>
+<tfoot><tr><td colspan="3" style="font-weight: 700; font-size: 20px; padding: 16px 14px">Custo da embalagem</td><td class="num" style="font-weight: 700; font-size: 24px; padding: 16px 14px">{{embTotTxt}}</td></tr></tfoot>
+</table>
+</sc-if>
+<sc-if value="{{semEmb}}" hint-placeholder-val="{{ false }}"><p class="muted" style="margin: 0">Esta receita não usa embalagem. Se usar, toque nos itens acima.</p></sc-if>
+</section>
+
+<section class="card" aria-labelledby="t-preco" style="display: flex; flex-direction: column; gap: 20px; border-color: #2A1E10">
+<div class="hrow"><span class="stp">3</span><h2 id="t-preco" style="font-size: 28px">Quanto rende e quanto sobra</h2><span class="help"><button type="button" aria-label="Ajuda: rendimento e lucro">?</button><span class="tip l" role="tooltip"><b>Rendimento e lucro</b>Diga quantas unidades saem da receita inteira. O sistema divide o custo por elas e mostra quanto sobra de lucro em cada uma, pelo preço fixo de venda.</span></span></div>
+<div class="hrow" style="gap: 14px">
+<label for="r-rend" style="font-weight: 700; font-size: 21px; flex: 1 1 300px">Quantas {{r.un}} essa receita rende?</label>
+<div style="display: flex; align-items: center; gap: 10px">
+<button type="button" class="qb" aria-label="Menos" onClick="{{rendDec}}">−</button>
+<input id="r-rend" class="big" inputmode="numeric" value="{{r.rend}}" onChange="{{setRend}}">
+<button type="button" class="qb" aria-label="Mais" onClick="{{rendInc}}">+</button>
+<span style="font-size: 22px; font-weight: 700; min-width: 90px">{{r.un}}</span>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px">
+<div class="kpi"><span class="k">Ingredientes</span><span class="v">{{ingTxt}}</span></div>
+<div class="kpi"><span class="k">Embalagem</span><span class="v">{{embTotTxt}}</span></div>
+<div class="kpi"><span class="k">Custo da receita inteira</span><span class="v">{{totTxt}}</span></div>
+<div class="kpi" style="background: #FFF0C2; border-color: #2A1E10"><span class="k" style="color: #2A1E10">Custo de cada {{sing}}</span><span class="v" style="font-size: 32px">{{unTxt}}</span></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div class="hrow" style="gap: 8px"><h3 style="font-size: 23px">Vendendo no balcão</h3><span class="help"><button type="button" aria-label="Ajuda: Vendendo no balcão">?</button><span class="tip l" role="tooltip"><b>Vendendo no balcão</b>O preço que o cliente paga na sorveteria. É o mesmo para todos os produtos da categoria {{r.catNome}}, seja qual for o sabor. Se mudar aqui, muda na categoria inteira, aqui e em Cadastros › Produtos à venda.</span></span></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px">
+<div class="kpi" style="background: #FFFFFF; border-color: #2A1E10; gap: 6px">
+<label class="k" for="r-pbal">Preço de cada {{sing}}</label>
+<div style="display: flex; align-items: center; gap: 8px"><span style="font-size: 24px; font-weight: 700">R$</span><input id="r-pbal" class="big" style="width: 130px" inputmode="decimal" value="{{bal.precoIn}}" onChange="{{bal.setPreco}}"></div>
+<span class="muted" style="font-size: 15px">igual para toda a categoria {{r.catNome}}</span>
+</div>
+<div class="kpi" style="background: #DDF3E3; border-color: #B9E2C5"><span class="k" style="color: #14532D">Lucro em cada {{sing}}</span><span class="v" style="color: #14532D; font-size: 32px">{{bal.lucroTxt}}</span><span style="font-size: 15px; color: #14532D">{{bal.margTxt}}</span></div>
+<div class="kpi" style="background: #DDF3E3; border-color: #B9E2C5"><span class="k" style="color: #14532D">Lucro da receita inteira</span><span class="v" style="color: #14532D">{{bal.loteTxt}}</span><span style="font-size: 15px; color: #14532D">se vender as {{r.rend}} {{r.un}} no balcão</span></div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div class="hrow" style="gap: 8px"><h3 style="font-size: 23px">Vendendo no atacado</h3><span class="muted">(pedidos de clientes)</span><span class="help"><button type="button" aria-label="Ajuda: Vendendo no atacado">?</button><span class="tip l" role="tooltip"><b>Vendendo no atacado</b>O preço cobrado nos pedidos de clientes (mercados, lanchonetes, buffets). Também é o mesmo para todos os sabores. É este preço que aparece em Vendas e Pedidos.</span></span></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px">
+<div class="kpi" style="background: #FFFFFF; border-color: #2A1E10; gap: 6px">
+<label class="k" for="r-pata">Preço de cada {{sing}}</label>
+<div style="display: flex; align-items: center; gap: 8px"><span style="font-size: 24px; font-weight: 700">R$</span><input id="r-pata" class="big" style="width: 130px" inputmode="decimal" value="{{ata.precoIn}}" onChange="{{ata.setPreco}}"></div>
+<span class="muted" style="font-size: 15px">igual para toda a categoria {{r.catNome}}</span>
+</div>
+<div class="kpi" style="background: #DDF3E3; border-color: #B9E2C5"><span class="k" style="color: #14532D">Lucro em cada {{sing}}</span><span class="v" style="color: #14532D; font-size: 32px">{{ata.lucroTxt}}</span><span style="font-size: 15px; color: #14532D">{{ata.margTxt}}</span></div>
+<div class="kpi" style="background: #DDF3E3; border-color: #B9E2C5"><span class="k" style="color: #14532D">Lucro da receita inteira</span><span class="v" style="color: #14532D">{{ata.loteTxt}}</span><span style="font-size: 15px; color: #14532D">se vender as {{r.rend}} {{r.un}} nos pedidos</span></div>
+</div>
+</div>
+<div class="hrow" style="gap: 12px">
+<button type="button" class="btn" style="min-height: 60px; min-width: 220px" onClick="{{salvar}}">Salvar receita</button>
+<button type="button" class="btn2" style="min-height: 60px" onClick="{{fechar}}">Fechar sem salvar</button>
+</div>
+</section>
+
+</div>
+</div>
+</div>
+</sc-if>
+
+<section class="card" aria-labelledby="t-comp" style="display: flex; flex-direction: column; gap: 14px">
+<div class="hrow" style="justify-content: space-between">
+<div class="hrow"><h2 id="t-comp" style="font-size: 28px">Receitas cadastradas</h2><span class="help"><button type="button" aria-label="Ajuda: receitas cadastradas">?</button><span class="tip l" role="tooltip"><b>Receitas cadastradas</b>Todas as receitas, do sabor que mais dá lucro para o que menos dá (o preço é o mesmo para todos). Toque em "Editar" para abrir a receita lá em cima. O sabor que menos dá lucro aparece em vermelho.</span></span></div>
+</div>
+<div role="group" aria-label="Tipo" class="hrow">
+<sc-for list="{{compTabs}}" as="t" hint-placeholder-count="2">
+<button type="button" class="{{t.cls}}" onClick="{{t.pick}}">{{t.label}}</button>
+</sc-for>
+</div>
+<sc-if value="{{msg}}" hint-placeholder-val="{{ false }}"><div style="padding: 14px 18px; border-radius: 12px; background: #DDF3E3; color: #14532D; font-weight: 700; font-size: 19px">✓ {{msgTxt}}</div></sc-if>
+<sc-if value="{{excluida}}" hint-placeholder-val="{{ false }}">
+<div class="hrow" style="justify-content: space-between; gap: 14px; padding: 14px 18px; border-radius: 12px; background: #DDF3E3; color: #14532D">
+<span style="font-weight: 700; font-size: 19px">✓ A receita "{{excluidaNome}}" foi excluída.</span>
+<button type="button" class="btn2" onClick="{{desfazer}}">Desfazer</button>
+</div>
+</sc-if>
+<table class="tbl">
+<thead><tr><th>Receita</th><th class="num">Custo de cada</th><th class="num">Lucro no balcão</th><th class="num">Lucro no atacado</th><th></th></tr></thead>
+<tbody>
+<sc-for list="{{comp}}" as="c" hint-placeholder-count="3">
+<tr style="{{c.bg}}">
+<td><div style="font-weight: 700">{{c.nome}}</div><div class="muted" style="font-size: 16px">{{c.rende}}</div><sc-if value="{{c.pior}}" hint-placeholder-val="{{ false }}"><span class="tag low" style="margin-top: 4px">menor lucro</span></sc-if><sc-if value="{{c.conf}}" hint-placeholder-val="{{ false }}"><div style="font-weight: 700; color: #8E1414; margin-top: 4px">Excluir esta receita?</div></sc-if></td>
+<td class="num">{{c.custo}}</td>
+<td class="num"><div style="font-weight: 700; color: {{c.cor}}">{{c.lucro}}</div><div class="muted" style="font-size: 15px">{{c.pct}} do preço</div></td>
+<td class="num"><div style="font-weight: 700; color: {{c.cor}}">{{c.lucroA}}</div><div class="muted" style="font-size: 15px">{{c.pctA}} do preço</div></td>
+<td style="text-align: right; white-space: nowrap">
+<sc-if value="{{c.normal}}" hint-placeholder-val="{{ true }}"><button type="button" class="see" onClick="{{c.editar}}">Editar</button> <button type="button" class="see" onClick="{{c.pedir}}">Excluir</button></sc-if>
+<sc-if value="{{c.conf}}" hint-placeholder-val="{{ false }}"><button type="button" class="see" style="background: #C62828; border-color: #C62828; color: #FFFFFF" onClick="{{c.sim}}">Sim</button> <button type="button" class="see" onClick="{{c.nao}}">Não</button></sc-if>
+</td>
+</tr>
+</sc-for>
+<sc-if value="{{semRec}}" hint-placeholder-val="{{ false }}"><tr><td colspan="5" class="muted" style="padding: 20px 14px">Nenhuma receita deste tipo.</td></tr></sc-if>
+</tbody>
+</table>
+<p class="muted" style="margin: 0">A receita aberta lá em cima fica marcada em amarelo. "% do preço" é a parte do preço que vira lucro.</p>
+</section>
+
+
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3300}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    try {
+      window.addEventListener('mousedown', (e) => {
+        const st = this.state; if (!(st.ddOpen || st.drop || st.dropCat || st.cdrop || st.tbOpen)) return;
+        if (e.target && e.target.closest && e.target.closest('[aria-expanded], .ddpanel, [data-ddp]')) return;
+        this.setState({ ddOpen: null, drop: false, dropCat: false, cdrop: false, tbOpen: false, rconf: null, crconf: null, tbConf: null });
+      });
+      const fecharFlutuante = (e) => {
+        const st = this.state; if (!(st.ddDir && st.ddDir.fx) || !(st.ddOpen || st.drop || st.dropCat || st.cdrop || st.tbOpen)) return;
+        if (e && e.target && e.target.closest && e.target.closest('.ddpanel, [data-ddp]')) return;
+        this.setState({ ddOpen: null, drop: false, dropCat: false, cdrop: false, tbOpen: false, rconf: null, crconf: null, tbConf: null });
+      };
+      window.addEventListener('scroll', fecharFlutuante, true);
+      window.addEventListener('resize', fecharFlutuante);
+    } catch (err) {}
+    this.ING = {
+      leite: ['Leite integral', 'L', 4.89], creme: ['Creme de leite', 'L', 21.5], acuc: ['Açúcar refinado', 'kg', 4.2], po: ['Leite em pó', 'kg', 34],
+      liga: ['Liga neutra', 'kg', 32], lc: ['Leite condensado', 'lata', 6.9], mor: ['Morango', 'kg', 18], mar: ['Polpa de maracujá', 'kg', 14],
+      cocr: ['Coco ralado', 'kg', 28], cocl: ['Leite de coco', 'L', 16], cac: ['Cacau em pó', 'kg', 48], acai: ['Polpa de açaí', 'kg', 22],
+      gua: ['Xarope de guaraná', 'L', 9.5], nut: ['Creme de avelã', 'kg', 62], ener: ['Gás e energia da produção', 'vez', 8]
+    };
+    this.EMB = { pal: ['Palito', 0.08], saq: ['Saquinho plástico', 0.27], etq: ['Etiqueta', 0.06], p2: ['Pote 2 L com tampa', 1.85], p1: ['Pote 1 L com tampa', 1.2], copo: ['Copo 300 ml com tampa', 0.45] };
+    const pal = ['pal', 'saq', 'etq'], pote = ['p2', 'etq'];
+    this.state = {
+      z: 1, help: true, sel: null, aberto: false, add: false, msg: '', n: 0, comp: 'paleta', conf: null, ult: null,
+      precos: { paleta: 10, picole: 7, pote: 49, acai: 56, copo: 22, balcao: 9 },
+      precosAta: { paleta: 7, picole: 5.5, pote: 45, acai: 52, copo: 18, balcao: 7 },
+      recs: {
+        pmor: { nome: 'Paleta de Morango recheada', un: 'paleta', rend: 100, emb: pal, ing: [['mor', 5], ['acuc', 2.5], ['lc', 15], ['creme', 2.5], ['leite', 5], ['liga', 0.12], ['ener', 1]] },
+        pmar: { nome: 'Paleta de Maracujá', un: 'paleta', rend: 100, emb: pal, ing: [['mar', 5], ['acuc', 3], ['lc', 10], ['creme', 2.5], ['leite', 5], ['liga', 0.12], ['ener', 1]] },
+        pcoc: { nome: 'Paleta de Coco cremoso', un: 'paleta', rend: 90, emb: pal, ing: [['cocr', 2.5], ['cocl', 5], ['lc', 12], ['leite', 5], ['acuc', 2], ['liga', 0.12], ['ener', 1]] },
+        mor: { nome: 'Sorvete de Morango · pote 2 L', un: 'pote', rend: 10, emb: pote, ing: [['leite', 10], ['creme', 3], ['acuc', 3.6], ['mor', 5], ['po', 0.8], ['liga', 0.2], ['ener', 1]] },
+        cho: { nome: 'Sorvete de Chocolate · pote 2 L', un: 'pote', rend: 10, emb: pote, ing: [['leite', 10], ['creme', 3], ['acuc', 3.6], ['cac', 1], ['lc', 8], ['po', 0.8], ['liga', 0.2], ['ener', 1]] },
+        aca: { nome: 'Creme de Açaí · pote 2 L', un: 'acai', rend: 10, emb: pote, ing: [['acai', 12], ['acuc', 2.4], ['gua', 2], ['liga', 0.2], ['ener', 1]] }
+      }
+    };
+  }
+  shell() {
+    const s = this.state;
+    return {
+      zoom: s.z, appCls: s.help ? 'app' : 'app nohelp', helpBtn: s.help ? 'tb on' : 'tb', helpTxt: s.help ? '? Ajuda ligada' : '? Ajuda desligada',
+      zIn: () => this.setState({ z: Math.min(1.3, Math.round((this.state.z + 0.1) * 10) / 10) }),
+      zOut: () => this.setState({ z: Math.max(0.8, Math.round((this.state.z - 0.1) * 10) / 10) }),
+      toggleHelp: () => this.setState({ help: !this.state.help })
+    };
+  }
+  brl(n) { return n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); }
+  ddMk(id, opts, cur, onPick) {
+    const s = this.state, on = s.ddOpen === id, O = opts.map(o => Array.isArray(o) ? o : [o, o]);
+    const salvo = (s.ddv || {})[id], val = cur !== undefined && cur !== null ? cur : (O.some(o => o[0] === salvo) ? salvo : O[0][0]);
+    const atual = O.find(o => o[0] === val) || O[0];
+    return { sel: atual[1], aberto: on, seta: on ? '▲' : '▼', toggle: (e) => this.setState({ ddOpen: this.state.ddOpen === id ? null : id, ddDir: this.ddDir(e) }), pst: this.ddPst(s.ddDir),
+      itens: O.map(([v, l]) => ({ label: l, marca: v === val ? '✓' : '',
+        st: 'flex: 1 1 140px; min-height: 48px; padding: 0 12px; border: none; border-radius: 10px; background: ' + (v === val ? '#FFC93C' : 'transparent') + '; color: #2A1E10; font: 700 18px \'Atkinson Hyperlegible\', sans-serif; text-align: left; cursor: pointer',
+        pick: () => { this.setState({ ddOpen: null, ddv: { ...(this.state.ddv || {}), [id]: v } }); if (onPick) onPick(v); } })) };
+  }
+  ddDir(e) {
+    try {
+      const el = e.currentTarget, r = el.getBoundingClientRect(), box = el.closest('.mdl'), lim = box ? box.getBoundingClientRect().right : window.innerWidth;
+      const side = r.left + 400 > lim - 12 ? 'r' : 'l';
+      if (!el.closest('[role="dialog"]')) return side;
+      // Inside a modal: the list floats over the screen (it never makes the modal grow or scroll) and opens upward when there is no room below.
+      const z = this.state.z || 1, vw = window.innerWidth, vh = window.innerHeight;
+      const W = Math.min(Math.max(r.width, 400), vw - 32);
+      let left = side === 'r' ? r.right - W : r.left; left = Math.max(16, Math.min(left, vw - 16 - W));
+      const below = vh - r.bottom - 16, above = r.top - 16, up = below < 330 && above > below;
+      return { fx: true, up, left: left / z, w: W / z, y: (up ? vh - r.top + 6 : r.bottom + 6) / z, h: Math.max(160, (up ? above : below) - 6) / z };
+    } catch (err) { return 'l'; }
+  }
+  ddPst(dir) {
+    if (dir && dir.fx) return 'position: fixed; z-index: 300; left: ' + dir.left + 'px; right: auto; width: ' + dir.w + 'px; max-width: none; ' + (dir.up ? 'top: auto; bottom: ' + dir.y + 'px;' : 'bottom: auto; top: ' + dir.y + 'px;') + ' max-height: ' + dir.h + 'px; overflow-y: auto; display: flex; flex-direction: column;';
+    return (dir === 'r' ? 'left: auto; right: 0;' : 'left: 0; right: auto;') + ' width: max(100%, 400px); max-width: calc(100vw - 48px);';
+  }
+  renderVals() {
+    const s = this.state, ING = this.ING, EMB = this.EMB;
+    const num = (v) => { const n = parseFloat(String(v).replace(',', '.')); return isNaN(n) ? 0 : n; };
+    const fq = (v) => typeof v === 'number' ? String(Math.round(v * 1000) / 1000).replace('.', ',') : v;
+    const r = s.recs[s.sel] || { nome: '', un: 'paleta', rend: 100, emb: [], ing: [] };
+    const setR = (patch) => this.setState({ recs: { ...this.state.recs, [this.state.sel]: { ...this.state.recs[this.state.sel], ...patch } }, msg: '' });
+    let ingTot = 0;
+    const ings = r.ing.map(([k, q], idx) => {
+      const [nome, u, p] = ING[k], c = num(q) * p; ingTot += c;
+      return { nome, u, fid: 'q-' + k, qTxt: fq(q), pTxt: this.brl(p) + ' /' + u, cTxt: this.brl(c),
+        setQ: (e) => { const ing = this.state.recs[this.state.sel].ing.slice(); ing[idx] = [k, e.target.value]; setR({ ing }); },
+        rem: () => setR({ ing: this.state.recs[this.state.sel].ing.filter((_, j) => j !== idx) }) };
+    });
+    const usados = r.ing.map(x => x[0]);
+    const disp = Object.keys(ING).filter(k => !usados.includes(k)).map(k => ({ nome: ING[k][0], pTxt: this.brl(ING[k][2]) + ' /' + ING[k][1],
+      add: () => setR({ ing: [...this.state.recs[this.state.sel].ing, [k, 1]] }) }));
+    const rend = Math.max(1, num(r.rend));
+    let embUn = 0;
+    const embs = Object.keys(EMB).map(k => { const on = r.emb.includes(k); return { nome: EMB[k][0], pTxt: this.brl(EMB[k][1]), on: on ? 'true' : 'false', marca: on ? '✓' : '+', cls: on ? 'opt on' : 'opt',
+      toggle: () => { const e = this.state.recs[this.state.sel].emb; setR({ emb: e.includes(k) ? e.filter(x => x !== k) : [...e, k] }); } }; });
+    const embSel = r.emb.map(k => { const p = EMB[k][1]; embUn += p; return { nome: EMB[k][0], pTxt: this.brl(p), qTxt: rend + ' un', cTxt: this.brl(p * rend) }; });
+    const embTot = embUn * rend, tot = ingTot + embTot, custoUn = tot / rend;
+    const custoDe = (rc, morPreco) => {
+      let t = 0; rc.ing.forEach(([k, q]) => { t += num(q) * (k === 'mor' && morPreco ? morPreco : ING[k][2]); });
+      const rd = Math.max(1, num(rc.rend)); rc.emb.forEach(k => { t += EMB[k][1] * rd; }); return t / rd;
+    };
+    const preco = num(s.precos[r.un] || 0);
+    const SING = { paleta: 'paleta', picole: 'picolé', pote: 'pote', acai: 'pote', copo: 'copo', balcao: 'unidade' };
+    const PLUR = { paleta: 'paletas', picole: 'picolés', pote: 'potes', acai: 'potes', copo: 'copos', balcao: 'unidades' };
+    const lucroUn = preco - custoUn;
+    const alertas = ['pmor', 'mor'].filter(id => s.recs[id]).map(id => { const rc = s.recs[id], pv = num(s.precos[rc.un]), ag = custoDe(rc), an = custoDe(rc, 14);
+      return { nome: rc.nome, antes: this.brl(an), agora: this.brl(ag), preco: this.brl(pv), lAntes: this.brl(pv - an), lAgora: this.brl(pv - ag), pick: () => this.setState({ sel: id, add: false, msg: '' }) }; });
+    const tipos = [...new Set(Object.values(s.recs).map(x => x.un))];
+    const compUn = tipos.includes(s.comp) ? s.comp : tipos[0];
+    const NOMES = { paleta: 'Paleta', picole: 'Picolé', pote: 'Sorvete de pote', acai: 'Açaí', copo: 'Açaí no copo', balcao: 'Balcão' };
+    const compTabs = tipos.map(t => ({ label: NOMES[t] || t, cls: compUn === t ? 'rec on' : 'rec', pick: () => this.setState({ comp: t }) }));
+    const lista = Object.keys(s.recs).filter(id => s.recs[id].un === compUn).map(id => { const rc = s.recs[id], tem = rc.ing.length > 0, c = tem ? custoDe(rc) : 0, pv = num(s.precos[rc.un]), pa = num(s.precosAta[rc.un]); return { id, rc, tem, nome: rc.nome || 'Receita sem nome', c, pv, pa, l: pv - c, la: pa - c }; }).sort((x, y) => (y.tem - x.tem) || (y.l - x.l));
+    const comTem = lista.filter(x => x.tem);
+    const pior = comTem.length > 1 ? comTem[comTem.length - 1].id : null;
+    const excluir = (id) => {
+      const recs = { ...this.state.recs }, rec = recs[id]; delete recs[id];
+      let sel = this.state.sel, n = this.state.n;
+      let aberto = this.state.aberto;
+      if (sel === id) { sel = null; aberto = false; }
+      this.setState({ recs, sel, n, aberto, conf: null, ult: { id, rec }, msg: '' });
+    };
+    const comp = lista.map(x => { const pct = x.pv && x.tem ? Math.max(0, x.l / x.pv) : 0, conf = s.conf === x.id;
+      return { nome: x.nome, rende: 'rende ' + fq(x.rc.rend) + ' ' + (PLUR[x.rc.un] || x.rc.un), custo: x.tem ? this.brl(x.c) : '—', lucro: x.tem ? this.brl(x.l) : '—', pct: x.tem ? Math.round(pct * 100) + '%' : '—', lucroA: x.tem ? this.brl(x.la) : '—', pctA: x.tem && x.pa ? Math.round(Math.max(0, x.la / x.pa) * 100) + '%' : '—', pior: x.id === pior, w: Math.round(pct * 100) + '%', cor: x.id === pior ? '#8E1414' : '#14532D',
+        bg: conf ? 'background: #FDE0DE' : (s.aberto && x.id === s.sel ? 'background: #FFF0C2' : ''), normal: !conf, conf, aberta: x.id === s.sel,
+        editar: () => { this.setState({ sel: x.id, aberto: true, add: false, msg: '', conf: null, ult: null }); try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {} },
+        pedir: () => this.setState({ conf: x.id }), nao: () => this.setState({ conf: null }), sim: () => excluir(x.id) }; });
+    const venda = (chave) => {
+      const pv = num(s[chave][r.un] || 0), l = pv - custoUn, raw = s[chave][r.un];
+      return { precoIn: typeof raw === 'number' ? raw.toFixed(2).replace('.', ',') : (raw || ''), lucroTxt: this.brl(l), loteTxt: this.brl(l * rend),
+        margTxt: pv ? Math.round(l / pv * 100) + '% do preço vira lucro' : '',
+        setPreco: (e) => { const v = e.target.value, n = num(v), un = this.state.recs[this.state.sel].un; this.setState({ [chave]: { ...this.state[chave], [un]: v.trim() === '' ? 0 : (/[,.]$/.test(v) ? v : n) }, msg: '' }); } };
+    };
+    const novaAberta = s.aberto && !!s.sel && s.sel.indexOf('nova') === 0;
+    const fecharEditor = () => {
+      const st = this.state, rc = st.recs[st.sel], recs = { ...st.recs };
+      if (rc && st.sel.indexOf('nova') === 0 && !rc.nome.trim() && rc.ing.length === 0) delete recs[st.sel];
+      this.setState({ recs, aberto: false, add: false, msg: '' });
+    };
+    const msgs = { rec: 'Receita "' + (r.nome || 'sem nome') + '" salva.' };
+    return {
+      ...this.shell(),
+      ddRun: this.ddMk('r-un', [['paleta', 'Paleta'], ['picole', 'Picolé'], ['pote', 'Sorvete de pote'], ['acai', 'Açaí'], ['copo', 'Açaí no copo'], ['balcao', 'Balcão']], r.un, (v) => setR({ un: v })),
+      alertas, r: { ...r, rend: fq(r.rend), un: PLUR[r.un] || r.un, catNome: NOMES[r.un] || r.un }, ings, disp, embs, embSel,
+      semIng: ings.length === 0, temEmb: embSel.length > 0, semEmb: embSel.length === 0,
+      addAberto: s.add, addFechado: !s.add,
+      abrirAdd: () => this.setState({ add: true }), fecharAdd: () => this.setState({ add: false }),
+      ingTxt: this.brl(ingTot), embTotTxt: this.brl(embTot), totTxt: this.brl(tot), unTxt: this.brl(custoUn),
+      sing: SING[r.un] || 'unidade',
+      bal: venda('precos'), ata: venda('precosAta'),
+      compTabs, comp, semRec: comp.length === 0,
+      edTag: s.sel && s.sel.indexOf('nova') === 0 ? 'tag ok' : 'tag warn', mdlTit: s.sel && s.sel.indexOf('nova') === 0 ? 'Nova receita' : 'Editar receita', edTxt: s.sel && s.sel.indexOf('nova') === 0 ? 'Receita nova' : 'Editando esta receita',
+      excluida: !!s.ult, excluidaNome: s.ult ? (s.ult.rec.nome || 'Receita sem nome') : '',
+      desfazer: () => { const u = this.state.ult; if (!u) return; this.setState({ recs: { ...this.state.recs, [u.id]: u.rec }, ult: null }); },
+      setNome: (e) => setR({ nome: e.target.value }), setUn: (e) => setR({ un: e.target.value }),
+      setRend: (e) => setR({ rend: e.target.value }),
+      rendInc: () => setR({ rend: rend + 1 }), rendDec: () => setR({ rend: Math.max(1, rend - 1) }),
+      msg: !!s.msg, msgTxt: msgs[s.msg] || '',
+      aberto: s.aberto,
+      novoTxt: '+ Nova receita', novoCls: 'btn', novoCls2: 'btn2',
+      salvar: () => this.setState({ msg: 'rec', aberto: false, add: false }),
+      fechar: fecharEditor,
+      novaReceita: () => {
+        if (novaAberta) { fecharEditor(); return; }
+        const n = this.state.n + 1, id = 'nova' + n;
+        this.setState({ n, sel: id, aberto: true, add: true, msg: '', conf: null, ult: null, recs: { ...this.state.recs, [id]: { nome: '', un: 'paleta', rend: 100, emb: ['pal', 'saq', 'etq'], ing: [] } } });
+        try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {}
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

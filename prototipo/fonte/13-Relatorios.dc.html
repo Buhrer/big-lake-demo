@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Big Lake · Relatórios</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Baloo+2:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF7DE;color:#2A1E10;font-family:'Atkinson Hyperlegible',system-ui,sans-serif;font-size:18px;line-height:1.4}
+a{color:#A61B1B}a:hover{color:#7A1010}
+h1,h2,h3{font-family:'Baloo 2',sans-serif;line-height:1.15;margin:0}
+.nav{display:flex;align-items:center;gap:14px;min-height:50px;white-space:nowrap;padding:0 14px;border-radius:12px;color:#2A1E10;text-decoration:none;font-weight:700;font-size:19px}
+.nav:hover{background:#FFDD70;color:#2A1E10}
+.nav.on,.nav.on:hover{background:#2A1E10;color:#FFD54F}
+.badge{margin-left:auto;min-width:28px;height:28px;border-radius:14px;background:#C62828;color:#FFFFFF;font-size:15px;display:inline-flex;align-items:center;justify-content:center}
+@media (max-height:820px){.nav{min-height:43px}}
+.ic{width:26px;height:26px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;box-sizing:border-box;border-radius:12px;border:2px solid #C62828;background:#C62828;color:#FFFFFF;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;text-decoration:none}
+.btn:hover{background:#A61B1B;border-color:#A61B1B;color:#FFFFFF}
+.btn2{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 20px;box-sizing:border-box;border-radius:12px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;text-decoration:none}
+.btn2:hover{background:#FFF0C2;color:#2A1E10}
+.card{background:#FFFFFF;border:2px solid #F0E2B6;border-radius:18px;padding:24px;box-sizing:border-box}
+.tbl{width:100%;border-collapse:collapse;font-size:18px}
+.tbl th{text-align:left;padding:12px 14px;background:#FFF0C2;font-size:16px;font-weight:700}
+.tbl td{padding:12px 14px;border-bottom:1px solid #F0E6CC;vertical-align:middle}
+.num,.tbl th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;padding:4px 12px;border-radius:999px;font-size:16px;font-weight:700;white-space:nowrap}
+.ok{background:#DDF3E3;color:#14532D}.low{background:#FDE0DE;color:#8E1414}
+.rep{display:flex;align-items:center;gap:12px;width:100%;min-height:56px;padding:0 16px;border-radius:12px;border:2px solid #F0E2B6;background:#FFFFFF;color:#2A1E10;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;text-align:left}
+.rep:hover{border-color:#2A1E10}
+.rep.on{background:#2A1E10;border-color:#2A1E10;color:#FFD54F}
+.sim{display:inline-block;padding:6px 14px;border-radius:999px;background:#2A1E10;color:#FFD54F;font-size:15px;font-weight:700}
+.muted{color:#5E4B33}
+.dre{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:11px 0;border-bottom:1px solid #F0E6CC}
+.dre span:last-child{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.sw{display:inline-block;width:18px;height:18px;border-radius:4px;vertical-align:-3px;margin-right:6px}
+.ins{background:#FFF0C2;border-radius:14px;padding:16px 18px;font-size:19px}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;padding:10px 14px;background:#FFFFFF;border:2px solid #F0E2B6;border-radius:14px}
+.bk{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:#14532D;font-size:16px}
+.tb{min-height:44px;min-width:44px;padding:0 12px;box-sizing:border-box;border-radius:10px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 17px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none}
+.tb:hover{background:#FFF0C2;color:#2A1E10}
+.tb.on,.tb.on:hover{background:#C62828;border-color:#C62828;color:#FFFFFF}
+.help{position:relative;display:inline-flex;vertical-align:middle;flex:none}
+.help>button{width:34px;height:34px;border-radius:50%;border:2px solid #C62828;background:#FFFFFF;color:#C62828;font:700 19px 'Atkinson Hyperlegible',sans-serif;cursor:help;display:inline-flex;align-items:center;justify-content:center;padding:0}
+.help:hover>button,.help:focus-within>button{background:#C62828;color:#FFFFFF}
+.tip{display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);width:330px;max-width:80vw;background:#2A1E10;color:#FFFFFF;padding:14px 16px;border-radius:12px;font:400 16px/1.5 'Atkinson Hyperlegible',sans-serif;text-align:left;white-space:normal;z-index:60;box-shadow:0 8px 24px rgba(42,30,16,.3)}
+.tip b{display:block;color:#FFD54F;font-size:17px;margin-bottom:4px}
+.help:hover .tip,.help:focus-within .tip{display:block}
+.tip.l{left:0;transform:none}.tip.r{left:auto;right:0;transform:none}
+.nohelp .help{display:none}
+.hrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.warn{background:#FFF0C2;color:#6B4A00}.low{background:#FDE0DE;color:#8E1414}
+.ddpanel{position:absolute;z-index:40;top:calc(100% + 6px);left:0;right:0;min-width:0;background:#FFFFFF;border:2px solid #2A1E10;border-radius:14px;box-shadow:0 10px 28px rgba(42,30,16,.25);padding:6px;box-sizing:border-box}
+.ddpanel.dr{left:auto;right:0;width:260px}
+.ddlist{max-height:300px;overflow-y:auto}
+.ddrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:6px 8px;padding:3px 4px;border-bottom:1px solid #F0E6CC}
+.ddrow:last-child{border-bottom:none}
+</style>
+</helmet>
+<div class="{{appCls}}" style="display: flex; flex-wrap: wrap; min-height: 100vh">
+<nav aria-label="Menu principal" style="flex: 0 0 292px; background: #FFC93C; padding: 20px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 4px">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 0 8px 14px; text-decoration: none; color: #2A1E10">
+<svg width="44" height="52" viewBox="0 0 48 56" aria-hidden="true"><path d="M12 24 L24 54 L36 24 Z" fill="#C68B3E" stroke="#2A1E10" stroke-width="2.5" stroke-linejoin="round"></path><path d="M16 31 L32 31 M19 39 L29 39" stroke="#2A1E10" stroke-width="2"></path><circle cx="24" cy="16" r="13" fill="#C62828" stroke="#2A1E10" stroke-width="2.5"></circle><circle cx="19" cy="11" r="3" fill="#FFFFFF" opacity="0.7"></circle></svg>
+<span style="display: flex; flex-direction: column; line-height: 1"><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: 0.5px">BIG LAKE</span><span style="font-size: 16px; font-weight: 700; margin-top: 4px">Sorveteria</span></span>
+</a>
+<a class="nav" href="Main.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path></svg>Início</a>
+<a class="nav" href="Pedidos.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="12" rx="2"></rect><path d="M7 8V4h10v4M7 14h4"></path></svg>Vendas e Pedidos</a>
+<a class="nav" href="Clientes.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="4"></circle><path d="M2 21c0-4 3-6 7-6s7 2 7 6M16 4a4 4 0 010 8M22 21c0-3-2-5-4-6"></path></svg>Cadastros</a>
+<a class="nav" href="Producao.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="18" rx="2"></rect><path d="M9 2h6v4H9zM9 13l2 2 4-4"></path></svg>Produção e Receitas</a>
+<a class="nav" href="Estoque.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4zM3 7v10l9 4 9-4V7M12 11v10"></path></svg>Estoque e Insumos</a>
+<a class="nav" href="Perdas.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"></path></svg>Perdas</a>
+<a class="nav" href="Contas.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>Contas a pagar<span class="badge" aria-label="2 vencem logo">2</span></a>
+<a class="nav" href="Socios.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v9h9"></path></svg>Sócios</a>
+<a class="nav" href="Patrimonio.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l8-3 8 3v16M9 21v-5h6v5M9 9h.01M15 9h.01M9 13h.01M15 13h.01"></path></svg>Patrimônio</a>
+<a class="nav on" aria-current="page" href="Relatorios.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-5M12 16V6M17 16v-8"></path></svg>Relatórios</a>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; padding: 20px 32px 48px; box-sizing: border-box">
+<div style="zoom: {{zoom}}; max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px">
+<div class="top">
+<div class="hrow">
+<span class="bk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"></path></svg>Cópia de segurança feita hoje, 08:02</span>
+<span class="help"><button type="button" aria-label="Ajuda: cópia de segurança">?</button><span class="tip l" role="tooltip"><b>Cópia de segurança automática</b>Toda vez que o sistema é fechado, ele copia todos os dados para o pen drive e para uma pasta do computador. Se o computador estragar, nada se perde.</span></span>
+</div>
+<div class="hrow" style="gap: 8px">
+<span class="help"><button type="button" aria-label="Ajuda: tamanho da letra">?</button><span class="tip r" role="tooltip"><b>Tamanho da letra</b>A+ aumenta tudo na tela e A− diminui. Bom para quem enxerga melhor com letra grande. O tamanho padrão fica salvo em Configurações.</span></span>
+<button type="button" class="tb" aria-label="Diminuir a letra" onClick="{{zOut}}">A−</button>
+<button type="button" class="tb" aria-label="Aumentar a letra" onClick="{{zIn}}">A+</button>
+<button type="button" class="{{helpBtn}}" onClick="{{toggleHelp}}">{{helpTxt}}</button>
+<a class="tb" href="Config.dc.html">Configurações</a>
+</div>
+</div>
+
+<header style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div>
+<p class="muted" style="margin: 0 0 4px; font-size: 18px">Período: setembro de 2026</p>
+<div class="hrow"><h1 style="font-size: 44px">Relatórios</h1><span class="help"><button type="button" aria-label="Ajuda: relatórios">?</button><span class="tip l" role="tooltip"><b>Relatórios</b>Escolha um relatório na lista à esquerda. Todos podem ser impressos ou salvos em PDF para mostrar ao contador ou guardar.</span></span></div>
+</div>
+<div class="hrow" style="gap: 12px">
+<span class="sim">Simulação · dados de exemplo</span>
+<label for="r-per" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Período</label>
+<div style="position: relative"><button type="button" class="btn2" id="r-per" aria-haspopup="listbox" aria-expanded="{{ddRper.aberto}}" onClick="{{ddRper.toggle}}" style="display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; text-align: left; cursor: pointer; font-weight: 700"><span>{{ddRper.sel}}</span><span aria-hidden="true">{{ddRper.seta}}</span></button><sc-if value="{{ddRper.aberto}}" hint-placeholder-val="{{ false }}"><div class="ddpanel dr" style="{{ddRper.pst}}"><div class="ddlist" role="listbox"><sc-for list="{{ddRper.itens}}" as="dI" hint-placeholder-count="4"><div class="ddrow"><button type="button" role="option" onClick="{{dI.pick}}" style="{{dI.st}}">{{dI.marca}} {{dI.label}}</button></div></sc-for></div></div></sc-if></div>
+<button type="button" class="btn2">Imprimir</button>
+<button type="button" class="btn">Salvar em PDF</button>
+</div>
+</header>
+
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+<div role="group" aria-label="Escolha o relatório" style="flex: 1 1 250px; display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{reps}}" as="r" hint-placeholder-count="6">
+<button type="button" class="{{r.cls}}" onClick="{{r.pick}}">{{r.label}}</button>
+</sc-for>
+</div>
+
+<div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<sc-if value="{{isGord}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<section class="card" aria-labelledby="t-gord" style="display: flex; flex-direction: column; gap: 16px; border-color: #2A1E10">
+<div class="hrow" style="justify-content: space-between">
+<div class="hrow"><h2 id="t-gord" style="font-size: 28px">Gordurinha</h2><span class="help"><button type="button" aria-label="Ajuda: gordurinha">?</button><span class="tip l" role="tooltip"><b>O que é a gordurinha</b>No último reajuste, os preços foram feitos para sobrar uma porcentagem a mais em cima do lucro líquido (normalmente 10%). Cada vez que um ingrediente, embalagem ou conta sobe, ele come um pedaço dessa sobra. Quando ela chega a zero, é hora de reajustar os preços.</span></span></div>
+<span class="{{g.tag}}" style="font-size: 18px; padding: 6px 14px">{{g.status}}</span>
+</div>
+<div class="muted">Desde o último reajuste, em {{g.desde}}</div>
+<div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 8px"><span style="font-size: 20px">Ainda restam</span><span style="font-family: 'Baloo 2', sans-serif; font-size: 44px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums">{{g.restaTxt}} <span style="font-size: 22px; font-weight: 700">por mês</span></span></div>
+<div style="height: 34px; background: #F0E6CC; border-radius: 10px; overflow: hidden; border: 2px solid #2A1E10"><div style="height: 100%; width: {{g.w}}; background: {{g.cor}}"></div></div>
+<div style="display: flex; justify-content: space-between; margin-top: 6px; font-weight: 700"><span>R$ 0 · reajustar</span><span>{{g.pctTxt}} da gordurinha</span><span>{{g.totalTxt}} · cheia</span></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px">
+<div style="background: #FFF7DE; border: 2px solid #F0E2B6; border-radius: 12px; padding: 12px 14px"><div class="muted" style="font-weight: 700; font-size: 15px">Lucro líquido base · por mês</div><div style="font-size: 22px; font-weight: 700">{{g.baseTxt}}</div></div>
+<div style="background: #FFF7DE; border: 2px solid #F0E2B6; border-radius: 12px; padding: 12px 14px"><div class="muted" style="font-weight: 700; font-size: 15px">Gordurinha ({{g.pctCfgTxt}}) · por mês</div><div style="font-size: 22px; font-weight: 700">{{g.totalTxt}}</div></div>
+<div style="background: #FDE0DE; border: 2px solid #F3C9C4; border-radius: 12px; padding: 12px 14px"><div style="font-weight: 700; font-size: 15px; color: #8E1414">Já foi comido · por mês</div><div style="font-size: 22px; font-weight: 700; color: #8E1414">{{g.comidoTxt}}</div></div>
+</div>
+<div class="hrow" style="gap: 10px">
+<button type="button" class="btn2" onClick="{{g.toggleCfg}}">{{g.cfgBtn}}</button>
+<span class="help"><button type="button" aria-label="Ajuda: ajustes da gordurinha">?</button><span class="tip l" role="tooltip"><b>Base e porcentagem</b>A base é o lucro líquido de um mês normal da Big Lake. Enquanto o sistema não tem 12 meses de vendas, digite aqui o valor que o contador passar. Depois ele calcula sozinho a cada reajuste. A porcentagem é o tamanho da gordurinha: 10% é o que o Carlos usa.</span></span>
+</div>
+<sc-if value="{{g.cfgAberto}}" hint-placeholder-val="{{ false }}">
+<div style="background: #FFF0C2; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: end">
+<div style="flex: 1 1 260px"><label for="g-base" style="display: block; font-weight: 700; margin-bottom: 6px">Lucro líquido base por mês (R$)</label><input id="g-base" inputmode="decimal" value="{{g.baseIn}}" onChange="{{g.setBase}}" style="width: 100%; min-height: 52px; box-sizing: border-box; border: 2px solid #2A1E10; border-radius: 10px; padding: 0 14px; font: 700 22px 'Atkinson Hyperlegible', sans-serif; text-align: right; background: #FFFFFF; color: #2A1E10"></div>
+<div style="flex: 0 1 200px"><label for="g-pct" style="display: block; font-weight: 700; margin-bottom: 6px">Gordurinha (%)</label><input id="g-pct" inputmode="decimal" value="{{g.pctIn}}" onChange="{{g.setPct}}" style="width: 100%; min-height: 52px; box-sizing: border-box; border: 2px solid #2A1E10; border-radius: 10px; padding: 0 14px; font: 700 22px 'Atkinson Hyperlegible', sans-serif; text-align: right; background: #FFFFFF; color: #2A1E10"></div>
+<div style="flex: 1 1 220px; padding-bottom: 12px; font-size: 18px">= gordurinha de <b>{{g.totalTxt}}</b> por mês</div>
+</div>
+<p class="muted" style="margin: 0">Quando o sistema tiver 12 meses de vendas, a base passa a ser calculada sozinha no dia de cada reajuste (média dos 12 meses anteriores). Você ainda pode mudar aqui se quiser.</p>
+<div><button type="button" class="btn" onClick="{{g.toggleCfg}}">Pronto</button></div>
+</div>
+</sc-if>
+<sc-if value="{{g.temPrev}}" hint-placeholder-val="{{ true }}"><p style="margin: 0; font-size: 19px">No ritmo de agora, a gordurinha acaba por volta de <b>{{g.prev}}</b>.</p></sc-if>
+</section>
+
+<sc-if value="{{g.temItens}}" hint-placeholder-val="{{ true }}">
+<section class="card" aria-labelledby="t-comeu" style="display: flex; flex-direction: column; gap: 12px">
+<div class="hrow"><h2 id="t-comeu" style="font-size: 26px">O que comeu a gordurinha</h2><span class="help"><button type="button" aria-label="Ajuda: o que comeu">?</button><span class="tip l" role="tooltip"><b>Como é a conta</b>Para cada coisa que subiu, o sistema multiplica o aumento pela quantidade que a Big Lake usa num mês normal (média do ano). Assim, um mês fraco de inverno não engana: só aumento de preço come a gordurinha.</span></span></div>
+<table class="tbl">
+<thead><tr><th>O que subiu</th><th class="num">Antes → agora</th><th class="num">A mais por mês</th></tr></thead>
+<tbody>
+<sc-for list="{{g.itens}}" as="i" hint-placeholder-count="8">
+<tr><td><div style="font-weight: 700">{{i.n}}</div><div class="muted" style="font-size: 15px">{{i.uso}}</div></td><td class="num">{{i.antes}} → <b>{{i.agora}}</b></td><td class="num"><div style="font-weight: 700; color: #8E1414">+ {{i.vTxt}}</div><div style="height: 8px; background: #F0E6CC; border-radius: 4px; margin-top: 6px; overflow: hidden"><div style="height: 100%; width: {{i.w}}; background: #C62828"></div></div></td></tr>
+</sc-for>
+</tbody>
+<tfoot><tr><td colspan="2" style="font-weight: 700; font-size: 19px; padding: 14px">Total comido</td><td class="num" style="font-weight: 700; font-size: 22px; color: #8E1414; padding: 14px">{{g.comidoTxt}}</td></tr></tfoot>
+</table>
+</section>
+</sc-if>
+
+<section class="card" aria-labelledby="t-reaj" style="display: flex; flex-direction: column; gap: 14px">
+<div class="hrow"><h2 id="t-reaj" style="font-size: 26px">Reajuste de preços</h2><span class="help"><button type="button" aria-label="Ajuda: reajuste">?</button><span class="tip l" role="tooltip"><b>Quanto subir</b>Mostra quanto os preços precisam subir para devolver o que já foi comido e a gordurinha voltar a ficar cheia. Depois de mudar os preços, toque em "Já reajustei os preços" para começar a contar de novo.</span></span></div>
+<sc-if value="{{g.temItens}}" hint-placeholder-val="{{ true }}">
+<p style="margin: 0; font-size: 19px">Para encher a gordurinha de novo, os preços precisam subir cerca de <b>{{g.reajTxt}}</b>.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px">
+<sc-for list="{{g.ex}}" as="e" hint-placeholder-count="3">
+<div style="background: #FFF7DE; border: 2px solid #F0E2B6; border-radius: 12px; padding: 12px 14px"><div style="font-weight: 700">{{e.n}}</div><div style="font-size: 20px; font-variant-numeric: tabular-nums">{{e.antes}} → <b>{{e.novo}}</b></div><div class="muted" style="font-size: 15px">arredondando: {{e.red}}</div></div>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{g.reajustado}}" hint-placeholder-val="{{ false }}"><div style="padding: 14px 18px; border-radius: 12px; background: #DDF3E3; color: #14532D; font-weight: 700; font-size: 19px">✓ Pronto! A gordurinha voltou a ficar cheia e começa a contar de novo a partir de hoje.</div></sc-if>
+<div class="hrow" style="gap: 12px">
+<sc-if value="{{g.podeReaj}}" hint-placeholder-val="{{ true }}"><button type="button" class="btn" onClick="{{g.pedir}}">Já reajustei os preços</button></sc-if>
+<sc-if value="{{g.conf}}" hint-placeholder-val="{{ false }}"><span style="font-weight: 700; color: #8E1414; font-size: 19px">Os preços novos já estão valendo?</span><button type="button" class="btn" onClick="{{g.sim}}">Sim, zerar a conta</button><button type="button" class="btn2" onClick="{{g.nao}}">Ainda não</button></sc-if>
+</div>
+</section>
+</div>
+</sc-if>
+
+<sc-if value="{{isDre}}" hint-placeholder-val="{{ true }}">
+<section class="card" aria-labelledby="t-dre">
+<div class="hrow" style="margin-bottom: 8px"><h2 id="t-dre" style="font-size: 28px">Resultado de setembro</h2><span class="help"><button type="button" aria-label="Ajuda: resultado do mês">?</button><span class="tip r" role="tooltip"><b>Resultado do mês</b>Tudo o que entrou menos tudo o que saiu, item por item. A última linha é o lucro líquido, que vai para a divisão entre os sócios.</span></span></div>
+<div class="dre"><span>Vendas no balcão</span><span>R$ 34.900,00</span></div>
+<div class="dre"><span>Pedidos de clientes</span><span>R$ 17.400,00</span></div>
+<div class="dre" style="background: #FFF0C2; padding: 12px; border-radius: 10px; border: none"><span style="font-weight: 700">Total que entrou</span><span>R$ 52.300,00</span></div>
+<div class="dre"><span>− Matéria-prima e insumos</span><span>R$ 15.680,00</span></div>
+<div class="dre"><span>− Salários e encargos</span><span>R$ 8.400,00</span></div>
+<div class="dre"><span>− Aluguel</span><span>R$ 3.500,00</span></div>
+<div class="dre"><span>− Energia elétrica</span><span>R$ 2.950,00</span></div>
+<div class="dre"><span>− Água e gás</span><span>R$ 480,00</span></div>
+<div class="dre"><span>− Combustível e manutenção</span><span>R$ 810,00</span></div>
+<div class="dre"><span>− Gastos da empresa nos cartões dos sócios</span><span>R$ 2.030,00</span></div>
+<div class="dre" style="background: #2A1E10; color: #FFFFFF; padding: 14px; border-radius: 10px; border: none; margin-top: 8px"><span style="font-weight: 700; font-size: 20px; color: #FFD54F">Lucro líquido</span><span style="font-size: 26px">R$ 18.450,00</span></div>
+<div style="margin-top: 16px"><a class="btn2" href="Socios.dc.html">Ver divisão entre os sócios</a></div>
+</section>
+</sc-if>
+
+<sc-if value="{{isAno}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<section class="card" aria-labelledby="t-ano" style="display: flex; flex-direction: column; gap: 16px">
+<div class="hrow"><h2 id="t-ano" style="font-size: 28px">Setembro de 2026 × setembro de 2025</h2><span class="help"><button type="button" aria-label="Ajuda: comparar com o ano passado">?</button><span class="tip r" role="tooltip"><b>Comparar com o ano passado</b>Sorvete vende muito mais no calor. Comparar o mês com o mesmo mês do ano anterior mostra se a sorveteria está crescendo de verdade e ajuda a planejar compras para o verão.</span></span></div>
+<div style="overflow-x: auto">
+<table class="tbl">
+<thead><tr><th></th><th class="num">Set/2025</th><th class="num">Set/2026</th><th class="num">Diferença</th></tr></thead>
+<tbody>
+<sc-for list="{{comp}}" as="c" hint-placeholder-count="5">
+<tr><td style="font-weight: 700">{{c.n}}</td><td class="num">{{c.a}}</td><td class="num" style="font-weight: 700">{{c.b}}</td><td class="num"><span class="{{c.cls}}">{{c.d}}</span></td></tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+<div class="ins">O lucro de setembro foi <b>63% maior</b> que no ano passado. No ano passado, as vendas subiram 40% de outubro para dezembro: bom momento para reforçar o estoque de frutas e potes.</div>
+</section>
+<section class="card" aria-labelledby="t-ano2">
+<div class="hrow" style="justify-content: space-between; margin-bottom: 18px">
+<h3 id="t-ano2" style="font-size: 24px">Vendas mês a mês</h3>
+<div class="hrow" style="gap: 18px; font-weight: 700"><span><span class="sw" style="background: #CDBF9C"></span>2025</span><span><span class="sw" style="background: #C62828"></span>2026</span></div>
+</div>
+<div role="img" aria-label="Vendas de abril a setembro: 2026 acima de 2025 em todos os meses" style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; align-items: end; height: 280px; border-bottom: 2px solid #2A1E10">
+<sc-for list="{{anoBars}}" as="m" hint-placeholder-count="6">
+<div style="display: flex; gap: 4px; align-items: flex-end; justify-content: center; height: 100%">
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; flex: 1; max-width: 46px"><span style="font-size: 14px; font-weight: 700">{{m.ak}}</span><div style="width: 100%; height: {{m.ah}}; background: #CDBF9C; border-radius: 6px 6px 0 0"></div></div>
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; flex: 1; max-width: 46px"><span style="font-size: 14px; font-weight: 700">{{m.bk}}</span><div style="width: 100%; height: {{m.bh}}; background: #C62828; border-radius: 6px 6px 0 0"></div></div>
+</div>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; margin-top: 8px">
+<sc-for list="{{anoBars}}" as="m" hint-placeholder-count="6"><div style="text-align: center; font-weight: 700">{{m.n}}</div></sc-for>
+</div>
+<p class="muted" style="margin: 12px 0 0">Valores em mil reais.</p>
+</section>
+</div>
+</sc-if>
+
+<sc-if value="{{isLucro}}" hint-placeholder-val="{{ false }}">
+<section class="card" aria-labelledby="t-lucro" style="display: flex; flex-direction: column; gap: 16px">
+<div class="hrow"><h2 id="t-lucro" style="font-size: 28px">Lucro por produto em setembro (estimado)</h2><span class="help"><button type="button" aria-label="Ajuda: lucro por produto">?</button><span class="tip r" role="tooltip"><b>Ranking de lucro</b>Mostra quais produtos deixam mais dinheiro no bolso: a quantidade que saiu vezes o lucro de cada um. Às vezes o que mais sai não é o que mais rende.</span></span></div>
+<div class="ins">Como o balcão é lançado pelo total do dia, esta conta é uma estimativa: usa o que foi produzido, menos as perdas. Mesmo assim mostra bem o que rende mais: aqui, o <b>açaí 500 ml</b>.</div>
+<sc-for list="{{lucro}}" as="t" hint-placeholder-count="6">
+<div>
+<div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 6px"><span style="font-weight: 700">{{t.pos}}º · {{t.n}}</span><span><span class="muted">{{t.qTxt}} × {{t.unTxt}} =</span> <b style="font-variant-numeric: tabular-nums">{{t.totTxt}}</b></span></div>
+<div style="height: 22px; background: #DDF3E3; border-radius: 6px; overflow: hidden"><div style="height: 100%; width: {{t.w}}; background: #1E7A3A; border-radius: 6px"></div></div>
+</div>
+</sc-for>
+</section>
+</sc-if>
+
+<sc-if value="{{isFormas}}" hint-placeholder-val="{{ false }}">
+<section class="card" aria-labelledby="t-fm" style="display: flex; flex-direction: column; gap: 12px">
+<div class="hrow"><h2 id="t-fm" style="font-size: 28px">Balcão por forma de pagamento · setembro</h2><span class="help"><button type="button" aria-label="Ajuda: formas de pagamento">?</button><span class="tip r" role="tooltip"><b>Dinheiro, cartão e Pix</b>Soma dos lançamentos de fim de dia do mês. Mostra quanto entrou em cada forma e quanto foi pago de taxa da maquininha.</span></span></div>
+<div class="dre"><span>Dinheiro</span><span>R$ 10.120,00 · 29%</span></div>
+<div class="dre"><span>Cartão débito</span><span>R$ 6.010,00 · 17%</span></div>
+<div class="dre"><span>Cartão crédito</span><span>R$ 9.000,00 · 26%</span></div>
+<div class="dre"><span>Pix</span><span>R$ 9.770,00 · 28%</span></div>
+<div class="dre" style="background: #FFF0C2; padding: 12px; border-radius: 10px; border: none"><span style="font-weight: 700">Total do balcão</span><span>R$ 34.900,00</span></div>
+<div class="dre"><span>Taxas da maquininha (débito 1,5% · crédito 3,2%)</span><span>R$ 378,15</span></div>
+<div class="ins">Setembro teve 29 dias de loja aberta: média de <b>R$ 1.203,45</b> por dia no balcão.</div>
+</section>
+</sc-if>
+
+<sc-if value="{{isPerda}}" hint-placeholder-val="{{ false }}">
+<section class="card" aria-labelledby="t-perda" style="display: flex; flex-direction: column; gap: 16px">
+<div class="hrow"><h2 id="t-perda" style="font-size: 28px">Perdas de outubro (até hoje)</h2><span class="help"><button type="button" aria-label="Ajuda: perdas">?</button><span class="tip r" role="tooltip"><b>Relatório de perdas</b>Junta tudo o que foi anotado na tela Perdas: produtos prontos, matéria-prima e trocas feitas nos clientes. Se as trocas pesarem muito, vale entregar menos de cada vez para quem mais troca.</span></span></div>
+<div class="dre"><span>Produtos prontos (paletas, potes, picolés)</span><span>R$ 68,30</span></div>
+<div class="dre"><span>Matéria-prima e insumos</span><span>R$ 127,00</span></div>
+<div class="dre"><span>Trocas em clientes</span><span>R$ 87,68</span></div>
+<div class="dre" style="background: #2A1E10; color: #FFFFFF; padding: 14px; border-radius: 10px; border: none"><span style="font-weight: 700; color: #FFD54F">Total perdido</span><span style="font-size: 24px">R$ 282,98</span></div>
+<div class="ins">Quem mais trocou: Mercado Bom Preço (R$ 40,76). O maior motivo foi "Venceu".</div>
+<div><a class="btn2" href="Perdas.dc.html">Ver detalhes em Perdas</a></div>
+</section>
+</sc-if>
+
+<sc-if value="{{isPed}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<section class="card" aria-labelledby="t-pt" style="display: flex; flex-direction: column; gap: 16px">
+<div class="hrow"><h2 id="t-pt" style="font-size: 28px">Sorvetes mais vendidos nos pedidos · outubro</h2><span class="help"><button type="button" aria-label="Ajuda: mais vendidos nos pedidos">?</button><span class="tip r" role="tooltip"><b>Mais vendidos nos pedidos</b>Soma tudo o que os clientes encomendaram no período, produto por produto. Como os pedidos são lançados item a item, este número é exato. Ajuda a saber quais sabores deixar sempre prontos no freezer.</span></span></div>
+<div class="ins">O <b>morango</b> é o sabor que mais sai nas encomendas: vale ter sempre potes prontos no freezer.</div>
+<sc-for list="{{pedTop}}" as="t" hint-placeholder-count="5">
+<div>
+<div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 6px"><span style="font-weight: 700">{{t.pos}}º · {{t.n}}</span><span><b style="font-variant-numeric: tabular-nums">{{t.qTxt}}</b> <span class="muted">· {{t.vTxt}}</span></span></div>
+<div style="height: 22px; background: #FFF0C2; border-radius: 6px; overflow: hidden"><div style="height: 100%; width: {{t.w}}; background: #C62828; border-radius: 6px"></div></div>
+</div>
+</sc-for>
+</section>
+<section class="card" aria-labelledby="t-pc" style="display: flex; flex-direction: column; gap: 8px">
+<h3 id="t-pc" style="font-size: 24px">Clientes que mais compraram</h3>
+<sc-for list="{{pedCli}}" as="c" hint-placeholder-count="6">
+<div class="dre"><span><b>{{c.n}}</b> <span class="muted">· {{c.q}}</span></span><span>{{c.vTxt}}</span></div>
+</sc-for>
+<div class="dre" style="background: #2A1E10; color: #FFFFFF; padding: 14px; border-radius: 10px; border: none; margin-top: 6px"><span style="font-weight: 700; color: #FFD54F">Total dos pedidos em outubro</span><span style="font-size: 24px">R$ 4.530,00</span></div>
+</section>
+</div>
+</sc-if>
+</div>
+</div>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1300}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    try {
+      window.addEventListener('mousedown', (e) => {
+        const st = this.state; if (!(st.ddOpen || st.drop || st.dropCat || st.cdrop || st.tbOpen)) return;
+        if (e.target && e.target.closest && e.target.closest('[aria-expanded], .ddpanel, [data-ddp]')) return;
+        this.setState({ ddOpen: null, drop: false, dropCat: false, cdrop: false, tbOpen: false, rconf: null, crconf: null, tbConf: null });
+      });
+      const fecharFlutuante = (e) => {
+        const st = this.state; if (!(st.ddDir && st.ddDir.fx) || !(st.ddOpen || st.drop || st.dropCat || st.cdrop || st.tbOpen)) return;
+        if (e && e.target && e.target.closest && e.target.closest('.ddpanel, [data-ddp]')) return;
+        this.setState({ ddOpen: null, drop: false, dropCat: false, cdrop: false, tbOpen: false, rconf: null, crconf: null, tbConf: null });
+      };
+      window.addEventListener('scroll', fecharFlutuante, true);
+      window.addEventListener('resize', fecharFlutuante);
+    } catch (err) {}
+    this.state = { z: 1, help: true, r: 'dre', reaj: false, conf: false, cfg: false, base: 15000, pct: 10 };
+  }
+  shell() {
+    const s = this.state;
+    return {
+      zoom: s.z, appCls: s.help ? 'app' : 'app nohelp', helpBtn: s.help ? 'tb on' : 'tb', helpTxt: s.help ? '? Ajuda ligada' : '? Ajuda desligada',
+      zIn: () => this.setState({ z: Math.min(1.3, Math.round((this.state.z + 0.1) * 10) / 10) }),
+      zOut: () => this.setState({ z: Math.max(0.8, Math.round((this.state.z - 0.1) * 10) / 10) }),
+      toggleHelp: () => this.setState({ help: !this.state.help })
+    };
+  }
+  brl(n) { return n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); }
+  gord(s) {
+    const num = (v) => { const n = parseFloat(String(v).replace(/\./g, '').replace(',', '.')); return isNaN(n) ? 0 : n; };
+    const base = typeof s.base === 'number' ? s.base : num(s.base), pctCfg = typeof s.pct === 'number' ? s.pct : num(String(s.pct).replace('.', ',')), total = base * pctCfg / 100;
+    const fmtIn = (v, casas) => typeof v === 'number' ? v.toLocaleString('pt-BR', { minimumFractionDigits: casas, maximumFractionDigits: casas }) : v;
+    const I = s.reaj ? [] : [
+      ['Morango', 'usa ~80 kg por mês', 'R$ 14,00 /kg', 'R$ 18,00 /kg', 320],
+      ['Leite integral', 'usa ~350 L por mês', 'R$ 4,20 /L', 'R$ 4,89 /L', 241.5],
+      ['Energia elétrica', 'conta do mês', 'R$ 2.840,00', 'R$ 2.950,00', 110],
+      ['Creme de leite', 'usa ~50 L por mês', 'R$ 19,50 /L', 'R$ 21,50 /L', 100],
+      ['Pote 2 L com tampa', 'usa ~320 por mês', 'R$ 1,65', 'R$ 1,85', 64],
+      ['Saquinho para paleta', 'usa ~1.700 por mês', 'R$ 0,24', 'R$ 0,27', 51],
+      ['Gás', 'conta do mês', 'R$ 310,00', 'R$ 343,50', 33.5],
+      ['Internet', 'conta do mês', 'R$ 99,00', 'R$ 109,00', 10]
+    ];
+    const comido = I.reduce((a, x) => a + x[4], 0), resta = Math.max(0, total - comido), pct = total > 0 ? resta / total : 0;
+    const mx = Math.max(1, ...I.map(x => x[4]));
+    const fat = 40000, reaj = comido / fat;
+    const st = pct > 0.5 ? ['Tranquilo', 'tag ok', '#14532D'] : pct > 0.2 ? ['Atenção', 'tag warn', '#F2B200'] : ['Hora de reajustar', 'tag low', '#C62828'];
+    const meses = 7, ritmo = comido / meses, falta = ritmo ? resta / ritmo : 0;
+    const MES = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+    const alvo = 9 + Math.round(falta), prev = MES[alvo % 12] + ' de ' + (2026 + Math.floor(alvo / 12));
+    const red = (v) => this.brl(Math.ceil(v * 2) / 2);
+    const ex = [['Paleta', 10], ['Picolé', 7], ['Pote 2 L', 49]].map(([n, v]) => ({ n, antes: this.brl(v), novo: this.brl(v * (1 + reaj)), red: red(v * (1 + reaj)) }));
+    return {
+      desde: s.reaj ? '16/10/2026' : '10/03/2026', baseTxt: this.brl(base), totalTxt: this.brl(total), comidoTxt: this.brl(comido), restaTxt: this.brl(resta),
+      w: Math.round(pct * 100) + '%', pctTxt: Math.round(pct * 100) + '%', status: st[0], tag: st[1], cor: st[2],
+      temPrev: !!I.length, prev, temItens: !!I.length, reajTxt: (Math.round(reaj * 1000) / 10).toString().replace('.', ',') + '%',
+      itens: I.map(([n, uso, antes, agora, v]) => ({ n, uso, antes, agora, vTxt: this.brl(v), w: Math.round(v / mx * 100) + '%' })), ex,
+      pctCfgTxt: String(Math.round(pctCfg * 10) / 10).replace('.', ',') + '%', baseIn: fmtIn(s.base, 2), pctIn: fmtIn(s.pct, 0),
+      setBase: (e) => this.setState({ base: e.target.value }), setPct: (e) => this.setState({ pct: e.target.value }),
+      cfgAberto: s.cfg, cfgBtn: s.cfg ? '✕ Fechar' : 'Mudar base ou porcentagem', toggleCfg: () => this.setState({ cfg: !this.state.cfg }),
+      reajustado: s.reaj, podeReaj: !s.reaj && !s.conf, conf: s.conf,
+      pedir: () => this.setState({ conf: true }), nao: () => this.setState({ conf: false }), sim: () => this.setState({ reaj: true, conf: false })
+    };
+  }
+  ddMk(id, opts, cur, onPick) {
+    const s = this.state, on = s.ddOpen === id, O = opts.map(o => Array.isArray(o) ? o : [o, o]);
+    const salvo = (s.ddv || {})[id], val = cur !== undefined && cur !== null ? cur : (O.some(o => o[0] === salvo) ? salvo : O[0][0]);
+    const atual = O.find(o => o[0] === val) || O[0];
+    return { sel: atual[1], aberto: on, seta: on ? '▲' : '▼', toggle: (e) => this.setState({ ddOpen: this.state.ddOpen === id ? null : id, ddDir: this.ddDir(e) }), pst: this.ddPst(s.ddDir),
+      itens: O.map(([v, l]) => ({ label: l, marca: v === val ? '✓' : '',
+        st: 'flex: 1 1 140px; min-height: 48px; padding: 0 12px; border: none; border-radius: 10px; background: ' + (v === val ? '#FFC93C' : 'transparent') + '; color: #2A1E10; font: 700 18px \'Atkinson Hyperlegible\', sans-serif; text-align: left; cursor: pointer',
+        pick: () => { this.setState({ ddOpen: null, ddv: { ...(this.state.ddv || {}), [id]: v } }); if (onPick) onPick(v); } })) };
+  }
+  ddDir(e) {
+    try {
+      const el = e.currentTarget, r = el.getBoundingClientRect(), box = el.closest('.mdl'), lim = box ? box.getBoundingClientRect().right : window.innerWidth;
+      const side = r.left + 400 > lim - 12 ? 'r' : 'l';
+      if (!el.closest('[role="dialog"]')) return side;
+      // Inside a modal: the list floats over the screen (it never makes the modal grow or scroll) and opens upward when there is no room below.
+      const z = this.state.z || 1, vw = window.innerWidth, vh = window.innerHeight;
+      const W = Math.min(Math.max(r.width, 400), vw - 32);
+      let left = side === 'r' ? r.right - W : r.left; left = Math.max(16, Math.min(left, vw - 16 - W));
+      const below = vh - r.bottom - 16, above = r.top - 16, up = below < 330 && above > below;
+      return { fx: true, up, left: left / z, w: W / z, y: (up ? vh - r.top + 6 : r.bottom + 6) / z, h: Math.max(160, (up ? above : below) - 6) / z };
+    } catch (err) { return 'l'; }
+  }
+  ddPst(dir) {
+    if (dir && dir.fx) return 'position: fixed; z-index: 300; left: ' + dir.left + 'px; right: auto; width: ' + dir.w + 'px; max-width: none; ' + (dir.up ? 'top: auto; bottom: ' + dir.y + 'px;' : 'bottom: auto; top: ' + dir.y + 'px;') + ' max-height: ' + dir.h + 'px; overflow-y: auto; display: flex; flex-direction: column;';
+    return (dir === 'r' ? 'left: auto; right: 0;' : 'left: 0; right: auto;') + ' width: max(100%, 400px); max-width: calc(100vw - 48px);';
+  }
+  renderVals() {
+    const s = this.state;
+    const R = [['dre', 'Resultado do mês (lucro)'], ['gord', 'Gordurinha (hora de reajustar?)'], ['ped', 'Mais vendidos nos pedidos'], ['formas', 'Dinheiro, cartão e Pix'], ['ano', 'Comparar com o ano passado'], ['lucro', 'Lucro por produto (estimado)'], ['perda', 'Perdas']];
+    const reps = R.map(([id, label]) => ({ label, cls: s.r === id ? 'rep on' : 'rep', pick: () => this.setState({ r: id }) }));
+    const comp = [
+      { n: 'Faturamento', a: 'R$ 41.200,00', b: 'R$ 52.300,00', d: '+26,9%', cls: 'tag ok' },
+      { n: 'Despesas', a: 'R$ 29.900,00', b: 'R$ 33.850,00', d: '+13,2%', cls: 'tag low' },
+      { n: 'Lucro líquido', a: 'R$ 11.300,00', b: 'R$ 18.450,00', d: '+63,3%', cls: 'tag ok' },
+      { n: 'Paletas produzidas', a: '210', b: '420', d: '+100%', cls: 'tag ok' },
+      { n: 'Média de vendas por dia', a: 'R$ 1.373,33', b: 'R$ 1.743,33', d: '+26,9%', cls: 'tag ok' }
+    ];
+    const M = [['Abr', 31000, 38200], ['Mai', 29400, 35100], ['Jun', 24800, 29800], ['Jul', 26100, 31500], ['Ago', 36500, 44900], ['Set', 41200, 52300]];
+    const k = (v) => (v / 1000).toFixed(1).replace('.', ',');
+    const anoBars = M.map(([n, a, b]) => ({ n, ak: k(a), bk: k(b), ah: Math.round(a / 56000 * 230) + 'px', bh: Math.round(b / 56000 * 230) + 'px' }));
+    const P = [['Açaí 500 ml', 820, 22, 9.14], ['Casquinha 2 bolas', 1140, 9, 1.9], ['Pote 2 L (balcão)', 312, 49, 27.06], ['Copo 300 ml', 760, 12, 3.9], ['Picolé cremoso', 690, 7, 1.4], ['Paleta de Morango recheada', 420, 10, 3.41]];
+    const L = P.map(([n, q, p, c]) => ({ n, q, un: p - c, tot: q * (p - c) })).sort((a, b) => b.tot - a.tot);
+    const lmax = L[0].tot;
+    const lucro = L.map((t, i) => ({ ...t, pos: i + 1, qTxt: t.q.toLocaleString('pt-BR') + ' saíram', unTxt: this.brl(t.un), totTxt: this.brl(t.tot), w: Math.round(t.tot / lmax * 100) + '%' }));
+    const T = [['Casquinha 2 bolas', 1140, 9], ['Açaí 500 ml', 820, 22], ['Copo 300 ml', 760, 12], ['Picolé cremoso', 690, 7], ['Paleta de Morango recheada', 420, 10], ['Pote 2 L (balcão)', 312, 49]];
+    const top = T.map(([n, q, p]) => ({ n, q: q.toLocaleString('pt-BR') + ' un', vTxt: this.brl(q * p), w: Math.round(q / 1140 * 100) + '%' }));
+    const PT = [['Pote 2 L · Morango', 27, 'potes', 45], ['Pote 2 L · Chocolate', 23, 'potes', 45], ['Pote 2 L · Creme de açaí', 12, 'potes', 52], ['Picolé de fruta', 7, 'caixas de 20', 80], ['Picolé cremoso', 5, 'caixas de 20', 110]];
+    const pedTop = PT.map(([n, q, u, p], i) => ({ pos: i + 1, n, qTxt: q + ' ' + u, vTxt: this.brl(q * p), w: Math.round(q / 27 * 100) + '%' }));
+    const PC = [['Buffet Festa Feliz', 1, 1480], ['Escola Pequeno Saber', 1, 980], ['Restaurante Sabor da Terra', 1, 720], ['Mercado Bom Preço', 1, 540], ['Padaria Pão Quente', 1, 450], ['Lanchonete Sabor & Cia', 1, 360]];
+    const pedCli = PC.map(([n, q, v]) => ({ n, q: q + (q === 1 ? ' pedido' : ' pedidos'), vTxt: this.brl(v) }));
+    return {
+      ...this.shell(),
+      ddRper: this.ddMk('r-per', [["Setembro de 2026", "Setembro de 2026"], ["Agosto de 2026", "Agosto de 2026"], ["Ano de 2026", "Ano de 2026"]], undefined, null),
+      g: this.gord(s),
+      reps, comp, anoBars, lucro, top, pedTop, pedCli,
+      isDre: s.r === 'dre', isGord: s.r === 'gord', isAno: s.r === 'ano', isLucro: s.r === 'lucro', isFormas: s.r === 'formas', isPerda: s.r === 'perda', isPed: s.r === 'ped'
+    };
+  }
+}
+</script>
+</body>
+</html>

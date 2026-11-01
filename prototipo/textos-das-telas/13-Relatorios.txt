@@ -1,0 +1,34 @@
+Período: setembro de 2026 Relatórios ?
+
+[AJUDA: Relatórios Escolha um relatório na lista à esquerda. Todos podem ser impressos ou salvos em PDF para mostrar ao contador ou guardar.]
+Simulação · dados de exemplo Período {{ddRper.sel}} {{ddRper.seta}} {{dI.marca}} {{dI.label}} Imprimir Salvar em PDF {{r.label}} Gordurinha ?
+
+[AJUDA: O que é a gordurinha No último reajuste, os preços foram feitos para sobrar uma porcentagem a mais em cima do lucro líquido (normalmente 10%). Cada vez que um ingrediente, embalagem ou conta sobe, ele come um pedaço dessa sobra. Quando ela chega a zero, é hora de reajustar os preços.]
+{{g.status}} Desde o último reajuste, em {{g.desde}} Ainda restam {{g.restaTxt}} por mês R$ 0 · reajustar {{g.pctTxt}} da gordurinha {{g.totalTxt}} · cheia Lucro líquido base · por mês {{g.baseTxt}} Gordurinha ({{g.pctCfgTxt}}) · por mês {{g.totalTxt}} Já foi comido · por mês {{g.comidoTxt}} {{g.cfgBtn}} ?
+
+[AJUDA: Base e porcentagem A base é o lucro líquido de um mês normal da Big Lake. Enquanto o sistema não tem 12 meses de vendas, digite aqui o valor que o contador passar. Depois ele calcula sozinho a cada reajuste. A porcentagem é o tamanho da gordurinha: 10% é o que o Carlos usa.]
+Lucro líquido base por mês (R$) Gordurinha (%) = gordurinha de {{g.totalTxt}} por mês Quando o sistema tiver 12 meses de vendas, a base passa a ser calculada sozinha no dia de cada reajuste (média dos 12 meses anteriores). Você ainda pode mudar aqui se quiser. Pronto No ritmo de agora, a gordurinha acaba por volta de {{g.prev}} . O que comeu a gordurinha ?
+
+[AJUDA: Como é a conta Para cada coisa que subiu, o sistema multiplica o aumento pela quantidade que a Big Lake usa num mês normal (média do ano). Assim, um mês fraco de inverno não engana: só aumento de preço come a gordurinha.]
+O que subiu Antes → agora A mais por mês {{i.n}} {{i.uso}} {{i.antes}} → {{i.agora}} + {{i.vTxt}} Total comido {{g.comidoTxt}} Reajuste de preços ?
+
+[AJUDA: Quanto subir Mostra quanto os preços precisam subir para devolver o que já foi comido e a gordurinha voltar a ficar cheia. Depois de mudar os preços, toque em "Já reajustei os preços" para começar a contar de novo.]
+Para encher a gordurinha de novo, os preços precisam subir cerca de {{g.reajTxt}} . {{e.n}} {{e.antes}} → {{e.novo}} arredondando: {{e.red}} ✓ Pronto! A gordurinha voltou a ficar cheia e começa a contar de novo a partir de hoje. Já reajustei os preços Os preços novos já estão valendo? Sim, zerar a conta Ainda não Resultado de setembro ?
+
+[AJUDA: Resultado do mês Tudo o que entrou menos tudo o que saiu, item por item. A última linha é o lucro líquido, que vai para a divisão entre os sócios.]
+Vendas no balcão R$ 34.900,00 Pedidos de clientes R$ 17.400,00 Total que entrou R$ 52.300,00 − Matéria-prima e insumos R$ 15.680,00 − Salários e encargos R$ 8.400,00 − Aluguel R$ 3.500,00 − Energia elétrica R$ 2.950,00 − Água e gás R$ 480,00 − Combustível e manutenção R$ 810,00 − Gastos da empresa nos cartões dos sócios R$ 2.030,00 Lucro líquido R$ 18.450,00 Ver divisão entre os sócios Setembro de 2026 × setembro de 2025 ?
+
+[AJUDA: Comparar com o ano passado Sorvete vende muito mais no calor. Comparar o mês com o mesmo mês do ano anterior mostra se a sorveteria está crescendo de verdade e ajuda a planejar compras para o verão.]
+Set/2025 Set/2026 Diferença {{c.n}} {{c.a}} {{c.b}} {{c.d}} O lucro de setembro foi 63% maior que no ano passado. No ano passado, as vendas subiram 40% de outubro para dezembro: bom momento para reforçar o estoque de frutas e potes. Vendas mês a mês 2025 2026 {{m.ak}} {{m.bk}} {{m.n}} Valores em mil reais. Lucro por produto em setembro (estimado) ?
+
+[AJUDA: Ranking de lucro Mostra quais produtos deixam mais dinheiro no bolso: a quantidade que saiu vezes o lucro de cada um. Às vezes o que mais sai não é o que mais rende.]
+Como o balcão é lançado pelo total do dia, esta conta é uma estimativa: usa o que foi produzido, menos as perdas. Mesmo assim mostra bem o que rende mais: aqui, o açaí 500 ml . {{t.pos}}º · {{t.n}} {{t.qTxt}} × {{t.unTxt}} = {{t.totTxt}} Balcão por forma de pagamento · setembro ?
+
+[AJUDA: Dinheiro, cartão e Pix Soma dos lançamentos de fim de dia do mês. Mostra quanto entrou em cada forma e quanto foi pago de taxa da maquininha.]
+Dinheiro R$ 10.120,00 · 29% Cartão débito R$ 6.010,00 · 17% Cartão crédito R$ 9.000,00 · 26% Pix R$ 9.770,00 · 28% Total do balcão R$ 34.900,00 Taxas da maquininha (débito 1,5% · crédito 3,2%) R$ 378,15 Setembro teve 29 dias de loja aberta: média de R$ 1.203,45 por dia no balcão. Perdas de outubro (até hoje) ?
+
+[AJUDA: Relatório de perdas Junta tudo o que foi anotado na tela Perdas: produtos prontos, matéria-prima e trocas feitas nos clientes. Se as trocas pesarem muito, vale entregar menos de cada vez para quem mais troca.]
+Produtos prontos (paletas, potes, picolés) R$ 68,30 Matéria-prima e insumos R$ 127,00 Trocas em clientes R$ 87,68 Total perdido R$ 282,98 Quem mais trocou: Mercado Bom Preço (R$ 40,76). O maior motivo foi "Venceu". Ver detalhes em Perdas Sorvetes mais vendidos nos pedidos · outubro ?
+
+[AJUDA: Mais vendidos nos pedidos Soma tudo o que os clientes encomendaram no período, produto por produto. Como os pedidos são lançados item a item, este número é exato. Ajuda a saber quais sabores deixar sempre prontos no freezer.]
+O morango é o sabor que mais sai nas encomendas: vale ter sempre potes prontos no freezer. {{t.pos}}º · {{t.n}} {{t.qTxt}} · {{t.vTxt}} Clientes que mais compraram {{c.n}} · {{c.q}} {{c.vTxt}} Total dos pedidos em outubro R$ 4.530,00

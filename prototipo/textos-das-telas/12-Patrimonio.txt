@@ -1,0 +1,10 @@
+Os bens da empresa e as manutenções de cada um Patrimônio ?
+
+[AJUDA: Patrimônio A lista de tudo o que a sorveteria tem: veículos, gerador, máquinas, freezers e móveis. Mostra quanto foi pago em cada um. Para registrar uma revisão ou conserto, toque em "Manutenção" na linha do bem.]
+Simulação · dados de exemplo {{hdrTxt}} {{a.label}} Bens cadastrados 10 itens Valor pago {{pagoTxt}} {{t.label}} {{bemTit}} Editando um bem ✕ Fechar O que é Tipo ?
+
+[AJUDA: Tipo O tipo do bem: veículo, equipamento, móvel. Se precisar de um tipo que não existe, como "Ferramenta", escreva no fim da lista e toque em "+ Criar". Ele aparece também nos filtros.]
+{{tbSel}} {{tbSeta}} {{o.marca}} {{o.label}} Remover em uso · {{o.uso}} Remover? Sim Não Nome novo + Criar Só dá para remover um tipo que nenhum bem usa. Data da compra Valor pago (R$) Placa / nº de série {{bemSalvarTxt}} Cancelar ✓ {{salvoBem}} Bem Data da compra Valor pago {{r.nome}} {{r.cat}} {{r.data}} {{r.vTxt}} Editar Manutenção Total {{totalTxt}} ✓ {{manSalvaTxt}} Ver em Contas a pagar Manutenções ?
+
+[AJUDA: Manutenções dos bens Toque em "+ Registrar manutenção", no alto da tela, escolha o patrimônio e preencha. Também dá para registrar pela aba "Bens da empresa", no botão "Manutenção" de cada bem. O valor vai sozinho para Contas a pagar.]
+✓ {{manSalvaTxt}} Ver em Contas a pagar Gasto com manutenção em 2026 R$ 3.370,00 Serviços feitos em 2026 8 5 revisões e 3 consertos Bem que mais gastou Furgão R$ 1.300,00 em 2026 Histórico de manutenções Patrimônio: {{ddHbem.sel}} {{ddHbem.seta}} {{dI.marca}} {{dI.label}} Data Patrimônio O que foi feito Tipo Valor {{h.d}} {{h.nome}} {{h.o}} feito por {{h.quem}} {{h.t}} {{h.vTxt}} Total {{histTotalTxt}}

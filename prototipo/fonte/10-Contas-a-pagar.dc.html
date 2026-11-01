@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Big Lake · Contas a pagar</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Baloo+2:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF7DE;color:#2A1E10;font-family:'Atkinson Hyperlegible',system-ui,sans-serif;font-size:18px;line-height:1.4}
+a{color:#A61B1B}a:hover{color:#7A1010}
+h1,h2,h3{font-family:'Baloo 2',sans-serif;line-height:1.15;margin:0}
+.nav{display:flex;align-items:center;gap:14px;min-height:50px;white-space:nowrap;padding:0 14px;border-radius:12px;color:#2A1E10;text-decoration:none;font-weight:700;font-size:19px}
+.nav:hover{background:#FFDD70;color:#2A1E10}
+.nav.on,.nav.on:hover{background:#2A1E10;color:#FFD54F}
+.badge{margin-left:auto;min-width:28px;height:28px;border-radius:14px;background:#C62828;color:#FFFFFF;font-size:15px;display:inline-flex;align-items:center;justify-content:center}
+@media (max-height:820px){.nav{min-height:43px}}
+.ic{width:26px;height:26px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;box-sizing:border-box;border-radius:12px;border:2px solid #C62828;background:#C62828;color:#FFFFFF;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;text-decoration:none}
+.btn:hover{background:#A61B1B;border-color:#A61B1B;color:#FFFFFF}
+.btn2{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 20px;box-sizing:border-box;border-radius:12px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;text-decoration:none}
+.btn2:hover{background:#FFF0C2;color:#2A1E10}
+.see{min-height:46px;padding:0 16px;border-radius:10px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 16px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;white-space:nowrap}
+.see:hover{background:#FFF0C2}
+.pg{min-height:46px;padding:0 16px;border-radius:10px;border:2px solid #14532D;background:#FFFFFF;color:#14532D;font:700 16px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;white-space:nowrap}
+.pg:hover{background:#DDF3E3}
+.card{background:#FFFFFF;border:2px solid #F0E2B6;border-radius:18px;padding:24px;box-sizing:border-box}
+.tbl{width:100%;border-collapse:collapse;font-size:18px}
+.tbl th{text-align:left;padding:12px 14px;background:#FFF0C2;font-size:16px;font-weight:700}
+.tbl td{padding:12px 14px;border-bottom:1px solid #F0E6CC;vertical-align:middle}
+.num,.tbl th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;padding:4px 12px;border-radius:999px;font-size:16px;font-weight:700;white-space:nowrap}
+.ok{background:#DDF3E3;color:#14532D}.low{background:#FDE0DE;color:#8E1414}.warn{background:#FFF0C2;color:#6B4A00}.info{background:#E3ECFA;color:#1E3A6E}
+.inp{display:block;width:100%;min-height:52px;box-sizing:border-box;border:2px solid #CDBF9C;border-radius:10px;padding:0 14px;font:18px 'Atkinson Hyperlegible',sans-serif;background:#FFFFFF;color:#2A1E10}
+.lb{display:flex;align-items:center;min-height:34px;font-weight:700;font-size:17px;margin-bottom:6px}
+button.inp>span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1 1 auto}button.inp>span:last-child{flex:none}
+.tab{min-height:52px;padding:0 18px;border-radius:999px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 17px 'Atkinson Hyperlegible',sans-serif;cursor:pointer}
+.tab.on{background:#2A1E10;color:#FFD54F}
+.opt{min-height:56px;border-radius:12px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;padding:6px 10px}
+.opt.on{background:#FFC93C}
+.sim{display:inline-block;padding:6px 14px;border-radius:999px;background:#2A1E10;color:#FFD54F;font-size:15px;font-weight:700}
+.muted{color:#5E4B33}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;padding:10px 14px;background:#FFFFFF;border:2px solid #F0E2B6;border-radius:14px}
+.bk{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:#14532D;font-size:16px}
+.tb{min-height:44px;min-width:44px;padding:0 12px;box-sizing:border-box;border-radius:10px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 17px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none}
+.tb:hover{background:#FFF0C2;color:#2A1E10}
+.tb.on,.tb.on:hover{background:#C62828;border-color:#C62828;color:#FFFFFF}
+.help{position:relative;display:inline-flex;vertical-align:middle;flex:none}
+.help>button{width:34px;height:34px;border-radius:50%;border:2px solid #C62828;background:#FFFFFF;color:#C62828;font:700 19px 'Atkinson Hyperlegible',sans-serif;cursor:help;display:inline-flex;align-items:center;justify-content:center;padding:0}
+.help:hover>button,.help:focus-within>button{background:#C62828;color:#FFFFFF}
+.tip{display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);width:330px;max-width:80vw;background:#2A1E10;color:#FFFFFF;padding:14px 16px;border-radius:12px;font:400 16px/1.5 'Atkinson Hyperlegible',sans-serif;text-align:left;white-space:normal;z-index:60;box-shadow:0 8px 24px rgba(42,30,16,.3)}
+.tip b{display:block;color:#FFD54F;font-size:17px;margin-bottom:4px}
+.help:hover .tip,.help:focus-within .tip{display:block}
+.tip.l{left:0;transform:none}.tip.r{left:auto;right:0;transform:none}
+.nohelp .help{display:none}
+.hrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+header>.hrow,header>.sim{flex:none}
+.seg{display:flex;flex-wrap:wrap;gap:6px;padding:6px;background:#FFFFFF;border:2px solid #2A1E10;border-radius:16px}
+.sg{min-height:54px;padding:0 22px;border:none;border-radius:11px;background:transparent;color:#2A1E10;font:700 19px 'Atkinson Hyperlegible',sans-serif;cursor:pointer}
+.sg:hover{background:#FFF0C2}
+.sg.on,.sg.on:hover{background:#2A1E10;color:#FFD54F}
+a.sg{display:inline-flex;align-items:center;text-decoration:none}a.sg:hover{color:#2A1E10}
+.rmv{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border-radius:999px;border:2px solid #F3C9C4;background:#FFFFFF;color:#A61B1B;font:700 15px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;white-space:nowrap;flex:none}
+.rmv:hover{background:#FDE0DE;border-color:#C62828;color:#8E1414}
+.rmv.sim{background:#C62828;border-color:#C62828;color:#FFFFFF}
+.rmv.sim:hover{background:#A61B1B;border-color:#A61B1B;color:#FFFFFF}
+.rmv svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.ddrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:6px 8px;padding:3px 4px;border-bottom:1px solid #F0E6CC}
+.ddrow:last-child{border-bottom:none}
+.mdl-bg{position:fixed;inset:0;z-index:100;background:rgba(42,30,16,.55);display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box}
+.mdl{width:min(980px,100%);max-height:calc(100vh - 32px);overflow-y:auto;background:#FFFFFF;border:2px solid #2A1E10;border-radius:18px;padding:24px;box-sizing:border-box;box-shadow:0 16px 40px rgba(42,30,16,.35);display:flex;flex-direction:column;gap:16px}
+.mdl>section.card{border:none;padding:0;border-radius:0;background:transparent;box-shadow:none}
+.mdl-h{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mdl-x{flex:none;margin-left:auto}
+</style>
+</helmet>
+<div class="{{appCls}}" style="display: flex; flex-wrap: wrap; min-height: 100vh">
+<nav aria-label="Menu principal" style="flex: 0 0 292px; background: #FFC93C; padding: 20px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 4px">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 0 8px 14px; text-decoration: none; color: #2A1E10">
+<svg width="44" height="52" viewBox="0 0 48 56" aria-hidden="true"><path d="M12 24 L24 54 L36 24 Z" fill="#C68B3E" stroke="#2A1E10" stroke-width="2.5" stroke-linejoin="round"></path><path d="M16 31 L32 31 M19 39 L29 39" stroke="#2A1E10" stroke-width="2"></path><circle cx="24" cy="16" r="13" fill="#C62828" stroke="#2A1E10" stroke-width="2.5"></circle><circle cx="19" cy="11" r="3" fill="#FFFFFF" opacity="0.7"></circle></svg>
+<span style="display: flex; flex-direction: column; line-height: 1"><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: 0.5px">BIG LAKE</span><span style="font-size: 16px; font-weight: 700; margin-top: 4px">Sorveteria</span></span>
+</a>
+<a class="nav" href="Main.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path></svg>Início</a>
+<a class="nav" href="Pedidos.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="12" rx="2"></rect><path d="M7 8V4h10v4M7 14h4"></path></svg>Vendas e Pedidos</a>
+<a class="nav" href="Clientes.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="4"></circle><path d="M2 21c0-4 3-6 7-6s7 2 7 6M16 4a4 4 0 010 8M22 21c0-3-2-5-4-6"></path></svg>Cadastros</a>
+<a class="nav" href="Producao.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="18" rx="2"></rect><path d="M9 2h6v4H9zM9 13l2 2 4-4"></path></svg>Produção e Receitas</a>
+<a class="nav" href="Estoque.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4zM3 7v10l9 4 9-4V7M12 11v10"></path></svg>Estoque e Insumos</a>
+<a class="nav" href="Perdas.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"></path></svg>Perdas</a>
+<a class="nav on" aria-current="page" href="Contas.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>Contas a pagar<span class="badge" aria-label="2 vencem logo">2</span></a>
+<a class="nav" href="Socios.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v9h9"></path></svg>Sócios</a>
+<a class="nav" href="Patrimonio.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l8-3 8 3v16M9 21v-5h6v5M9 9h.01M15 9h.01M9 13h.01M15 13h.01"></path></svg>Patrimônio</a>
+<a class="nav" href="Relatorios.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-5M12 16V6M17 16v-8"></path></svg>Relatórios</a>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; padding: 20px 32px 48px; box-sizing: border-box">
+<div style="zoom: {{zoom}}; max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px">
+<div class="top">
+<div class="hrow">
+<span class="bk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"></path></svg>Cópia de segurança feita hoje, 08:02</span>
+<span class="help"><button type="button" aria-label="Ajuda: cópia de segurança">?</button><span class="tip l" role="tooltip"><b>Cópia de segurança automática</b>Toda vez que o sistema é fechado, ele copia todos os dados para o pen drive e para uma pasta do computador. Se o computador estragar, nada se perde.</span></span>
+</div>
+<div class="hrow" style="gap: 8px">
+<span class="help"><button type="button" aria-label="Ajuda: tamanho da letra">?</button><span class="tip r" role="tooltip"><b>Tamanho da letra</b>A+ aumenta tudo na tela e A− diminui. Bom para quem enxerga melhor com letra grande. O tamanho padrão fica salvo em Configurações.</span></span>
+<button type="button" class="tb" aria-label="Diminuir a letra" onClick="{{zOut}}">A−</button>
+<button type="button" class="tb" aria-label="Aumentar a letra" onClick="{{zIn}}">A+</button>
+<button type="button" class="{{helpBtn}}" onClick="{{toggleHelp}}">{{helpTxt}}</button>
+<a class="tb" href="Config.dc.html">Configurações</a>
+</div>
+</div>
+
+<header style="display: flex; flex-wrap: nowrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div style="min-width: 0; flex: 1 1 auto">
+<p class="muted" style="margin: 0 0 4px; font-size: 18px">Boletos, aluguel, luz, salários e fornecedores</p>
+<div class="hrow"><h1 style="font-size: 44px">Contas a pagar</h1><span class="help"><button type="button" aria-label="Ajuda: contas a pagar">?</button><span class="tip l" role="tooltip"><b>Contas a pagar</b>Anote cada conta com o valor e o vencimento. O sistema avisa antes de vencer, na tela inicial e no menu (número vermelho), para nada atrasar e não pagar juros.</span></span></div>
+</div>
+<div class="hrow" style="gap: 12px">
+<span class="sim">Simulação · dados de exemplo</span>
+<button type="button" class="{{addCls}}" onClick="{{toggleForm}}">{{addTxt}}</button>
+</div>
+</header>
+
+<section aria-label="Resumo" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+<div class="card" style="border-color: #C62828"><div class="muted" style="font-weight: 700">Vencem nos próximos 7 dias</div><div style="font-size: 32px; font-weight: 700; font-variant-numeric: tabular-nums; color: #8E1414">{{prox7Txt}}</div><div class="muted">{{prox7Qtd}}</div></div>
+<div class="card"><div class="muted" style="font-weight: 700">Atrasadas</div><div style="font-size: 32px; font-weight: 700; color: #14532D">R$ 0,00</div><div class="muted">nenhuma conta atrasada</div></div>
+<div class="card"><div class="muted" style="font-weight: 700">Pagas em outubro</div><div style="font-size: 32px; font-weight: 700; font-variant-numeric: tabular-nums">{{pagasTxt}}</div><div class="muted">{{pagasQtd}}</div></div>
+</section>
+
+<sc-if value="{{show}}" hint-placeholder-val="{{ false }}">
+<div class="mdl-bg">
+<div class="mdl" role="dialog" aria-modal="true" aria-label="Nova conta">
+<section class="card" aria-label="Nova conta" style="border-color: #2A1E10; display: flex; flex-direction: column; gap: 16px">
+<div class="mdl-h"><div class="hrow" style="gap: 12px"><h2 style="font-size: 28px">{{contaTit}}</h2><sc-if value="{{editando}}" hint-placeholder-val="{{ false }}"><span class="tag warn">Editando uma conta</span></sc-if></div><button type="button" class="btn2 mdl-x" onClick="{{toggleForm}}">✕ Fechar</button></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; align-items: end">
+<div><label class="lb" for="ct-d">O que é</label><input id="ct-d" class="inp" value="{{fNome}}" onChange="{{setFNome}}"></div>
+<div><label class="lb" for="ct-v">Valor (R$)</label><input id="ct-v" class="inp" inputmode="decimal" value="{{fValor}}" onChange="{{setFValor}}"></div>
+<div><label class="lb" for="ct-ve">Vencimento</label><input id="ct-ve" class="inp" value="{{fVenc}}" onChange="{{setFVenc}}"></div>
+<div style="position: relative">
+<div class="hrow" style="margin-bottom: 6px; gap: 8px"><span class="lb" style="margin: 0" id="ct-tl">Tipo de conta</span><span class="help"><button type="button" aria-label="Ajuda: tipo de conta">?</button><span class="tip l" role="tooltip"><b>Tipo de conta</b>Serve para separar os gastos nos relatórios: quanto foi de energia, de fornecedor, de funcionários. Toque para escolher. Na lista também dá para criar um tipo novo ou remover um que não usa mais.</span></span></div>
+<button type="button" class="inp" aria-labelledby="ct-tl" aria-expanded="{{dropAberto}}" onClick="{{toggleDrop}}" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; text-align: left; cursor: pointer; font-weight: 700"><span>{{tipoSel}}</span><span aria-hidden="true">{{seta}}</span></button>
+<sc-if value="{{dropAberto}}" hint-placeholder-val="{{ false }}">
+<div data-ddp="1" style="position: absolute; z-index: 40; top: calc(100% + 6px); {{tipoPst}} background: #FFFFFF; border: 2px solid #2A1E10; border-radius: 14px; box-shadow: 0 10px 28px rgba(42,30,16,.25); padding: 8px; box-sizing: border-box">
+<div style="max-height: 300px; overflow-y: auto">
+<sc-for list="{{tiposConta}}" as="o" hint-placeholder-count="6">
+<div class="ddrow" style="{{o.rowBg}}">
+<button type="button" onClick="{{o.pick}}" style="{{o.st}}">{{o.marca}} {{o.label}}</button>
+<sc-if value="{{o.podeRem}}" hint-placeholder-val="{{ false }}"><button type="button" class="rmv" aria-label="Remover {{o.label}}" onClick="{{o.pedir}}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"></path></svg>Remover</button></sc-if>
+<sc-if value="{{o.emUso}}" hint-placeholder-val="{{ false }}"><span class="muted" style="font-size: 15px; padding: 0 10px; white-space: nowrap">em uso · {{o.uso}}</span></sc-if>
+<sc-if value="{{o.conf}}" hint-placeholder-val="{{ false }}"><span style="font-weight: 700; color: #8E1414; font-size: 15px; white-space: nowrap">Remover?</span><button type="button" class="rmv sim" onClick="{{o.rem}}">Sim</button><button type="button" class="rmv" onClick="{{o.nao}}">Não</button></sc-if>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 4px 2px; border-top: 2px solid #F0E2B6; margin-top: 4px; align-items: center">
+<label for="ct-tl-n" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Nome novo</label>
+<input id="ct-tl-n" class="inp" placeholder="Novo tipo, ex.: Impostos" value="{{nomeTipo}}" onChange="{{setNomeTipo}}" style="flex: 1 1 120px; min-width: 0; min-height: 48px">
+<button type="button" class="btn" style="min-height: 48px; padding: 0 14px; flex: none" onClick="{{salvarTipo}}">+ Criar</button>
+</div>
+<p class="muted" style="margin: 8px 6px 2px; font-size: 15px">Só dá para remover um tipo que nenhuma conta usa.</p>
+</div>
+</sc-if>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
+<sc-if value="{{naoEditando}}" hint-placeholder-val="{{ true }}">
+<div>
+<div class="hrow" style="margin-bottom: 6px; min-height: 34px"><span class="lb" style="margin: 0">Já está paga?</span><span class="help"><button type="button" aria-label="Ajuda: já está paga">?</button><span class="tip l" role="tooltip"><b>Conta que já foi paga</b>Para gastos que não chegam como boleto, como combustível no posto ou compra de emergência. Marque "Sim, já paguei": ao salvar, o sistema pergunta como foi pago. Se foi no cartão pessoal de um sócio, o valor volta para ele em Sócios.</span></span></div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{jaPagaOpts}}" as="o" hint-placeholder-count="2"><button type="button" class="{{o.cls}}" onClick="{{o.pick}}">{{o.label}}</button></sc-for>
+</div>
+</div>
+</sc-if>
+<div>
+<div class="hrow" style="margin-bottom: 6px; min-height: 34px"><span class="lb" style="margin: 0">Repete todo mês?</span><span class="help"><button type="button" aria-label="Ajuda: conta que repete">?</button><span class="tip l" role="tooltip"><b>Conta que se repete</b>Aluguel, luz e salários vêm todo mês. Marcando "Sim", o sistema cria sozinho a conta do mês seguinte. Não é preciso cadastrar de novo.</span></span></div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{reps}}" as="o" hint-placeholder-count="2"><button type="button" class="{{o.cls}}" onClick="{{o.pick}}">{{o.label}}</button></sc-for>
+</div>
+</div>
+<div>
+<div class="hrow" style="margin-bottom: 6px; min-height: 34px"><span class="lb" style="margin: 0">Avisar quantos dias antes?</span><span class="help"><button type="button" aria-label="Ajuda: aviso">?</button><span class="tip r" role="tooltip"><b>Aviso antes de vencer</b>Escolha com quantos dias de antecedência a conta deve aparecer nos avisos da tela inicial.</span></span></div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{avisos}}" as="o" hint-placeholder-count="4"><button type="button" class="{{o.cls}}" onClick="{{o.pick}}">{{o.label}}</button></sc-for>
+</div>
+</div>
+</div>
+<div class="hrow" style="gap: 12px">
+<button type="button" class="btn" onClick="{{salvarConta}}">{{salvarContaTxt}}</button>
+<button type="button" class="btn2" onClick="{{toggleForm}}">Cancelar</button>
+</div>
+</section>
+</div>
+</div>
+</sc-if>
+
+<div class="hrow" style="justify-content: space-between">
+<div role="group" aria-label="Filtrar contas" class="hrow">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="3">
+<button type="button" class="{{t.cls}}" onClick="{{t.pick}}">{{t.label}}</button>
+</sc-for>
+</div>
+<div class="hrow"><span class="muted">Pagou uma conta?</span><span class="help"><button type="button" aria-label="Ajuda: marcar como paga">?</button><span class="tip r" role="tooltip"><b>Marcar como paga</b>Depois de pagar, toque em "Marcar como paga" e diga como foi paga (dinheiro, Pix, boleto ou cartão). A conta sai dos avisos e o valor entra nas despesas do mês, que contam para o lucro dos sócios.</span></span></div>
+</div>
+
+<section class="card" aria-label="Lista de contas" style="padding: 8px">
+<div style="overflow-x: auto">
+<table class="tbl">
+<thead><tr><th>Vencimento</th><th>Conta</th><th>Repete</th><th class="num">Valor</th><th></th></tr></thead>
+<tbody>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="6">
+<tr>
+<td><div style="font-weight: 700">{{r.venc}}</div><span class="{{r.cls}}">{{r.quando}}</span></td>
+<td><div style="font-weight: 700">{{r.nome}}</div><div class="muted" style="font-size: 16px">{{r.cat}}{{r.pagoInfo}}</div></td>
+<td style="white-space: nowrap">{{r.rep}}</td>
+<td class="num" style="font-weight: 700">{{r.vTxt}}</td>
+<td style="text-align: right; white-space: nowrap"><button type="button" class="see" onClick="{{r.editar}}">Editar</button> <button type="button" class="pg" onClick="{{r.pick}}">{{r.acao}}</button></td>
+</tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</main>
+<sc-if value="{{mAberto}}" hint-placeholder-val="{{ false }}">
+<div style="position: fixed; inset: 0; z-index: 100; background: rgba(42,30,16,.55); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box">
+<div role="dialog" aria-modal="true" aria-labelledby="mp-t" class="card" style="width: min(640px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; border-color: #2A1E10; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 16px 40px rgba(42,30,16,.35)">
+<div class="mdl-h" style="align-items: flex-start">
+<div>
+<h2 id="mp-t" style="font-size: 28px">Como esta conta foi paga?</h2>
+<div style="font-size: 19px; margin-top: 4px"><b>{{mNome}}</b> · <span style="font-variant-numeric: tabular-nums">{{mValor}}</span></div>
+</div>
+<button type="button" class="btn2 mdl-x" onClick="{{fecharModal}}">✕ Fechar</button>
+</div>
+<div>
+<div class="hrow" style="margin-bottom: 6px; gap: 8px"><span class="lb" style="margin: 0">Forma de pagamento</span><span class="help"><button type="button" aria-label="Ajuda: forma de pagamento">?</button><span class="tip l" role="tooltip"><b>Forma de pagamento</b>Escolha como a conta foi paga. Se foi no cartão, diga qual: assim no fim do mês dá para conferir a fatura de cada cartão.</span></span></div>
+<div role="group" aria-label="Forma de pagamento" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{formas}}" as="fp" hint-placeholder-count="6"><button type="button" class="{{fp.cls}}" onClick="{{fp.pick}}">{{fp.label}}</button></sc-for>
+</div>
+<sc-if value="{{mErro}}" hint-placeholder-val="{{ false }}"><div style="margin-top: 8px; color: #8E1414; font-weight: 700">Escolha uma forma de pagamento.</div></sc-if>
+</div>
+<sc-if value="{{mCartaoVis}}" hint-placeholder-val="{{ false }}">
+<div style="position: relative">
+<div class="hrow" style="margin-bottom: 6px; gap: 8px"><span class="lb" style="margin: 0" id="mp-cl">Qual cartão?</span><span class="help"><button type="button" aria-label="Ajuda: qual cartão">?</button><span class="tip l" role="tooltip"><b>Qual cartão</b>Escolha o cartão usado. Se for um cartão novo, escreva o nome dele no fim da lista (por exemplo "Itaú da empresa") e toque em "+ Criar".</span></span></div>
+<button type="button" class="inp" aria-labelledby="mp-cl" aria-expanded="{{cAberto}}" onClick="{{toggleCartoes}}" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; text-align: left; cursor: pointer; font-weight: 700"><span>{{cartaoSel}}</span><span aria-hidden="true">{{cSeta}}</span></button>
+<sc-if value="{{cAberto}}" hint-placeholder-val="{{ false }}">
+<div data-ddp="1" style="position: absolute; z-index: 40; top: calc(100% + 6px); {{cartPst}} background: #FFFFFF; border: 2px solid #2A1E10; border-radius: 14px; box-shadow: 0 10px 28px rgba(42,30,16,.25); padding: 8px; box-sizing: border-box">
+<div style="max-height: 230px; overflow-y: auto">
+<sc-for list="{{cartoes}}" as="o" hint-placeholder-count="4">
+<div class="ddrow" style="{{o.rowBg}}">
+<button type="button" onClick="{{o.pick}}" style="{{o.st}}">{{o.marca}} {{o.label}}</button>
+<sc-if value="{{o.podeRem}}" hint-placeholder-val="{{ false }}"><button type="button" class="rmv" aria-label="Remover {{o.label}}" onClick="{{o.pedir}}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"></path></svg>Remover</button></sc-if>
+<sc-if value="{{o.emUso}}" hint-placeholder-val="{{ false }}"><span class="muted" style="font-size: 15px; padding: 0 10px; white-space: nowrap">em uso · {{o.uso}}</span></sc-if>
+<sc-if value="{{o.conf}}" hint-placeholder-val="{{ false }}"><span style="font-weight: 700; color: #8E1414; font-size: 15px; white-space: nowrap">Remover?</span><button type="button" class="rmv sim" onClick="{{o.rem}}">Sim</button><button type="button" class="rmv" onClick="{{o.nao}}">Não</button></sc-if>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 4px 2px; border-top: 2px solid #F0E2B6; margin-top: 4px; align-items: center">
+<div style="flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 6px"><span style="font-weight: 700; font-size: 15px">Cartão novo é de quem?</span><sc-for list="{{donoOpts}}" as="dn" hint-placeholder-count="3"><button type="button" class="{{dn.cls}}" style="min-height: 40px; padding: 0 12px; font-size: 15px" onClick="{{dn.pick}}">{{dn.label}}</button></sc-for></div>
+<label for="mp-nc" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Nome do cartão novo</label>
+<input id="mp-nc" class="inp" placeholder="Nome do cartão, ex.: Itaú da empresa" value="{{novoCartao}}" onChange="{{setNovoCartao}}" style="flex: 1 1 160px; min-width: 0; min-height: 48px">
+<button type="button" class="btn" style="min-height: 48px; padding: 0 14px; flex: none" onClick="{{criarCartao}}">+ Criar</button>
+</div>
+<p class="muted" style="margin: 8px 6px 2px; font-size: 15px">Só dá para remover um cartão que nenhuma conta usa.</p>
+</div>
+</sc-if>
+<sc-if value="{{cPessoal}}" hint-placeholder-val="{{ false }}"><div style="margin-top: 10px; padding: 12px 14px; border-radius: 12px; background: #DDF3E3; color: #14532D; font-weight: 700">Este cartão é pessoal do {{cDono}}. O valor vai entrar como reembolso para ele em Sócios.</div></sc-if>
+</div>
+</sc-if>
+<div style="max-width: 260px"><label class="lb" for="mp-d">Pago em</label><input id="mp-d" class="inp" value="16/10/2026"></div>
+<div class="hrow" style="gap: 12px">
+<button type="button" class="btn" style="min-height: 58px; min-width: 240px" onClick="{{confirmar}}">Confirmar pagamento</button>
+<button type="button" class="btn2" style="min-height: 58px" onClick="{{fecharModal}}">Cancelar</button>
+</div>
+</div>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1200}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    try { window.addEventListener('storage', () => this.setState({ tick: Date.now() })); } catch (err) {}
+    try {
+      window.addEventListener('mousedown', (e) => {
+        const st = this.state; if (!(st.ddOpen || st.drop || st.dropCat || st.cdrop || st.tbOpen)) return;
+        if (e.target && e.target.closest && e.target.closest('[aria-expanded], .ddpanel, [data-ddp]')) return;
+        this.setState({ ddOpen: null, drop: false, dropCat: false, cdrop: false, tbOpen: false, rconf: null, crconf: null, tbConf: null });
+      });
+      const fecharFlutuante = (e) => {
+        const st = this.state; if (!(st.ddDir && st.ddDir.fx) || !(st.ddOpen || st.drop || st.dropCat || st.cdrop || st.tbOpen)) return;
+        if (e && e.target && e.target.closest && e.target.closest('.ddpanel, [data-ddp]')) return;
+        this.setState({ ddOpen: null, drop: false, dropCat: false, cdrop: false, tbOpen: false, rconf: null, crconf: null, tbConf: null });
+      };
+      window.addEventListener('scroll', fecharFlutuante, true);
+      window.addEventListener('resize', fecharFlutuante);
+    } catch (err) {}
+    this.state = { z: 1, help: true, f: 'apagar', paid: { net: { forma: 'Pix' }, cont: { forma: 'Pix' }, dm: { forma: 'Boleto' }, hsj: { forma: 'Cartão de crédito', cartao: 'Crédito final 4421', dono: 'Carlos' }, cb1: { forma: 'Cartão de crédito', cartao: 'Crédito final 4421', dono: 'Carlos' }, frz: { forma: 'Cartão de crédito', cartao: 'Crédito final 4421', dono: 'Carlos' }, pte: { forma: 'Cartão de crédito', cartao: 'Crédito final 0937', dono: 'Carlos' }, gas: { forma: 'Cartão de crédito', cartao: 'Crédito final 7710', dono: 'Paulo' }, fei: { forma: 'Cartão de débito', cartao: 'Débito final 2285', dono: 'Paulo' }, cb2: { forma: 'Cartão de crédito', cartao: 'Crédito final 7710', dono: 'Paulo' } }, modal: null, mForma: null, mCartao: 'Cartão da empresa (Bradesco)', cdrop: false, novoCartao: '', crconf: null, mErro: false,
+      cartoesL: [['Cartão da empresa (Bradesco)', 'emp'], ['Crédito final 4421', 'Carlos'], ['Crédito final 0937', 'Carlos'], ['Crédito final 7710', 'Paulo'], ['Débito final 2285', 'Paulo']], novoDono: 'emp',
+      fNome: 'Combustível da entrega', fValor: '280,00', fVenc: '25/10/2026', ed: null, jaPaga: 'sim', novas: [], show: false, rep: 'nao', av: 3, tipo: 'Manutenção', tipos: ['Fornecedor', 'Energia', 'Contas fixas', 'Aluguel', 'Funcionários', 'Serviços', 'Manutenção', 'Outros'], nomeTipo: '', drop: false, rconf: null };
+  }
+  shell() {
+    const s = this.state;
+    return {
+      zoom: s.z, appCls: s.help ? 'app' : 'app nohelp', helpBtn: s.help ? 'tb on' : 'tb', helpTxt: s.help ? '? Ajuda ligada' : '? Ajuda desligada',
+      zIn: () => this.setState({ z: Math.min(1.3, Math.round((this.state.z + 0.1) * 10) / 10) }),
+      zOut: () => this.setState({ z: Math.max(0.8, Math.round((this.state.z - 0.1) * 10) / 10) }),
+      toggleHelp: () => this.setState({ help: !this.state.help })
+    };
+  }
+  brl(n) { return n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); }
+  sh() { try { return JSON.parse(window.localStorage.getItem('bl-proto-v1') || '{}') || {}; } catch (e) { return {}; } }
+  shSave(fn) { try { const d = this.sh(); fn(d); window.localStorage.setItem('bl-proto-v1', JSON.stringify(d)); } catch (e) {} this.setState({ tick: Date.now() }); }
+  paidMap(base) { const out = { ...base }, sp = this.sh().paid || {}; Object.keys(sp).forEach(k => { if (sp[k]) out[k] = sp[k]; else delete out[k]; }); return out; }
+  modalVals(C) {
+    const s = this.state, c = C.find(x => x.id === s.modal), ehCartao = s.mForma === 'Cartão de débito' || s.mForma === 'Cartão de crédito';
+    const SH = this.sh(), PAID = this.paidMap(s.paid), CARTOES = SH.cartoes || s.cartoesL;
+    const usoC = (k) => Object.values(PAID).filter(p => p && p.cartao === k).length, donoDe = (k) => (CARTOES.find(x => x[0] === k) || [k, 'emp'])[1];
+    return {
+      mAberto: !!c, mNome: c ? c.nome : '', mValor: c ? this.brl(c.v) : '', mErro: s.mErro, mCartaoVis: ehCartao,
+      formas: ['Dinheiro', 'Pix', 'Boleto', 'Transferência', 'Cartão de débito', 'Cartão de crédito'].map(f => ({ label: f, cls: s.mForma === f ? 'opt on' : 'opt', pick: () => this.setState({ mForma: f, mErro: false }) })),
+      cartaoSel: s.mCartao ? s.mCartao + (donoDe(s.mCartao) === 'emp' ? ' · da empresa' : ' · pessoal do ' + donoDe(s.mCartao)) : 'Escolha o cartão', cAberto: s.cdrop, cSeta: s.cdrop ? '▲' : '▼', toggleCartoes: (e) => this.setState({ cdrop: !this.state.cdrop, crconf: null, ddDir: this.ddDir(e) }), cartPst: this.ddPst(s.ddDir),
+      cartoes: CARTOES.map(([k, dono]) => { const on = s.mCartao === k, n = usoC(k), conf = s.crconf === k;
+        return { label: k + (dono === 'emp' ? ' · da empresa' : ' · pessoal do ' + dono), marca: on ? '✓' : '', rowBg: conf ? 'background: #FDE0DE; border-radius: 10px' : '',
+          st: 'flex: 1 1 150px; min-height: 48px; padding: 0 12px; border: none; border-radius: 10px; background: ' + (on ? '#FFC93C' : 'transparent') + '; color: #2A1E10; font: 700 18px \'Atkinson Hyperlegible\', sans-serif; text-align: left; cursor: pointer',
+          pick: () => this.setState({ mCartao: k, cdrop: false, crconf: null }), podeRem: n === 0 && !conf, emUso: n > 0, uso: n === 1 ? '1 conta' : n + ' contas', conf,
+          pedir: () => this.setState({ crconf: k }), nao: () => this.setState({ crconf: null }),
+          rem: () => { const r = CARTOES.filter(x => x[0] !== k); this.shSave(d => { d.cartoes = r; }); this.setState({ mCartao: this.state.mCartao === k ? (r[0] ? r[0][0] : null) : this.state.mCartao, crconf: null }); } }; }),
+      cPessoal: ehCartao && !!s.mCartao && donoDe(s.mCartao) !== 'emp', cDono: s.mCartao ? donoDe(s.mCartao) : '',
+      donoOpts: [['emp', 'Empresa'], ['Carlos', 'Carlos'], ['Paulo', 'Paulo']].map(([id, l]) => ({ label: l, cls: s.novoDono === id ? 'opt on' : 'opt', pick: () => this.setState({ novoDono: id }) })),
+      novoCartao: s.novoCartao, setNovoCartao: (e) => this.setState({ novoCartao: e.target.value }),
+      criarCartao: () => { const n = this.state.novoCartao.trim(); if (!n) return; const l = CARTOES.some(x => x[0] === n) ? CARTOES : [...CARTOES, [n, this.state.novoDono]]; this.shSave(d => { d.cartoes = l; }); this.setState({ mCartao: n, novoCartao: '', cdrop: false }); },
+      fecharModal: () => this.setState({ modal: null, cdrop: false }),
+      confirmar: () => { const st = this.state; if (!st.mForma) { this.setState({ mErro: true }); return; }
+        const ec = st.mForma.indexOf('Cartão') === 0; if (ec && !st.mCartao) { let d = 'l'; try { const t = document.querySelector('[aria-labelledby="mp-cl"]'); if (t) d = this.ddDir({ currentTarget: t }); } catch (err) {} this.setState({ cdrop: true, ddDir: d }); return; }
+        const cc = C.find(x => x.id === st.modal) || {}; const reg = ec ? { forma: st.mForma, cartao: st.mCartao, dono: donoDe(st.mCartao) } : { forma: st.mForma }; this.shSave(d => { d.paid = d.paid || {}; d.paid[st.modal] = { ...reg, nome: cc.nome, v: cc.v, d: '16/10' }; }); this.setState({ modal: null, cdrop: false }); }
+    };
+  }
+  ddDir(e) {
+    try {
+      const el = e.currentTarget, r = el.getBoundingClientRect(), box = el.closest('.mdl'), lim = box ? box.getBoundingClientRect().right : window.innerWidth;
+      const side = r.left + 400 > lim - 12 ? 'r' : 'l';
+      if (!el.closest('[role="dialog"]')) return side;
+      // Inside a modal: the list floats over the screen (it never makes the modal grow or scroll) and opens upward when there is no room below.
+      const z = this.state.z || 1, vw = window.innerWidth, vh = window.innerHeight;
+      const W = Math.min(Math.max(r.width, 400), vw - 32);
+      let left = side === 'r' ? r.right - W : r.left; left = Math.max(16, Math.min(left, vw - 16 - W));
+      const below = vh - r.bottom - 16, above = r.top - 16, up = below < 330 && above > below;
+      return { fx: true, up, left: left / z, w: W / z, y: (up ? vh - r.top + 6 : r.bottom + 6) / z, h: Math.max(160, (up ? above : below) - 6) / z };
+    } catch (err) { return 'l'; }
+  }
+  ddPst(dir) {
+    if (dir && dir.fx) return 'position: fixed; z-index: 300; left: ' + dir.left + 'px; right: auto; width: ' + dir.w + 'px; max-width: none; ' + (dir.up ? 'top: auto; bottom: ' + dir.y + 'px;' : 'bottom: auto; top: ' + dir.y + 'px;') + ' max-height: ' + dir.h + 'px; overflow-y: auto; display: flex; flex-direction: column;';
+    return (dir === 'r' ? 'left: auto; right: 0;' : 'left: 0; right: auto;') + ' width: max(100%, 400px); max-width: calc(100vw - 48px);';
+  }
+  renderVals() {
+    const s = this.state;
+    const C0 = [
+      { id: 'net', venc: '05/10', d: -11, nome: 'Internet e telefone', cat: 'Contas fixas', rep: 'Todo mês', v: 180 },
+      { id: 'cont', venc: '10/10', d: -6, nome: 'Contador', cat: 'Serviços', rep: 'Todo mês', v: 650 },
+      { id: 'dm', venc: '10/10', d: -6, nome: 'Distribuidora Doce Mel (boleto)', cat: 'Fornecedor', rep: 'Uma vez', v: 2150 },
+      { id: 'hsj', venc: '12/10', d: -4, nome: 'Hortifruti São José', cat: 'Fornecedor', rep: 'Uma vez', v: 1280 },
+      { id: 'cb1', venc: '03/10', d: -13, nome: 'Combustível da entrega', cat: 'Outros', rep: 'Uma vez', v: 280 },
+      { id: 'gas', venc: '05/10', d: -11, nome: 'Gás de cozinha', cat: 'Contas fixas', rep: 'Uma vez', v: 130 },
+      { id: 'frz', venc: '08/10', d: -8, nome: 'Conserto do freezer', cat: 'Manutenção', rep: 'Uma vez', v: 450 },
+      { id: 'fei', venc: '12/10', d: -4, nome: 'Frutas na feira', cat: 'Fornecedor', rep: 'Uma vez', v: 320 },
+      { id: 'cb2', venc: '14/10', d: -2, nome: 'Combustível da entrega', cat: 'Outros', rep: 'Uma vez', v: 260 },
+      { id: 'pte', venc: '15/10', d: -1, nome: 'Potes (compra de emergência)', cat: 'Fornecedor', rep: 'Uma vez', v: 590 },
+      { id: 'luz', venc: '17/10', d: 1, nome: 'Energia elétrica', cat: 'Energia', rep: 'Todo mês', v: 2950 },
+      { id: 'lvv', venc: '19/10', d: 3, nome: 'Laticínios Vale Verde (boleto)', cat: 'Fornecedor', rep: 'Uma vez', v: 1970 },
+      { id: 'agua', venc: '22/10', d: 6, nome: 'Água e gás', cat: 'Contas fixas', rep: 'Todo mês', v: 500 },
+      { id: 'alug', venc: '30/10', d: 14, nome: 'Aluguel', cat: 'Aluguel', rep: 'Todo mês', v: 3500 },
+      { id: 'sal', venc: '31/10', d: 15, nome: 'Salários e encargos', cat: 'Funcionários', rep: 'Todo mês', v: 8400 },
+      { id: 'pol', venc: '05/11', d: 20, nome: 'Embalagens Polar (boleto)', cat: 'Fornecedor', rep: 'Uma vez', v: 1020 }
+    ];
+    const SH = this.sh(), PAID = this.paidMap(s.paid);
+    const ED = SH.edits || {};
+    const C = [...C0, ...(SH.contas || [])].map(c => ED[c.id] ? { ...c, ...ED[c.id] } : c);
+    const isPaid = (c) => !!PAID[c.id];
+    const T = [['apagar', 'A pagar'], ['pagas', 'Pagas'], ['todas', 'Todas']];
+    const tabs = T.map(([id, label]) => ({ label, cls: s.f === id ? 'tab on' : 'tab', pick: () => this.setState({ f: id }) }));
+    const quando = (d) => d <= 0 ? 'Hoje' : d === 1 ? 'Amanhã' : 'Em ' + d + ' dias';
+    const rows = C.filter(c => s.f === 'todas' || (s.f === 'pagas' ? isPaid(c) : !isPaid(c))).map(c => {
+      const p = isPaid(c);
+      return {
+        ...c, vTxt: this.brl(c.v),
+        quando: p ? 'Paga' : quando(c.d),
+        cls: p ? 'tag ok' : c.d <= 3 ? 'tag low' : c.d <= 7 ? 'tag warn' : 'tag info',
+        acao: p ? 'Desfazer' : 'Marcar como paga',
+        editar: () => this.setState({ show: true, ed: c.id, fNome: c.nome, fValor: c.v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }), fVenc: c.venc.length <= 5 ? c.venc + '/2026' : c.venc, tipo: c.cat, tipos: this.state.tipos.includes(c.cat) ? this.state.tipos : [...this.state.tipos, c.cat], rep: c.rep === 'Todo mês' ? 'sim' : 'nao', drop: false }),
+        pagoInfo: p ? ' · pago com ' + (PAID[c.id].cartao ? PAID[c.id].forma.toLowerCase() + ' (' + PAID[c.id].cartao + ((PAID[c.id].dono || 'emp') === 'emp' ? '' : ', pessoal do ' + PAID[c.id].dono + ' · reembolso') + ')' : (PAID[c.id].forma || '').toLowerCase()) : '',
+        pick: () => { if (this.paidMap(this.state.paid)[c.id]) { this.shSave(d => { d.paid = d.paid || {}; d.paid[c.id] = null; }); } else this.setState({ modal: c.id, mForma: null, mErro: false, cdrop: false, crconf: null }); }
+      };
+    });
+    const prox = C.filter(c => !isPaid(c) && c.d <= 7);
+    const pagas = C.filter(isPaid);
+    const reps = [['sim', 'Sim, todo mês'], ['nao', 'Não, só uma vez']].map(([id, label]) => ({ label, cls: s.rep === id ? 'opt on' : 'opt', pick: () => this.setState({ rep: id }) }));
+    const avisos = [1, 3, 5, 7].map(n => ({ label: n + (n === 1 ? ' dia' : ' dias'), cls: s.av === n ? 'opt on' : 'opt', pick: () => this.setState({ av: n }) }));
+    return {
+      ...this.shell(),
+      ...this.modalVals(C),
+      tiposConta: s.tipos.map(t => { const on = s.tipo === t, n = C.filter(c => c.cat === t).length, conf = s.rconf === t;
+        return { label: t, marca: on ? '✓' : '', st: 'flex: 1 1 150px; min-height: 48px; padding: 0 12px; border: none; border-radius: 10px; background: ' + (on ? '#FFC93C' : 'transparent') + '; color: #2A1E10; font: 700 18px \'Atkinson Hyperlegible\', sans-serif; text-align: left; cursor: pointer', rowBg: conf ? 'background: #FDE0DE; border-radius: 10px' : '',
+          pick: () => this.setState({ tipo: t, drop: false, rconf: null }), podeRem: n === 0 && !conf, emUso: n > 0, uso: n === 1 ? '1 conta' : n + ' contas', conf,
+          pedir: () => this.setState({ rconf: t }), nao: () => this.setState({ rconf: null }),
+          rem: () => { const r = this.state.tipos.filter(x => x !== t); this.setState({ tipos: r, tipo: this.state.tipo === t ? r[0] : this.state.tipo, rconf: null }); } }; }),
+      tipoSel: s.tipo, dropAberto: s.drop, seta: s.drop ? '▲' : '▼', toggleDrop: (e) => this.setState({ drop: !this.state.drop, rconf: null, ddDir: this.ddDir(e) }), tipoPst: this.ddPst(s.ddDir),
+      nomeTipo: s.nomeTipo, setNomeTipo: (e) => this.setState({ nomeTipo: e.target.value }),
+      salvarTipo: () => { const n = this.state.nomeTipo.trim(); if (!n) return; if (this.state.tipos.includes(n)) { this.setState({ tipo: n, drop: false, nomeTipo: '' }); return; } this.setState({ tipos: [...this.state.tipos, n], tipo: n, drop: false, nomeTipo: '' }); }, addCls: 'btn', addTxt: '+ Nova conta',
+      tabs, rows, reps, avisos,
+      prox7Txt: this.brl(prox.reduce((a, c) => a + c.v, 0)), prox7Qtd: prox.length + (prox.length === 1 ? ' conta' : ' contas'),
+      pagasTxt: this.brl(pagas.reduce((a, c) => a + c.v, 0)), pagasQtd: pagas.length + (pagas.length === 1 ? ' conta' : ' contas'),
+      show: s.show, toggleForm: () => this.setState(this.state.show ? { show: false, drop: false, ed: null } : { show: true, drop: false, ed: null, fNome: 'Combustível da entrega', fValor: '280,00', fVenc: '25/10/2026', jaPaga: 'sim', rep: 'nao' }),
+      editando: !!s.ed, naoEditando: !s.ed, contaTit: s.ed ? 'Editar conta' : 'Nova conta', fVenc: s.fVenc, setFVenc: (e) => this.setState({ fVenc: e.target.value }),
+      fNome: s.fNome, fValor: s.fValor, setFNome: (e) => this.setState({ fNome: e.target.value }), setFValor: (e) => this.setState({ fValor: e.target.value }),
+      jaPagaOpts: [['sim', 'Sim, já paguei'], ['nao', 'Não, vou pagar']].map(([id, l]) => ({ label: l, cls: s.jaPaga === id ? 'opt on' : 'opt', pick: () => this.setState({ jaPaga: id }) })),
+      salvarContaTxt: s.ed ? 'Salvar alterações' : (s.jaPaga === 'sim' ? 'Salvar e dizer como paguei' : 'Salvar conta'),
+      salvarConta: () => { const st = this.state, v = parseFloat(String(st.fValor).replace(/\./g, '').replace(',', '.')) || 0, id = 'n' + Date.now();
+        if (st.ed) { const vv = (st.fVenc || '').trim(), ed = { nome: st.fNome.trim() || 'Conta sem nome', v, cat: st.tipo, rep: st.rep === 'sim' ? 'Todo mês' : 'Uma vez' }; if (vv) ed.venc = vv.slice(0, 5); const eid = st.ed;
+          this.shSave(d => { d.edits = { ...(d.edits || {}), [eid]: ed }; }); this.setState({ show: false, drop: false, ed: null }); return; }
+        const nova = { id, venc: '16/10', d: 0, nome: st.fNome.trim() || 'Conta sem nome', cat: st.tipo, rep: st.rep === 'sim' ? 'Todo mês' : 'Uma vez', v };
+        this.shSave(d => { d.contas = [...(d.contas || []), nova]; }); this.setState({ show: false, drop: false, f: st.jaPaga === 'sim' ? 'pagas' : st.f, modal: st.jaPaga === 'sim' ? id : null, mForma: null, mErro: false, cdrop: false }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

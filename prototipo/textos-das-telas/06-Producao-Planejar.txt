@@ -1,0 +1,13 @@
+Planejar o que fazer e quanto custa cada receita Produção e Receitas ?
+
+[AJUDA: Produção e Receitas Em "Planejar produção" você diz o que quer fazer e o sistema confere se tem ingrediente no estoque. Em "Receitas" fica quanto custa fazer cada sorvete ou paleta e quanto sobra de lucro em cada um.]
+Simulação · dados de exemplo Planejar produção Receitas O custo do morango subiu ?
+
+[AJUDA: Aviso de aumento de custo Quando um ingrediente fica mais caro, o sistema recalcula todas as receitas que usam ele. Como o preço de venda é fixo, o que muda é o lucro. Bom olhar antes de decidir o que produzir.]
+Em 15/10 o morango passou de R$ 14,00 para R$ 18,00 o quilo (+29%). Estas receitas ficaram mais caras: Paleta de Morango recheada Preço no balcão: R$ 10,00 Custo de cada R$ 3,15 → R$ 3,35 Lucro de cada R$ 6,85 → R$ 6,65 Ver receita Sorvete de Morango · pote 2 L Preço no balcão: R$ 49,00 Custo de cada R$ 25,92 → R$ 27,92 Lucro de cada R$ 23,08 → R$ 21,08 Ver receita Qual receita vai fazer? {{o.nome}} Esta receita produz {{qtd}} {{unidade}} ?
+
+[AJUDA: Quanto a receita produz Vem do que foi cadastrado na receita. Se a receita passar a render mais ou menos, é só mudar em Receitas que aqui atualiza sozinho.]
+Mudar na receita Ingrediente e embalagem A receita usa Tem no estoque Situação {{n.nome}} {{n.precisa}} {{n.tem}} {{n.st}} Tem tudo no estoque. Pode produzir! Falta comprar: {{faltaTxt}} Custo estimado: {{faltaValor}} Registrar produção ?
+
+[AJUDA: Registrar produção Depois de fazer a receita, toque aqui. Os ingredientes e as embalagens usados saem do estoque sozinhos, sem precisar fazer conta.]
+Produção registrada! {{qtd}} {{unidade}} de {{nomeRec}} anotadas. Os ingredientes e as embalagens foram baixados do estoque. Planejar outra produção

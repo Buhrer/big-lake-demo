@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Big Lake · Vendas e Pedidos</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Baloo+2:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF7DE;color:#2A1E10;font-family:'Atkinson Hyperlegible',system-ui,sans-serif;font-size:18px;line-height:1.4}
+a{color:#A61B1B}a:hover{color:#7A1010}
+h1,h2,h3{font-family:'Baloo 2',sans-serif;line-height:1.15;margin:0}
+.nav{display:flex;align-items:center;gap:14px;min-height:50px;white-space:nowrap;padding:0 14px;border-radius:12px;color:#2A1E10;text-decoration:none;font-weight:700;font-size:19px}
+.nav:hover{background:#FFDD70;color:#2A1E10}
+.nav.on,.nav.on:hover{background:#2A1E10;color:#FFD54F}
+.badge{margin-left:auto;min-width:28px;height:28px;border-radius:14px;background:#C62828;color:#FFFFFF;font-size:15px;display:inline-flex;align-items:center;justify-content:center}
+@media (max-height:820px){.nav{min-height:43px}}
+.ic{width:26px;height:26px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;box-sizing:border-box;border-radius:12px;border:2px solid #C62828;background:#C62828;color:#FFFFFF;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;text-decoration:none}
+.btn:hover{background:#A61B1B;border-color:#A61B1B;color:#FFFFFF}
+.btn2{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 20px;box-sizing:border-box;border-radius:12px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;text-decoration:none}
+.btn2:hover{background:#FFF0C2;color:#2A1E10}
+.card{background:#FFFFFF;border:2px solid #F0E2B6;border-radius:18px;padding:24px;box-sizing:border-box}
+.tbl{width:100%;border-collapse:collapse;font-size:18px}
+.tbl th{text-align:left;padding:12px 14px;background:#FFF0C2;font-size:16px;font-weight:700}
+.tbl td{padding:14px;border-bottom:1px solid #F0E6CC;vertical-align:middle}
+.num,.tbl th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;padding:4px 12px;border-radius:999px;font-size:16px;font-weight:700;white-space:nowrap}
+.ok{background:#DDF3E3;color:#14532D}.low{background:#FDE0DE;color:#8E1414}.warn{background:#FFF0C2;color:#6B4A00}.info{background:#E3ECFA;color:#1E3A6E}
+.inp{display:block;width:100%;min-height:52px;box-sizing:border-box;border:2px solid #CDBF9C;border-radius:10px;padding:0 14px;font:18px 'Atkinson Hyperlegible',sans-serif;background:#FFFFFF;color:#2A1E10}
+.money{display:block;width:100%;min-height:64px;box-sizing:border-box;border:2px solid #2A1E10;border-radius:12px;padding:0 16px;font:700 30px 'Atkinson Hyperlegible',sans-serif;background:#FFFFFF;color:#2A1E10;text-align:right;font-variant-numeric:tabular-nums}
+.lb{display:flex;align-items:center;min-height:34px;font-weight:700;font-size:17px;margin-bottom:6px}
+button.inp>span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1 1 auto}button.inp>span:last-child{flex:none}
+.tab{min-height:52px;padding:0 18px;border-radius:999px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 17px 'Atkinson Hyperlegible',sans-serif;cursor:pointer}
+.tab.on{background:#2A1E10;color:#FFD54F}
+.seg{display:flex;flex-wrap:wrap;gap:6px;padding:6px;background:#FFFFFF;border:2px solid #2A1E10;border-radius:16px}
+.sg{min-height:54px;padding:0 22px;border:none;border-radius:11px;background:transparent;color:#2A1E10;font:700 19px 'Atkinson Hyperlegible',sans-serif;cursor:pointer}
+.sg:hover{background:#FFF0C2}
+.sg.on,.sg.on:hover{background:#2A1E10;color:#FFD54F}
+.sim{display:inline-block;padding:6px 14px;border-radius:999px;background:#2A1E10;color:#FFD54F;font-size:15px;font-weight:700}
+.muted{color:#5E4B33}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;padding:10px 14px;background:#FFFFFF;border:2px solid #F0E2B6;border-radius:14px}
+.bk{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:#14532D;font-size:16px}
+.tb{min-height:44px;min-width:44px;padding:0 12px;box-sizing:border-box;border-radius:10px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 17px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none}
+.tb:hover{background:#FFF0C2;color:#2A1E10}
+.tb.on,.tb.on:hover{background:#C62828;border-color:#C62828;color:#FFFFFF}
+.help{position:relative;display:inline-flex;vertical-align:middle;flex:none}
+.help>button{width:34px;height:34px;border-radius:50%;border:2px solid #C62828;background:#FFFFFF;color:#C62828;font:700 19px 'Atkinson Hyperlegible',sans-serif;cursor:help;display:inline-flex;align-items:center;justify-content:center;padding:0}
+.help:hover>button,.help:focus-within>button{background:#C62828;color:#FFFFFF}
+.tip{display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);width:330px;max-width:80vw;background:#2A1E10;color:#FFFFFF;padding:14px 16px;border-radius:12px;font:400 16px/1.5 'Atkinson Hyperlegible',sans-serif;text-align:left;white-space:normal;z-index:60;box-shadow:0 8px 24px rgba(42,30,16,.3)}
+.tip b{display:block;color:#FFD54F;font-size:17px;margin-bottom:4px}
+.help:hover .tip,.help:focus-within .tip{display:block}
+.tip.l{left:0;transform:none}.tip.r{left:auto;right:0;transform:none}
+.nohelp .help{display:none}
+.hrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+header>.hrow,header>.sim{flex:none}
+.qb{width:44px;height:44px;border-radius:10px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 22px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;flex:none}
+.qb:hover{background:#FFF0C2}
+.pay{min-height:52px;border-radius:12px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 17px 'Atkinson Hyperlegible',sans-serif;cursor:pointer}
+.pay.on{background:#FFC93C}
+.prod{display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;gap:6px;min-height:84px;padding:12px 14px;border-radius:12px;border:2px solid #F0E2B6;background:#FFFFFF;color:#2A1E10;font:700 17px 'Atkinson Hyperlegible',sans-serif;text-align:left;cursor:pointer}
+.prod:hover{border-color:#C62828;background:#FFF4F2}
+.prod span:last-child{color:#A61B1B;font-variant-numeric:tabular-nums}
+.rm{min-height:44px;padding:0 12px;border-radius:10px;border:2px solid #8E1414;background:#FFFFFF;color:#8E1414;font:700 16px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;flex:none}
+.rm:hover{background:#FDE0DE}
+.qin{width:90px;height:48px;box-sizing:border-box;border:2px solid #2A1E10;border-radius:10px;background:#FFFFFF;color:#2A1E10;font:700 22px 'Atkinson Hyperlegible',sans-serif;text-align:center;font-variant-numeric:tabular-nums;flex:none}
+.rc{font-family:'Courier New',monospace;font-size:16px;line-height:1.5;background:#FFFFFF;border:2px dashed #5E4B33;border-radius:6px;padding:18px;color:#2A1E10}
+.rc .l{display:flex;justify-content:space-between;gap:10px}
+.line{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:8px 0}
+.line span:last-child{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ddpanel{position:absolute;z-index:40;top:calc(100% + 6px);left:0;right:0;min-width:0;background:#FFFFFF;border:2px solid #2A1E10;border-radius:14px;box-shadow:0 10px 28px rgba(42,30,16,.25);padding:6px;box-sizing:border-box}
+.ddpanel.dr{left:auto;right:0;width:260px}
+.ddlist{max-height:300px;overflow-y:auto}
+.ddrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:6px 8px;padding:3px 4px;border-bottom:1px solid #F0E6CC}
+.ddrow:last-child{border-bottom:none}
+</style>
+</helmet>
+<div class="{{appCls}}" style="display: flex; flex-wrap: wrap; min-height: 100vh">
+<nav aria-label="Menu principal" style="flex: 0 0 292px; background: #FFC93C; padding: 20px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 4px">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 0 8px 14px; text-decoration: none; color: #2A1E10">
+<svg width="44" height="52" viewBox="0 0 48 56" aria-hidden="true"><path d="M12 24 L24 54 L36 24 Z" fill="#C68B3E" stroke="#2A1E10" stroke-width="2.5" stroke-linejoin="round"></path><path d="M16 31 L32 31 M19 39 L29 39" stroke="#2A1E10" stroke-width="2"></path><circle cx="24" cy="16" r="13" fill="#C62828" stroke="#2A1E10" stroke-width="2.5"></circle><circle cx="19" cy="11" r="3" fill="#FFFFFF" opacity="0.7"></circle></svg>
+<span style="display: flex; flex-direction: column; line-height: 1"><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: 0.5px">BIG LAKE</span><span style="font-size: 16px; font-weight: 700; margin-top: 4px">Sorveteria</span></span>
+</a>
+<a class="nav" href="Main.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path></svg>Início</a>
+<a class="nav on" aria-current="page" href="Pedidos.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="12" rx="2"></rect><path d="M7 8V4h10v4M7 14h4"></path></svg>Vendas e Pedidos</a>
+<a class="nav" href="Clientes.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="4"></circle><path d="M2 21c0-4 3-6 7-6s7 2 7 6M16 4a4 4 0 010 8M22 21c0-3-2-5-4-6"></path></svg>Cadastros</a>
+<a class="nav" href="Producao.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="18" rx="2"></rect><path d="M9 2h6v4H9zM9 13l2 2 4-4"></path></svg>Produção e Receitas</a>
+<a class="nav" href="Estoque.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4zM3 7v10l9 4 9-4V7M12 11v10"></path></svg>Estoque e Insumos</a>
+<a class="nav" href="Perdas.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"></path></svg>Perdas</a>
+<a class="nav" href="Contas.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>Contas a pagar<span class="badge" aria-label="2 vencem logo">2</span></a>
+<a class="nav" href="Socios.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v9h9"></path></svg>Sócios</a>
+<a class="nav" href="Patrimonio.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l8-3 8 3v16M9 21v-5h6v5M9 9h.01M15 9h.01M9 13h.01M15 13h.01"></path></svg>Patrimônio</a>
+<a class="nav" href="Relatorios.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-5M12 16V6M17 16v-8"></path></svg>Relatórios</a>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; padding: 20px 32px 48px; box-sizing: border-box">
+<div style="zoom: {{zoom}}; max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px">
+<div class="top">
+<div class="hrow">
+<span class="bk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"></path></svg>Cópia de segurança feita hoje, 08:02</span>
+<span class="help"><button type="button" aria-label="Ajuda: cópia de segurança">?</button><span class="tip l" role="tooltip"><b>Cópia de segurança automática</b>Toda vez que o sistema é fechado, ele copia todos os dados para o pen drive e para uma pasta do computador. Se o computador estragar, nada se perde.</span></span>
+</div>
+<div class="hrow" style="gap: 8px">
+<span class="help"><button type="button" aria-label="Ajuda: tamanho da letra">?</button><span class="tip r" role="tooltip"><b>Tamanho da letra</b>A+ aumenta tudo na tela e A− diminui. Bom para quem enxerga melhor com letra grande. O tamanho padrão fica salvo em Configurações.</span></span>
+<button type="button" class="tb" aria-label="Diminuir a letra" onClick="{{zOut}}">A−</button>
+<button type="button" class="tb" aria-label="Aumentar a letra" onClick="{{zIn}}">A+</button>
+<button type="button" class="{{helpBtn}}" onClick="{{toggleHelp}}">{{helpTxt}}</button>
+<a class="tb" href="Config.dc.html">Configurações</a>
+</div>
+</div>
+
+<header style="display: flex; flex-wrap: nowrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div style="min-width: 0; flex: 1 1 auto">
+<p class="muted" style="margin: 0 0 4px; font-size: 18px">Todo o dinheiro que entra: balcão e encomendas</p>
+<div class="hrow"><h1 style="font-size: 44px">Vendas e Pedidos</h1><span class="help"><button type="button" aria-label="Ajuda: vendas e pedidos">?</button><span class="tip l" role="tooltip"><b>Vendas e pedidos</b>Duas partes numa tela só. "Vendas do balcão": no fim do dia, anote quanto entrou em dinheiro, cartão e Pix. "Pedidos de clientes": as encomendas de mercados, lanchonetes e festas, pagas em dinheiro, Pix ou cartão.</span></span></div>
+</div>
+<span class="sim">Simulação · dados de exemplo</span>
+</header>
+
+<div class="seg" role="group" aria-label="Escolha a parte" style="align-self: flex-start">
+<sc-for list="{{abas}}" as="a" hint-placeholder-count="2">
+<button type="button" class="{{a.cls}}" onClick="{{a.pick}}">{{a.label}}</button>
+</sc-for>
+</div>
+
+<sc-if value="{{isBalcao}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<section class="card" aria-labelledby="t-dia" style="border-color: #2A1E10; display: flex; flex-direction: column; gap: 16px">
+<sc-if value="{{notSavedDia}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div class="hrow" style="justify-content: space-between">
+<div class="hrow"><h2 id="t-dia" style="font-size: 28px">Lançar as vendas de hoje</h2><span class="help"><button type="button" aria-label="Ajuda: lançar vendas do dia">?</button><span class="tip l" role="tooltip"><b>Fechamento do dia</b>Ao fechar a loja, conte o dinheiro da gaveta, veja o total da maquininha de cartão e o extrato do Pix. Digite os valores e salve. Débito e crédito ficam separados porque têm taxa e prazo diferentes; os dois aparecem assim no relatório do dia da maquininha. Leva menos de um minuto.</span></span></div>
+<span class="muted" style="font-size: 19px; font-weight: 700">Sexta-feira, 16/10/2026</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch">
+<div style="flex: 999 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: end">
+<div><label class="lb" for="v-din">Dinheiro (R$)</label><input id="v-din" class="money" inputMode="decimal" value="{{din}}" onChange="{{setDin}}"></div>
+<div><label class="lb" for="v-pix">Pix (R$)</label><input id="v-pix" class="money" inputMode="decimal" value="{{pix}}" onChange="{{setPix}}"></div>
+<div><label class="lb" for="v-deb">Cartão débito (R$)</label><input id="v-deb" class="money" inputMode="decimal" value="{{deb}}" onChange="{{setDeb}}"></div>
+<div><label class="lb" for="v-cre">Cartão crédito (R$)</label><input id="v-cre" class="money" inputMode="decimal" value="{{cre}}" onChange="{{setCre}}"></div>
+</div>
+<div style="flex: 1 1 300px; max-width: 380px; display: flex; flex-direction: column; gap: 16px">
+<div style="flex: 1; background: #FFF0C2; border-radius: 12px; padding: 14px 18px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center"><div style="font-weight: 700; font-size: 19px">Total do dia</div><div style="font-size: 38px; font-weight: 700; color: #A61B1B; font-variant-numeric: tabular-nums">{{totalDiaTxt}}</div></div>
+<button type="button" class="btn" style="min-height: 64px; font-size: 21px; width: 100%" onClick="{{saveDia}}">Salvar vendas de hoje</button>
+</div>
+</div>
+<div style="border-top: 2px solid #F0E6CC; padding-top: 14px; display: flex; flex-direction: column; gap: 14px">
+<div class="hrow" style="justify-content: space-between">
+<div class="hrow"><span style="font-weight: 700; font-size: 20px">Taxas da maquininha</span><span class="help"><button type="button" aria-label="Ajuda: taxas da maquininha">?</button><span class="tip l" role="tooltip"><b>Taxas e prazos</b>Quanto a maquininha cobra e em quantos dias o dinheiro cai na conta, no débito e no crédito. Só precisa preencher uma vez, ou quando a maquininha mudar a taxa. Valem para o balcão e para os pedidos pagos no cartão. O desconto de cada dia aparece na aba Resumo das vendas.</span></span></div>
+<button type="button" class="btn2" onClick="{{toggleTx}}">{{txBtn}}</button>
+</div>
+<sc-if value="{{showTx}}" hint-placeholder-val="{{ false }}">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px">
+<div style="background: #FFF7DE; border: 2px solid #F0E2B6; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+<div style="font-weight: 700; font-size: 20px">Cartão débito</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; align-items: end">
+<div><label class="lb" for="tx-dt">Taxa (%)</label><input id="tx-dt" class="money" style="font-size: 26px; min-height: 56px" inputMode="decimal" value="{{tDeb}}" onChange="{{setTDeb}}"></div>
+<div><label class="lb" for="tx-dd">Cai na conta em (dias)</label><input id="tx-dd" class="money" style="font-size: 26px; min-height: 56px" inputMode="numeric" value="{{dDeb}}" onChange="{{setDDeb}}"></div>
+</div>
+</div>
+<div style="background: #FFF7DE; border: 2px solid #F0E2B6; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+<div style="font-weight: 700; font-size: 20px">Cartão crédito</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; align-items: end">
+<div><label class="lb" for="tx-ct">Taxa (%)</label><input id="tx-ct" class="money" style="font-size: 26px; min-height: 56px" inputMode="decimal" value="{{tCre}}" onChange="{{setTCre}}"></div>
+<div><label class="lb" for="tx-cd">Cai na conta em (dias)</label><input id="tx-cd" class="money" style="font-size: 26px; min-height: 56px" inputMode="numeric" value="{{dCre}}" onChange="{{setDCre}}"></div>
+</div>
+</div>
+</div>
+<div><button type="button" class="btn" style="min-width: 220px" onClick="{{toggleTx}}">Pronto</button></div>
+</sc-if>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{savedDia}}" hint-placeholder-val="{{ false }}">
+<div class="hrow" style="gap: 18px; justify-content: space-between">
+<div class="hrow" style="gap: 14px">
+<svg width="56" height="56" viewBox="0 0 24 24" aria-hidden="true" style="fill: none; stroke: #14532D; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none"><circle cx="12" cy="12" r="10"></circle><path d="M7 12l3 3 7-7"></path></svg>
+<div><h2 style="font-size: 28px">Vendas de 16/10 lançadas!</h2><p style="margin: 4px 0 0; font-size: 20px">Total de <b>{{totalDiaTxt}}</b>. Já aparece no histórico abaixo e nos relatórios.</p></div>
+</div>
+<button type="button" class="btn2" onClick="{{editDia}}">Corrigir valores</button>
+</div>
+</sc-if>
+</section>
+
+<section class="card" aria-labelledby="t-dias" style="padding: 8px">
+<div class="hrow" style="padding: 14px 14px 8px"><h2 id="t-dias" style="font-size: 26px">Histórico do balcão</h2><span class="help"><button type="button" aria-label="Ajuda: histórico do balcão">?</button><span class="tip l" role="tooltip"><b>Histórico do balcão</b>Todos os fechamentos de fim de dia, do mais novo para o mais antigo. Para corrigir um dia, toque nele e altere os valores.</span></span></div>
+<div style="overflow-x: auto">
+<table class="tbl">
+<thead><tr><th>Dia</th><th class="num">Dinheiro</th><th class="num">Débito</th><th class="num">Crédito</th><th class="num">Pix</th><th class="num">Total</th></tr></thead>
+<tbody>
+<sc-for list="{{dias}}" as="d" hint-placeholder-count="6">
+<tr><td style="font-weight: 700">{{d.d}}</td><td class="num">{{d.a}}</td><td class="num">{{d.b}}</td><td class="num">{{d.e}}</td><td class="num">{{d.c}}</td><td class="num" style="font-weight: 700">{{d.t}}</td></tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</sc-if>
+
+<sc-if value="{{isRes}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div class="hrow"><h2 style="font-size: 30px">Resumo das vendas · dia</h2><span class="help"><button type="button" aria-label="Ajuda: resumo do dia">?</button><span class="tip l" role="tooltip"><b>Resumo do dia</b>Como está o dia de hoje comparado com os outros dias do mês, e se algum fechamento do balcão ficou sem lançar.</span></span></div>
+<section aria-label="Resumo do dia" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px">
+<div class="card" style="padding: 20px; border-color: #2A1E10"><div class="muted" style="font-weight: 700">Vendas de hoje</div><div style="font-size: 28px; font-weight: 700; font-variant-numeric: tabular-nums">{{hojeTxt}}</div><div class="muted">{{hojeSub}}</div></div>
+<div class="card" style="padding: 20px"><div class="muted" style="font-weight: 700">Média por dia</div><div style="font-size: 28px; font-weight: 700; font-variant-numeric: tabular-nums">{{mediaTxt}}</div><div class="muted">balcão + pedidos</div></div>
+<div class="card" style="padding: 20px"><div class="muted" style="font-weight: 700">Melhor dia do mês</div><div style="font-size: 28px; font-weight: 700; font-variant-numeric: tabular-nums">R$ 3.610,50</div><div class="muted">sábado, 10/10</div></div>
+<div class="card" style="padding: 20px"><div class="hrow" style="justify-content: space-between"><span class="muted" style="font-weight: 700">Dias lançados</span><span class="help"><button type="button" aria-label="Ajuda: dias lançados">?</button><span class="tip r" role="tooltip"><b>Dias lançados</b>Quantos dias do mês já tiveram as vendas do balcão anotadas. Se um dia ficar sem lançar, o sistema avisa na tela inicial para não esquecer.</span></span></div><div style="font-size: 28px; font-weight: 700">{{diasLanc}}</div><div class="muted">{{diasLancSub}}</div></div>
+</section>
+<section class="card" aria-labelledby="t-txh" style="display: flex; flex-direction: column; gap: 4px">
+<div class="hrow" style="justify-content: space-between; margin-bottom: 6px"><div class="hrow"><h3 id="t-txh" style="font-size: 24px">Taxas da maquininha · hoje</h3><span class="help"><button type="button" aria-label="Ajuda: taxas de hoje">?</button><span class="tip l" role="tooltip"><b>Taxas de hoje</b>Quanto a maquininha descontou das vendas no cartão hoje, no balcão e nos pedidos, e quanto realmente fica para a sorveteria. As taxas são alteradas na aba Vendas do balcão.</span></span></div><span class="muted">{{txStatus}}</span></div>
+<div class="line" style="border-bottom: 1px solid #F0E6CC"><span>Balcão · débito ({{tDeb}}% sobre {{debTxt}})</span><span>− {{taxaDebTxt}}</span></div>
+<div class="line" style="border-bottom: 1px solid #F0E6CC"><span>Balcão · crédito ({{tCre}}% sobre {{creTxt}})</span><span>− {{taxaCreTxt}}</span></div>
+<div class="line" style="border-bottom: 1px solid #F0E6CC"><span>Pedidos pagos no cartão</span><span>− {{pedTaxaHojeTxt}}</span></div>
+<div class="line" style="font-size: 20px"><span style="font-weight: 700">Total de taxas hoje</span><span style="color: #8E1414">− {{taxaHojeTxt}}</span></div>
+<div style="background: #DDF3E3; border-radius: 12px; padding: 14px 16px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 20px; color: #14532D; margin-top: 6px"><span>Fica para a sorveteria hoje: <b>{{liqHojeTxt}}</b></span><span>O crédito cai na conta em <b>{{creDia}}</b></span></div>
+</section>
+<div class="hrow" style="margin-top: 8px"><h2 style="font-size: 30px">Resumo das vendas · mês (outubro)</h2><span class="help"><button type="button" aria-label="Ajuda: resumo das vendas">?</button><span class="tip l" role="tooltip"><b>Resumo das vendas</b>Junta as vendas do balcão e os pedidos de clientes num lugar só. Mostra quanto entrou no mês, quanto veio de cada um e o total de cada dia. Só para consulta: os lançamentos são feitos nas outras abas.</span></span></div>
+<section aria-label="Totais" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px">
+<div class="card" style="background: #2A1E10; border-color: #2A1E10; color: #FFFFFF; padding: 20px"><div style="font-weight: 700; color: #FFD54F">Total vendido</div><div style="font-size: 30px; font-weight: 700; font-variant-numeric: tabular-nums">{{totMesTxt}}</div><div>balcão + pedidos</div></div>
+<div class="card" style="padding: 20px"><div class="muted" style="font-weight: 700">Balcão</div><div style="font-size: 28px; font-weight: 700; font-variant-numeric: tabular-nums">{{balMesTxt}}</div><div class="muted">{{balPct}} do total</div></div>
+<div class="card" style="padding: 20px"><div class="muted" style="font-weight: 700">Pedidos de clientes</div><div style="font-size: 28px; font-weight: 700; font-variant-numeric: tabular-nums">{{pedMesTxt}}</div><div class="muted">{{pedPct}} do total · {{qtdPed}} pedidos</div></div>
+<div class="card" style="padding: 20px"><div class="muted" style="font-weight: 700">Dias com venda</div><div style="font-size: 28px; font-weight: 700">16 dias</div><div class="muted">de 1 a 16 de outubro</div></div>
+</section>
+<section class="card" aria-label="Divisão entre balcão e pedidos" style="display: flex; flex-direction: column; gap: 10px">
+<div class="hrow" style="justify-content: space-between; font-weight: 700"><span><span style="display: inline-block; width: 18px; height: 18px; border-radius: 4px; background: #F2B200; vertical-align: -3px; margin-right: 6px"></span>Balcão {{balPct}}</span><span><span style="display: inline-block; width: 18px; height: 18px; border-radius: 4px; background: #C62828; vertical-align: -3px; margin-right: 6px"></span>Pedidos {{pedPct}}</span></div>
+<div role="img" aria-label="Balcão {{balPct}} e pedidos {{pedPct}} das vendas" style="display: flex; height: 40px; border-radius: 10px; overflow: hidden; border: 2px solid #2A1E10"><div style="width: {{balPct}}; background: #F2B200"></div><div style="flex: 1; background: #C62828"></div></div>
+</section>
+<section class="card" aria-labelledby="t-rd" style="padding: 8px">
+<div class="hrow" style="padding: 14px 14px 8px"><h3 id="t-rd" style="font-size: 24px">Vendas por dia</h3></div>
+<div style="overflow-x: auto">
+<table class="tbl">
+<thead><tr><th>Dia</th><th class="num">Balcão</th><th class="num">Pedidos</th><th class="num">Total do dia</th></tr></thead>
+<tbody>
+<sc-for list="{{resDias}}" as="d" hint-placeholder-count="7">
+<tr><td style="font-weight: 700">{{d.d}}</td><td class="num">{{d.b}}</td><td class="num">{{d.p}}</td><td class="num" style="font-weight: 700">{{d.t}}</td></tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</sc-if>
+
+<sc-if value="{{isPed}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 24px">
+
+<section class="card" aria-labelledby="t-novo" style="border-color: #2A1E10; display: flex; flex-direction: column; gap: 18px">
+<sc-if value="{{notSaved}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<div class="hrow"><h2 id="t-novo" style="font-size: 28px">Novo pedido</h2><span class="help"><button type="button" aria-label="Ajuda: novo pedido">?</button><span class="tip l" role="tooltip"><b>Novo pedido</b>Escolha o cliente, ponha a quantidade de cada produto com + e −, marque como ele pagou e salve. O valor entra nas vendas do dia e o pedido vai para o histórico logo abaixo.</span></span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+<div style="flex: 999 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; align-items: end">
+<div><label class="lb" for="p-cli">Cliente</label><div style="position: relative"><button type="button" class="inp" id="p-cli" aria-haspopup="listbox" aria-expanded="{{ddPcli.aberto}}" onClick="{{ddPcli.toggle}}" style="display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; text-align: left; cursor: pointer; font-weight: 700"><span>{{ddPcli.sel}}</span><span aria-hidden="true">{{ddPcli.seta}}</span></button><sc-if value="{{ddPcli.aberto}}" hint-placeholder-val="{{ false }}"><div class="ddpanel" style="{{ddPcli.pst}}"><div class="ddlist" role="listbox"><sc-for list="{{ddPcli.itens}}" as="dI" hint-placeholder-count="4"><div class="ddrow"><button type="button" role="option" onClick="{{dI.pick}}" style="{{dI.st}}">{{dI.marca}} {{dI.label}}</button></div></sc-for></div></div></sc-if></div></div>
+<div><label class="lb" for="p-dt">Data</label><input id="p-dt" class="inp" value="16/10/2026"></div>
+</div>
+<div class="hrow"><span style="font-weight: 700; font-size: 19px">1. Toque no produto para adicionar</span><span class="help"><button type="button" aria-label="Ajuda: adicionar produtos">?</button><span class="tip l" role="tooltip"><b>Adicionar produtos</b>Escolha o tipo (paletas, potes, picolés) e toque no produto para ele entrar no pedido. Depois digite a quantidade direto no campo (por exemplo, 50), ou use − e + para ajustar. A lista vem de Cadastros, na aba Produtos à venda, com o preço de atacado. Produto novo cadastrado lá aparece aqui sozinho.</span></span></div>
+<div role="group" aria-label="Tipo de produto" class="hrow">
+<sc-for list="{{pcats}}" as="c" hint-placeholder-count="5">
+<button type="button" class="{{c.cls}}" onClick="{{c.pick}}">{{c.label}}</button>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px">
+<sc-for list="{{prods}}" as="p" hint-placeholder-count="4">
+<button type="button" class="prod" onClick="{{p.add}}"><span>{{p.nome}}</span><span>{{p.precoTxt}}</span></button>
+</sc-for>
+</div>
+<div style="font-weight: 700; font-size: 19px; margin-top: 8px">2. Itens do pedido <span class="muted" style="font-weight: 400; font-size: 17px">· digite a quantidade no campo</span></div>
+<sc-if value="{{emptyItems}}" hint-placeholder-val="{{ false }}">
+<p class="muted" style="margin: 0; padding: 12px 0">Nenhum produto ainda. Toque nos produtos acima.</p>
+</sc-if>
+<sc-for list="{{items}}" as="it" hint-placeholder-count="4">
+<div style="display: flex; align-items: center; gap: 10px; padding-bottom: 10px; border-bottom: 1px solid #F0E6CC">
+<div style="flex: 1; min-width: 0"><div style="font-weight: 700">{{it.nome}}</div><div class="muted" style="font-size: 16px">{{it.unitTxt}}</div></div>
+<button type="button" class="qb" aria-label="Tirar um" onClick="{{it.dec}}">−</button>
+<input class="qin" type="number" min="0" inputMode="numeric" aria-label="Quantidade de {{it.nome}}" value="{{it.q}}" onChange="{{it.set}}">
+<button type="button" class="qb" aria-label="Pôr mais um" onClick="{{it.inc}}">+</button>
+<button type="button" class="rm" onClick="{{it.rm}}">Remover</button>
+</div>
+</sc-for>
+</div>
+<div style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 16px">
+<div style="font-weight: 700">Como o cliente pagou</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{pays}}" as="py" hint-placeholder-count="4">
+<button type="button" class="{{py.cls}}" onClick="{{py.pick}}">{{py.label}}</button>
+</sc-for>
+</div>
+<div style="background: #FFF0C2; border-radius: 14px; padding: 16px 18px">
+<div class="line" style="font-size: 22px"><span style="font-weight: 700">Total do pedido</span><span style="font-size: 36px; color: #A61B1B">{{totalTxt}}</span></div>
+<sc-if value="{{pedTemTaxa}}" hint-placeholder-val="{{ false }}">
+<div class="line muted" style="font-size: 17px"><span>Taxa da maquininha ({{pedTaxaPct}}%)</span><span>− {{pedTaxaTxt}}</span></div>
+<div class="line" style="font-size: 17px"><span>Fica para a sorveteria</span><span>{{pedLiqTxt}}</span></div>
+</sc-if>
+</div>
+<button type="button" class="btn" style="min-height: 64px; font-size: 21px" onClick="{{save}}">Salvar pedido</button>
+</div>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{saved}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+<div style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 14px">
+<div class="hrow"><svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true" style="fill: none; stroke: #14532D; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><circle cx="12" cy="12" r="10"></circle><path d="M7 12l3 3 7-7"></path></svg><h2 style="font-size: 28px">Pedido nº 1053 salvo!</h2></div>
+<p style="margin: 0; font-size: 20px">Total de <b>{{totalTxt}}</b> em {{payLabel}}. Já aparece no histórico abaixo.</p>
+<button type="button" class="btn">Imprimir comprovante</button>
+<button type="button" class="btn2" onClick="{{novo}}">Fazer outro pedido</button>
+</div>
+<div style="flex: 1 1 340px">
+<div class="hrow" style="margin-bottom: 8px"><span style="font-weight: 700">Comprovante</span><span class="help"><button type="button" aria-label="Ajuda: comprovante">?</button><span class="tip r" role="tooltip"><b>Comprovante do pedido</b>Sai pronto para imprimir e ir junto com a entrega. O cliente assina no recebimento.</span></span></div>
+<div class="rc" aria-label="Prévia do comprovante">
+<div style="text-align: center; font-weight: 700; font-size: 18px">BIG LAKE SORVETERIA</div>
+<div style="text-align: center">Pedido nº 1053 · 16/10/2026</div>
+<div>--------------------------------</div>
+<div>Cliente: Mercado Bom Preço</div>
+<div>--------------------------------</div>
+<sc-for list="{{rcItems}}" as="ri" hint-placeholder-count="3"><div class="l"><span>{{ri.q}} x {{ri.nome}}</span><span>{{ri.vTxt}}</span></div></sc-for>
+<div>--------------------------------</div>
+<div class="l" style="font-weight: 700"><span>TOTAL</span><span>{{totalTxt}}</span></div>
+<div>Pagamento: {{payLabel}}</div>
+<div style="margin-top: 22px">Recebido por: ________________</div>
+</div>
+</div>
+</div>
+</sc-if>
+</section>
+
+<section class="card" aria-labelledby="t-hp" style="padding: 8px">
+<div class="hrow" style="justify-content: space-between; padding: 14px 14px 8px">
+<div class="hrow"><h2 id="t-hp" style="font-size: 26px">Histórico de pedidos</h2><span class="help"><button type="button" aria-label="Ajuda: histórico de pedidos">?</button><span class="tip l" role="tooltip"><b>Histórico de pedidos</b>Todos os pedidos já feitos, do mais novo para o mais antigo. Toque em "Comprovante" para imprimir de novo.</span></span></div>
+<span style="font-size: 19px">Outubro: <b>{{qtdPed}} pedidos · {{totalMesTxt}}</b></span>
+</div>
+<div style="overflow-x: auto">
+<table class="tbl">
+<thead><tr><th>Nº</th><th>Data</th><th>Cliente</th><th>Pagamento</th><th class="num">Total</th><th></th></tr></thead>
+<tbody>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="6">
+<tr>
+<td class="muted" style="font-weight: 700">#{{r.n}}</td>
+<td style="white-space: nowrap">{{r.d}}</td>
+<td><div style="font-weight: 700">{{r.cli}}</div><div class="muted" style="font-size: 16px">{{r.itens}}</div></td>
+<td>{{r.pag}}</td>
+<td class="num" style="font-weight: 700">{{r.totalTxt}}</td>
+<td style="text-align: right"><button type="button" class="pay" style="min-height: 46px; padding: 0 14px">Comprovante</button></td>
+</tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</sc-if>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1500}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    try {
+      window.addEventListener('mousedown', (e) => {
+        const st = this.state; if (!(st.ddOpen || st.drop || st.dropCat || st.cdrop || st.tbOpen)) return;
+        if (e.target && e.target.closest && e.target.closest('[aria-expanded], .ddpanel, [data-ddp]')) return;
+        this.setState({ ddOpen: null, drop: false, dropCat: false, cdrop: false, tbOpen: false, rconf: null, crconf: null, tbConf: null });
+      });
+      const fecharFlutuante = (e) => {
+        const st = this.state; if (!(st.ddDir && st.ddDir.fx) || !(st.ddOpen || st.drop || st.dropCat || st.cdrop || st.tbOpen)) return;
+        if (e && e.target && e.target.closest && e.target.closest('.ddpanel, [data-ddp]')) return;
+        this.setState({ ddOpen: null, drop: false, dropCat: false, cdrop: false, tbOpen: false, rconf: null, crconf: null, tbConf: null });
+      };
+      window.addEventListener('scroll', fecharFlutuante, true);
+      window.addEventListener('resize', fecharFlutuante);
+    } catch (err) {}
+    this.state = { z: 1, help: true, aba: 'balcao', din: '412,50', deb: '218,00', cre: '320,00', pix: '334,00', tDeb: '1,5', tCre: '3,2', dDeb: '1', dCre: '30', showTx: false, savedDia: false, saved: false, pay: 'pix', pcat: 'pote', q: { mor: 4, cho: 4, aca: 2, pc: 1 } };
+  }
+  shell() {
+    const s = this.state;
+    return {
+      zoom: s.z, appCls: s.help ? 'app' : 'app nohelp', helpBtn: s.help ? 'tb on' : 'tb', helpTxt: s.help ? '? Ajuda ligada' : '? Ajuda desligada',
+      zIn: () => this.setState({ z: Math.min(1.3, Math.round((this.state.z + 0.1) * 10) / 10) }),
+      zOut: () => this.setState({ z: Math.max(0.8, Math.round((this.state.z - 0.1) * 10) / 10) }),
+      toggleHelp: () => this.setState({ help: !this.state.help })
+    };
+  }
+  brl(n) { return n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); }
+  num(t) { const v = parseFloat(String(t).replace(/\./g, '').replace(',', '.')); return isNaN(v) ? 0 : v; }
+  ddMk(id, opts, cur, onPick) {
+    const s = this.state, on = s.ddOpen === id, O = opts.map(o => Array.isArray(o) ? o : [o, o]);
+    const salvo = (s.ddv || {})[id], val = cur !== undefined && cur !== null ? cur : (O.some(o => o[0] === salvo) ? salvo : O[0][0]);
+    const atual = O.find(o => o[0] === val) || O[0];
+    return { sel: atual[1], aberto: on, seta: on ? '▲' : '▼', toggle: (e) => this.setState({ ddOpen: this.state.ddOpen === id ? null : id, ddDir: this.ddDir(e) }), pst: this.ddPst(s.ddDir),
+      itens: O.map(([v, l]) => ({ label: l, marca: v === val ? '✓' : '',
+        st: 'flex: 1 1 140px; min-height: 48px; padding: 0 12px; border: none; border-radius: 10px; background: ' + (v === val ? '#FFC93C' : 'transparent') + '; color: #2A1E10; font: 700 18px \'Atkinson Hyperlegible\', sans-serif; text-align: left; cursor: pointer',
+        pick: () => { this.setState({ ddOpen: null, ddv: { ...(this.state.ddv || {}), [id]: v } }); if (onPick) onPick(v); } })) };
+  }
+  ddDir(e) {
+    try {
+      const el = e.currentTarget, r = el.getBoundingClientRect(), box = el.closest('.mdl'), lim = box ? box.getBoundingClientRect().right : window.innerWidth;
+      const side = r.left + 400 > lim - 12 ? 'r' : 'l';
+      if (!el.closest('[role="dialog"]')) return side;
+      // Inside a modal: the list floats over the screen (it never makes the modal grow or scroll) and opens upward when there is no room below.
+      const z = this.state.z || 1, vw = window.innerWidth, vh = window.innerHeight;
+      const W = Math.min(Math.max(r.width, 400), vw - 32);
+      let left = side === 'r' ? r.right - W : r.left; left = Math.max(16, Math.min(left, vw - 16 - W));
+      const below = vh - r.bottom - 16, above = r.top - 16, up = below < 330 && above > below;
+      return { fx: true, up, left: left / z, w: W / z, y: (up ? vh - r.top + 6 : r.bottom + 6) / z, h: Math.max(160, (up ? above : below) - 6) / z };
+    } catch (err) { return 'l'; }
+  }
+  ddPst(dir) {
+    if (dir && dir.fx) return 'position: fixed; z-index: 300; left: ' + dir.left + 'px; right: auto; width: ' + dir.w + 'px; max-width: none; ' + (dir.up ? 'top: auto; bottom: ' + dir.y + 'px;' : 'bottom: auto; top: ' + dir.y + 'px;') + ' max-height: ' + dir.h + 'px; overflow-y: auto; display: flex; flex-direction: column;';
+    return (dir === 'r' ? 'left: auto; right: 0;' : 'left: 0; right: auto;') + ' width: max(100%, 400px); max-width: calc(100vw - 48px);';
+  }
+  renderVals() {
+    const s = this.state;
+    const abas = [['balcao', 'Vendas do balcão (fim do dia)'], ['ped', 'Pedidos de clientes'], ['res', 'Resumo das vendas']].map(([id, label]) => ({ label, cls: s.aba === id ? 'sg on' : 'sg', pick: () => this.setState({ aba: id }) }));
+    const din = this.num(s.din), deb = this.num(s.deb), cre = this.num(s.cre), pix = this.num(s.pix);
+    const taxaDeb = deb * this.num(s.tDeb) / 100, taxaCre = cre * this.num(s.tCre) / 100;
+    const dc = new Date(2026, 9, 16 + (parseInt(s.dCre, 10) || 0));
+    const creDia = String(dc.getDate()).padStart(2, '0') + '/' + String(dc.getMonth() + 1).padStart(2, '0');
+    const totalDia = din + deb + cre + pix, taxa = taxaDeb + taxaCre;
+    const f2 = (n) => n.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const D = [
+      ['15/10 · quinta', 420, 250, 360, 352.5], ['14/10 · quarta', 388, 220, 320, 301], ['13/10 · terça', 295.5, 162, 240, 260],
+      ['12/10 · segunda', 0, 0, 0, 0], ['11/10 · domingo', 980, 580, 840, 905], ['10/10 · sábado', 760, 480, 700, 690.5]
+    ];
+    if (s.savedDia) D.unshift(['16/10 · sexta (hoje)', din, deb, cre, pix]);
+    const dias = D.map(([d, a, b, e, c]) => a + b + e + c === 0 ? { d, a: '—', b: '—', e: '—', c: '—', t: 'Loja fechada' } : { d, a: f2(a), b: f2(b), e: f2(e), c: f2(c), t: this.brl(a + b + e + c) });
+    const balMes = 28340 - 0 + (s.savedDia ? totalDia : 0);
+    const O = [
+      { n: 1052, d: '16/10', cli: 'Mercado Bom Preço', itens: '12 potes de 2 L', total: 540, pag: 'Pix' },
+      { n: 1051, d: '15/10', cli: 'Lanchonete Sabor & Cia', itens: '4 caixas de picolé', total: 360, pag: 'Pix' },
+      { n: 1050, d: '14/10', cli: 'Buffet Festa Feliz', itens: '20 potes + 200 casquinhas', total: 1480, pag: 'Cartão crédito' },
+      { n: 1049, d: '14/10', cli: 'Padaria Pão Quente', itens: '10 potes de 2 L', total: 450, pag: 'Dinheiro' },
+      { n: 1048, d: '12/10', cli: 'Restaurante Sabor da Terra', itens: '16 potes de 2 L', total: 720, pag: 'Pix' },
+      { n: 1047, d: '10/10', cli: 'Escola Pequeno Saber (festa)', itens: '8 caixas de picolé + 4 potes', total: 980, pag: 'Cartão débito' }
+    ];
+    const I = [
+      { id: 'pmor', c: 'pal', nome: 'Paleta de Morango recheada', p: 7 },
+      { id: 'pmar', c: 'pal', nome: 'Paleta de Maracujá', p: 7 },
+      { id: 'pcoc', c: 'pal', nome: 'Paleta de Coco cremoso', p: 7 },
+      { id: 'mor', c: 'pote', nome: 'Pote 2 L · Morango', p: 45 },
+      { id: 'cho', c: 'pote', nome: 'Pote 2 L · Chocolate', p: 45 },
+      { id: 'aca', c: 'pote', nome: 'Pote 2 L · Creme de açaí', p: 52 },
+      { id: 'pf', c: 'pic', nome: 'Caixa 20 picolés de fruta', p: 110 },
+      { id: 'pc', c: 'pic', nome: 'Caixa 20 picolés cremosos', p: 110 },
+      { id: 'casq', c: 'out', nome: 'Casquinhas (pacote 100)', p: 70 }
+    ];
+    const q = (id) => s.q[id] || 0;
+    const setQ = (id, v) => { const nq = { ...this.state.q }; if (v <= 0) delete nq[id]; else nq[id] = v; this.setState({ q: nq }); };
+    const CT = [['todos', 'Todos'], ['pal', 'Paletas'], ['pote', 'Potes'], ['pic', 'Picolés'], ['out', 'Outros']];
+    const pcats = CT.map(([id, label]) => ({ label, cls: s.pcat === id ? 'tab on' : 'tab', pick: () => this.setState({ pcat: id }) }));
+    const prods = I.filter(i => s.pcat === 'todos' || i.c === s.pcat).map(i => ({ nome: i.nome, precoTxt: this.brl(i.p), add: () => setQ(i.id, (this.state.q[i.id] || 0) + 1) }));
+    const sel = I.filter(i => q(i.id) > 0);
+    const items = sel.map(i => ({ nome: i.nome, q: q(i.id), unitTxt: this.brl(i.p) + ' cada · ' + this.brl(q(i.id) * i.p), inc: () => setQ(i.id, q(i.id) + 1), dec: () => setQ(i.id, q(i.id) - 1), rm: () => setQ(i.id, 0), set: (e) => { const v = parseInt(e.target.value, 10); if (!isNaN(v)) setQ(i.id, v); } }));
+    const rcItems = sel.map(i => ({ q: q(i.id), nome: i.nome, vTxt: this.brl(q(i.id) * i.p) }));
+    const total = sel.reduce((t, i) => t + q(i.id) * i.p, 0);
+    const PY = [['din', 'Dinheiro'], ['pix', 'Pix'], ['deb', 'Cartão débito'], ['cre', 'Cartão crédito']];
+    const pays = PY.map(([id, label]) => ({ label, cls: s.pay === id ? 'pay on' : 'pay', pick: () => this.setState({ pay: id }) }));
+    const payLabel = PY.find(p => p[0] === s.pay)[1];
+    const H = s.saved ? [{ n: 1053, d: '16/10', cli: 'Mercado Bom Preço', itens: rcItems.map(r => r.q + ' ' + r.nome).join(', '), total, pag: payLabel }].concat(O) : O;
+    const rows = H.map(o => ({ ...o, totalTxt: this.brl(o.total) }));
+    const pedMes = H.reduce((a, o) => a + o.total, 0), totMes = balMes + pedMes;
+    const pedPct2 = s.pay === 'deb' ? this.num(s.tDeb) : s.pay === 'cre' ? this.num(s.tCre) : 0;
+    const pedTaxa = total * pedPct2 / 100, pedTaxaHoje = s.saved ? pedTaxa : 0;
+    const pct = (v) => Math.round(v / totMes * 100) + '%';
+    const RD = [
+      ['16/10 · sexta', s.savedDia ? totalDia : null, (s.saved ? total : 0) + 540],
+      ['15/10 · quinta', 1382.5, 360], ['14/10 · quarta', 1229, 1930], ['13/10 · terça', 957.5, 0],
+      ['12/10 · segunda', 0, 720], ['11/10 · domingo', 3305, 0], ['10/10 · sábado', 2630.5, 980]
+    ];
+    const resDias = RD.map(([d, b, p]) => ({ d, b: b === null ? 'falta lançar' : b === 0 ? 'loja fechada' : this.brl(b), p: p ? this.brl(p) : '—', t: this.brl((b || 0) + p) }));
+    return {
+      ...this.shell(),
+      ddPcli: this.ddMk('p-cli', [["Mercado Bom Preço", "Mercado Bom Preço"], ["Lanchonete Sabor & Cia", "Lanchonete Sabor & Cia"], ["Buffet Festa Feliz", "Buffet Festa Feliz"], ["Padaria Pão Quente", "Padaria Pão Quente"]], undefined, null),
+      abas, isBalcao: s.aba === 'balcao', isPed: s.aba === 'ped', isRes: s.aba === 'res',
+      balMesTxt: this.brl(balMes), pedMesTxt: this.brl(pedMes), totMesTxt: this.brl(totMes), mediaTxt: this.brl(totMes / 16),
+      balPct: pct(balMes), pedPct: pct(pedMes), resDias,
+      hojeTxt: this.brl((s.savedDia ? totalDia : 0) + 540 + (s.saved ? total : 0)),
+      pedTemTaxa: pedPct2 > 0, pedTaxaPct: s.pay === 'deb' ? s.tDeb : s.tCre, pedTaxaTxt: this.brl(pedTaxa), pedLiqTxt: this.brl(total - pedTaxa),
+      txStatus: s.savedDia ? 'vendas do balcão lançadas' : 'prévia com os valores digitados no balcão',
+      debTxt: this.brl(deb), creTxt: this.brl(cre), pedTaxaHojeTxt: this.brl(pedTaxaHoje), taxaHojeTxt: this.brl(taxa + pedTaxaHoje),
+      liqHojeTxt: this.brl(totalDia + 540 + (s.saved ? total : 0) - taxa - pedTaxaHoje),
+      hojeSub: s.savedDia ? 'balcão + pedidos' : 'só pedidos · balcão ainda não lançado',
+      diasLanc: s.savedDia ? '16 de 16' : '15 de 16', diasLancSub: s.savedDia ? 'tudo em dia' : 'falta lançar hoje',
+      din: s.din, deb: s.deb, cre: s.cre, pix: s.pix,
+      setDin: (e) => this.setState({ din: e.target.value }), setDeb: (e) => this.setState({ deb: e.target.value }), setCre: (e) => this.setState({ cre: e.target.value }), setPix: (e) => this.setState({ pix: e.target.value }),
+      tDeb: s.tDeb, tCre: s.tCre, dDeb: s.dDeb, dCre: s.dCre, creDia,
+      setTDeb: (e) => this.setState({ tDeb: e.target.value }), setTCre: (e) => this.setState({ tCre: e.target.value }),
+      setDDeb: (e) => this.setState({ dDeb: e.target.value }), setDCre: (e) => this.setState({ dCre: e.target.value }),
+      showTx: s.showTx, txBtn: s.showTx ? 'Fechar' : 'Ver ou alterar taxas', toggleTx: () => this.setState({ showTx: !this.state.showTx }),
+      totalDiaTxt: this.brl(totalDia), taxaDebTxt: this.brl(taxaDeb), taxaCreTxt: this.brl(taxaCre), liquidoTxt: this.brl(totalDia - taxa),
+      savedDia: s.savedDia, notSavedDia: !s.savedDia,
+      saveDia: () => this.setState({ savedDia: true }), editDia: () => this.setState({ savedDia: false }),
+      dias,
+      rows, items, pays, rcItems, payLabel, pcats, prods, emptyItems: sel.length === 0,
+      totalTxt: this.brl(total),
+      qtdPed: H.length, totalMesTxt: this.brl(H.reduce((a, o) => a + o.total, 0)),
+      saved: s.saved, notSaved: !s.saved,
+      save: () => this.setState({ saved: true }),
+      novo: () => this.setState({ saved: false, q: {} })
+    };
+  }
+}
+</script>
+</body>
+</html>

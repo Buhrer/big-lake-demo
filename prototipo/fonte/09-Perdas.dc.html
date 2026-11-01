@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Big Lake · Perdas</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Baloo+2:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF7DE;color:#2A1E10;font-family:'Atkinson Hyperlegible',system-ui,sans-serif;font-size:18px;line-height:1.4}
+a{color:#A61B1B}a:hover{color:#7A1010}
+h1,h2,h3{font-family:'Baloo 2',sans-serif;line-height:1.15;margin:0}
+.nav{display:flex;align-items:center;gap:14px;min-height:50px;white-space:nowrap;padding:0 14px;border-radius:12px;color:#2A1E10;text-decoration:none;font-weight:700;font-size:19px}
+.nav:hover{background:#FFDD70;color:#2A1E10}
+.nav.on,.nav.on:hover{background:#2A1E10;color:#FFD54F}
+.badge{margin-left:auto;min-width:28px;height:28px;border-radius:14px;background:#C62828;color:#FFFFFF;font-size:15px;display:inline-flex;align-items:center;justify-content:center}
+@media (max-height:820px){.nav{min-height:43px}}
+.ic{width:26px;height:26px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;box-sizing:border-box;border-radius:12px;border:2px solid #C62828;background:#C62828;color:#FFFFFF;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;text-decoration:none}
+.btn:hover{background:#A61B1B;border-color:#A61B1B;color:#FFFFFF}
+.btn2{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 20px;box-sizing:border-box;border-radius:12px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;text-decoration:none}
+.btn2:hover{background:#FFF0C2;color:#2A1E10}
+.card{background:#FFFFFF;border:2px solid #F0E2B6;border-radius:18px;padding:24px;box-sizing:border-box}
+.tbl{width:100%;border-collapse:collapse;font-size:18px}
+.tbl th{text-align:left;padding:12px 14px;background:#FFF0C2;font-size:16px;font-weight:700}
+.tbl td{padding:12px 14px;border-bottom:1px solid #F0E6CC;vertical-align:middle}
+.num,.tbl th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;padding:4px 12px;border-radius:999px;font-size:16px;font-weight:700;white-space:nowrap}
+.ok{background:#DDF3E3;color:#14532D}.low{background:#FDE0DE;color:#8E1414}.warn{background:#FFF0C2;color:#6B4A00}.info{background:#E3ECFA;color:#1E3A6E}
+.inp{display:block;width:100%;min-height:52px;box-sizing:border-box;border:2px solid #CDBF9C;border-radius:10px;padding:0 14px;font:18px 'Atkinson Hyperlegible',sans-serif;background:#FFFFFF;color:#2A1E10}
+.lb{display:flex;align-items:center;min-height:34px;font-weight:700;font-size:17px;margin-bottom:6px}
+button.inp>span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1 1 auto}button.inp>span:last-child{flex:none}
+.tab{min-height:52px;padding:0 18px;border-radius:999px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 17px 'Atkinson Hyperlegible',sans-serif;cursor:pointer}
+.tab.on{background:#2A1E10;color:#FFD54F}
+.seg{display:flex;flex-wrap:wrap;gap:6px;padding:6px;background:#FFFFFF;border:2px solid #2A1E10;border-radius:16px}
+.sg{min-height:54px;padding:0 22px;border:none;border-radius:11px;background:transparent;color:#2A1E10;font:700 19px 'Atkinson Hyperlegible',sans-serif;cursor:pointer}
+.sg:hover{background:#FFF0C2}
+.sg.on,.sg.on:hover{background:#2A1E10;color:#FFD54F}
+.opt{min-height:56px;border-radius:12px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.2;padding:6px}
+.opt.on{background:#FFC93C}
+.opt small{font-size:15px;font-weight:400}
+.sim{display:inline-block;padding:6px 14px;border-radius:999px;background:#2A1E10;color:#FFD54F;font-size:15px;font-weight:700}
+.muted{color:#5E4B33}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;padding:10px 14px;background:#FFFFFF;border:2px solid #F0E2B6;border-radius:14px}
+.bk{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:#14532D;font-size:16px}
+.tb{min-height:44px;min-width:44px;padding:0 12px;box-sizing:border-box;border-radius:10px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 17px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none}
+.tb:hover{background:#FFF0C2;color:#2A1E10}
+.tb.on,.tb.on:hover{background:#C62828;border-color:#C62828;color:#FFFFFF}
+.help{position:relative;display:inline-flex;vertical-align:middle;flex:none}
+.help>button{width:34px;height:34px;border-radius:50%;border:2px solid #C62828;background:#FFFFFF;color:#C62828;font:700 19px 'Atkinson Hyperlegible',sans-serif;cursor:help;display:inline-flex;align-items:center;justify-content:center;padding:0}
+.help:hover>button,.help:focus-within>button{background:#C62828;color:#FFFFFF}
+.tip{display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);width:330px;max-width:80vw;background:#2A1E10;color:#FFFFFF;padding:14px 16px;border-radius:12px;font:400 16px/1.5 'Atkinson Hyperlegible',sans-serif;text-align:left;white-space:normal;z-index:60;box-shadow:0 8px 24px rgba(42,30,16,.3)}
+.tip b{display:block;color:#FFD54F;font-size:17px;margin-bottom:4px}
+.help:hover .tip,.help:focus-within .tip{display:block}
+.tip.l{left:0;transform:none}.tip.r{left:auto;right:0;transform:none}
+.nohelp .help{display:none}
+.hrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+header>.hrow,header>.sim{flex:none}
+.buy{min-height:48px;padding:0 16px;border-radius:10px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 16px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;white-space:nowrap}
+.buy.on{background:#DDF3E3;border-color:#14532D;color:#14532D}
+.prod{display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;gap:6px;min-height:84px;padding:12px 14px;border-radius:12px;border:2px solid #F0E2B6;background:#FFFFFF;color:#2A1E10;font:700 17px 'Atkinson Hyperlegible',sans-serif;text-align:left;cursor:pointer}
+.prod:hover{border-color:#C62828;background:#FFF4F2}
+.prod span:last-child{color:#A61B1B;font-variant-numeric:tabular-nums;font-weight:400;font-size:16px}
+.qin{width:90px;height:48px;box-sizing:border-box;border:2px solid #2A1E10;border-radius:10px;background:#FFFFFF;color:#2A1E10;font:700 22px 'Atkinson Hyperlegible',sans-serif;text-align:center;font-variant-numeric:tabular-nums;flex:none}
+.see{min-height:48px;padding:0 18px;border-radius:10px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 17px 'Atkinson Hyperlegible',sans-serif;cursor:pointer}
+.see:hover{background:#FFF0C2}
+.ddpanel{position:absolute;z-index:40;top:calc(100% + 6px);left:0;right:0;min-width:0;background:#FFFFFF;border:2px solid #2A1E10;border-radius:14px;box-shadow:0 10px 28px rgba(42,30,16,.25);padding:6px;box-sizing:border-box}
+.ddpanel.dr{left:auto;right:0;width:260px}
+.ddlist{max-height:300px;overflow-y:auto}
+.ddrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:6px 8px;padding:3px 4px;border-bottom:1px solid #F0E6CC}
+.ddrow:last-child{border-bottom:none}
+.mdl-bg{position:fixed;inset:0;z-index:100;background:rgba(42,30,16,.55);display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box}
+.mdl{width:min(980px,100%);max-height:calc(100vh - 32px);overflow-y:auto;background:#FFFFFF;border:2px solid #2A1E10;border-radius:18px;padding:24px;box-sizing:border-box;box-shadow:0 16px 40px rgba(42,30,16,.35);display:flex;flex-direction:column;gap:16px}
+.mdl>section.card{border:none;padding:0;border-radius:0;background:transparent;box-shadow:none}
+.mdl-h{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mdl-x{flex:none;margin-left:auto}
+</style>
+</helmet>
+<div class="{{appCls}}" style="display: flex; flex-wrap: wrap; min-height: 100vh">
+<nav aria-label="Menu principal" style="flex: 0 0 292px; background: #FFC93C; padding: 20px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 4px">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 0 8px 14px; text-decoration: none; color: #2A1E10">
+<svg width="44" height="52" viewBox="0 0 48 56" aria-hidden="true"><path d="M12 24 L24 54 L36 24 Z" fill="#C68B3E" stroke="#2A1E10" stroke-width="2.5" stroke-linejoin="round"></path><path d="M16 31 L32 31 M19 39 L29 39" stroke="#2A1E10" stroke-width="2"></path><circle cx="24" cy="16" r="13" fill="#C62828" stroke="#2A1E10" stroke-width="2.5"></circle><circle cx="19" cy="11" r="3" fill="#FFFFFF" opacity="0.7"></circle></svg>
+<span style="display: flex; flex-direction: column; line-height: 1"><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: 0.5px">BIG LAKE</span><span style="font-size: 16px; font-weight: 700; margin-top: 4px">Sorveteria</span></span>
+</a>
+<a class="nav" href="Main.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path></svg>Início</a>
+<a class="nav" href="Pedidos.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="12" rx="2"></rect><path d="M7 8V4h10v4M7 14h4"></path></svg>Vendas e Pedidos</a>
+<a class="nav" href="Clientes.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="4"></circle><path d="M2 21c0-4 3-6 7-6s7 2 7 6M16 4a4 4 0 010 8M22 21c0-3-2-5-4-6"></path></svg>Cadastros</a>
+<a class="nav" href="Producao.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="18" rx="2"></rect><path d="M9 2h6v4H9zM9 13l2 2 4-4"></path></svg>Produção e Receitas</a>
+<a class="nav" href="Estoque.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4zM3 7v10l9 4 9-4V7M12 11v10"></path></svg>Estoque e Insumos</a>
+<a class="nav on" aria-current="page" href="Perdas.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"></path></svg>Perdas</a>
+<a class="nav" href="Contas.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>Contas a pagar<span class="badge" aria-label="2 vencem logo">2</span></a>
+<a class="nav" href="Socios.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v9h9"></path></svg>Sócios</a>
+<a class="nav" href="Patrimonio.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l8-3 8 3v16M9 21v-5h6v5M9 9h.01M15 9h.01M9 13h.01M15 13h.01"></path></svg>Patrimônio</a>
+<a class="nav" href="Relatorios.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-5M12 16V6M17 16v-8"></path></svg>Relatórios</a>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; padding: 20px 32px 48px; box-sizing: border-box">
+<div style="zoom: {{zoom}}; max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px">
+<div class="top">
+<div class="hrow">
+<span class="bk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"></path></svg>Cópia de segurança feita hoje, 08:02</span>
+<span class="help"><button type="button" aria-label="Ajuda: cópia de segurança">?</button><span class="tip l" role="tooltip"><b>Cópia de segurança automática</b>Toda vez que o sistema é fechado, ele copia todos os dados para o pen drive e para uma pasta do computador. Se o computador estragar, nada se perde.</span></span>
+</div>
+<div class="hrow" style="gap: 8px">
+<span class="help"><button type="button" aria-label="Ajuda: tamanho da letra">?</button><span class="tip r" role="tooltip"><b>Tamanho da letra</b>A+ aumenta tudo na tela e A− diminui. Bom para quem enxerga melhor com letra grande. O tamanho padrão fica salvo em Configurações.</span></span>
+<button type="button" class="tb" aria-label="Diminuir a letra" onClick="{{zOut}}">A−</button>
+<button type="button" class="tb" aria-label="Aumentar a letra" onClick="{{zIn}}">A+</button>
+<button type="button" class="{{helpBtn}}" onClick="{{toggleHelp}}">{{helpTxt}}</button>
+<a class="tb" href="Config.dc.html">Configurações</a>
+</div>
+</div>
+
+<header style="display: flex; flex-wrap: nowrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div style="min-width: 0; flex: 1 1 auto">
+<p class="muted" style="margin: 0 0 4px; font-size: 18px">Produtos, matéria-prima e trocas feitas nos clientes</p>
+<div class="hrow"><h1 style="font-size: 44px">Perdas</h1><span class="help"><button type="button" aria-label="Ajuda: perdas">?</button><span class="tip l" role="tooltip"><b>Controle de perdas</b>Anote tudo o que se perdeu: paletas e potes que estragaram aqui, matéria-prima que venceu e produtos que venceram no cliente e foram trocados. No fim do mês você vê quanto dinheiro se perdeu e onde.</span></span></div>
+</div>
+<div class="hrow" style="gap: 12px">
+<span class="sim">Simulação · dados de exemplo</span>
+<button type="button" class="{{addCls}}" onClick="{{toggleAdd}}">{{addTxt}}</button>
+</div>
+</header>
+
+<sc-if value="{{aberto}}" hint-placeholder-val="{{ false }}">
+<div class="mdl-bg">
+<div class="mdl" role="dialog" aria-modal="true" aria-label="Registrar perda">
+<section class="card" aria-labelledby="t-reg" style="border-color: #2A1E10; display: flex; flex-direction: column; gap: 18px">
+<div class="hrow"><h2 id="t-reg" style="font-size: 28px">{{regTit}}</h2><sc-if value="{{editando}}" hint-placeholder-val="{{ false }}"><span class="tag warn" style="font-size: 17px; padding: 6px 14px">Editando o registro de {{editData}}</span></sc-if><span class="help"><button type="button" aria-label="Ajuda: registrar perda">?</button><span class="tip l" role="tooltip"><b>Um registro, vários itens</b>Escolha o tipo de perda, toque em cada item que se perdeu e digite a quantidade. Pode colocar quantos itens quiser no mesmo registro, por exemplo 3 sabores trocados no mesmo cliente. No fim, toque em Salvar perda.</span></span><button type="button" class="btn2 mdl-x" onClick="{{toggleAdd}}">✕ Fechar</button></div>
+<div>
+<div class="lb" style="font-size: 19px">O que se perdeu?</div>
+<div role="group" aria-label="Tipo de perda" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px">
+<sc-for list="{{tipos}}" as="o" hint-placeholder-count="3">
+<button type="button" class="{{o.cls}}" style="min-height: 72px" onClick="{{o.pick}}">{{o.label}}<small>{{o.sub}}</small></button>
+</sc-for>
+</div>
+</div>
+
+<sc-if value="{{isTroca}}" hint-placeholder-val="{{ false }}">
+<div style="max-width: 520px"><label class="lb" for="pd-cli">Qual cliente?</label><div style="position: relative"><button type="button" class="inp" id="pd-cli" aria-haspopup="listbox" aria-expanded="{{ddPdcli.aberto}}" onClick="{{ddPdcli.toggle}}" style="display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; text-align: left; cursor: pointer; font-weight: 700"><span>{{ddPdcli.sel}}</span><span aria-hidden="true">{{ddPdcli.seta}}</span></button><sc-if value="{{ddPdcli.aberto}}" hint-placeholder-val="{{ false }}"><div class="ddpanel" style="{{ddPdcli.pst}}"><div class="ddlist" role="listbox"><sc-for list="{{ddPdcli.itens}}" as="dI" hint-placeholder-count="4"><div class="ddrow"><button type="button" role="option" onClick="{{dI.pick}}" style="{{dI.st}}">{{dI.marca}} {{dI.label}}</button></div></sc-for></div></div></sc-if></div></div>
+</sc-if>
+
+<div>
+<div class="lb" style="font-size: 19px">{{escolhaTxt}}</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px">
+<sc-for list="{{opcoes}}" as="p" hint-placeholder-count="7">
+<button type="button" class="prod" onClick="{{p.add}}"><span>{{p.nome}}</span><span>{{p.cTxt}}</span></button>
+</sc-for>
+</div>
+</div>
+
+<div>
+<div class="lb" style="font-size: 19px">Itens deste registro</div>
+<table class="tbl">
+<thead><tr><th>Item</th><th class="num">Quantidade</th><th class="num">Valor</th><th></th></tr></thead>
+<tbody>
+<sc-for list="{{itens}}" as="i" hint-placeholder-count="3">
+<tr>
+<td style="font-weight: 700">{{i.nome}}</td>
+<td class="num" style="white-space: nowrap"><label for="{{i.fid}}" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Quantidade de {{i.nome}}</label><input id="{{i.fid}}" class="qin" inputmode="decimal" value="{{i.q}}" onChange="{{i.setQ}}"> <span style="display: inline-block; min-width: 48px; text-align: left; font-weight: 700">{{i.u}}</span></td>
+<td class="num" style="font-weight: 700">{{i.vTxt}}</td>
+<td style="text-align: right"><button type="button" class="see" onClick="{{i.rem}}">Remover</button></td>
+</tr>
+</sc-for>
+<sc-if value="{{semItens}}" hint-placeholder-val="{{ false }}"><tr><td colspan="4" class="muted" style="padding: 18px 14px">Nenhum item ainda. Toque nos itens acima para colocar aqui.</td></tr></sc-if>
+</tbody>
+<tfoot><tr><td colspan="2" style="font-weight: 700; font-size: 20px; padding: 16px 14px">Valor da perda <span class="muted" style="font-weight: 400; font-size: 16px">({{valorObs}})</span></td><td class="num" style="font-weight: 700; font-size: 26px; padding: 16px 14px">{{totalTxt}}</td><td></td></tr></tfoot>
+</table>
+</div>
+
+<div>
+<div class="lb">Por quê?</div>
+<div role="group" aria-label="Motivo" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px">
+<sc-for list="{{motivos}}" as="m" hint-placeholder-count="4">
+<button type="button" class="{{m.cls}}" onClick="{{m.pick}}">{{m.label}}</button>
+</sc-for>
+</div>
+</div>
+<div><label class="lb" for="pd-o">Observação</label><input id="pd-o" class="inp" placeholder="Opcional"></div>
+<sc-if value="{{isTroca}}" hint-placeholder-val="{{ false }}">
+<p class="muted" style="margin: 0">Os produtos novos entregues na troca saem do estoque. O cliente não paga por eles, por isso entram como perda.</p>
+</sc-if>
+<div class="hrow" style="gap: 12px">
+<button type="button" class="btn" style="min-width: 200px" onClick="{{salvar}}">{{salvarTxt}}</button>
+<sc-if value="{{editando}}" hint-placeholder-val="{{ false }}"><button type="button" class="btn2" onClick="{{cancelar}}">Cancelar edição</button></sc-if>
+</div>
+</section>
+</div>
+</div>
+</sc-if>
+
+<section aria-label="Resumo de outubro" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+<div class="card" style="background: #2A1E10; border-color: #2A1E10; color: #FFFFFF"><div style="font-weight: 700; color: #FFD54F">Perdido em outubro</div><div style="font-size: 32px; font-weight: 700; font-variant-numeric: tabular-nums">{{tot.total}}</div><div>{{tot.n}} registros</div></div>
+<div class="card"><div class="muted" style="font-weight: 700">Produtos prontos</div><div style="font-size: 30px; font-weight: 700; font-variant-numeric: tabular-nums">{{tot.prod}}</div><div class="muted">paletas, potes, picolés</div></div>
+<div class="card"><div class="muted" style="font-weight: 700">Matéria-prima e insumos</div><div style="font-size: 30px; font-weight: 700; font-variant-numeric: tabular-nums">{{tot.mp}}</div><div class="muted">leite, fruta, potes vazios</div></div>
+<div class="card"><div class="muted" style="font-weight: 700">Trocas em clientes</div><div style="font-size: 30px; font-weight: 700; font-variant-numeric: tabular-nums">{{tot.troca}}</div><div class="muted">{{tot.nTroca}}</div></div>
+</section>
+
+<section class="card" aria-labelledby="t-tc" style="display: flex; flex-direction: column; gap: 14px">
+<div class="hrow"><h2 id="t-tc" style="font-size: 26px">Trocas por cliente · outubro</h2><span class="help"><button type="button" aria-label="Ajuda: trocas por cliente">?</button><span class="tip l" role="tooltip"><b>Trocas por cliente</b>Mostra em quais clientes os produtos mais vencem. Se um cliente troca muito, vale entregar menos de cada vez para ele.</span></span></div>
+<sc-for list="{{porCli}}" as="pc" hint-placeholder-count="3">
+<div>
+<div style="display: flex; justify-content: space-between; gap: 12px; margin-bottom: 6px"><span><b>{{pc.cli}}</b> <span class="muted">· {{pc.txt}}</span></span><span style="font-weight: 700; font-variant-numeric: tabular-nums">{{pc.vTxt}}</span></div>
+<div style="height: 18px; background: #FFF0C2; border-radius: 6px; overflow: hidden"><div style="height: 100%; width: {{pc.w}}; background: #C62828; border-radius: 6px"></div></div>
+</div>
+</sc-for>
+</section>
+
+<section class="card" aria-labelledby="t-lp" style="display: flex; flex-direction: column; gap: 14px">
+<div class="hrow" style="justify-content: space-between">
+<h2 id="t-lp" style="font-size: 26px">Perdas de outubro</h2>
+<div role="group" aria-label="Filtrar" class="hrow">
+<sc-for list="{{filtros}}" as="t" hint-placeholder-count="4">
+<button type="button" class="{{t.cls}}" onClick="{{t.pick}}">{{t.label}}</button>
+</sc-for>
+</div>
+</div>
+<sc-if value="{{salvo}}" hint-placeholder-val="{{ false }}"><div style="padding: 14px 18px; border-radius: 12px; background: #DDF3E3; color: #14532D; font-weight: 700; font-size: 19px">✓ {{salvoTxt}}</div></sc-if>
+<sc-if value="{{excluido}}" hint-placeholder-val="{{ false }}">
+<div class="hrow" style="justify-content: space-between; gap: 14px; padding: 14px 18px; border-radius: 12px; background: #DDF3E3; color: #14532D">
+<span style="font-weight: 700; font-size: 19px">✓ O registro de {{excluidoData}} foi excluído.</span>
+<button type="button" class="btn2" onClick="{{desfazer}}">Desfazer</button>
+</div>
+</sc-if>
+<table class="tbl">
+<thead><tr><th>Data</th><th>O que se perdeu</th><th>Motivo</th><th class="num">Valor</th><th></th></tr></thead>
+<tbody>
+<sc-for list="{{lista}}" as="p" hint-placeholder-count="9">
+<tr style="{{p.bg}}"><td>{{p.d}}</td><td><div style="font-weight: 700">{{p.o}}</div><div class="muted" style="font-size: 16px">{{p.sub}}</div><sc-if value="{{p.conf}}" hint-placeholder-val="{{ false }}"><div style="font-weight: 700; color: #8E1414; margin-top: 4px">Excluir este registro?</div></sc-if></td><td><span class="{{p.mCls}}">{{p.m}}</span></td><td class="num" style="font-weight: 700">{{p.vTxt}}</td>
+<td style="text-align: right; white-space: nowrap">
+<sc-if value="{{p.normal}}" hint-placeholder-val="{{ true }}"><button type="button" class="see" onClick="{{p.editar}}">Editar</button> <button type="button" class="see" onClick="{{p.pedir}}">Excluir</button></sc-if>
+<sc-if value="{{p.conf}}" hint-placeholder-val="{{ false }}"><button type="button" class="see" style="background: #C62828; border-color: #C62828; color: #FFFFFF" onClick="{{p.sim}}">Sim</button> <button type="button" class="see" onClick="{{p.nao}}">Não</button></sc-if>
+</td></tr>
+</sc-for>
+</tbody>
+</table>
+</section>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2500}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    try {
+      window.addEventListener('mousedown', (e) => {
+        const st = this.state; if (!(st.ddOpen || st.drop || st.dropCat || st.cdrop || st.tbOpen)) return;
+        if (e.target && e.target.closest && e.target.closest('[aria-expanded], .ddpanel, [data-ddp]')) return;
+        this.setState({ ddOpen: null, drop: false, dropCat: false, cdrop: false, tbOpen: false, rconf: null, crconf: null, tbConf: null });
+      });
+      const fecharFlutuante = (e) => {
+        const st = this.state; if (!(st.ddDir && st.ddDir.fx) || !(st.ddOpen || st.drop || st.dropCat || st.cdrop || st.tbOpen)) return;
+        if (e && e.target && e.target.closest && e.target.closest('.ddpanel, [data-ddp]')) return;
+        this.setState({ ddOpen: null, drop: false, dropCat: false, cdrop: false, tbOpen: false, rconf: null, crconf: null, tbConf: null });
+      };
+      window.addEventListener('scroll', fecharFlutuante, true);
+      window.addEventListener('resize', fecharFlutuante);
+    } catch (err) {}
+    this.state = { z: 1, help: true, aberto: false, tipo: 'prod', cli: 'Mercado Bom Preço', itens: [], motivo: 0, filtro: 'todas', salvo: '', edit: null, conf: null, ult: null, n: 0,
+      regs: [
+        { id: 'r7', d: '15/10', t: 'troca', cli: 'Lanchonete Sabor & Cia', m: 'Embalagem com defeito', it: [['Picolé de limão', 20, 'un', 19]] },
+        { id: 'r6', d: '14/10', t: 'mp', m: 'Quebrou', it: [['Pote 2 L vazio', 10, 'un', 18.5]] },
+        { id: 'r5', d: '13/10', t: 'troca', cli: 'Padaria Pão Quente', m: 'Venceu no cliente', it: [['Sorvete de Morango · pote 2 L', 1, 'pote', 27.92]] },
+        { id: 'r4', d: '09/10', t: 'prod', m: 'Derreteu', it: [['Sorvete de Chocolate · pote 2 L', 2, 'potes', 51.32], ['Paleta de Maracujá', 6, 'un', 16.98]] },
+        { id: 'r3', d: '08/10', t: 'troca', cli: 'Mercado Bom Preço', m: 'Venceu no cliente', it: [['Paleta de Morango recheada', 8, 'un', 26.8], ['Paleta de Coco cremoso', 4, 'un', 13.96]] },
+        { id: 'r2', d: '06/10', t: 'mp', m: 'Venceu', it: [['Creme de leite', 1, 'L', 21.5]] },
+        { id: 'r1', d: '03/10', t: 'mp', m: 'Venceu', it: [['Morango', 4, 'kg', 72], ['Manga', 2, 'kg', 15]] }
+      ] };
+  }
+  shell() {
+    const s = this.state;
+    return {
+      zoom: s.z, appCls: s.help ? 'app' : 'app nohelp', helpBtn: s.help ? 'tb on' : 'tb', helpTxt: s.help ? '? Ajuda ligada' : '? Ajuda desligada',
+      zIn: () => this.setState({ z: Math.min(1.3, Math.round((this.state.z + 0.1) * 10) / 10) }),
+      zOut: () => this.setState({ z: Math.max(0.8, Math.round((this.state.z - 0.1) * 10) / 10) }),
+      toggleHelp: () => this.setState({ help: !this.state.help })
+    };
+  }
+  brl(n) { return n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); }
+  ddMk(id, opts, cur, onPick) {
+    const s = this.state, on = s.ddOpen === id, O = opts.map(o => Array.isArray(o) ? o : [o, o]);
+    const salvo = (s.ddv || {})[id], val = cur !== undefined && cur !== null ? cur : (O.some(o => o[0] === salvo) ? salvo : O[0][0]);
+    const atual = O.find(o => o[0] === val) || O[0];
+    return { sel: atual[1], aberto: on, seta: on ? '▲' : '▼', toggle: (e) => this.setState({ ddOpen: this.state.ddOpen === id ? null : id, ddDir: this.ddDir(e) }), pst: this.ddPst(s.ddDir),
+      itens: O.map(([v, l]) => ({ label: l, marca: v === val ? '✓' : '',
+        st: 'flex: 1 1 140px; min-height: 48px; padding: 0 12px; border: none; border-radius: 10px; background: ' + (v === val ? '#FFC93C' : 'transparent') + '; color: #2A1E10; font: 700 18px \'Atkinson Hyperlegible\', sans-serif; text-align: left; cursor: pointer',
+        pick: () => { this.setState({ ddOpen: null, ddv: { ...(this.state.ddv || {}), [id]: v } }); if (onPick) onPick(v); } })) };
+  }
+  ddDir(e) {
+    try {
+      const el = e.currentTarget, r = el.getBoundingClientRect(), box = el.closest('.mdl'), lim = box ? box.getBoundingClientRect().right : window.innerWidth;
+      const side = r.left + 400 > lim - 12 ? 'r' : 'l';
+      if (!el.closest('[role="dialog"]')) return side;
+      // Inside a modal: the list floats over the screen (it never makes the modal grow or scroll) and opens upward when there is no room below.
+      const z = this.state.z || 1, vw = window.innerWidth, vh = window.innerHeight;
+      const W = Math.min(Math.max(r.width, 400), vw - 32);
+      let left = side === 'r' ? r.right - W : r.left; left = Math.max(16, Math.min(left, vw - 16 - W));
+      const below = vh - r.bottom - 16, above = r.top - 16, up = below < 330 && above > below;
+      return { fx: true, up, left: left / z, w: W / z, y: (up ? vh - r.top + 6 : r.bottom + 6) / z, h: Math.max(160, (up ? above : below) - 6) / z };
+    } catch (err) { return 'l'; }
+  }
+  ddPst(dir) {
+    if (dir && dir.fx) return 'position: fixed; z-index: 300; left: ' + dir.left + 'px; right: auto; width: ' + dir.w + 'px; max-width: none; ' + (dir.up ? 'top: auto; bottom: ' + dir.y + 'px;' : 'bottom: auto; top: ' + dir.y + 'px;') + ' max-height: ' + dir.h + 'px; overflow-y: auto; display: flex; flex-direction: column;';
+    return (dir === 'r' ? 'left: auto; right: 0;' : 'left: 0; right: auto;') + ' width: max(100%, 400px); max-width: calc(100vw - 48px);';
+  }
+  renderVals() {
+    const s = this.state;
+    const PR = { 'Paleta de Morango recheada': ['un', 3.35], 'Paleta de Maracujá': ['un', 2.83], 'Paleta de Coco cremoso': ['un', 3.49], 'Picolé de limão': ['un', 0.95],
+      'Sorvete de Morango · pote 2 L': ['pote', 27.92], 'Sorvete de Chocolate · pote 2 L': ['pote', 25.66], 'Creme de Açaí · pote 2 L': ['pote', 31.8] };
+    const MP = { 'Morango': ['kg', 18], 'Leite integral': ['L', 4.89], 'Creme de leite': ['L', 21.5], 'Manga': ['kg', 7.5], 'Leite condensado': ['lata', 6.9], 'Pote 2 L vazio': ['un', 1.85], 'Casquinha': ['un', 0.32] };
+    const TIPOS = {
+      prod: { label: 'Produtos prontos', sub: 'paletas, potes, picolés que estragaram aqui', mot: ['Venceu', 'Derreteu', 'Quebrou ou amassou', 'Outro'] },
+      mp: { label: 'Matéria-prima ou insumo', sub: 'leite, fruta, pote vazio, casquinha', mot: ['Venceu', 'Estragou', 'Quebrou', 'Outro'] },
+      troca: { label: 'Troca em cliente', sub: 'venceu no cliente e foi trocado', mot: ['Venceu no cliente', 'Derreteu no cliente', 'Embalagem com defeito', 'Outro'] }
+    };
+    const num = (v) => { const n = parseFloat(String(v).replace(',', '.')); return isNaN(n) ? 0 : n; };
+    const fq = (n) => String(Math.round(n * 100) / 100).replace('.', ',');
+    const T = TIPOS[s.tipo], tab = s.tipo === 'mp' ? MP : PR;
+    const uTxt = (u, q) => u === 'pote' ? (q === 1 ? 'pote' : 'potes') : u;
+    const tipos = Object.keys(TIPOS).map(k => ({ label: TIPOS[k].label, sub: TIPOS[k].sub, cls: s.tipo === k ? 'opt on' : 'opt', pick: () => this.setState({ tipo: k, itens: [], motivo: 0, salvo: false }) }));
+    const motivos = T.mot.map((m, i) => ({ label: m, cls: s.motivo === i ? 'opt on' : 'opt', pick: () => this.setState({ motivo: i, salvo: false }) }));
+    const opcoes = Object.keys(tab).map(n => ({ nome: n, cTxt: s.tipo === 'mp' ? this.brl(tab[n][1]) + ' /' + tab[n][0] : this.brl(tab[n][1]) + ' cada',
+      add: () => { const it = this.state.itens.slice(), j = it.findIndex(x => x[0] === n); if (j >= 0) it[j] = [n, String(num(it[j][1]) + 1)]; else it.push([n, '1']); this.setState({ itens: it, salvo: false }); } }));
+    let total = 0;
+    const itens = s.itens.map(([n, q], idx) => { const [u, c] = tab[n], v = num(q) * c; total += v;
+      return { nome: n, q, u: uTxt(u, num(q)), fid: 'pq' + idx, vTxt: this.brl(v),
+        setQ: (e) => { const it = this.state.itens.slice(); it[idx] = [n, e.target.value]; this.setState({ itens: it, salvo: false }); },
+        rem: () => this.setState({ itens: this.state.itens.filter((_, j) => j !== idx), salvo: false }) }; });
+    const regs = s.regs.map(r => ({ ...r, v: r.it.reduce((a, x) => a + x[3], 0) }));
+    const NOME = { prod: 'Produtos prontos', mp: 'Matéria-prima', troca: 'Troca' };
+    const soma = (t) => regs.filter(p => !t || p.t === t).reduce((a, p) => a + p.v, 0);
+    const trocas = regs.filter(p => p.t === 'troca');
+    const clis = {}; trocas.forEach(p => { clis[p.cli] = clis[p.cli] || { v: 0, n: 0 }; clis[p.cli].v += p.v; clis[p.cli].n += 1; });
+    const mx = Math.max(1, ...Object.values(clis).map(c => c.v));
+    const porCli = Object.keys(clis).sort((a, b) => clis[b].v - clis[a].v).map(c => ({ cli: c, txt: clis[c].n === 1 ? '1 troca' : clis[c].n + ' trocas', vTxt: this.brl(clis[c].v), w: Math.round(clis[c].v / mx * 100) + '%' }));
+    const F = [['todas', 'Todas'], ['prod', 'Produtos'], ['mp', 'Matéria-prima'], ['troca', 'Trocas']];
+    const filtros = F.map(([id, l]) => ({ label: l + ' (' + regs.filter(p => id === 'todas' || p.t === id).length + ')', cls: s.filtro === id ? 'tab on' : 'tab', pick: () => this.setState({ filtro: id }) }));
+    const lista = regs.filter(p => s.filtro === 'todas' || p.t === s.filtro).map(p => { const conf = s.conf === p.id;
+      return { d: p.d, o: p.it.map(x => fq(x[1]) + ' ' + x[2] + ' ' + x[0]).join(' · '), sub: p.t === 'troca' ? 'Troca · ' + p.cli : NOME[p.t],
+      m: p.m, mCls: p.t === 'troca' ? 'tag warn' : 'tag low', vTxt: this.brl(p.v), normal: !conf, conf,
+      bg: conf ? 'background: #FDE0DE' : (s.edit === p.id ? 'background: #FFF0C2' : (p.novo ? 'background: #DDF3E3' : '')),
+      editar: () => { this.setState({ aberto: true, edit: p.id, tipo: p.t, cli: p.cli || this.state.cli, itens: p.it.map(x => [x[0], fq(x[1])]), motivo: Math.max(0, TIPOS[p.t].mot.indexOf(p.m)), salvo: '', conf: null, ult: null }); try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {} },
+      pedir: () => this.setState({ conf: p.id }), nao: () => this.setState({ conf: null }),
+      sim: () => { const st = this.state, i = st.regs.findIndex(r => r.id === p.id), fecha = st.edit === p.id; this.setState({ regs: st.regs.filter(r => r.id !== p.id), conf: null, ult: { i, r: st.regs[i] }, salvo: '', edit: fecha ? null : st.edit, itens: fecha ? [] : st.itens, aberto: fecha ? false : st.aberto }); } }; });
+    return {
+      ...this.shell(),
+      ddPdcli: this.ddMk('pd-cli', [["Mercado Bom Preço", "Mercado Bom Preço"], ["Lanchonete Sabor & Cia", "Lanchonete Sabor & Cia"], ["Buffet Festa Feliz", "Buffet Festa Feliz"], ["Padaria Pão Quente", "Padaria Pão Quente"], ["Restaurante Sabor da Terra", "Restaurante Sabor da Terra"], ["Escola Pequeno Saber", "Escola Pequeno Saber"], ["Maria Aparecida Souza", "Maria Aparecida Souza"]], s.cli, (v) => this.setState({ cli: v, salvo: false })),
+      tipos, motivos, opcoes, itens, isTroca: s.tipo === 'troca', semItens: itens.length === 0,
+      cli: s.cli, setCli: (e) => this.setState({ cli: e.target.value, salvo: false }),
+      escolhaTxt: s.tipo === 'troca' ? 'Toque nos produtos que foram trocados' : (s.tipo === 'mp' ? 'Toque no que se perdeu' : 'Toque nos produtos que se perderam'),
+      totalTxt: this.brl(total), valorObs: s.tipo === 'mp' ? 'pelo preço pago' : 'pelo custo de fazer',
+      salvar: () => { const st = this.state; if (!st.itens.length) return;
+        const it = st.itens.filter(([n, q]) => num(q) > 0).map(([n, q]) => { const [u, c] = tab[n]; return [n, num(q), uTxt(u, num(q)), num(q) * c]; });
+        if (!it.length) return;
+        const dados = { t: st.tipo, cli: st.tipo === 'troca' ? st.cli : undefined, m: TIPOS[st.tipo].mot[st.motivo], it };
+        if (st.edit) { this.setState({ regs: st.regs.map(r => r.id === st.edit ? { ...r, ...dados } : r), edit: null, itens: [], salvo: 'ed', filtro: 'todas', aberto: false }); return; }
+        const n = st.n + 1;
+        this.setState({ salvo: 'novo', filtro: 'todas', itens: [], n, aberto: false, regs: [{ id: 'novo' + n, d: '16/10', novo: true, ...dados }, ...st.regs] }); },
+      cancelar: () => this.setState({ edit: null, itens: [], salvo: '', aberto: false }),
+      aberto: s.aberto, addCls: 'btn', addTxt: '+ Registrar perda',
+      toggleAdd: () => this.state.aberto ? this.setState({ aberto: false, edit: null, itens: [] }) : this.setState({ aberto: true, edit: null, itens: [], tipo: 'prod', motivo: 0, salvo: '', conf: null, ult: null }),
+      editando: !!s.edit, editData: s.edit ? (s.regs.find(r => r.id === s.edit) || {}).d : '',
+      regTit: s.edit ? 'Corrigir perda' : 'Registrar perda', salvarTxt: s.edit ? 'Salvar alterações' : 'Salvar perda',
+      salvoTxt: s.salvo === 'ed' ? 'Alterações salvas.' : 'Perda anotada. Já aparece na lista abaixo.',
+      excluido: !!s.ult, excluidoData: s.ult ? s.ult.r.d : '',
+      desfazer: () => { const u = this.state.ult; if (!u) return; const rg = this.state.regs.slice(); rg.splice(u.i, 0, u.r); this.setState({ regs: rg, ult: null }); },
+      salvo: !!s.salvo,
+      tot: { total: this.brl(soma()), n: regs.length, prod: this.brl(soma('prod')), mp: this.brl(soma('mp')), troca: this.brl(soma('troca')), nTroca: trocas.length + ' trocas em ' + Object.keys(clis).length + ' clientes' },
+      porCli, filtros, lista
+    };
+  }
+}
+</script>
+</body>
+</html>

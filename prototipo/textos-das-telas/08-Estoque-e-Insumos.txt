@@ -1,0 +1,10 @@
+Matéria-prima e insumos que chegam na sorveteria Estoque e Insumos ?
+
+[AJUDA: Estoque e insumos Tudo o que é comprado para fabricar: leite, frutas, açúcar, potes, palitos. Mostra quanto tem, quanto custou, a validade e o que está abaixo do mínimo. O que se perdeu fica em Perdas, no menu.]
+Simulação · dados de exemplo {{addTxt}} {{t.label}} {{fm.titulo}} Editando um cadastro ✕ Fechar É matéria-prima ou insumo? {{o.label}} {{o.sub}} Como é medido? ?
+
+[AJUDA: Unidade, litro ou quilo Leite é comprado em litro, fruta em quilo e pote em unidade. O sistema calcula sozinho o custo de cada litro, quilo ou unidade, que é usado no custo das receitas.]
+{{o.label}} {{o.sub}} Nome {{fm.qLabel}} ({{u}}) {{fm.vLabel}} Fornecedor {{ddNf.sel}} {{ddNf.seta}} {{dI.marca}} {{dI.label}} Estoque mínimo ({{u}}) Validade ?
+
+[AJUDA: Alerta de validade Anote a data de validade quando a mercadoria chegar. Alguns dias antes de vencer, o produto aparece em "Vencendo em breve" na tela inicial.]
+Custo por {{uNome}} {{fm.custo}} {{fm.salvarTxt}} Cancelar ✓ {{salvoMsg}} Produto Em estoque Custo Validade Situação {{r.nome}} {{r.forn}} {{r.qtd}} mín. {{r.min}} {{r.custo}} {{r.val}} {{r.vTxt}} {{r.st}} Editar

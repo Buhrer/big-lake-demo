@@ -1,0 +1,13 @@
+Fechamento do mês Sócios e Divisão do Lucro ?
+
+[AJUDA: Divisão do lucro No fim do mês o sistema pega o lucro líquido e divide pela porcentagem de cada sócio. Depois devolve o que cada um pagou da empresa no próprio cartão, desconta as retiradas antecipadas e mostra quanto cada um tem a receber.]
+Simulação · dados de exemplo + Registrar retirada ‹ Outubro de 2026 › Faturamento R$ 52.300,00 balcão + pedidos Despesas − R$ 33.850,00 inclui contas pagas nos cartões dos sócios Lucro líquido para dividir {{lucroTxt}} faturamento − despesas Participação de cada sócio ?
+
+[AJUDA: Porcentagem de cada sócio Quanto da empresa é de cada um. Use − e + para ajustar; a parte do outro sócio muda sozinha, sempre somando 100%.]
+Carlos: − {{pj}}% + Carlos · {{pj}}% Paulo · {{pp}}% Quanto cada um recebe ?
+
+[AJUDA: Como a conta é feita Parte do lucro + o reembolso das contas da empresa que o sócio pagou no cartão pessoal dele − o que ele já pegou adiantado durante o mês.]
+{{s.ini}} {{s.nome}} {{s.pct}}% da empresa Parte do lucro ({{s.pct}}%) {{s.parteTxt}} + Reembolso (contas pagas no cartão pessoal) {{s.empTxt}} − Retiradas durante o mês {{s.retTxt}} Total a receber {{s.totTxt}} Reembolsos e retiradas ?
+
+[AJUDA: Reembolsos e retiradas "Reembolsos" vêm sozinhos de Contas a pagar: toda conta da empresa marcada como paga no cartão pessoal de um sócio aparece aqui e o valor volta para ele. "Retiradas" é o dinheiro que o sócio pegou antes do fechamento; é descontado.]
+Registrar retirada ✕ Fechar Quem retirou? {{o.label}} Valor (R$) Como pegou {{ddRc.sel}} {{ddRc.seta}} {{dI.marca}} {{dI.label}} Data Motivo Salvar retirada Cancelar {{t.label}} Data Conta paga Cartão Volta para {{g.d}} {{g.t}} {{g.c}} {{g.vTxt}} {{g.s}} Vem sozinho de Contas a pagar. Para corrigir, mude a forma de pagamento lá. Ver em Contas a pagar Data Sócio Motivo Como pegou Valor {{r.d}} {{r.s}} {{r.m}} {{r.c}} {{r.vTxt}}

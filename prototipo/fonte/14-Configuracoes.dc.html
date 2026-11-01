@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Big Lake · Configurações</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Baloo+2:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF7DE;color:#2A1E10;font-family:'Atkinson Hyperlegible',system-ui,sans-serif;font-size:18px;line-height:1.4}
+a{color:#A61B1B}a:hover{color:#7A1010}
+h1,h2,h3{font-family:'Baloo 2',sans-serif;line-height:1.15;margin:0}
+.nav{display:flex;align-items:center;gap:14px;min-height:50px;white-space:nowrap;padding:0 14px;border-radius:12px;color:#2A1E10;text-decoration:none;font-weight:700;font-size:19px}
+.nav:hover{background:#FFDD70;color:#2A1E10}
+.nav.on,.nav.on:hover{background:#2A1E10;color:#FFD54F}
+.badge{margin-left:auto;min-width:28px;height:28px;border-radius:14px;background:#C62828;color:#FFFFFF;font-size:15px;display:inline-flex;align-items:center;justify-content:center}
+@media (max-height:820px){.nav{min-height:43px}}
+.ic{width:26px;height:26px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;box-sizing:border-box;border-radius:12px;border:2px solid #C62828;background:#C62828;color:#FFFFFF;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;text-decoration:none}
+.btn:hover{background:#A61B1B;border-color:#A61B1B;color:#FFFFFF}
+.btn2{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 20px;box-sizing:border-box;border-radius:12px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;text-decoration:none}
+.btn2:hover{background:#FFF0C2;color:#2A1E10}
+.card{background:#FFFFFF;border:2px solid #F0E2B6;border-radius:18px;padding:24px;box-sizing:border-box}
+.tbl{width:100%;border-collapse:collapse;font-size:18px}
+.tbl th{text-align:left;padding:12px 14px;background:#FFF0C2;font-size:16px;font-weight:700}
+.tbl td{padding:12px 14px;border-bottom:1px solid #F0E6CC;vertical-align:top}
+.tag{display:inline-block;padding:4px 12px;border-radius:999px;font-size:16px;font-weight:700;white-space:nowrap}
+.ok{background:#DDF3E3;color:#14532D}
+.inp{display:block;width:100%;min-height:52px;box-sizing:border-box;border:2px solid #CDBF9C;border-radius:10px;padding:0 14px;font:18px 'Atkinson Hyperlegible',sans-serif;background:#FFFFFF;color:#2A1E10}
+.lb{display:flex;align-items:center;min-height:34px;font-weight:700;font-size:17px;margin-bottom:6px}
+button.inp>span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1 1 auto}button.inp>span:last-child{flex:none}
+.opt{min-height:56px;border-radius:12px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;padding:6px 10px}
+.opt.on{background:#FFC93C}
+.sw{min-height:52px;min-width:120px;padding:0 18px;border-radius:999px;border:2px solid #14532D;background:#DDF3E3;color:#14532D;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer}
+.sw.off{border-color:#8E1414;background:#FDE0DE;color:#8E1414}
+.sim{display:inline-block;padding:6px 14px;border-radius:999px;background:#2A1E10;color:#FFD54F;font-size:15px;font-weight:700}
+.muted{color:#5E4B33}
+.row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #F0E6CC}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;padding:10px 14px;background:#FFFFFF;border:2px solid #F0E2B6;border-radius:14px}
+.bk{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:#14532D;font-size:16px}
+.tb{min-height:44px;min-width:44px;padding:0 12px;box-sizing:border-box;border-radius:10px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 17px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none}
+.tb:hover{background:#FFF0C2;color:#2A1E10}
+.tb.on,.tb.on:hover{background:#C62828;border-color:#C62828;color:#FFFFFF}
+.help{position:relative;display:inline-flex;vertical-align:middle;flex:none}
+.help>button{width:34px;height:34px;border-radius:50%;border:2px solid #C62828;background:#FFFFFF;color:#C62828;font:700 19px 'Atkinson Hyperlegible',sans-serif;cursor:help;display:inline-flex;align-items:center;justify-content:center;padding:0}
+.help:hover>button,.help:focus-within>button{background:#C62828;color:#FFFFFF}
+.tip{display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);width:330px;max-width:80vw;background:#2A1E10;color:#FFFFFF;padding:14px 16px;border-radius:12px;font:400 16px/1.5 'Atkinson Hyperlegible',sans-serif;text-align:left;white-space:normal;z-index:60;box-shadow:0 8px 24px rgba(42,30,16,.3)}
+.tip b{display:block;color:#FFD54F;font-size:17px;margin-bottom:4px}
+.help:hover .tip,.help:focus-within .tip{display:block}
+.tip.l{left:0;transform:none}.tip.r{left:auto;right:0;transform:none}
+.nohelp .help{display:none}
+.hrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+header>.hrow,header>.sim{flex:none}
+</style>
+</helmet>
+<div class="{{appCls}}" style="display: flex; flex-wrap: wrap; min-height: 100vh">
+<nav aria-label="Menu principal" style="flex: 0 0 292px; background: #FFC93C; padding: 20px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 4px">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 0 8px 14px; text-decoration: none; color: #2A1E10">
+<svg width="44" height="52" viewBox="0 0 48 56" aria-hidden="true"><path d="M12 24 L24 54 L36 24 Z" fill="#C68B3E" stroke="#2A1E10" stroke-width="2.5" stroke-linejoin="round"></path><path d="M16 31 L32 31 M19 39 L29 39" stroke="#2A1E10" stroke-width="2"></path><circle cx="24" cy="16" r="13" fill="#C62828" stroke="#2A1E10" stroke-width="2.5"></circle><circle cx="19" cy="11" r="3" fill="#FFFFFF" opacity="0.7"></circle></svg>
+<span style="display: flex; flex-direction: column; line-height: 1"><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: 0.5px">BIG LAKE</span><span style="font-size: 16px; font-weight: 700; margin-top: 4px">Sorveteria</span></span>
+</a>
+<a class="nav" href="Main.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path></svg>Início</a>
+<a class="nav" href="Pedidos.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="12" rx="2"></rect><path d="M7 8V4h10v4M7 14h4"></path></svg>Vendas e Pedidos</a>
+<a class="nav" href="Clientes.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="4"></circle><path d="M2 21c0-4 3-6 7-6s7 2 7 6M16 4a4 4 0 010 8M22 21c0-3-2-5-4-6"></path></svg>Cadastros</a>
+<a class="nav" href="Producao.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="18" rx="2"></rect><path d="M9 2h6v4H9zM9 13l2 2 4-4"></path></svg>Produção e Receitas</a>
+<a class="nav" href="Estoque.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4zM3 7v10l9 4 9-4V7M12 11v10"></path></svg>Estoque e Insumos</a>
+<a class="nav" href="Perdas.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"></path></svg>Perdas</a>
+<a class="nav" href="Contas.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>Contas a pagar<span class="badge" aria-label="2 vencem logo">2</span></a>
+<a class="nav" href="Socios.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v9h9"></path></svg>Sócios</a>
+<a class="nav" href="Patrimonio.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l8-3 8 3v16M9 21v-5h6v5M9 9h.01M15 9h.01M9 13h.01M15 13h.01"></path></svg>Patrimônio</a>
+<a class="nav" href="Relatorios.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-5M12 16V6M17 16v-8"></path></svg>Relatórios</a>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; padding: 20px 32px 48px; box-sizing: border-box">
+<div style="zoom: {{zoom}}; max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px">
+<div class="top">
+<div class="hrow">
+<span class="bk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"></path></svg>Cópia de segurança feita hoje, 08:02</span>
+<span class="help"><button type="button" aria-label="Ajuda: cópia de segurança">?</button><span class="tip l" role="tooltip"><b>Cópia de segurança automática</b>Toda vez que o sistema é fechado, ele copia todos os dados para o pen drive e para uma pasta do computador. Se o computador estragar, nada se perde.</span></span>
+</div>
+<div class="hrow" style="gap: 8px">
+<span class="help"><button type="button" aria-label="Ajuda: tamanho da letra">?</button><span class="tip r" role="tooltip"><b>Tamanho da letra</b>A+ aumenta tudo na tela e A− diminui. Bom para quem enxerga melhor com letra grande. O tamanho padrão fica salvo aqui em Configurações.</span></span>
+<button type="button" class="tb" aria-label="Diminuir a letra" onClick="{{zOut}}">A−</button>
+<button type="button" class="tb" aria-label="Aumentar a letra" onClick="{{zIn}}">A+</button>
+<button type="button" class="{{helpBtn}}" onClick="{{toggleHelp}}">{{helpTxt}}</button>
+<a class="tb on" href="Config.dc.html" aria-current="page">Configurações</a>
+</div>
+</div>
+
+<header style="display: flex; flex-wrap: nowrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div style="min-width: 0; flex: 1 1 auto">
+<p class="muted" style="margin: 0 0 4px; font-size: 18px">Segurança dos dados e preferências</p>
+<div class="hrow"><h1 style="font-size: 44px">Configurações</h1><span class="help"><button type="button" aria-label="Ajuda: configurações">?</button><span class="tip l" role="tooltip"><b>Configurações</b>Abre pelo botão "Configurações" no alto de qualquer tela. Aqui ficam as cópias de segurança, o histórico do que foi feito, o tamanho da letra e os dados da empresa.</span></span></div>
+</div>
+<span class="sim">Simulação · dados de exemplo</span>
+</header>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(440px, 1fr)); gap: 20px; align-items: start">
+
+<section class="card" aria-labelledby="t-bk" style="display: flex; flex-direction: column; gap: 8px">
+<div class="hrow"><h2 id="t-bk" style="font-size: 28px">Cópia de segurança</h2><span class="help"><button type="button" aria-label="Ajuda: cópia de segurança">?</button><span class="tip l" role="tooltip"><b>Cópia automática</b>Com a opção ligada, toda vez que o sistema é fechado ele salva uma cópia no pen drive e numa pasta do computador. Guarde o pen drive fora da loja. Se precisar, "Restaurar" volta tudo como estava na data escolhida.</span></span></div>
+<div class="row"><span style="font-weight: 700">Copiar sozinho ao fechar o sistema</span><button type="button" class="{{bkCls}}" onClick="{{toggleBk}}">{{bkTxt}}</button></div>
+<div class="row"><span>Pen drive (E:)</span><span class="tag ok">Conectado</span></div>
+<div class="row"><span>Pasta Documentos\BigLake</span><span class="tag ok">OK</span></div>
+<div style="font-weight: 700; margin-top: 8px">Últimas cópias</div>
+<div class="row"><span>Hoje, 08:02</span><span class="tag ok">Completa</span></div>
+<div class="row"><span>Ontem, 22:15</span><span class="tag ok">Completa</span></div>
+<div class="row"><span>14/10, 22:08</span><span class="tag ok">Completa</span></div>
+<div class="hrow" style="gap: 10px; margin-top: 8px"><button type="button" class="btn">Fazer cópia agora</button><button type="button" class="btn2">Restaurar uma cópia</button></div>
+</section>
+
+<div style="display: flex; flex-direction: column; gap: 20px">
+<section class="card" aria-labelledby="t-letra" style="display: flex; flex-direction: column; gap: 14px">
+<div class="hrow"><h2 id="t-letra" style="font-size: 28px">Tamanho da letra</h2><span class="help"><button type="button" aria-label="Ajuda: tamanho padrão da letra">?</button><span class="tip r" role="tooltip"><b>Tamanho padrão</b>Escolha o tamanho com que o sistema sempre abre. Dá para ajustar a qualquer momento com A+ e A− no alto da tela.</span></span></div>
+<div role="group" aria-label="Tamanho padrão" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{tams}}" as="o" hint-placeholder-count="3"><button type="button" class="{{o.cls}}" onClick="{{o.pick}}">{{o.label}}</button></sc-for>
+</div>
+<div style="background: #FFF0C2; border-radius: 12px; padding: 16px; font-size: {{prevSize}}">Exemplo: Paleta de Morango recheada · R$ 10,00</div>
+</section>
+
+
+</div>
+
+<section class="card" aria-labelledby="t-hist" style="display: flex; flex-direction: column; gap: 14px; grid-column: 1 / -1">
+<div class="hrow"><h2 id="t-hist" style="font-size: 28px">Histórico do que foi feito</h2><span class="help"><button type="button" aria-label="Ajuda: histórico">?</button><span class="tip l" role="tooltip"><b>Histórico</b>O sistema anota tudo o que foi alterado e quando: preço mudado, mercadoria que entrou, perda registrada, vendas do dia lançadas. Ajuda a achar e corrigir um erro de digitação.</span></span></div>
+<div style="overflow-x: auto">
+<table class="tbl">
+<thead><tr><th>Quando</th><th>O que foi feito</th></tr></thead>
+<tbody>
+<sc-for list="{{hist}}" as="h" hint-placeholder-count="6">
+<tr><td style="white-space: nowrap; font-weight: 700">{{h.q}}</td><td>{{h.o}}</td></tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="card" aria-labelledby="t-emp" style="display: flex; flex-direction: column; gap: 14px; grid-column: 1 / -1">
+<div class="hrow"><h2 id="t-emp" style="font-size: 28px">Dados da empresa</h2><span class="help"><button type="button" aria-label="Ajuda: dados da empresa">?</button><span class="tip l" role="tooltip"><b>Dados da empresa</b>Aparecem nos comprovantes de pedido e nos relatórios impressos.</span></span></div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; align-items: end">
+<div><label class="lb" for="em-n">Nome</label><input id="em-n" class="inp" value="Big Lake Sorveteria"></div>
+<div><label class="lb" for="em-c">CNPJ</label><input id="em-c" class="inp" value="[CNPJ DA EMPRESA]"></div>
+<div><label class="lb" for="em-t">Telefone</label><input id="em-t" class="inp" value="[TELEFONE]"></div>
+<div><label class="lb" for="em-e">Endereço</label><input id="em-e" class="inp" value="[ENDEREÇO DA LOJA]"></div>
+</div>
+<div><button type="button" class="btn">Salvar dados</button></div>
+</section>
+<section class="card" aria-labelledby="t-proto" style="display: flex; flex-direction: column; gap: 12px; grid-column: 1 / -1; border-style: dashed">
+<div class="hrow"><h2 id="t-proto" style="font-size: 24px">Só no protótipo</h2><span class="sim">não vai para o sistema final</span></div>
+<p class="muted" style="margin: 0">As telas guardam o que você testar (contas, manutenções, pagamentos e cartões) para mostrar as ligações entre elas. Antes de apresentar, apague para voltar aos dados de exemplo.</p>
+<div class="hrow" style="gap: 12px"><button type="button" class="btn2" onClick="{{limparProto}}">Apagar dados de teste</button><sc-if value="{{limpo}}" hint-placeholder-val="{{ false }}"><span style="font-weight: 700; color: #14532D">✓ Pronto, voltou aos dados de exemplo.</span></sc-if></div>
+</section>
+</div>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1250}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { z: 1, help: true, bk: true, tam: 'g' };
+  }
+  shell() {
+    const s = this.state;
+    return {
+      zoom: s.z, appCls: s.help ? 'app' : 'app nohelp', helpBtn: s.help ? 'tb on' : 'tb', helpTxt: s.help ? '? Ajuda ligada' : '? Ajuda desligada',
+      zIn: () => this.setState({ z: Math.min(1.3, Math.round((this.state.z + 0.1) * 10) / 10) }),
+      zOut: () => this.setState({ z: Math.max(0.8, Math.round((this.state.z - 0.1) * 10) / 10) }),
+      toggleHelp: () => this.setState({ help: !this.state.help })
+    };
+  }
+  renderVals() {
+    const s = this.state;
+    const hist = [
+      { q: 'Hoje, 10:42', o: 'Mudou o preço da Paleta de Morango recheada: R$ 10,00 → R$ 10,50' },
+      { q: 'Hoje, 09:15', o: 'Registrou entrada de mercadoria: Morango 20 kg (R$ 360,00)' },
+      { q: 'Ontem, 22:10', o: 'Lançou as vendas do dia 15/10: R$ 1.382,50' },
+      { q: 'Ontem, 16:05', o: 'Registrou perda: Casquinha, 25 un (quebrou)' },
+      { q: '14/10, 11:20', o: 'Lançou gasto no cartão do Paulo: Frutas na feira, R$ 320,00 (da empresa)' },
+      { q: '13/10, 15:40', o: 'Registrou manutenção: Freezer vertical, orçamento da borracha da porta' }
+    ];
+    const TM = [['n', 'Normal', '18px'], ['g', 'Grande', '22px'], ['m', 'Muito grande', '26px']];
+    const tams = TM.map(([id, label]) => ({ label, cls: s.tam === id ? 'opt on' : 'opt', pick: () => this.setState({ tam: id }) }));
+    return {
+      ...this.shell(),
+      limpo: !!this.state.limpo, limparProto: () => { try { window.localStorage.removeItem('bl-proto-v1'); } catch (e) {} this.setState({ limpo: true }); },
+      hist, tams, prevSize: TM.find(t => t[0] === s.tam)[2],
+      bkCls: s.bk ? 'sw' : 'sw off', bkTxt: s.bk ? 'Ligado' : 'Desligado',
+      toggleBk: () => this.setState({ bk: !this.state.bk })
+    };
+  }
+}
+</script>
+</body>
+</html>

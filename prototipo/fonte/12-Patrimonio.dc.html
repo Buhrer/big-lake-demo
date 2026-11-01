@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Big Lake · Patrimônio</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Baloo+2:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF7DE;color:#2A1E10;font-family:'Atkinson Hyperlegible',system-ui,sans-serif;font-size:18px;line-height:1.4}
+a{color:#A61B1B}a:hover{color:#7A1010}
+h1,h2,h3{font-family:'Baloo 2',sans-serif;line-height:1.15;margin:0}
+.nav{display:flex;align-items:center;gap:14px;min-height:50px;white-space:nowrap;padding:0 14px;border-radius:12px;color:#2A1E10;text-decoration:none;font-weight:700;font-size:19px}
+.nav:hover{background:#FFDD70;color:#2A1E10}
+.nav.on,.nav.on:hover{background:#2A1E10;color:#FFD54F}
+.badge{margin-left:auto;min-width:28px;height:28px;border-radius:14px;background:#C62828;color:#FFFFFF;font-size:15px;display:inline-flex;align-items:center;justify-content:center}
+@media (max-height:820px){.nav{min-height:43px}}
+.ic{width:26px;height:26px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;box-sizing:border-box;border-radius:12px;border:2px solid #C62828;background:#C62828;color:#FFFFFF;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;text-decoration:none}
+.btn:hover{background:#A61B1B;border-color:#A61B1B;color:#FFFFFF}
+.btn2{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 20px;box-sizing:border-box;border-radius:12px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;text-decoration:none}
+.btn2:hover{background:#FFF0C2;color:#2A1E10}
+.sm{min-height:46px;padding:0 14px;border-radius:10px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 16px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;white-space:nowrap}
+.sm:hover{background:#FFF0C2}
+.card{background:#FFFFFF;border:2px solid #F0E2B6;border-radius:18px;padding:24px;box-sizing:border-box}
+.tbl{width:100%;border-collapse:collapse;font-size:18px}
+.tbl th{text-align:left;padding:12px 14px;background:#FFF0C2;font-size:16px;font-weight:700}
+.tbl td{padding:12px 14px;border-bottom:1px solid #F0E6CC;vertical-align:middle}
+.num,.tbl th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;padding:4px 12px;border-radius:999px;font-size:16px;font-weight:700;white-space:nowrap}
+.ok{background:#DDF3E3;color:#14532D}.low{background:#FDE0DE;color:#8E1414}.warn{background:#FFF0C2;color:#6B4A00}.info{background:#E3ECFA;color:#1E3A6E}
+.inp{display:block;width:100%;min-height:52px;box-sizing:border-box;border:2px solid #CDBF9C;border-radius:10px;padding:0 14px;font:18px 'Atkinson Hyperlegible',sans-serif;background:#FFFFFF;color:#2A1E10}
+.lb{display:flex;align-items:center;min-height:34px;font-weight:700;font-size:17px;margin-bottom:6px}
+button.inp>span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1 1 auto}button.inp>span:last-child{flex:none}
+.tab{min-height:52px;padding:0 18px;border-radius:999px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 17px 'Atkinson Hyperlegible',sans-serif;cursor:pointer}
+.tab.on{background:#2A1E10;color:#FFD54F}
+.seg{display:flex;flex-wrap:wrap;gap:6px;padding:6px;background:#FFFFFF;border:2px solid #2A1E10;border-radius:16px}
+.sg{min-height:54px;padding:0 22px;border:none;border-radius:11px;background:transparent;color:#2A1E10;font:700 19px 'Atkinson Hyperlegible',sans-serif;cursor:pointer}
+.sg:hover{background:#FFF0C2}
+.sg.on,.sg.on:hover{background:#2A1E10;color:#FFD54F}
+.opt{min-height:56px;border-radius:12px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;padding:6px 10px}
+.opt.on{background:#FFC93C}
+.sim{display:inline-block;padding:6px 14px;border-radius:999px;background:#2A1E10;color:#FFD54F;font-size:15px;font-weight:700}
+.muted{color:#5E4B33}
+.row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #F0E6CC}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;padding:10px 14px;background:#FFFFFF;border:2px solid #F0E2B6;border-radius:14px}
+.bk{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:#14532D;font-size:16px}
+.tb{min-height:44px;min-width:44px;padding:0 12px;box-sizing:border-box;border-radius:10px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 17px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none}
+.tb:hover{background:#FFF0C2;color:#2A1E10}
+.tb.on,.tb.on:hover{background:#C62828;border-color:#C62828;color:#FFFFFF}
+.help{position:relative;display:inline-flex;vertical-align:middle;flex:none}
+.help>button{width:34px;height:34px;border-radius:50%;border:2px solid #C62828;background:#FFFFFF;color:#C62828;font:700 19px 'Atkinson Hyperlegible',sans-serif;cursor:help;display:inline-flex;align-items:center;justify-content:center;padding:0}
+.help:hover>button,.help:focus-within>button{background:#C62828;color:#FFFFFF}
+.tip{display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);width:330px;max-width:80vw;background:#2A1E10;color:#FFFFFF;padding:14px 16px;border-radius:12px;font:400 16px/1.5 'Atkinson Hyperlegible',sans-serif;text-align:left;white-space:normal;z-index:60;box-shadow:0 8px 24px rgba(42,30,16,.3)}
+.tip b{display:block;color:#FFD54F;font-size:17px;margin-bottom:4px}
+.help:hover .tip,.help:focus-within .tip{display:block}
+.tip.l{left:0;transform:none}.tip.r{left:auto;right:0;transform:none}
+.nohelp .help{display:none}
+.hrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+header>.hrow,header>.sim{flex:none}
+.ddpanel{position:absolute;z-index:40;top:calc(100% + 6px);left:0;right:0;min-width:0;background:#FFFFFF;border:2px solid #2A1E10;border-radius:14px;box-shadow:0 10px 28px rgba(42,30,16,.25);padding:6px;box-sizing:border-box}
+.ddpanel.dr{left:auto;right:0;width:260px}
+.ddlist{max-height:300px;overflow-y:auto}
+.ddrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:6px 8px;padding:3px 4px;border-bottom:1px solid #F0E6CC}
+.ddrow:last-child{border-bottom:none}
+.rmv{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border-radius:999px;border:2px solid #F3C9C4;background:#FFFFFF;color:#A61B1B;font:700 15px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;white-space:nowrap;flex:none}
+.rmv:hover{background:#FDE0DE;border-color:#C62828;color:#8E1414}
+.rmv.sim{background:#C62828;border-color:#C62828;color:#FFFFFF}
+.rmv.sim:hover{background:#A61B1B;border-color:#A61B1B;color:#FFFFFF}
+.rmv svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.mdl-bg{position:fixed;inset:0;z-index:100;background:rgba(42,30,16,.55);display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box}
+.mdl{width:min(980px,100%);max-height:calc(100vh - 32px);overflow-y:auto;background:#FFFFFF;border:2px solid #2A1E10;border-radius:18px;padding:24px;box-sizing:border-box;box-shadow:0 16px 40px rgba(42,30,16,.35);display:flex;flex-direction:column;gap:16px}
+.mdl>section.card{border:none;padding:0;border-radius:0;background:transparent;box-shadow:none}
+.mdl-h{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mdl-x{flex:none;margin-left:auto}
+</style>
+</helmet>
+<div class="{{appCls}}" style="display: flex; flex-wrap: wrap; min-height: 100vh">
+<nav aria-label="Menu principal" style="flex: 0 0 292px; background: #FFC93C; padding: 20px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 4px">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 0 8px 14px; text-decoration: none; color: #2A1E10">
+<svg width="44" height="52" viewBox="0 0 48 56" aria-hidden="true"><path d="M12 24 L24 54 L36 24 Z" fill="#C68B3E" stroke="#2A1E10" stroke-width="2.5" stroke-linejoin="round"></path><path d="M16 31 L32 31 M19 39 L29 39" stroke="#2A1E10" stroke-width="2"></path><circle cx="24" cy="16" r="13" fill="#C62828" stroke="#2A1E10" stroke-width="2.5"></circle><circle cx="19" cy="11" r="3" fill="#FFFFFF" opacity="0.7"></circle></svg>
+<span style="display: flex; flex-direction: column; line-height: 1"><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: 0.5px">BIG LAKE</span><span style="font-size: 16px; font-weight: 700; margin-top: 4px">Sorveteria</span></span>
+</a>
+<a class="nav" href="Main.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path></svg>Início</a>
+<a class="nav" href="Pedidos.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="12" rx="2"></rect><path d="M7 8V4h10v4M7 14h4"></path></svg>Vendas e Pedidos</a>
+<a class="nav" href="Clientes.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="4"></circle><path d="M2 21c0-4 3-6 7-6s7 2 7 6M16 4a4 4 0 010 8M22 21c0-3-2-5-4-6"></path></svg>Cadastros</a>
+<a class="nav" href="Producao.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="18" rx="2"></rect><path d="M9 2h6v4H9zM9 13l2 2 4-4"></path></svg>Produção e Receitas</a>
+<a class="nav" href="Estoque.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4zM3 7v10l9 4 9-4V7M12 11v10"></path></svg>Estoque e Insumos</a>
+<a class="nav" href="Perdas.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"></path></svg>Perdas</a>
+<a class="nav" href="Contas.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>Contas a pagar<span class="badge" aria-label="2 vencem logo">2</span></a>
+<a class="nav" href="Socios.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v9h9"></path></svg>Sócios</a>
+<a class="nav on" aria-current="page" href="Patrimonio.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l8-3 8 3v16M9 21v-5h6v5M9 9h.01M15 9h.01M9 13h.01M15 13h.01"></path></svg>Patrimônio</a>
+<a class="nav" href="Relatorios.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-5M12 16V6M17 16v-8"></path></svg>Relatórios</a>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; padding: 20px 32px 48px; box-sizing: border-box">
+<div style="zoom: {{zoom}}; max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px">
+<div class="top">
+<div class="hrow">
+<span class="bk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"></path></svg>Cópia de segurança feita hoje, 08:02</span>
+<span class="help"><button type="button" aria-label="Ajuda: cópia de segurança">?</button><span class="tip l" role="tooltip"><b>Cópia de segurança automática</b>Toda vez que o sistema é fechado, ele copia todos os dados para o pen drive e para uma pasta do computador. Se o computador estragar, nada se perde.</span></span>
+</div>
+<div class="hrow" style="gap: 8px">
+<span class="help"><button type="button" aria-label="Ajuda: tamanho da letra">?</button><span class="tip r" role="tooltip"><b>Tamanho da letra</b>A+ aumenta tudo na tela e A− diminui. Bom para quem enxerga melhor com letra grande. O tamanho padrão fica salvo em Configurações.</span></span>
+<button type="button" class="tb" aria-label="Diminuir a letra" onClick="{{zOut}}">A−</button>
+<button type="button" class="tb" aria-label="Aumentar a letra" onClick="{{zIn}}">A+</button>
+<button type="button" class="{{helpBtn}}" onClick="{{toggleHelp}}">{{helpTxt}}</button>
+<a class="tb" href="Config.dc.html">Configurações</a>
+</div>
+</div>
+
+<header style="display: flex; flex-wrap: nowrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div style="min-width: 0; flex: 1 1 auto">
+<p class="muted" style="margin: 0 0 4px; font-size: 18px">Os bens da empresa e as manutenções de cada um</p>
+<div class="hrow"><h1 style="font-size: 44px">Patrimônio</h1><span class="help"><button type="button" aria-label="Ajuda: patrimônio">?</button><span class="tip l" role="tooltip"><b>Patrimônio</b>A lista de tudo o que a sorveteria tem: veículos, gerador, máquinas, freezers e móveis. Mostra quanto foi pago em cada um. Para registrar uma revisão ou conserto, toque em "Manutenção" na linha do bem.</span></span></div>
+</div>
+<div class="hrow" style="gap: 12px">
+<span class="sim">Simulação · dados de exemplo</span>
+<button type="button" class="btn" onClick="{{hdrAcao}}">{{hdrTxt}}</button>
+</div>
+</header>
+
+
+<div class="seg" role="group" aria-label="Escolha a parte" style="align-self: flex-start">
+<sc-for list="{{abas}}" as="a" hint-placeholder-count="2">
+<button type="button" class="{{a.cls}}" onClick="{{a.pick}}">{{a.label}}</button>
+</sc-for>
+</div>
+
+<sc-if value="{{isBens}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<section aria-label="Resumo" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+<div class="card"><div class="muted" style="font-weight: 700">Bens cadastrados</div><div style="font-size: 32px; font-weight: 700">10 itens</div></div>
+<div class="card"><div class="muted" style="font-weight: 700">Valor pago</div><div style="font-size: 30px; font-weight: 700; font-variant-numeric: tabular-nums">{{pagoTxt}}</div></div>
+</section>
+
+<div class="hrow" style="justify-content: space-between">
+<div role="group" aria-label="Filtrar por tipo" class="hrow">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="5">
+<button type="button" class="{{t.cls}}" onClick="{{t.pick}}">{{t.label}}</button>
+</sc-for>
+</div>
+</div>
+
+<sc-if value="{{showBem}}" hint-placeholder-val="{{ false }}">
+<div class="mdl-bg">
+<div class="mdl" role="dialog" aria-modal="true" aria-label="Cadastrar bem">
+<section class="card" aria-label="Cadastrar bem" style="border-color: #2A1E10; display: flex; flex-direction: column; gap: 16px">
+<div class="mdl-h"><div class="hrow" style="gap: 12px"><h2 style="font-size: 28px">{{bemTit}}</h2><sc-if value="{{editandoBem}}" hint-placeholder-val="{{ false }}"><span class="tag warn">Editando um bem</span></sc-if></div><button type="button" class="btn2 mdl-x" onClick="{{toggleBem}}">✕ Fechar</button></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; align-items: end">
+<div><label class="lb" for="b-nome">O que é</label><input id="b-nome" class="inp" placeholder="Ex.: Freezer horizontal" value="{{fb.nome}}"></div>
+<div style="position: relative">
+<div class="hrow" style="margin-bottom: 6px; gap: 8px"><span class="lb" style="margin: 0" id="b-cat">Tipo</span><span class="help"><button type="button" aria-label="Ajuda: tipo">?</button><span class="tip l" role="tooltip"><b>Tipo</b>O tipo do bem: veículo, equipamento, móvel. Se precisar de um tipo que não existe, como "Ferramenta", escreva no fim da lista e toque em "+ Criar". Ele aparece também nos filtros.</span></span></div>
+<button type="button" class="inp" aria-labelledby="b-cat" aria-expanded="{{tbAberto}}" onClick="{{toggleTb}}" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; text-align: left; cursor: pointer; font-weight: 700"><span>{{tbSel}}</span><span aria-hidden="true">{{tbSeta}}</span></button>
+<sc-if value="{{tbAberto}}" hint-placeholder-val="{{ false }}">
+<div data-ddp="1" style="position: absolute; z-index: 40; top: calc(100% + 6px); {{tbPst}} background: #FFFFFF; border: 2px solid #2A1E10; border-radius: 14px; box-shadow: 0 10px 28px rgba(42,30,16,.25); padding: 8px; box-sizing: border-box">
+<div style="max-height: 300px; overflow-y: auto">
+<sc-for list="{{tiposBemL}}" as="o" hint-placeholder-count="6">
+<div class="ddrow" style="{{o.rowBg}}">
+<button type="button" onClick="{{o.pick}}" style="{{o.st}}">{{o.marca}} {{o.label}}</button>
+<sc-if value="{{o.podeRem}}" hint-placeholder-val="{{ false }}"><button type="button" class="rmv" aria-label="Remover {{o.label}}" onClick="{{o.pedir}}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"></path></svg>Remover</button></sc-if>
+<sc-if value="{{o.emUso}}" hint-placeholder-val="{{ false }}"><span class="muted" style="font-size: 15px; padding: 0 10px; white-space: nowrap">em uso · {{o.uso}}</span></sc-if>
+<sc-if value="{{o.conf}}" hint-placeholder-val="{{ false }}"><span style="font-weight: 700; color: #8E1414; font-size: 15px; white-space: nowrap">Remover?</span><button type="button" class="rmv sim" onClick="{{o.rem}}">Sim</button><button type="button" class="rmv" onClick="{{o.nao}}">Não</button></sc-if>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 4px 2px; border-top: 2px solid #F0E2B6; margin-top: 4px; align-items: center">
+<label for="b-cat-n" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Nome novo</label>
+<input id="b-cat-n" class="inp" placeholder="Novo tipo, ex.: Ferramenta" value="{{novoTb}}" onChange="{{setNovoTb}}" style="flex: 1 1 120px; min-width: 0; min-height: 48px">
+<button type="button" class="btn" style="min-height: 48px; padding: 0 14px; flex: none" onClick="{{criarTb}}">+ Criar</button>
+</div>
+<p class="muted" style="margin: 8px 6px 2px; font-size: 15px">Só dá para remover um tipo que nenhum bem usa.</p>
+</div>
+</sc-if>
+</div>
+
+<div><label class="lb" for="b-data">Data da compra</label><input id="b-data" class="inp" placeholder="mês/ano, ex.: 03/2022" value="{{fb.data}}"></div>
+<div><label class="lb" for="b-valor">Valor pago (R$)</label><input id="b-valor" class="inp" inputmode="decimal" value="{{fb.valor}}"></div>
+<div><label class="lb" for="b-id">Placa / nº de série</label><input id="b-id" class="inp" value="{{fb.serie}}"></div>
+</div>
+<div class="hrow" style="gap: 12px">
+<button type="button" class="btn" onClick="{{salvarBem}}">{{bemSalvarTxt}}</button>
+<button type="button" class="btn2" onClick="{{toggleBem}}">Cancelar</button>
+</div>
+</section>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{salvoBem}}" hint-placeholder-val="{{ false }}">
+<div class="hrow" style="gap: 14px; padding: 14px 18px; border-radius: 12px; background: #DDF3E3; color: #14532D"><span style="font-weight: 700; font-size: 19px">✓ {{salvoBem}}</span></div>
+</sc-if>
+<section class="card" aria-label="Lista de bens" style="padding: 8px">
+<div style="overflow-x: auto">
+<table class="tbl">
+<thead><tr><th>Bem</th><th>Data da compra</th><th class="num">Valor pago</th><th></th></tr></thead>
+<tbody>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="10">
+<tr>
+<td><div style="font-weight: 700">{{r.nome}}</div><div class="muted" style="font-size: 16px">{{r.cat}}</div></td>
+<td>{{r.data}}</td>
+<td class="num">{{r.vTxt}}</td>
+<td style="text-align: right; white-space: nowrap"><button type="button" class="sm" onClick="{{r.editar}}">Editar</button> <button type="button" class="sm" onClick="{{r.ver}}">Manutenção</button></td>
+</tr>
+</sc-for>
+</tbody>
+<tfoot><tr><td style="font-weight: 700; font-size: 20px; padding: 16px 14px">Total</td><td></td><td class="num" style="font-weight: 700; padding: 16px 14px">{{totalTxt}}</td><td></td></tr></tfoot>
+</table>
+</div>
+</section>
+<sc-if value="{{manSalva}}" hint-placeholder-val="{{ false }}"><div class="hrow" style="justify-content: space-between; gap: 12px; padding: 14px 18px; border-radius: 12px; background: #DDF3E3; color: #14532D"><span style="font-weight: 700; font-size: 19px">✓ {{manSalvaTxt}}</span><a class="btn2" href="Contas.dc.html">Ver em Contas a pagar</a></div></sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{isMan}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div class="hrow" style="justify-content: space-between">
+<div class="hrow"><h2 style="font-size: 30px">Manutenções</h2><span class="help"><button type="button" aria-label="Ajuda: manutenções">?</button><span class="tip l" role="tooltip"><b>Manutenções dos bens</b>Toque em "+ Registrar manutenção", no alto da tela, escolha o patrimônio e preencha. Também dá para registrar pela aba "Bens da empresa", no botão "Manutenção" de cada bem. O valor vai sozinho para Contas a pagar.</span></span></div>
+</div>
+<sc-if value="{{manSalva}}" hint-placeholder-val="{{ false }}"><div class="hrow" style="justify-content: space-between; gap: 12px; padding: 14px 18px; border-radius: 12px; background: #DDF3E3; color: #14532D"><span style="font-weight: 700; font-size: 19px">✓ {{manSalvaTxt}}</span><a class="btn2" href="Contas.dc.html">Ver em Contas a pagar</a></div></sc-if>
+<section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+<div class="card" style="background: #2A1E10; border-color: #2A1E10; color: #FFFFFF"><div style="font-weight: 700; color: #FFD54F">Gasto com manutenção em 2026</div><div style="font-size: 30px; font-weight: 700; font-variant-numeric: tabular-nums">R$ 3.370,00</div></div>
+<div class="card"><div class="muted" style="font-weight: 700">Serviços feitos em 2026</div><div style="font-size: 30px; font-weight: 700">8</div><div class="muted">5 revisões e 3 consertos</div></div>
+<div class="card"><div class="muted" style="font-weight: 700">Bem que mais gastou</div><div style="font-size: 30px; font-weight: 700">Furgão</div><div class="muted">R$ 1.300,00 em 2026</div></div>
+</section>
+
+<section class="card" aria-labelledby="t-hist" style="display: flex; flex-direction: column; gap: 14px; padding: 8px">
+<div style="padding: 14px 14px 0; display: flex; flex-direction: column; gap: 12px">
+<div class="hrow" style="justify-content: space-between; gap: 14px">
+<h3 id="t-hist" style="font-size: 24px">Histórico de manutenções</h3>
+<div class="hrow" style="gap: 10px; flex: 0 1 380px"><label for="h-bem" style="font-weight: 700; white-space: nowrap">Patrimônio:</label><div style="position: relative; flex: 1 1 220px"><button type="button" class="inp" id="h-bem" aria-haspopup="listbox" aria-expanded="{{ddHbem.aberto}}" onClick="{{ddHbem.toggle}}" style="display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; text-align: left; cursor: pointer; font-weight: 700"><span>{{ddHbem.sel}}</span><span aria-hidden="true">{{ddHbem.seta}}</span></button><sc-if value="{{ddHbem.aberto}}" hint-placeholder-val="{{ false }}"><div class="ddpanel" style="{{ddHbem.pst}}"><div class="ddlist" role="listbox"><sc-for list="{{ddHbem.itens}}" as="dI" hint-placeholder-count="4"><div class="ddrow"><button type="button" role="option" onClick="{{dI.pick}}" style="{{dI.st}}">{{dI.marca}} {{dI.label}}</button></div></sc-for></div></div></sc-if></div></div>
+</div>
+</div>
+<div style="overflow-x: auto">
+<table class="tbl">
+<thead><tr><th>Data</th><th>Patrimônio</th><th>O que foi feito</th><th>Tipo</th><th class="num">Valor</th></tr></thead>
+<tbody>
+<sc-for list="{{hist}}" as="h" hint-placeholder-count="8">
+<tr><td style="white-space: nowrap">{{h.d}}</td><td style="font-weight: 700">{{h.nome}}</td><td><div>{{h.o}}</div><div class="muted" style="font-size: 15px">feito por {{h.quem}}</div></td><td style="white-space: nowrap; font-weight: 700; color: {{h.tCor}}">{{h.t}}</td><td class="num" style="font-weight: 700">{{h.vTxt}}</td></tr>
+</sc-for>
+</tbody>
+<tfoot><tr><td colspan="4" style="font-weight: 700; font-size: 20px; padding: 16px 14px">Total</td><td class="num" style="font-weight: 700; font-size: 20px; padding: 16px 14px">{{histTotalTxt}}</td></tr></tfoot>
+</table>
+</div>
+</section>
+</div>
+</sc-if>
+
+</div>
+</main>
+<sc-if value="{{mb.aberto}}" hint-placeholder-val="{{ false }}">
+<div style="position: fixed; inset: 0; z-index: 100; background: rgba(42,30,16,.55); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box">
+<div role="dialog" aria-modal="true" aria-labelledby="mm-t" class="card" style="width: min(760px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; border-color: #2A1E10; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 16px 40px rgba(42,30,16,.35)">
+<div class="hrow" style="justify-content: space-between">
+<div><div class="muted" style="font-weight: 700">Registrar manutenção</div><h2 id="mm-t" style="font-size: 28px">{{mb.titulo}}</h2></div>
+<button type="button" class="btn2" onClick="{{mb.fechar}}">✕ Fechar</button>
+</div>
+<div><label class="lb" for="mm-b">Qual patrimônio?</label><div style="position: relative"><button type="button" class="inp" id="mm-b" aria-haspopup="listbox" aria-expanded="{{ddMbem.aberto}}" onClick="{{ddMbem.toggle}}" style="display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; text-align: left; cursor: pointer; font-weight: 700"><span>{{ddMbem.sel}}</span><span aria-hidden="true">{{ddMbem.seta}}</span></button><sc-if value="{{ddMbem.aberto}}" hint-placeholder-val="{{ false }}"><div class="ddpanel" style="{{ddMbem.pst}}"><div class="ddlist" role="listbox"><sc-for list="{{ddMbem.itens}}" as="dI" hint-placeholder-count="4"><div class="ddrow"><button type="button" role="option" onClick="{{dI.pick}}" style="{{dI.st}}">{{dI.marca}} {{dI.label}}</button></div></sc-for></div></div></sc-if></div><sc-if value="{{mb.erroBem}}" hint-placeholder-val="{{ false }}"><div style="margin-top: 6px; color: #8E1414; font-weight: 700">Escolha o patrimônio.</div></sc-if></div>
+<sc-if value="{{mb.temBem}}" hint-placeholder-val="{{ true }}">
+<div style="background: #FFF7DE; border: 2px solid #F0E2B6; border-radius: 12px; padding: 12px 14px">
+<div class="hrow" style="justify-content: space-between"><span style="font-weight: 700">Já feitas neste bem</span><span class="muted">total {{mb.totTxt}}</span></div>
+<sc-for list="{{mb.feitas}}" as="fe" hint-placeholder-count="2"><div style="display: flex; justify-content: space-between; gap: 10px; padding: 6px 0; border-top: 1px solid #F0E6CC"><span>{{fe.d}} · {{fe.o}}</span><span style="font-weight: 700; white-space: nowrap">{{fe.vTxt}}</span></div></sc-for>
+<sc-if value="{{mb.nenhuma}}" hint-placeholder-val="{{ false }}"><div class="muted" style="padding-top: 6px">Nenhuma manutenção registrada ainda.</div></sc-if>
+</div>
+</sc-if>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px 16px; align-items: end">
+<div><label class="lb" for="mm-o">O que foi feito</label><input id="mm-o" class="inp" value="{{mb.o}}" onChange="{{mb.setO}}"></div>
+<div><label class="lb" for="mm-q">Quem fez</label><input id="mm-q" class="inp" value="{{mb.quem}}" onChange="{{mb.setQuem}}"></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px 16px; align-items: end">
+<div><label class="lb" for="mm-d">Data</label><input id="mm-d" class="inp" value="16/10/2026"></div>
+<div><label class="lb" for="mm-v">Valor (R$)</label><input id="mm-v" class="inp" inputmode="decimal" value="{{mb.v}}" onChange="{{mb.setV}}"></div>
+<div><label class="lb" for="mm-g">Garantia</label><div style="display: flex; align-items: center; gap: 8px"><input id="mm-g" class="inp" inputmode="numeric" value="{{mb.gar}}" onChange="{{mb.setGar}}" style="flex: 1 1 auto; min-width: 0; text-align: right"><span style="font-weight: 700">dias</span></div></div>
+</div>
+<sc-if value="{{mb.temGar}}" hint-placeholder-val="{{ true }}"><div class="muted" style="margin-top: -6px">Garantia vale até <b style="color: #2A1E10">{{mb.garAte}}</b>.</div></sc-if>
+<div>
+<div class="lb">Tipo</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; max-width: 520px">
+<sc-for list="{{tiposMan}}" as="o" hint-placeholder-count="2"><button type="button" class="{{o.cls}}" onClick="{{o.pick}}">{{o.label}}</button></sc-for>
+</div>
+</div>
+<div>
+<div class="hrow" style="margin-bottom: 6px; gap: 8px"><span class="lb" style="margin: 0">Já está paga?</span><span class="help"><button type="button" aria-label="Ajuda: já está paga">?</button><span class="tip l" role="tooltip"><b>Manutenção já paga</b>Conserto costuma ser pago na hora. Marcando "Sim", a manutenção entra em Contas a pagar já como paga. Se foi no cartão pessoal de um sócio, o valor volta para ele em Sócios. Marcando "Não", ela fica em Contas a pagar para pagar depois.</span></span></div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; max-width: 520px">
+<sc-for list="{{mb.pagaOpts}}" as="o" hint-placeholder-count="2"><button type="button" class="{{o.cls}}" onClick="{{o.pick}}">{{o.label}}</button></sc-for>
+</div>
+</div>
+<sc-if value="{{mb.paga}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div>
+<div class="lb">Como foi paga?</div>
+<div role="group" aria-label="Forma de pagamento" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{mb.formas}}" as="fp" hint-placeholder-count="6"><button type="button" class="{{fp.cls}}" onClick="{{fp.pick}}">{{fp.label}}</button></sc-for>
+</div>
+<sc-if value="{{mb.erroForma}}" hint-placeholder-val="{{ false }}"><div style="margin-top: 6px; color: #8E1414; font-weight: 700">Escolha como foi paga.</div></sc-if>
+</div>
+<sc-if value="{{mb.ehCartao}}" hint-placeholder-val="{{ false }}">
+<div style="max-width: 520px"><label class="lb" for="mm-c">Qual cartão?</label><div style="position: relative"><button type="button" class="inp" id="mm-c" aria-haspopup="listbox" aria-expanded="{{ddMc.aberto}}" onClick="{{ddMc.toggle}}" style="display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; text-align: left; cursor: pointer; font-weight: 700"><span>{{ddMc.sel}}</span><span aria-hidden="true">{{ddMc.seta}}</span></button><sc-if value="{{ddMc.aberto}}" hint-placeholder-val="{{ false }}"><div class="ddpanel" style="{{ddMc.pst}}"><div class="ddlist" role="listbox"><sc-for list="{{ddMc.itens}}" as="dI" hint-placeholder-count="4"><div class="ddrow"><button type="button" role="option" onClick="{{dI.pick}}" style="{{dI.st}}">{{dI.marca}} {{dI.label}}</button></div></sc-for></div></div></sc-if></div></div>
+</sc-if>
+<sc-if value="{{mb.cPessoal}}" hint-placeholder-val="{{ false }}"><div style="padding: 12px 14px; border-radius: 12px; background: #DDF3E3; color: #14532D; font-weight: 700">Este cartão é pessoal do {{mb.cDono}}. O valor vai entrar como reembolso para ele em Sócios.</div></sc-if>
+</div>
+</sc-if>
+<div style="padding: 12px 14px; border-radius: 12px; background: #FFF0C2; font-weight: 700">{{mb.infoTxt}}</div>
+<div class="hrow" style="gap: 12px">
+<button type="button" class="btn" style="min-height: 58px" onClick="{{mb.salvar}}">Salvar manutenção</button>
+<button type="button" class="btn2" style="min-height: 58px" onClick="{{mb.fechar}}">Cancelar</button>
+</div>
+</div>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2300}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    try { window.addEventListener('storage', () => this.setState({ tick: Date.now() })); } catch (err) {}
+    try {
+      window.addEventListener('mousedown', (e) => {
+        const st = this.state; if (!(st.ddOpen || st.drop || st.dropCat || st.cdrop || st.tbOpen)) return;
+        if (e.target && e.target.closest && e.target.closest('[aria-expanded], .ddpanel, [data-ddp]')) return;
+        this.setState({ ddOpen: null, drop: false, dropCat: false, cdrop: false, tbOpen: false, rconf: null, crconf: null, tbConf: null });
+      });
+      const fecharFlutuante = (e) => {
+        const st = this.state; if (!(st.ddDir && st.ddDir.fx) || !(st.ddOpen || st.drop || st.dropCat || st.cdrop || st.tbOpen)) return;
+        if (e && e.target && e.target.closest && e.target.closest('.ddpanel, [data-ddp]')) return;
+        this.setState({ ddOpen: null, drop: false, dropCat: false, cdrop: false, tbOpen: false, rconf: null, crconf: null, tbConf: null });
+      };
+      window.addEventListener('scroll', fecharFlutuante, true);
+      window.addEventListener('resize', fecharFlutuante);
+    } catch (err) {}
+    this.state = { z: 1, help: true, aba: 'bens', f: 'todos', showBem: false, edBem: null, salvoBem: '', showMan: false, bem: 'todos', tipoMan: 'cons', lancar: 'sim', modalBem: null, mo: '', mq: '', mv: '', gar: '90', novasMan: [], manSalva: '', modalOpen: false, erroBem: false, mPaga: 'sim', mForma: null, mCartao: 'Cartão da empresa (Bradesco)', erroForma: false, salvaPaga: true, tiposBem: ['Veículo', 'Equipamento', 'Móvel', 'Informática'], tb: 'Equipamento', tbOpen: false, tbNovo: '', tbConf: null };
+  }
+  shell() {
+    const s = this.state;
+    return {
+      zoom: s.z, appCls: s.help ? 'app' : 'app nohelp', helpBtn: s.help ? 'tb on' : 'tb', helpTxt: s.help ? '? Ajuda ligada' : '? Ajuda desligada',
+      zIn: () => this.setState({ z: Math.min(1.3, Math.round((this.state.z + 0.1) * 10) / 10) }),
+      zOut: () => this.setState({ z: Math.max(0.8, Math.round((this.state.z - 0.1) * 10) / 10) }),
+      toggleHelp: () => this.setState({ help: !this.state.help })
+    };
+  }
+  brl(n) { return n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0, minimumFractionDigits: 0 }); }
+  brl2(n) { return n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); }
+  ddMk(id, opts, cur, onPick) {
+    const s = this.state, on = s.ddOpen === id, O = opts.map(o => Array.isArray(o) ? o : [o, o]);
+    const salvo = (s.ddv || {})[id], val = cur !== undefined && cur !== null ? cur : (O.some(o => o[0] === salvo) ? salvo : O[0][0]);
+    const atual = O.find(o => o[0] === val) || O[0];
+    return { sel: atual[1], aberto: on, seta: on ? '▲' : '▼', toggle: (e) => this.setState({ ddOpen: this.state.ddOpen === id ? null : id, ddDir: this.ddDir(e) }), pst: this.ddPst(s.ddDir),
+      itens: O.map(([v, l]) => ({ label: l, marca: v === val ? '✓' : '',
+        st: 'flex: 1 1 140px; min-height: 48px; padding: 0 12px; border: none; border-radius: 10px; background: ' + (v === val ? '#FFC93C' : 'transparent') + '; color: #2A1E10; font: 700 18px \'Atkinson Hyperlegible\', sans-serif; text-align: left; cursor: pointer',
+        pick: () => { this.setState({ ddOpen: null, ddv: { ...(this.state.ddv || {}), [id]: v } }); if (onPick) onPick(v); } })) };
+  }
+  ddDir(e) {
+    try {
+      const el = e.currentTarget, r = el.getBoundingClientRect(), box = el.closest('.mdl'), lim = box ? box.getBoundingClientRect().right : window.innerWidth;
+      const side = r.left + 400 > lim - 12 ? 'r' : 'l';
+      if (!el.closest('[role="dialog"]')) return side;
+      // Inside a modal: the list floats over the screen (it never makes the modal grow or scroll) and opens upward when there is no room below.
+      const z = this.state.z || 1, vw = window.innerWidth, vh = window.innerHeight;
+      const W = Math.min(Math.max(r.width, 400), vw - 32);
+      let left = side === 'r' ? r.right - W : r.left; left = Math.max(16, Math.min(left, vw - 16 - W));
+      const below = vh - r.bottom - 16, above = r.top - 16, up = below < 330 && above > below;
+      return { fx: true, up, left: left / z, w: W / z, y: (up ? vh - r.top + 6 : r.bottom + 6) / z, h: Math.max(160, (up ? above : below) - 6) / z };
+    } catch (err) { return 'l'; }
+  }
+  ddPst(dir) {
+    if (dir && dir.fx) return 'position: fixed; z-index: 300; left: ' + dir.left + 'px; right: auto; width: ' + dir.w + 'px; max-width: none; ' + (dir.up ? 'top: auto; bottom: ' + dir.y + 'px;' : 'bottom: auto; top: ' + dir.y + 'px;') + ' max-height: ' + dir.h + 'px; overflow-y: auto; display: flex; flex-direction: column;';
+    return (dir === 'r' ? 'left: auto; right: 0;' : 'left: 0; right: auto;') + ' width: max(100%, 400px); max-width: calc(100vw - 48px);';
+  }
+  sh() { try { return JSON.parse(window.localStorage.getItem('bl-proto-v1') || '{}') || {}; } catch (e) { return {}; } }
+  shSave(fn) { try { const d = this.sh(); fn(d); window.localStorage.setItem('bl-proto-v1', JSON.stringify(d)); } catch (e) {} this.setState({ tick: Date.now() }); }
+  paidMap(base) { const out = { ...base }, sp = this.sh().paid || {}; Object.keys(sp).forEach(k => { if (sp[k]) out[k] = sp[k]; else delete out[k]; }); return out; }
+  cartoesL() { return this.sh().cartoes || [['Cartão da empresa (Bradesco)', 'emp'], ['Crédito final 4421', 'Carlos'], ['Crédito final 0937', 'Carlos'], ['Crédito final 7710', 'Paulo'], ['Débito final 2285', 'Paulo']]; }
+  renderVals() {
+    const s = this.state;
+    const abas = [['bens', 'Bens da empresa'], ['man', 'Manutenções']].map(([id, label]) => ({ label, cls: s.aba === id ? 'sg on' : 'sg', pick: () => this.setState({ aba: id }) }));
+    const B = [
+      { id: 'fur', nome: 'Furgão de entrega 2019', k: 'vei', cat: 'Veículo', data: '03/2022', serie: 'ABC-1D23', v: 68000, bom: true, prox: '10/12', pd: 55 },
+      { id: 'moto', nome: 'Moto de entrega 2021', k: 'vei', cat: 'Veículo', data: '08/2023', serie: 'QWE-4F56', v: 12500, bom: true, prox: '20/01/2027', pd: 96 },
+      { id: 'maq', nome: 'Máquina de fazer sorvete 12 L/h', k: 'equ', cat: 'Equipamento', data: '05/2021', v: 42000, bom: true, prox: '15/12', pd: 60 },
+      { id: 'ger', nome: 'Gerador a diesel 6 kVA', k: 'equ', cat: 'Equipamento', data: '01/2023', v: 7800, bom: true, prox: '10/11', pd: 25 },
+      { id: 'bal', nome: 'Balcão refrigerado 12 cubas', k: 'equ', cat: 'Equipamento', data: '05/2021', v: 14500, bom: true, prox: '—', pd: null },
+      { id: 'fzh', nome: 'Freezer expositor horizontal (2 un.)', k: 'equ', cat: 'Equipamento', data: '11/2022', v: 9600, bom: true, prox: '02/03/2027', pd: 137 },
+      { id: 'fzv', nome: 'Freezer vertical 560 L', k: 'equ', cat: 'Equipamento', data: '02/2020', v: 5200, bom: false, prox: '28/10', pd: 12 },
+      { id: 'ar', nome: 'Ar-condicionado 18.000 BTUs', k: 'equ', cat: 'Equipamento', data: '12/2022', v: 3100, bom: true, prox: '10/10 · atrasada', pd: -6 },
+      { id: 'mes', nome: 'Mesas e cadeiras (8 conjuntos)', k: 'mov', cat: 'Móvel', data: '05/2021', v: 4800, bom: true, prox: '—', pd: null },
+      { id: 'pc', nome: 'Computador + impressora', k: 'inf', cat: 'Informática', data: '09/2024', v: 4200, bom: true, prox: '—', pd: null }
+    ];
+    const taxa = { vei: 0.1, equ: 0.1, mov: 0.1, inf: 0.2 };
+    const hoje = (b) => { const [m, y] = b.data.split('/').map(Number); const anos = (2026 + 9 / 12) - (y + (m - 1) / 12); return Math.round(b.v * Math.max(0.2, 1 - taxa[b.k] * anos) / 100) * 100; };
+    const pc = (d) => d === null ? 'tag' : d < 0 ? 'tag low' : d <= 15 ? 'tag warn' : 'tag info';
+    const PLUR = { 'Veículo': 'Veículos', 'Equipamento': 'Equipamentos', 'Móvel': 'Móveis' };
+    const T = [['todos', 'Todos'], ...s.tiposBem.map(t => [t, PLUR[t] || t])];
+    const tabs = T.map(([id, label]) => ({ label, cls: s.f === id ? 'tab on' : 'tab', pick: () => this.setState({ f: id }) }));
+    const list = B.filter(b => s.f === 'todos' || b.cat === s.f);
+    const pe = s.edBem ? B.find(b => b.id === s.edBem) : null;
+    const fb = pe ? { nome: pe.nome, data: pe.data, valor: pe.v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }), serie: pe.serie || '' } : { nome: '', data: '', valor: '', serie: '' };
+    const rows = list.map(b => ({ ...b, editar: () => this.setState({ showBem: true, edBem: b.id, tb: b.cat, tbOpen: false, tbConf: null, salvoBem: '' }), vTxt: this.brl(b.v), hTxt: this.brl(hoje(b)), pCls: pc(b.pd), est: b.bom ? 'Bom' : 'Precisa de conserto', cls: b.bom ? 'tag ok' : 'tag low', ver: () => this.setState({ modalOpen: true, erroBem: false, mPaga: 'sim', mForma: null, erroForma: false, modalBem: b.id, mo: '', mq: '', mv: '', gar: '90', tipoMan: 'cons', manSalva: '' }) }));
+    const nomeDe = {}; B.forEach(b => { nomeDe[b.id] = b.nome.split(' (')[0].replace(' 12 L/h', '').replace(' 18.000 BTUs', '').replace(' 6 kVA', ''); });
+    const M0 = [
+      { b: 'fzv', d: '08/09/2026', o: 'Conserto do motor', t: 'Conserto', quem: 'Refrigeração Polo Norte', v: 450 },
+      { b: 'fur', d: '12/08/2026', o: 'Troca de óleo e filtros', t: 'Preventiva', quem: 'Auto Center Silva', v: 380 },
+      { b: 'moto', d: '20/07/2026', o: 'Revisão completa', t: 'Preventiva', quem: 'Moto Peças Rocha', v: 210 },
+      { b: 'maq', d: '15/06/2026', o: 'Manutenção preventiva', t: 'Preventiva', quem: 'Técnico do fabricante', v: 650 },
+      { b: 'ger', d: '10/05/2026', o: 'Troca de óleo e filtro', t: 'Preventiva', quem: 'Eletro Gerador Sul', v: 260 },
+      { b: 'fur', d: '03/05/2026', o: 'Troca dos pneus dianteiros', t: 'Conserto', quem: 'Auto Center Silva', v: 920 },
+      { b: 'ar', d: '10/04/2026', o: 'Limpeza dos filtros', t: 'Preventiva', quem: 'Clima Frio', v: 180 },
+      { b: 'fzh', d: '02/03/2026', o: 'Limpeza e recarga de gás', t: 'Preventiva', quem: 'Refrigeração Polo Norte', v: 320 }
+    ];
+    const M = [...s.novasMan, ...M0];
+    const comMan = ['todos', 'fur', 'moto', 'fzv', 'fzh', 'ger', 'maq', 'ar'];
+    const bemTabs = comMan.map(id => ({ label: id === 'todos' ? 'Todos' : nomeDe[id], cls: s.bem === id ? 'tab on' : 'tab', pick: () => this.setState({ bem: id }) }));
+    const H = M.filter(m => s.bem === 'todos' || m.b === s.bem);
+    const hist = H.map(m => ({ ...m, nome: nomeDe[m.b], vTxt: this.brl2(m.v), t: m.t === 'Preventiva' ? 'Revisão' : m.t, tCor: m.t === 'Conserto' ? '#8E1414' : '#1E3A6E' }));
+    const P = [
+      { nome: 'Ar-condicionado', o: 'Limpeza dos filtros', d: '10/10/2026', dias: -6 },
+      { nome: 'Freezer vertical 560 L', o: 'Trocar borracha da porta', d: '28/10/2026', dias: 12 },
+      { nome: 'Gerador a diesel', o: 'Troca de óleo e filtro', d: '10/11/2026', dias: 25 },
+      { nome: 'Furgão de entrega', o: 'Revisão dos 60.000 km', d: '10/12/2026', dias: 55 },
+      { nome: 'Máquina de sorvete', o: 'Manutenção preventiva', d: '15/12/2026', dias: 60 }
+    ];
+    const prox = P.map(p => ({ ...p, cls: pc(p.dias), quando: p.dias < 0 ? 'Atrasada ' + (-p.dias) + ' dias' : 'em ' + p.dias + ' dias' }));
+    const tiposMan = [['prev', 'Revisão (preventiva)'], ['cons', 'Conserto']].map(([id, label]) => ({ label, cls: s.tipoMan === id ? 'opt on' : 'opt', pick: () => this.setState({ tipoMan: id }) }));
+    const lancar = [['sim', 'Sim'], ['nao', 'Não']].map(([id, label]) => ({ label, cls: s.lancar === id ? 'opt on' : 'opt', pick: () => this.setState({ lancar: id }) }));
+    return {
+      ...this.shell(),
+      tiposBemL: s.tiposBem.map(t => { const on = s.tb === t, n = B.filter(b => b.cat === t).length, conf = s.tbConf === t;
+        return { label: t, marca: on ? '✓' : '', st: 'flex: 1 1 150px; min-height: 48px; padding: 0 12px; border: none; border-radius: 10px; background: ' + (on ? '#FFC93C' : 'transparent') + '; color: #2A1E10; font: 700 18px \'Atkinson Hyperlegible\', sans-serif; text-align: left; cursor: pointer', rowBg: conf ? 'background: #FDE0DE; border-radius: 10px' : '',
+          pick: () => this.setState({ tb: t, tbOpen: false, tbConf: null }), podeRem: n === 0 && !conf, emUso: n > 0, uso: n === 1 ? '1 bem' : n + ' bens', conf,
+          pedir: () => this.setState({ tbConf: t }), nao: () => this.setState({ tbConf: null }),
+          rem: () => { const r = this.state.tiposBem.filter(x => x !== t); this.setState({ tiposBem: r, tb: this.state.tb === t ? r[0] : this.state.tb, f: this.state.f === t ? 'todos' : this.state.f, tbConf: null }); } }; }),
+      tbSel: s.tb, tbAberto: s.tbOpen, tbSeta: s.tbOpen ? '▲' : '▼', toggleTb: (e) => this.setState({ tbOpen: !this.state.tbOpen, tbConf: null, ddDir: this.ddDir(e) }), tbPst: this.ddPst(s.ddDir),
+      novoTb: s.tbNovo, setNovoTb: (e) => this.setState({ tbNovo: e.target.value }),
+      criarTb: () => { const n = this.state.tbNovo.trim(); if (!n) return; const l = this.state.tiposBem.includes(n) ? this.state.tiposBem : [...this.state.tiposBem, n]; this.setState({ tiposBem: l, tb: n, tbNovo: '', tbOpen: false }); }, manCls: s.showMan ? 'btn2' : 'btn', manTxt: s.showMan ? '✕ Fechar' : '+ Registrar manutenção', bemCls: s.showBem ? 'btn2' : 'btn', bemTxt: s.showBem ? '✕ Fechar' : '+ Cadastrar bem',
+      abas: [['bens', 'Bens da empresa'], ['man', 'Manutenções']].map(([id, label]) => ({ label, cls: s.aba === id ? 'sg on' : 'sg', pick: () => this.setState({ aba: id }) })),
+      isBens: s.aba !== 'man', isMan: s.aba === 'man',
+      hdrTxt: s.aba === 'man' ? '+ Registrar manutenção' : '+ Cadastrar bem',
+      hdrAcao: () => this.state.aba === 'man' ? this.setState({ modalOpen: true, modalBem: null, erroBem: false, mo: '', mq: '', mv: '', gar: '90', tipoMan: 'cons', manSalva: '', mPaga: 'sim', mForma: null, erroForma: false }) : this.setState({ showBem: true }),
+      tabs, rows,
+      totalTxt: this.brl(list.reduce((a, b) => a + b.v, 0)), totalHojeTxt: this.brl(list.reduce((a, b) => a + hoje(b), 0)),
+      pagoTxt: this.brl(B.reduce((a, b) => a + b.v, 0)), hojeTxt: this.brl(B.reduce((a, b) => a + hoje(b), 0)),
+      showBem: s.showBem, toggleBem: () => this.setState({ showBem: !this.state.showBem, edBem: null, tbOpen: false }),
+      fb, editandoBem: !!pe, bemTit: pe ? 'Editar bem' : 'Novo bem da empresa', bemSalvarTxt: pe ? 'Salvar alterações' : 'Salvar bem', salvoBem: s.salvoBem || '',
+      salvarBem: () => this.setState({ showBem: false, edBem: null, tbOpen: false, salvoBem: pe ? 'Alterações de "' + pe.nome + '" salvas.' : 'Bem cadastrado.' }),
+      showMan: s.showMan, toggleMan: () => this.setState({ showMan: !this.state.showMan }),
+      mb: (() => { if (!s.modalOpen) return { aberto: false }; const b = B.find(x => x.id === s.modalBem);
+        const F = b ? M.filter(m => m.b === b.id) : [], g = parseInt(s.gar, 10) || 0, d = new Date(2026, 9, 16); d.setDate(d.getDate() + g);
+        const CARTOES = this.cartoesL();
+        const ehCartao = s.mPaga === 'sim' && !!s.mForma && s.mForma.indexOf('Cartão') === 0, dono = (CARTOES.find(c => c[0] === s.mCartao) || ['', 'emp'])[1];
+        return { aberto: true, paga: s.mPaga === 'sim', ehCartao, cPessoal: ehCartao && dono !== 'emp', cDono: dono, erroForma: s.erroForma,
+          pagaOpts: [['sim', 'Sim, já paguei'], ['nao', 'Não, vou pagar depois']].map(([id, l]) => ({ label: l, cls: s.mPaga === id ? 'opt on' : 'opt', pick: () => this.setState({ mPaga: id, erroForma: false }) })),
+          formas: ['Dinheiro', 'Pix', 'Boleto', 'Transferência', 'Cartão de débito', 'Cartão de crédito'].map(f => ({ label: f, cls: s.mForma === f ? 'opt on' : 'opt', pick: () => this.setState({ mForma: f, erroForma: false }) })),
+          infoTxt: s.mPaga === 'sim' ? 'Ao salvar, a manutenção entra em Contas a pagar já como paga.' : 'Ao salvar, a manutenção vai para Contas a pagar para pagar depois. Quando pagar, marque lá como paga.',
+          titulo: b ? nomeDe[b.id] : 'Nova manutenção', nomeConta: b ? nomeDe[b.id] : 'patrimônio escolhido', temBem: !!b, erroBem: s.erroBem,
+          feitas: F.slice(0, 3).map(m => ({ d: m.d, o: m.o, vTxt: this.brl2(m.v) })), nenhuma: F.length === 0, totTxt: this.brl2(F.reduce((a, m) => a + m.v, 0)),
+          o: s.mo, quem: s.mq, v: s.mv, gar: s.gar, temGar: g > 0, garAte: String(d.getDate()).padStart(2, '0') + '/' + String(d.getMonth() + 1).padStart(2, '0') + '/' + d.getFullYear(),
+          setO: (e) => this.setState({ mo: e.target.value }), setQuem: (e) => this.setState({ mq: e.target.value }), setV: (e) => this.setState({ mv: e.target.value }), setGar: (e) => this.setState({ gar: e.target.value.replace(/\D/g, '') }),
+          fechar: () => this.setState({ modalOpen: false, modalBem: null, ddOpen: null }),
+          salvar: () => { const st = this.state; if (!st.modalBem) { this.setState({ erroBem: true }); return; } if (st.mPaga === 'sim' && !st.mForma) { this.setState({ erroForma: true }); return; } const v = parseFloat(String(st.mv).replace(/\./g, '').replace(',', '.')) || 0;
+            const cid = 'man' + Date.now(), nomeC = 'Manutenção · ' + nomeDe[st.modalBem], ec = !!st.mForma && st.mForma.indexOf('Cartão') === 0, donoC = (this.cartoesL().find(x => x[0] === st.mCartao) || ['', 'emp'])[1];
+            this.shSave(d => { d.contas = [...(d.contas || []), { id: cid, venc: '16/10', d: 0, nome: nomeC, cat: 'Manutenção', rep: 'Uma vez', v }];
+              if (st.mPaga === 'sim') { d.paid = d.paid || {}; d.paid[cid] = ec ? { forma: st.mForma, cartao: st.mCartao, dono: donoC, nome: nomeC, v, d: '16/10' } : { forma: st.mForma, nome: nomeC, v, d: '16/10' }; } });
+            this.setState({ modalOpen: false, ddOpen: null, bem: 'todos', salvaPaga: st.mPaga === 'sim', manSalva: nomeDe[st.modalBem], novasMan: [{ b: st.modalBem, d: '16/10/2026', o: st.mo.trim() || 'Manutenção', t: st.tipoMan === 'prev' ? 'Revisão' : 'Conserto', quem: st.mq.trim() || '—', v }, ...st.novasMan], modalBem: null }); } }; })(),
+      ddMbem: (() => { const on = s.ddOpen === 'mm-b'; return { sel: s.modalBem ? B.find(x => x.id === s.modalBem).nome : 'Escolha o patrimônio', aberto: on, seta: on ? '▲' : '▼', toggle: (e) => this.setState({ ddOpen: this.state.ddOpen === 'mm-b' ? null : 'mm-b', ddDir: this.ddDir(e) }), pst: this.ddPst(s.ddDir),
+        itens: B.map(x => ({ label: x.nome, marca: x.id === s.modalBem ? '✓' : '', st: 'flex: 1 1 140px; min-height: 48px; padding: 0 12px; border: none; border-radius: 10px; background: ' + (x.id === s.modalBem ? '#FFC93C' : 'transparent') + '; color: #2A1E10; font: 700 18px \'Atkinson Hyperlegible\', sans-serif; text-align: left; cursor: pointer',
+          pick: () => this.setState({ modalBem: x.id, ddOpen: null, erroBem: false }) })) }; })(),
+      ddHbem: this.ddMk('h-bem', [['todos', 'Todos'], ...comMan.filter(id => id !== 'todos').map(id => [id, nomeDe[id]])], s.bem, (v) => this.setState({ bem: v })),
+      novaMan: () => this.setState({ modalOpen: true, modalBem: null, erroBem: false, mo: '', mq: '', mv: '', gar: '90', tipoMan: 'cons', manSalva: '', mPaga: 'sim', mForma: null, erroForma: false }),
+      ddMc: this.ddMk('mm-c', this.cartoesL().map(([n, d]) => [n, n + (d === 'emp' ? ' · da empresa' : ' · pessoal do ' + d)]), s.mCartao, (v) => this.setState({ mCartao: v })),
+      manSalva: !!s.manSalva, manSalvaTxt: 'Manutenção do ' + s.manSalva + ' registrada. ' + (s.salvaPaga ? 'Ela já está em Contas a pagar como paga.' : 'Ela está em Contas a pagar para pagar depois.'),
+      bemTabs, hist, histTotalTxt: this.brl2(H.reduce((a, m) => a + m.v, 0)), prox, tiposMan, lancar
+    };
+  }
+}
+</script>
+</body>
+</html>

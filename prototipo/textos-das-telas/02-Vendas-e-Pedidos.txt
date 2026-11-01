@@ -1,0 +1,37 @@
+Todo o dinheiro que entra: balcão e encomendas Vendas e Pedidos ?
+
+[AJUDA: Vendas e pedidos Duas partes numa tela só. "Vendas do balcão": no fim do dia, anote quanto entrou em dinheiro, cartão e Pix. "Pedidos de clientes": as encomendas de mercados, lanchonetes e festas, pagas em dinheiro, Pix ou cartão.]
+Simulação · dados de exemplo {{a.label}} Lançar as vendas de hoje ?
+
+[AJUDA: Fechamento do dia Ao fechar a loja, conte o dinheiro da gaveta, veja o total da maquininha de cartão e o extrato do Pix. Digite os valores e salve. Débito e crédito ficam separados porque têm taxa e prazo diferentes; os dois aparecem assim no relatório do dia da maquininha. Leva menos de um minuto.]
+Sexta-feira, 16/10/2026 Dinheiro (R$) Pix (R$) Cartão débito (R$) Cartão crédito (R$) Total do dia {{totalDiaTxt}} Salvar vendas de hoje Taxas da maquininha ?
+
+[AJUDA: Taxas e prazos Quanto a maquininha cobra e em quantos dias o dinheiro cai na conta, no débito e no crédito. Só precisa preencher uma vez, ou quando a maquininha mudar a taxa. Valem para o balcão e para os pedidos pagos no cartão. O desconto de cada dia aparece na aba Resumo das vendas.]
+{{txBtn}} Cartão débito Taxa (%) Cai na conta em (dias) Cartão crédito Taxa (%) Cai na conta em (dias) Pronto Vendas de 16/10 lançadas! Total de {{totalDiaTxt}} . Já aparece no histórico abaixo e nos relatórios. Corrigir valores Histórico do balcão ?
+
+[AJUDA: Histórico do balcão Todos os fechamentos de fim de dia, do mais novo para o mais antigo. Para corrigir um dia, toque nele e altere os valores.]
+Dia Dinheiro Débito Crédito Pix Total {{d.d}} {{d.a}} {{d.b}} {{d.e}} {{d.c}} {{d.t}} Resumo das vendas · dia ?
+
+[AJUDA: Resumo do dia Como está o dia de hoje comparado com os outros dias do mês, e se algum fechamento do balcão ficou sem lançar.]
+Vendas de hoje {{hojeTxt}} {{hojeSub}} Média por dia {{mediaTxt}} balcão + pedidos Melhor dia do mês R$ 3.610,50 sábado, 10/10 Dias lançados ?
+
+[AJUDA: Dias lançados Quantos dias do mês já tiveram as vendas do balcão anotadas. Se um dia ficar sem lançar, o sistema avisa na tela inicial para não esquecer.]
+{{diasLanc}} {{diasLancSub}} Taxas da maquininha · hoje ?
+
+[AJUDA: Taxas de hoje Quanto a maquininha descontou das vendas no cartão hoje, no balcão e nos pedidos, e quanto realmente fica para a sorveteria. As taxas são alteradas na aba Vendas do balcão.]
+{{txStatus}} Balcão · débito ({{tDeb}}% sobre {{debTxt}}) − {{taxaDebTxt}} Balcão · crédito ({{tCre}}% sobre {{creTxt}}) − {{taxaCreTxt}} Pedidos pagos no cartão − {{pedTaxaHojeTxt}} Total de taxas hoje − {{taxaHojeTxt}} Fica para a sorveteria hoje: {{liqHojeTxt}} O crédito cai na conta em {{creDia}} Resumo das vendas · mês (outubro) ?
+
+[AJUDA: Resumo das vendas Junta as vendas do balcão e os pedidos de clientes num lugar só. Mostra quanto entrou no mês, quanto veio de cada um e o total de cada dia. Só para consulta: os lançamentos são feitos nas outras abas.]
+Total vendido {{totMesTxt}} balcão + pedidos Balcão {{balMesTxt}} {{balPct}} do total Pedidos de clientes {{pedMesTxt}} {{pedPct}} do total · {{qtdPed}} pedidos Dias com venda 16 dias de 1 a 16 de outubro Balcão {{balPct}} Pedidos {{pedPct}} Vendas por dia Dia Balcão Pedidos Total do dia {{d.d}} {{d.b}} {{d.p}} {{d.t}} Novo pedido ?
+
+[AJUDA: Novo pedido Escolha o cliente, ponha a quantidade de cada produto com + e −, marque como ele pagou e salve. O valor entra nas vendas do dia e o pedido vai para o histórico logo abaixo.]
+Cliente {{ddPcli.sel}} {{ddPcli.seta}} {{dI.marca}} {{dI.label}} Data 1. Toque no produto para adicionar ?
+
+[AJUDA: Adicionar produtos Escolha o tipo (paletas, potes, picolés) e toque no produto para ele entrar no pedido. Depois digite a quantidade direto no campo (por exemplo, 50), ou use − e + para ajustar. A lista vem de Cadastros, na aba Produtos à venda, com o preço de atacado. Produto novo cadastrado lá aparece aqui sozinho.]
+{{c.label}} {{p.nome}} {{p.precoTxt}} 2. Itens do pedido · digite a quantidade no campo Nenhum produto ainda. Toque nos produtos acima. {{it.nome}} {{it.unitTxt}} − + Remover Como o cliente pagou {{py.label}} Total do pedido {{totalTxt}} Taxa da maquininha ({{pedTaxaPct}}%) − {{pedTaxaTxt}} Fica para a sorveteria {{pedLiqTxt}} Salvar pedido Pedido nº 1053 salvo! Total de {{totalTxt}} em {{payLabel}}. Já aparece no histórico abaixo. Imprimir comprovante Fazer outro pedido Comprovante ?
+
+[AJUDA: Comprovante do pedido Sai pronto para imprimir e ir junto com a entrega. O cliente assina no recebimento.]
+BIG LAKE SORVETERIA Pedido nº 1053 · 16/10/2026 -------------------------------- Cliente: Mercado Bom Preço -------------------------------- {{ri.q}} x {{ri.nome}} {{ri.vTxt}} -------------------------------- TOTAL {{totalTxt}} Pagamento: {{payLabel}} Recebido por: ________________ Histórico de pedidos ?
+
+[AJUDA: Histórico de pedidos Todos os pedidos já feitos, do mais novo para o mais antigo. Toque em "Comprovante" para imprimir de novo.]
+Outubro: {{qtdPed}} pedidos · {{totalMesTxt}} Nº Data Cliente Pagamento Total #{{r.n}} {{r.d}} {{r.cli}} {{r.itens}} {{r.pag}} {{r.totalTxt}} Comprovante

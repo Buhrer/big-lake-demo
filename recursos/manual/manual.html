@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>BIG LAKE Gestão · Manual de uso</title>
+    <!-- Fonte do manual do Carlos (D-075). "npm run manual" tira as capturas e gera Manual-BIG-LAKE.pdf. -->
+    <style>
+      @page {
+        size: A4;
+      }
+      body {
+        margin: 0;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-size: 15pt;
+        line-height: 1.45;
+        color: #2a1e10;
+      }
+      h1 {
+        font-size: 34pt;
+        margin: 0 0 8pt;
+      }
+      h2 {
+        font-size: 21pt;
+        margin: 0 0 8pt;
+        padding-bottom: 4pt;
+        border-bottom: 3pt solid #ffc93c;
+      }
+      h3 {
+        font-size: 16pt;
+        margin: 14pt 0 4pt;
+      }
+      p,
+      li {
+        margin: 0 0 6pt;
+      }
+      ol,
+      ul {
+        padding-left: 22pt;
+        margin: 0 0 8pt;
+      }
+      .secao {
+        break-before: page;
+      }
+      img {
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        margin: 8pt 0 10pt;
+        border: 1.5pt solid #cdbf9c;
+        border-radius: 6pt;
+      }
+      img.metade {
+        width: 78%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .dica {
+        background: #fff0c2;
+        border-radius: 8pt;
+        padding: 8pt 12pt;
+        margin: 8pt 0;
+      }
+      .atencao {
+        background: #fde0de;
+        border-radius: 8pt;
+        padding: 8pt 12pt;
+        margin: 8pt 0;
+      }
+      .capa {
+        height: 260mm;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 14pt;
+      }
+      .faixa-capa {
+        background: #ffc93c;
+        border-radius: 14pt;
+        padding: 28pt;
+      }
+      .capa .sub {
+        font-size: 20pt;
+      }
+      .indice li {
+        margin-bottom: 3pt;
+      }
+      b,
+      strong {
+        color: #2a1e10;
+      }
+      .botao {
+        display: inline-block;
+        padding: 0 6pt;
+        border: 1.2pt solid #2a1e10;
+        border-radius: 5pt;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+      .vermelho {
+        background: #c62828;
+        border-color: #c62828;
+        color: #fff;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 6pt 0 10pt;
+      }
+      td {
+        border-bottom: 1pt solid #f0e6cc;
+        padding: 5pt 6pt;
+        vertical-align: top;
+      }
+      td:first-child {
+        font-weight: 700;
+        width: 38%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="capa">
+      <div class="faixa-capa">
+        <h1>BIG LAKE Gestão</h1>
+        <p class="sub">Manual de uso</p>
+        <p>Para o Carlos e o Paulo · versão 0.9.1</p>
+      </div>
+      <p>
+        Este manual mostra, passo a passo, as tarefas do dia a dia da sorveteria no programa. Cada
+        parte tem uma figura da tela. Guarde perto do computador da loja.
+      </p>
+      <h3>O que tem aqui</h3>
+      <ol class="indice">
+        <li>Abrir, fechar e o alto da tela</li>
+        <li>A tela inicial</li>
+        <li>Todo dia: as vendas do balcão</li>
+        <li>Pedido de cliente</li>
+        <li>Chegou mercadoria</li>
+        <li>Produção e receitas</li>
+        <li>Perdas</li>
+        <li>Contas a pagar</li>
+        <li>Sócios: o fim do mês</li>
+        <li>Patrimônio e manutenções</li>
+        <li>Relatórios e a Gordurinha</li>
+        <li>Cópia de segurança e pen drive</li>
+        <li>Errei! Como corrigir</li>
+        <li>O primeiro dia (com o Lucas)</li>
+      </ol>
+    </div>
+
+    <section class="secao">
+      <h2>1. Abrir, fechar e o alto da tela</h2>
+      <ol>
+        <li>Para abrir, dê dois cliques no ícone <b>BIG LAKE</b> da área de trabalho.</li>
+        <li>
+          Para fechar, clique no <b>X</b> do canto da janela. Ao fechar, o programa faz sozinho uma
+          <b>cópia de segurança</b> no computador e no pen drive (se ele estiver ligado).
+        </li>
+        <li>Tudo o que você confirma fica gravado na hora. Se a luz acabar, nada se perde.</li>
+      </ol>
+      <p>No alto de todas as telas tem:</p>
+      <img src="img/03-topo.png" alt="O alto da tela" />
+      <table>
+        <tr>
+          <td>Aviso da cópia</td>
+          <td>Diz quando foi feita a última cópia de segurança. Em vermelho ou amarelo, pede atenção (por exemplo: falta o pen drive).</td>
+        </tr>
+        <tr>
+          <td><span class="botao">?</span> vermelho</td>
+          <td>Passe o mouse ou toque nele para ler uma explicação curta daquela parte da tela.</td>
+        </tr>
+        <tr>
+          <td><span class="botao">A−</span> <span class="botao">A+</span></td>
+          <td>Diminuem ou aumentam a letra de todo o programa.</td>
+        </tr>
+        <tr>
+          <td><span class="botao vermelho">? Ajuda ligada</span></td>
+          <td>Esconde ou mostra todos os botões <span class="botao">?</span>.</td>
+        </tr>
+        <tr>
+          <td><span class="botao">Configurações</span></td>
+          <td>Cópia de segurança, tamanho da letra, histórico, dados da empresa e este manual (<span class="botao">Abrir o manual</span>).</td>
+        </tr>
+      </table>
+      <p>O menu amarelo da esquerda leva a todas as telas. A bolinha vermelha no ícone de <b>Contas a pagar</b> mostra quantas contas vencem logo; a do ícone de <b>Produção e Receitas</b>, quantos custos subiram.</p>
+    </section>
+
+    <section class="secao">
+      <h2>2. A tela inicial</h2>
+      <p>É a primeira tela ao abrir. Mostra o resumo do mês e o que precisa de atenção.</p>
+      <img src="img/01-inicio.png" alt="Tela inicial" />
+      <ul>
+        <li><b>O que você quer fazer?</b> Quatro botões grandes para as tarefas do dia: lançar as vendas, novo pedido, planejar a produção e chegou mercadoria.</li>
+        <li><b>Cards do mês</b>: vendas de ontem, vendas do mês, despesas e o <b>lucro até hoje</b>.</li>
+        <li><b>Meta para pagar as contas</b>: quanto já vendeu e quanto falta para pagar todas as contas do mês. Depois disso, o que entrar é lucro.</li>
+      </ul>
+      <img src="img/02-inicio-avisos.png" alt="Avisos de hoje" />
+      <p>
+        <b>Avisos de hoje</b>: a Gordurinha, o estoque baixo, o que vai vencer, as contas para pagar, o custo que subiu e os
+        últimos pedidos. Só aparece o que precisa de atenção. Cada aviso tem um botão que leva à tela certa.
+      </p>
+    </section>
+
+    <section class="secao">
+      <h2>3. Todo dia: as vendas do balcão</h2>
+      <p>No fim do dia, lance o total que entrou no balcão. Não é preciso lançar venda por venda.</p>
+      <ol>
+        <li>Na tela inicial, toque em <span class="botao vermelho">Lançar vendas do dia</span>.</li>
+        <li>Confira a data (já vem com hoje).</li>
+        <li>Digite quanto entrou em <b>dinheiro</b>, <b>Pix</b>, <b>débito</b> e <b>crédito</b> (os totais da maquininha).</li>
+        <li>O programa mostra o total do dia, as taxas da maquininha e quanto fica para a sorveteria.</li>
+        <li>Toque em <span class="botao vermelho">Salvar vendas de hoje</span>.</li>
+      </ol>
+      <img src="img/04-balcao.png" alt="Vendas do balcão" />
+      <div class="dica">
+        A loja não abriu (feriado)? Toque em <b>A loja não abriu neste dia</b>. Esqueceu um dia? Escolha a data
+        do dia que passou e lance. Lançou errado? Escolha o dia de novo e corrija.
+      </div>
+      <p>A aba <b>Resumo das vendas</b> mostra o dia e o mês, e avisa se algum dia ficou sem lançamento.</p>
+    </section>
+
+    <section class="secao">
+      <h2>4. Pedido de cliente</h2>
+      <ol>
+        <li>Toque em <span class="botao">Novo pedido de cliente</span> (ou Vendas e Pedidos › Pedidos de clientes).</li>
+        <li>Escolha o <b>cliente</b> e confira a data.</li>
+        <li>Toque nos produtos para colocar no pedido e digite a quantidade de cada um.</li>
+        <li>Escolha <b>como o cliente pagou</b>. O pedido é sempre pago na hora.</li>
+        <li>Toque em <span class="botao vermelho">Salvar pedido</span>. Depois, <span class="botao">Imprimir comprovante</span> se o cliente quiser.</li>
+      </ol>
+      <img src="img/05-pedido.png" alt="Pedido de cliente" />
+      <div class="dica">O preço é o de atacado da categoria. Cliente novo se cadastra em <b>Cadastros › Clientes</b>.</div>
+    </section>
+
+    <section class="secao">
+      <h2>5. Chegou mercadoria</h2>
+      <ol>
+        <li>Na tela inicial, toque em <span class="botao">Chegou mercadoria</span>.</li>
+        <li><b>Já está cadastrado</b>: escolha o item, digite quanto chegou, quanto pagou e a validade.</li>
+        <li><b>Item novo</b> (primeira vez que compra): preencha o nome, se é matéria-prima ou insumo, a medida, a quantidade, o valor pago, o mínimo e a validade.</li>
+        <li>
+          <b>Lançar esta compra em Contas a pagar?</b> Escolha <b>Sim, já paguei</b> (e diga como pagou), <b>Sim, vou pagar depois</b> (e o dia
+          que vence) ou <b>Não</b> (só se a conta já foi lançada, ou se está cadastrando o que já tinha no estoque). Assim a compra entra no lucro.
+        </li>
+        <li>Toque em <span class="botao vermelho">Salvar</span>. O estoque soma sozinho e o preço do item é atualizado.</li>
+      </ol>
+      <img src="img/08-entrada.png" alt="Entrada de mercadoria" />
+      <div class="dica">
+        Se o preço subiu, aparece o aviso <b>O custo subiu</b> na tela inicial e em Produção, na aba <b>Avisos</b> (a bolinha vermelha no ícone de Produção, no menu, diz quantos há), com o quanto o lucro de
+        cada produto caiu.
+      </div>
+      <img src="img/07-estoque.png" alt="Estoque" />
+    </section>
+
+    <section class="secao">
+      <h2>6. Produção e receitas</h2>
+      <h3>Planejar e registrar a produção</h3>
+      <ol>
+        <li>Abra <b>Produção e Receitas</b>. Escolha a receita.</li>
+        <li>Diga quantas receitas vai fazer (½, 1, 2…). A tabela mostra o que a receita usa e o que tem no estoque.</li>
+        <li>Se faltar algo, aparece <b>Falta comprar</b> com o custo estimado.</li>
+        <li>Depois de fazer, digite quantas saíram e toque em <span class="botao vermelho">Registrar produção</span>. O estoque baixa sozinho.</li>
+      </ol>
+      <img src="img/09-producao.png" alt="Planejar produção" />
+      <h3>Receitas: custo e lucro de cada</h3>
+      <p>
+        Na aba <b>Receitas</b> fica o custo de cada paleta, pote ou picolé e quanto sobra de lucro no balcão e no atacado.
+        O <b>preço de venda é da categoria</b> (todas as paletas têm o mesmo preço): mudar o preço numa receita muda para toda a categoria.
+      </p>
+      <img src="img/10-receitas.png" alt="Receitas" />
+    </section>
+
+    <section class="secao">
+      <h2>7. Perdas</h2>
+      <p>Anote tudo o que se perdeu: o que estragou aqui, matéria-prima vencida e trocas feitas nos clientes.</p>
+      <ol>
+        <li>Abra <b>Perdas</b> e toque em <span class="botao vermelho">+ Registrar perda</span>.</li>
+        <li>Escolha <b>o que se perdeu</b>: produtos prontos, matéria-prima ou troca em cliente (escolha o cliente).</li>
+        <li>Toque nos itens e digite a quantidade de cada um. O valor aparece sozinho.</li>
+        <li>Escolha <b>por quê</b> e toque em <span class="botao vermelho">Salvar perda</span>.</li>
+      </ol>
+      <img src="img/11-perda.png" alt="Registrar perda" />
+      <div class="dica">Matéria-prima perdida sai do estoque sozinha. As perdas não entram nas despesas; aparecem no relatório de Perdas.</div>
+    </section>
+
+    <section class="secao">
+      <h2>8. Contas a pagar</h2>
+      <ol>
+        <li>Abra <b>Contas a pagar</b> e toque em <span class="botao vermelho">+ Nova conta</span>.</li>
+        <li>Preencha o que é, o valor, o vencimento e o tipo. Conta de todo mês (aluguel, luz)? Em <b>Repete todo mês?</b>, toque em <b>Sim</b>: a do mês seguinte aparece sozinha no dia 1º.</li>
+        <li>Para pagar, toque em <span class="botao">Marcar como paga</span> e diga <b>como pagou</b> e o dia.</li>
+      </ol>
+      <img src="img/12-contas.png" alt="Contas a pagar" />
+      <img src="img/13-pagar-conta.png" alt="Como a conta foi paga" class="metade" />
+      <div class="atencao">
+        Pagou com o <b>cartão pessoal</b> do Carlos ou do Paulo? Escolha o cartão certo: o valor volta para ele como
+        <b>reembolso</b> na tela Sócios.
+      </div>
+    </section>
+
+    <section class="secao">
+      <h2>9. Sócios: o fim do mês</h2>
+      <p>
+        A tela <b>Sócios</b> mostra o que entrou, o que saiu e o <b>lucro líquido para dividir</b>. Embaixo, quanto cada um recebe:
+        a parte do lucro, mais os reembolsos, menos as retiradas do mês.
+      </p>
+      <ol>
+        <li>Use <b>‹</b> e <b>›</b> para ver outros meses.</li>
+        <li>Pegou dinheiro durante o mês? Toque em <span class="botao vermelho">+ Registrar retirada</span>.</li>
+        <li>A divisão (60% / 40%) muda com <b>−</b> e <b>+</b>, e vale do mês escolhido em diante.</li>
+      </ol>
+      <img src="img/14-socios.png" alt="Sócios" />
+    </section>
+
+    <section class="secao">
+      <h2>10. Patrimônio e manutenções</h2>
+      <ol>
+        <li><b>Bens da empresa</b>: furgão, máquinas, freezers, móveis. Toque em <span class="botao vermelho">+ Cadastrar bem</span>.</li>
+        <li>Revisão ou conserto: na linha do bem, toque em <span class="botao">Manutenção</span>. Preencha o que foi feito, quem fez, o valor e a garantia.</li>
+        <li>Diga se já está paga. O valor vai sozinho para <b>Contas a pagar</b>.</li>
+      </ol>
+      <img src="img/15-patrimonio.png" alt="Manutenções" />
+      <div class="dica">Para corrigir uma manutenção, use o <b>Editar</b> dela aqui: a conta muda junto.</div>
+    </section>
+
+    <section class="secao">
+      <h2>11. Relatórios e a Gordurinha</h2>
+      <p>Escolha o relatório na lista e o mês. Todos podem ser <span class="botao">Imprimir</span> ou <span class="botao vermelho">Salvar em PDF</span> (para o contador). Ao tocar em Imprimir, aparece a folha do jeito que vai sair; escolha a impressora e quantas cópias e toque em <span class="botao vermelho">Imprimir</span>.</p>
+      <img src="img/16-relatorios.png" alt="Relatórios" />
+      <table>
+        <tr><td>Resultado do mês</td><td>Tudo o que entrou menos tudo o que saiu: o lucro líquido.</td></tr>
+        <tr><td>Gordurinha</td><td>A folga posta nos preços no último reajuste. Mostra quanto ainda resta e quanto subir os preços.</td></tr>
+        <tr><td>Mais vendidos nos pedidos</td><td>Os produtos e os clientes que mais compraram.</td></tr>
+        <tr><td>Dinheiro, cartão e Pix</td><td>Quanto entrou em cada forma e as taxas da maquininha.</td></tr>
+        <tr><td>Comparar com o ano passado</td><td>O mês contra o mesmo mês do ano anterior.</td></tr>
+        <tr><td>Lucro por produto</td><td>Quais produtos deixam mais dinheiro no bolso (estimativa).</td></tr>
+        <tr><td>Perdas</td><td>O que se perdeu no mês, quem mais trocou e o maior motivo.</td></tr>
+      </table>
+      <h3>A Gordurinha</h3>
+      <img src="img/17-gordurinha.png" alt="Gordurinha" />
+      <p>
+        Cada aumento de ingrediente, embalagem ou conta fixa come um pedaço da gordurinha. Quando ela fica
+        <b>Hora de reajustar</b>, veja em <b>Reajuste de preços</b> quanto subir, mude os preços em Produção e Receitas
+        e toque em <span class="botao vermelho">Já reajustei os preços</span>: a conta começa de novo.
+      </p>
+    </section>
+
+    <section class="secao">
+      <h2>12. Cópia de segurança e pen drive</h2>
+      <ul>
+        <li>O programa copia tudo <b>ao abrir, a cada 2 horas e ao fechar</b>, numa pasta do computador.</li>
+        <li>Ao fechar, copia também no <b>pen drive</b>, se ele estiver ligado. Deixe o pen drive ligado e, de vez em quando, leve-o para casa.</li>
+        <li>Em <b>Configurações</b>, <span class="botao">Fazer cópia agora</span> copia na hora.</li>
+      </ul>
+      <img src="img/18-configuracoes.png" alt="Configurações" />
+      <div class="atencao">
+        <b>Restaurar uma cópia</b> volta os dados para como estavam naquele dia (o que foi feito depois some). Antes de
+        restaurar, o programa guarda uma cópia de como está. Na dúvida, chame o Lucas.
+      </div>
+    </section>
+
+    <section class="secao">
+      <h2>13. Errei! Como corrigir</h2>
+      <ul>
+        <li>Quase toda lista tem <span class="botao">Editar</span>: abre o mesmo quadro já preenchido. Corrija e toque em <span class="botao vermelho">Salvar alterações</span>.</li>
+        <li><span class="botao">Excluir</span> sempre pergunta <b>Sim / Não</b>. Depois de excluir, aparece <span class="botao">Desfazer</span> para voltar.</li>
+        <li>Pedido errado? Pode corrigir ou cancelar (com Desfazer).</li>
+        <li>Tudo o que é feito fica no <b>Histórico</b> (em Configurações), com data e hora, em frases simples.</li>
+      </ul>
+      <div class="dica">Não dá para excluir o que está em uso: por exemplo, cliente com pedido ou categoria com produtos. O programa explica o motivo.</div>
+    </section>
+
+    <section class="secao">
+      <h2>14. O primeiro dia (com o Lucas)</h2>
+      <p>O programa começa vazio. No primeiro dia, preencham nesta ordem:</p>
+      <ol>
+        <li><b>Configurações › Dados da empresa</b>: nome, CNPJ, telefone e endereço (saem no comprovante).</li>
+        <li><b>Configurações › Cópia de segurança</b>: ligue o pen drive e toque em <span class="botao">Fazer cópia agora</span>.</li>
+        <li><b>Configurações › Como contar o lucro</b>: confira as opções (já vêm com a sugestão).</li>
+        <li><b>Vendas e Pedidos › Taxas da maquininha</b>: as % de débito e crédito e em quantos dias o dinheiro cai.</li>
+        <li><b>Estoque e Insumos</b>: cadastre a matéria-prima e as embalagens que tem hoje (<b>Item novo</b>), com o mínimo de cada.</li>
+        <li><b>Produção e Receitas › Receitas</b>: cada receita com os ingredientes, as embalagens, quanto rende e os preços de balcão e atacado da categoria.</li>
+        <li><b>Cadastros › Produtos à venda</b>: o que vende nos pedidos (paleta, pote, caixa) ligado à receita.</li>
+        <li><b>Cadastros › Clientes e Fornecedores</b>.</li>
+        <li><b>Contas a pagar</b>: as contas fixas do mês, com <b>Repete todo mês</b>.</li>
+        <li><b>Patrimônio</b>: os bens da empresa.</li>
+        <li><b>Relatórios › Gordurinha</b>: o lucro líquido de um mês normal (o contador sabe), a % (10) e a data do último reajuste.</li>
+      </ol>
+      <img src="img/19-produtos.png" alt="Produtos à venda" />
+      <div class="dica">Depois disso, o dia a dia é: lançar o balcão, os pedidos, o que chegou, a produção, as perdas e pagar as contas.</div>
+    </section>
+  </body>
+</html>

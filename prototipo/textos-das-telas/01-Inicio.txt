@@ -1,0 +1,28 @@
+Sexta-feira, 16 de outubro de 2026 Bom dia, Carlos! ?
+
+[AJUDA: Tela inicial É a primeira tela ao abrir o sistema. Mostra o resumo do mês, o que precisa de atenção e atalhos para as tarefas mais comuns.]
+Simulação · dados de exemplo O que você quer fazer? ?
+
+[AJUDA: Atalhos Botões grandes para as tarefas do dia a dia. Um clique e você já está na tela certa.]
+Lançar vendas do dia Novo pedido de cliente Planejar produção Chegou mercadoria Vendas de ontem R$ 1.382,50 dinheiro, cartão e Pix Vendas de outubro R$ 32.870,00 balcão + pedidos Despesas de outubro R$ 19.640,00 compras e contas pagas Lucro até hoje ?
+
+[AJUDA: Lucro líquido É o que sobra: tudo o que entrou menos tudo o que saiu no mês até hoje. No fim do mês, esse valor é dividido entre os sócios.]
+R$ 13.230,00 dividido no fim do mês Meta para pagar as contas de outubro ?
+
+[AJUDA: Ponto de equilíbrio Quanto a sorveteria precisa vender no mês para pagar todas as contas: aluguel, luz, salários e mercadoria. Quando a barra chega a 100%, tudo o que vender a mais é lucro.]
+Faltam uns 3 dias de vendas Já vendeu R$ 32.870,00 Meta R$ 38.500,00 85% Faltam R$ 5.630,00 , cerca de 3 dias de vendas no ritmo atual. Depois disso, o que entrar é lucro. Considera todas as contas previstas do mês, inclusive as que ainda vão vencer. Avisos de hoje ?
+
+[AJUDA: Avisos O sistema confere sozinho estoque, validades, contas e custos, e mostra aqui só o que precisa de atenção. Não é preciso ficar procurando.]
+Gordurinha ?
+
+[AJUDA: Gordurinha A sobra de 10% em cima do lucro que foi colocada nos preços no último reajuste. Cada aumento de custo come um pedaço. Quando acabar, é hora de reajustar os preços.]
+Atenção Restam R$ 570,00 de R$ 1.500,00 por mês (38%). Mais comeram: morango, leite e energia. No ritmo de agora, acaba por volta de fevereiro. Ver em Relatórios › Gordurinha Estoque baixo 4 itens Leite integral mínimo 40 L 12 L Morango mínimo 10 kg 3,5 kg Pote 2 L com tampa mínimo 200 un 45 un Leite condensado mínimo 24 un 8 un Ver estoque Vencendo em breve ?
+
+[AJUDA: Alerta de validade Quando a mercadoria chega, anota-se a validade. O sistema avisa antes de vencer, para usar primeiro ou fazer uma promoção. Fruta vencida é dinheiro jogado fora.]
+3 itens Morango · 3,5 kg vence 18/10 em 2 dias Creme de leite · 6 L vence 20/10 em 4 dias Manga · 12 kg vence 21/10 em 5 dias Dica: use primeiro na produção ou faça uma promoção. Contas para pagar ?
+
+[AJUDA: Contas a pagar Mostra as contas que vencem nos próximos dias, para pagar em dia e não pagar juros. O aviso aparece com a antecedência escolhida em cada conta.]
+2 vencem logo Energia elétrica vence amanhã, 17/10 R$ 2.950,00 Laticínios Vale Verde (boleto) vence em 3 dias, 19/10 R$ 1.970,00 Ver contas a pagar O custo subiu ?
+
+[AJUDA: Aviso de aumento de custo Quando um ingrediente fica mais caro, o sistema recalcula o custo de tudo que usa ele, e mostra quanto o lucro de cada um caiu, já que o preço de venda é fixo.]
+3 produtos O morango passou de R$ 14,00 para R$ 18,00 o quilo (+29%). Paleta de Morango recheada lucro de cada R$ 6,85 → R$ 6,65 Sorvete de Morango · pote 2 L lucro de cada R$ 23,08 → R$ 21,08 Ver detalhes Últimos pedidos 6 em outubro Mercado Bom Preço 16/10 · 12 potes de 2 L R$ 540,00 Lanchonete Sabor & Cia 15/10 · 4 caixas de picolé R$ 360,00 Buffet Festa Feliz 14/10 · 20 potes + 200 casquinhas R$ 1.480,00 Ver todos os pedidos

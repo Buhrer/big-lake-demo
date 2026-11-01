@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Big Lake · Cadastros · Clientes</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Baloo+2:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF7DE;color:#2A1E10;font-family:'Atkinson Hyperlegible',system-ui,sans-serif;font-size:18px;line-height:1.4}
+a{color:#A61B1B}a:hover{color:#7A1010}
+h1,h2,h3{font-family:'Baloo 2',sans-serif;line-height:1.15;margin:0}
+.nav{display:flex;align-items:center;gap:14px;min-height:50px;white-space:nowrap;padding:0 14px;border-radius:12px;color:#2A1E10;text-decoration:none;font-weight:700;font-size:19px}
+.nav:hover{background:#FFDD70;color:#2A1E10}
+.nav.on,.nav.on:hover{background:#2A1E10;color:#FFD54F}
+.badge{margin-left:auto;min-width:28px;height:28px;border-radius:14px;background:#C62828;color:#FFFFFF;font-size:15px;display:inline-flex;align-items:center;justify-content:center}
+@media (max-height:820px){.nav{min-height:43px}}
+.ic{width:26px;height:26px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;box-sizing:border-box;border-radius:12px;border:2px solid #C62828;background:#C62828;color:#FFFFFF;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;text-decoration:none}
+.btn:hover{background:#A61B1B;border-color:#A61B1B;color:#FFFFFF}
+.btn2{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 20px;box-sizing:border-box;border-radius:12px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;text-decoration:none}
+.btn2:hover{background:#FFF0C2;color:#2A1E10}
+.see{min-height:48px;padding:0 18px;border-radius:10px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 17px 'Atkinson Hyperlegible',sans-serif;cursor:pointer}
+.see.on{background:#2A1E10;color:#FFD54F}
+.card{background:#FFFFFF;border:2px solid #F0E2B6;border-radius:18px;padding:24px;box-sizing:border-box}
+.tbl{width:100%;border-collapse:collapse;font-size:18px}
+.tbl th{text-align:left;padding:12px 14px;background:#FFF0C2;font-size:16px;font-weight:700}
+.tbl td{padding:12px 14px;border-bottom:1px solid #F0E6CC;vertical-align:middle}
+.num,.tbl th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;padding:4px 12px;border-radius:999px;font-size:16px;font-weight:700;white-space:nowrap}
+.info{background:#E3ECFA;color:#1E3A6E}.warn{background:#FFF0C2;color:#6B4A00}
+.inp{display:block;width:100%;min-height:52px;box-sizing:border-box;border:2px solid #CDBF9C;border-radius:10px;padding:0 14px;font:18px 'Atkinson Hyperlegible',sans-serif;background:#FFFFFF;color:#2A1E10}
+.lb{display:flex;align-items:center;min-height:34px;font-weight:700;font-size:17px;margin-bottom:6px}
+button.inp>span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1 1 auto}button.inp>span:last-child{flex:none}
+.tab{min-height:52px;padding:0 18px;border-radius:999px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 17px 'Atkinson Hyperlegible',sans-serif;cursor:pointer}
+.tab.on{background:#2A1E10;color:#FFD54F}
+.seg{display:flex;flex-wrap:wrap;gap:6px;padding:6px;background:#FFFFFF;border:2px solid #2A1E10;border-radius:16px}
+.sg{min-height:54px;padding:0 26px;border:none;border-radius:11px;background:transparent;color:#2A1E10;font:700 19px 'Atkinson Hyperlegible',sans-serif;cursor:pointer}
+.sg:hover{background:#FFF0C2}
+.sg.on,.sg.on:hover{background:#2A1E10;color:#FFD54F}
+a.sg{display:inline-flex;align-items:center;text-decoration:none}a.sg:hover{color:#2A1E10}
+.sim{display:inline-block;padding:6px 14px;border-radius:999px;background:#2A1E10;color:#FFD54F;font-size:15px;font-weight:700}
+.muted{color:#5E4B33}
+.kv{display:flex;flex-direction:column;gap:2px}
+.kv span:first-child{font-size:15px;font-weight:700;color:#5E4B33}
+.kl{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #F0E6CC}
+.kl span:first-child{color:#5E4B33}
+.kl span:last-child{font-weight:700;text-align:right}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;padding:10px 14px;background:#FFFFFF;border:2px solid #F0E2B6;border-radius:14px}
+.bk{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:#14532D;font-size:16px}
+.tb{min-height:44px;min-width:44px;padding:0 12px;box-sizing:border-box;border-radius:10px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 17px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none}
+.tb:hover{background:#FFF0C2;color:#2A1E10}
+.tb.on,.tb.on:hover{background:#C62828;border-color:#C62828;color:#FFFFFF}
+.help{position:relative;display:inline-flex;vertical-align:middle;flex:none}
+.help>button{width:34px;height:34px;border-radius:50%;border:2px solid #C62828;background:#FFFFFF;color:#C62828;font:700 19px 'Atkinson Hyperlegible',sans-serif;cursor:help;display:inline-flex;align-items:center;justify-content:center;padding:0}
+.help:hover>button,.help:focus-within>button{background:#C62828;color:#FFFFFF}
+.tip{display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);width:330px;max-width:80vw;background:#2A1E10;color:#FFFFFF;padding:14px 16px;border-radius:12px;font:400 16px/1.5 'Atkinson Hyperlegible',sans-serif;text-align:left;white-space:normal;z-index:60;box-shadow:0 8px 24px rgba(42,30,16,.3)}
+.tip b{display:block;color:#FFD54F;font-size:17px;margin-bottom:4px}
+.help:hover .tip,.help:focus-within .tip{display:block}
+.tip.l{left:0;transform:none}.tip.r{left:auto;right:0;transform:none}
+.nohelp .help{display:none}
+.hrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+header>.hrow,header>.sim{flex:none}
+.mdl-bg{position:fixed;inset:0;z-index:100;background:rgba(42,30,16,.55);display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box}
+.mdl{width:min(980px,100%);max-height:calc(100vh - 32px);overflow-y:auto;background:#FFFFFF;border:2px solid #2A1E10;border-radius:18px;padding:24px;box-sizing:border-box;box-shadow:0 16px 40px rgba(42,30,16,.35);display:flex;flex-direction:column;gap:16px}
+.mdl>section.card{border:none;padding:0;border-radius:0;background:transparent;box-shadow:none}
+.mdl-h{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mdl-x{flex:none;margin-left:auto}
+</style>
+</helmet>
+<div class="{{appCls}}" style="display: flex; flex-wrap: wrap; min-height: 100vh">
+<nav aria-label="Menu principal" style="flex: 0 0 292px; background: #FFC93C; padding: 20px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 4px">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 0 8px 14px; text-decoration: none; color: #2A1E10">
+<svg width="44" height="52" viewBox="0 0 48 56" aria-hidden="true"><path d="M12 24 L24 54 L36 24 Z" fill="#C68B3E" stroke="#2A1E10" stroke-width="2.5" stroke-linejoin="round"></path><path d="M16 31 L32 31 M19 39 L29 39" stroke="#2A1E10" stroke-width="2"></path><circle cx="24" cy="16" r="13" fill="#C62828" stroke="#2A1E10" stroke-width="2.5"></circle><circle cx="19" cy="11" r="3" fill="#FFFFFF" opacity="0.7"></circle></svg>
+<span style="display: flex; flex-direction: column; line-height: 1"><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: 0.5px">BIG LAKE</span><span style="font-size: 16px; font-weight: 700; margin-top: 4px">Sorveteria</span></span>
+</a>
+<a class="nav" href="Main.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path></svg>Início</a>
+<a class="nav" href="Pedidos.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="12" rx="2"></rect><path d="M7 8V4h10v4M7 14h4"></path></svg>Vendas e Pedidos</a>
+<a class="nav on" aria-current="page" href="Clientes.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="4"></circle><path d="M2 21c0-4 3-6 7-6s7 2 7 6M16 4a4 4 0 010 8M22 21c0-3-2-5-4-6"></path></svg>Cadastros</a>
+<a class="nav" href="Producao.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="18" rx="2"></rect><path d="M9 2h6v4H9zM9 13l2 2 4-4"></path></svg>Produção e Receitas</a>
+<a class="nav" href="Estoque.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4zM3 7v10l9 4 9-4V7M12 11v10"></path></svg>Estoque e Insumos</a>
+<a class="nav" href="Perdas.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"></path></svg>Perdas</a>
+<a class="nav" href="Contas.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>Contas a pagar<span class="badge" aria-label="2 vencem logo">2</span></a>
+<a class="nav" href="Socios.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v9h9"></path></svg>Sócios</a>
+<a class="nav" href="Patrimonio.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l8-3 8 3v16M9 21v-5h6v5M9 9h.01M15 9h.01M9 13h.01M15 13h.01"></path></svg>Patrimônio</a>
+<a class="nav" href="Relatorios.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-5M12 16V6M17 16v-8"></path></svg>Relatórios</a>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; padding: 20px 32px 48px; box-sizing: border-box">
+<div style="zoom: {{zoom}}; max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px">
+<div class="top">
+<div class="hrow">
+<span class="bk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"></path></svg>Cópia de segurança feita hoje, 08:02</span>
+<span class="help"><button type="button" aria-label="Ajuda: cópia de segurança">?</button><span class="tip l" role="tooltip"><b>Cópia de segurança automática</b>Toda vez que o sistema é fechado, ele copia todos os dados para o pen drive e para uma pasta do computador. Se o computador estragar, nada se perde.</span></span>
+</div>
+<div class="hrow" style="gap: 8px">
+<span class="help"><button type="button" aria-label="Ajuda: tamanho da letra">?</button><span class="tip r" role="tooltip"><b>Tamanho da letra</b>A+ aumenta tudo na tela e A− diminui. Bom para quem enxerga melhor com letra grande. O tamanho padrão fica salvo em Configurações.</span></span>
+<button type="button" class="tb" aria-label="Diminuir a letra" onClick="{{zOut}}">A−</button>
+<button type="button" class="tb" aria-label="Aumentar a letra" onClick="{{zIn}}">A+</button>
+<button type="button" class="{{helpBtn}}" onClick="{{toggleHelp}}">{{helpTxt}}</button>
+<a class="tb" href="Config.dc.html">Configurações</a>
+</div>
+</div>
+
+<header style="display: flex; flex-wrap: nowrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div style="min-width: 0; flex: 1 1 auto">
+<p class="muted" style="margin: 0 0 4px; font-size: 18px">Clientes, fornecedores e produtos que a Big Lake vende</p>
+<div class="hrow"><h1 style="font-size: 44px">Cadastros</h1><span class="help"><button type="button" aria-label="Ajuda: cadastros">?</button><span class="tip l" role="tooltip"><b>Cadastros</b>Tudo o que se cadastra num lugar só. "Clientes" são quem compra por encomenda, "Fornecedores" são quem vende mercadoria para a Big Lake e "Produtos à venda" são as paletas, picolés, potes e açaí com seus preços. Toque na aba para trocar.</span></span></div>
+</div>
+<div class="hrow" style="gap: 12px">
+<span class="sim">Simulação · dados de exemplo</span>
+<button type="button" class="{{addCls}}" onClick="{{toggleAdd}}">{{addTxt}}</button>
+</div>
+</header>
+
+<nav class="seg" aria-label="Escolha o cadastro" style="align-self: flex-start">
+<a class="sg on" aria-current="page" href="Clientes.dc.html">Clientes (7)</a>
+<a class="sg" href="Fornecedores.dc.html">Fornecedores (5)</a>
+<a class="sg" href="Cardapio.dc.html">Produtos à venda</a>
+</nav>
+
+<sc-if value="{{aberto}}" hint-placeholder-val="{{ false }}">
+<div class="mdl-bg">
+<div class="mdl" role="dialog" aria-modal="true" aria-label="Cadastro">
+<section class="card" aria-label="{{fm.titulo}}" style="border-color: #2A1E10; display: flex; flex-direction: column; gap: 16px">
+<div class="hrow" style="justify-content: space-between">
+<div class="hrow"><h2 style="font-size: 28px">{{fm.titulo}}</h2><span class="help"><button type="button" aria-label="Ajuda: cadastrar">?</button><span class="tip l" role="tooltip"><b>Cadastrar ou corrigir</b>Preencha os campos e toque em Salvar. Para corrigir alguém que já está na lista, toque em "Editar" na linha dele: os dados aparecem aqui em cima.</span></span></div>
+<div class="hrow" style="gap: 12px"><sc-if value="{{fm.editando}}" hint-placeholder-val="{{ false }}"><span class="tag warn">Editando um cadastro</span></sc-if><button type="button" class="btn2 mdl-x" onClick="{{fechar}}">✕ Fechar</button></div>
+</div>
+<sc-if value="{{isCli}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: end">
+<div style="flex: 2 1 320px"><label class="lb" for="cl-nome">Nome</label><input id="cl-nome" class="inp" value="{{fm.nome}}" onChange="{{fm.setNome}}"></div>
+<div style="flex: 1 1 220px"><label class="lb" for="cl-tel">Telefone / WhatsApp</label><input id="cl-tel" class="inp" value="{{fm.tel}}" onChange="{{fm.setTel}}"></div>
+<div style="flex: 1 1 220px"><label class="lb" for="cl-doc">CPF ou CNPJ</label><input id="cl-doc" class="inp" value="{{fm.doc}}" onChange="{{fm.setDoc}}"></div>
+</div>
+<fieldset style="border: none; margin: 0; padding: 0; min-width: 0">
+<legend class="lb" style="padding: 0; font-size: 19px; margin-bottom: 10px">Endereço de entrega</legend>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: end">
+<div style="flex: 1 1 300px"><label class="lb" for="cl-rua">Rua</label><input id="cl-rua" class="inp" value="{{fm.rua}}" onChange="{{fm.setRua}}"></div>
+<div style="flex: 0 1 140px"><label class="lb" for="cl-num">Número</label><input id="cl-num" class="inp" inputmode="numeric" value="{{fm.num}}" onChange="{{fm.setNum}}"></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: end; margin-top: 14px">
+<div style="flex: 1 1 220px"><label class="lb" for="cl-bai">Bairro</label><input id="cl-bai" class="inp" value="{{fm.bairro}}" onChange="{{fm.setBairro}}"></div>
+<div style="flex: 1 1 220px"><label class="lb" for="cl-cid">Cidade</label><input id="cl-cid" class="inp" value="{{fm.cidade}}" onChange="{{fm.setCidade}}"></div>
+</div>
+</fieldset>
+</div>
+</sc-if>
+<sc-if value="{{isForn}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: end">
+<div style="flex: 2 1 320px"><label class="lb" for="f-nome">Nome / Razão social</label><input id="f-nome" class="inp" value="{{fm.nome}}" onChange="{{fm.setNome}}"></div>
+<div style="flex: 1 1 220px"><label class="lb" for="f-tel">Telefone / WhatsApp</label><input id="f-tel" class="inp" value="{{fm.tel}}" onChange="{{fm.setTel}}"></div>
+<div style="flex: 1 1 220px"><label class="lb" for="f-doc">CNPJ ou CPF</label><input id="f-doc" class="inp" value="{{fm.doc}}" onChange="{{fm.setDoc}}"></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: end">
+<div style="flex: 1 1 280px"><label class="lb" for="f-cont">Pessoa de contato</label><input id="f-cont" class="inp" value="{{fm.cont}}" onChange="{{fm.setCont}}"></div>
+<div style="flex: 2 1 360px"><label class="lb" for="f-prod">O que fornece</label><input id="f-prod" class="inp" placeholder="Ex.: frutas, leite, potes" value="{{fm.itens}}" onChange="{{fm.setItens}}"></div>
+</div>
+</div>
+</sc-if>
+<div class="hrow" style="gap: 12px">
+<button type="button" class="btn" onClick="{{salvar}}">{{fm.btn}}</button>
+<button type="button" class="btn2" onClick="{{fechar}}">Cancelar</button>
+</div>
+</section>
+</div>
+</div>
+</sc-if>
+
+<section class="card" aria-label="{{lista.titulo}}" style="display: flex; flex-direction: column; gap: 16px">
+<div class="hrow" style="justify-content: space-between; gap: 14px">
+<h2 style="font-size: 28px">{{lista.titulo}}</h2>
+<div class="hrow" style="gap: 12px; flex: 1 1 360px; justify-content: flex-end">
+<label for="c-busca" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Procurar</label>
+<input id="c-busca" class="inp" placeholder="{{lista.busca}}" style="flex: 0 1 420px; width: auto">
+</div>
+</div>
+<sc-if value="{{fm.salvo}}" hint-placeholder-val="{{ false }}"><div style="padding: 14px 18px; border-radius: 12px; background: #DDF3E3; color: #14532D; font-weight: 700; font-size: 19px">✓ {{fm.msg}}</div></sc-if>
+<sc-if value="{{isCli}}" hint-placeholder-val="{{ true }}">
+<div style="overflow-x: auto">
+<table class="tbl">
+<thead><tr><th>Cliente</th><th>Endereço de entrega</th><th class="num">Pedidos</th><th></th></tr></thead>
+<tbody>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="7">
+<tr style="{{r.bg}}">
+<td><div style="font-weight: 700">{{r.nome}}</div><div class="muted" style="font-size: 16px">{{r.tel}}</div><div class="muted" style="font-size: 16px; white-space: nowrap">{{r.doc}}</div></td>
+<td><div>{{r.rua}}, {{r.num}}</div><div class="muted" style="font-size: 16px">{{r.bairro}} · {{r.cidade}}</div></td>
+<td class="num"><div style="font-weight: 700">{{r.ped}} pedidos</div><div class="muted" style="font-size: 15px">último {{r.ultD}} · {{r.ultV}}</div></td>
+<td style="text-align: right; white-space: nowrap"><a class="see" href="Pedidos.dc.html" style="display: inline-flex; align-items: center; text-decoration: none">Novo pedido</a> <button type="button" class="see" onClick="{{r.edit}}">Editar</button></td>
+</tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+</sc-if>
+<sc-if value="{{isForn}}" hint-placeholder-val="{{ false }}">
+<div style="overflow-x: auto">
+<table class="tbl">
+<thead><tr><th>Fornecedor</th><th>Contato</th><th class="num">Comprado em outubro</th><th></th></tr></thead>
+<tbody>
+<sc-for list="{{forn}}" as="f" hint-placeholder-count="5">
+<tr style="{{f.bg}}">
+<td><div style="font-weight: 700">{{f.nome}}</div><div class="muted" style="font-size: 16px">{{f.itens}}</div></td>
+<td><div>{{f.cont}}</div><div class="muted" style="font-size: 16px">{{f.tel}}</div></td>
+<td class="num">{{f.mes}}</td>
+<td style="text-align: right"><button type="button" class="see" onClick="{{f.edit}}">Editar</button></td>
+</tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+</sc-if>
+</section>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1480}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { z: 1, help: true, aba: 'cli', ed: null, salvo: false, v: {}, aberto: false };
+  }
+  shell() {
+    const s = this.state;
+    return {
+      zoom: s.z, appCls: s.help ? 'app' : 'app nohelp', helpBtn: s.help ? 'tb on' : 'tb', helpTxt: s.help ? '? Ajuda ligada' : '? Ajuda desligada',
+      zIn: () => this.setState({ z: Math.min(1.3, Math.round((this.state.z + 0.1) * 10) / 10) }),
+      zOut: () => this.setState({ z: Math.max(0.8, Math.round((this.state.z - 0.1) * 10) / 10) }),
+      toggleHelp: () => this.setState({ help: !this.state.help })
+    };
+  }
+  renderVals() {
+    const s = this.state;
+    const isCli = s.aba === 'cli';
+    const abas = [['cli', 'Clientes (7)'], ['forn', 'Fornecedores (5)']].map(([id, label]) => ({ label, cls: s.aba === id ? 'sg on' : 'sg', pick: () => this.setState({ aba: id, ed: null, salvo: false, v: {} }) }));
+    const C = [
+      { id: 'bp', nome: 'Mercado Bom Preço', tel: '(11) 3456-7788', doc: '12.345.678/0001-90', rua: 'Rua das Flores', num: '120', bairro: 'Centro', cidade: 'São Paulo', ped: 24, ultD: '16/10', ultV: 'R$ 540,00' },
+      { id: 'sc', nome: 'Lanchonete Sabor & Cia', tel: '(11) 98877-1122', doc: '23.456.789/0001-01', rua: 'Av. Brasil', num: '845', bairro: 'Vila Nova', cidade: 'São Paulo', ped: 18, ultD: '15/10', ultV: 'R$ 360,00' },
+      { id: 'ff', nome: 'Buffet Festa Feliz', tel: '(11) 97766-5544', doc: '34.567.890/0001-12', rua: 'Rua do Lago', num: '33', bairro: 'Jardim América', cidade: 'São Paulo', ped: 9, ultD: '14/10', ultV: 'R$ 1.480,00' },
+      { id: 'pq', nome: 'Padaria Pão Quente', tel: '(11) 3322-4455', doc: '45.678.901/0001-23', rua: 'Rua São João', num: '410', bairro: 'Centro', cidade: 'São Paulo', ped: 12, ultD: '14/10', ultV: 'R$ 450,00' },
+      { id: 'st', nome: 'Restaurante Sabor da Terra', tel: '(11) 3211-9090', doc: '56.789.012/0001-34', rua: 'Estrada Velha', num: 'km 4', bairro: 'Zona Rural', cidade: 'São Paulo', ped: 15, ultD: '12/10', ultV: 'R$ 720,00' },
+      { id: 'ps', nome: 'Escola Pequeno Saber', tel: '(11) 3344-6677', doc: '67.890.123/0001-45', rua: 'Rua das Acácias', num: '200', bairro: 'Jardim Europa', cidade: 'São Paulo', ped: 4, ultD: '10/10', ultV: 'R$ 980,00' },
+      { id: 'ma', nome: 'Maria Aparecida Souza', tel: '(11) 96655-3311', doc: '123.456.789-00', rua: 'Rua Ipê Amarelo', num: '58', bairro: 'Bela Vista', cidade: 'São Paulo', ped: 3, ultD: '05/10', ultV: 'R$ 147,00' }
+    ];
+    const F = [
+      { id: 'vv', nome: 'Laticínios Vale Verde', itens: 'Leite, creme de leite, leite em pó', cont: 'Sr. Antônio', tel: '(11) 3555-1020', doc: '11.222.333/0001-44', mes: 'R$ 3.940,00' },
+      { id: 'sj', nome: 'Hortifruti São José', itens: 'Morango, manga, maracujá', cont: 'Dona Célia', tel: '(11) 98123-4567', doc: '22.333.444/0001-55', mes: 'R$ 1.280,00' },
+      { id: 'dm', nome: 'Distribuidora Doce Mel', itens: 'Açúcar, leite condensado, cacau', cont: 'Rafael', tel: '(11) 3777-8899', doc: '33.444.555/0001-66', mes: 'R$ 2.150,00' },
+      { id: 'ep', nome: 'Embalagens Polar', itens: 'Potes, palitos, saquinhos', cont: 'Juliana', tel: '(11) 3666-2233', doc: '44.555.666/0001-77', mes: 'R$ 1.020,00' },
+      { id: 'an', nome: 'Açaí Norte', itens: 'Polpa de açaí, xarope de guaraná', cont: 'Marcos', tel: '(11) 99234-5678', doc: '55.666.777/0001-88', mes: 'R$ 1.650,00' }
+    ];
+    const hl = 'background: #FFF0C2';
+    const editar = (o) => () => { this.setState({ aberto: true, ed: o.id, salvo: false, v: { ...o } }); try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {} };
+    const rows = C.map(c => ({ ...c, bg: s.aberto && s.ed === c.id ? hl : '', edit: editar(c) }));
+    const forn = F.map(f => ({ ...f, bg: s.aberto && s.ed === f.id ? hl : '', edit: editar(f) }));
+    const set = (k) => (e) => this.setState({ v: { ...this.state.v, [k]: e.target.value } });
+    const v = s.v;
+    const quem = isCli ? 'cliente' : 'fornecedor';
+    const fm = {
+      titulo: s.ed ? 'Editar ' + quem : 'Cadastrar novo ' + quem,
+      editando: !!s.ed, salvo: s.salvo && !s.aberto,
+      msg: s.ed ? 'Alterações salvas.' : (isCli ? 'Cliente cadastrado! Ele já aparece na lista.' : 'Fornecedor cadastrado! Ele já aparece na lista.'),
+      outro: isCli ? 'Cadastrar outro cliente' : 'Cadastrar outro fornecedor',
+      btn: s.ed ? 'Salvar alterações' : 'Salvar ' + quem,
+      nome: v.nome || '', tel: v.tel || '', doc: v.doc || '', rua: v.rua || '', num: v.num || '', bairro: v.bairro || '', cidade: v.cidade || '', cont: v.cont || '', itens: v.itens || '',
+      setNome: set('nome'), setTel: set('tel'), setDoc: set('doc'), setRua: set('rua'), setNum: set('num'), setBairro: set('bairro'), setCidade: set('cidade'), setCont: set('cont'), setItens: set('itens')
+    };
+    return {
+      ...this.shell(),
+      abas, isCli, isForn: !isCli, rows, forn, fm,
+      lista: { titulo: isCli ? 'Clientes cadastrados' : 'Fornecedores cadastrados', busca: isCli ? 'Procurar cliente por nome ou telefone…' : 'Procurar fornecedor ou produto…' },
+      salvar: () => this.setState({ salvo: true, aberto: false }),
+      fechar: () => this.setState({ aberto: false, ed: null, v: {} }),
+      aberto: s.aberto, addCls: 'btn', addTxt: (isCli ? '+ Cadastrar cliente' : '+ Cadastrar fornecedor'),
+      toggleAdd: () => this.state.aberto ? this.setState({ aberto: false, ed: null, v: {} }) : this.setState({ aberto: true, ed: null, v: {}, salvo: false }),
+      novo: () => this.setState({ ed: null, salvo: false, v: {} })
+    };
+  }
+}
+</script>
+</body>
+</html>

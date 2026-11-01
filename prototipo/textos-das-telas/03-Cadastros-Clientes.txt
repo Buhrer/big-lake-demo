@@ -1,0 +1,7 @@
+Clientes, fornecedores e produtos que a Big Lake vende Cadastros ?
+
+[AJUDA: Cadastros Tudo o que se cadastra num lugar só. "Clientes" são quem compra por encomenda, "Fornecedores" são quem vende mercadoria para a Big Lake e "Produtos à venda" são as paletas, picolés, potes e açaí com seus preços. Toque na aba para trocar.]
+Simulação · dados de exemplo {{addTxt}} Clientes (7) Fornecedores (5) Produtos à venda {{fm.titulo}} ?
+
+[AJUDA: Cadastrar ou corrigir Preencha os campos e toque em Salvar. Para corrigir alguém que já está na lista, toque em "Editar" na linha dele: os dados aparecem aqui em cima.]
+Editando um cadastro ✕ Fechar Nome Telefone / WhatsApp CPF ou CNPJ Endereço de entrega Rua Número Bairro Cidade Nome / Razão social Telefone / WhatsApp CNPJ ou CPF Pessoa de contato O que fornece {{fm.btn}} Cancelar {{lista.titulo}} Procurar ✓ {{fm.msg}} Cliente Endereço de entrega Pedidos {{r.nome}} {{r.tel}} {{r.doc}} {{r.rua}}, {{r.num}} {{r.bairro}} · {{r.cidade}} {{r.ped}} pedidos último {{r.ultD}} · {{r.ultV}} Novo pedido Editar Fornecedor Contato Comprado em outubro {{f.nome}} {{f.itens}} {{f.cont}} {{f.tel}} {{f.mes}} Editar

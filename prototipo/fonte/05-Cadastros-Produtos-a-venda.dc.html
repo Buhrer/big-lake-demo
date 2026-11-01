@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Big Lake · Cadastros · Produtos à venda</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Baloo+2:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF7DE;color:#2A1E10;font-family:'Atkinson Hyperlegible',system-ui,sans-serif;font-size:18px;line-height:1.4}
+a{color:#A61B1B}a:hover{color:#7A1010}
+h1,h2,h3{font-family:'Baloo 2',sans-serif;line-height:1.15;margin:0}
+.nav{display:flex;align-items:center;gap:14px;min-height:50px;white-space:nowrap;padding:0 14px;border-radius:12px;color:#2A1E10;text-decoration:none;font-weight:700;font-size:19px}
+.nav:hover{background:#FFDD70;color:#2A1E10}
+.nav.on,.nav.on:hover{background:#2A1E10;color:#FFD54F}
+.badge{margin-left:auto;min-width:28px;height:28px;border-radius:14px;background:#C62828;color:#FFFFFF;font-size:15px;display:inline-flex;align-items:center;justify-content:center}
+@media (max-height:820px){.nav{min-height:43px}}
+.ic{width:26px;height:26px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;box-sizing:border-box;border-radius:12px;border:2px solid #C62828;background:#C62828;color:#FFFFFF;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;text-decoration:none}
+.btn:hover{background:#A61B1B;border-color:#A61B1B;color:#FFFFFF}
+.btn2{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 20px;box-sizing:border-box;border-radius:12px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;text-decoration:none}
+.btn2:hover{background:#FFF0C2;color:#2A1E10}
+.card{background:#FFFFFF;border:2px solid #F0E2B6;border-radius:18px;padding:24px;box-sizing:border-box}
+.tbl{width:100%;border-collapse:collapse;font-size:18px}
+.tbl th{text-align:left;padding:12px 14px;background:#FFF0C2;font-size:16px;font-weight:700}
+.tbl td{padding:12px 14px;border-bottom:1px solid #F0E6CC;vertical-align:middle}
+.num,.tbl th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;padding:4px 12px;border-radius:999px;font-size:16px;font-weight:700;white-space:nowrap}
+.ok{background:#DDF3E3;color:#14532D}.low{background:#FDE0DE;color:#8E1414}.warn{background:#FFF0C2;color:#6B4A00}.info{background:#E3ECFA;color:#1E3A6E}
+.inp{display:block;width:100%;min-height:52px;box-sizing:border-box;border:2px solid #CDBF9C;border-radius:10px;padding:0 14px;font:18px 'Atkinson Hyperlegible',sans-serif;background:#FFFFFF;color:#2A1E10}
+.lb{display:flex;align-items:center;min-height:34px;font-weight:700;font-size:17px;margin-bottom:6px}
+button.inp>span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1 1 auto}button.inp>span:last-child{flex:none}
+.tab{min-height:52px;padding:0 18px;border-radius:999px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 17px 'Atkinson Hyperlegible',sans-serif;cursor:pointer}
+.tab.on{background:#2A1E10;color:#FFD54F}
+.seg{display:flex;flex-wrap:wrap;gap:6px;padding:6px;background:#FFFFFF;border:2px solid #2A1E10;border-radius:16px}
+.sg{min-height:54px;padding:0 22px;border:none;border-radius:11px;background:transparent;color:#2A1E10;font:700 19px 'Atkinson Hyperlegible',sans-serif;cursor:pointer}
+.sg:hover{background:#FFF0C2}
+.sg.on,.sg.on:hover{background:#2A1E10;color:#FFD54F}
+a.sg{display:inline-flex;align-items:center;text-decoration:none}a.sg:hover{color:#2A1E10}
+.opt{min-height:56px;border-radius:12px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;padding:6px 10px}
+.opt.on{background:#FFC93C}
+.see{min-height:48px;padding:0 18px;border-radius:10px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 17px 'Atkinson Hyperlegible',sans-serif;cursor:pointer}
+.see:hover{background:#FFF0C2}
+.tbl.cmp th,.tbl.cmp td{padding:12px 10px}
+.tbl.cmp th{white-space:normal}
+.qb{width:56px;height:56px;border-radius:12px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 28px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;flex:none}
+.qb:hover{background:#FFF0C2}
+.sim{display:inline-block;padding:6px 14px;border-radius:999px;background:#2A1E10;color:#FFD54F;font-size:15px;font-weight:700}
+.muted{color:#5E4B33}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;padding:10px 14px;background:#FFFFFF;border:2px solid #F0E2B6;border-radius:14px}
+.bk{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:#14532D;font-size:16px}
+.tb{min-height:44px;min-width:44px;padding:0 12px;box-sizing:border-box;border-radius:10px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 17px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none}
+.tb:hover{background:#FFF0C2;color:#2A1E10}
+.tb.on,.tb.on:hover{background:#C62828;border-color:#C62828;color:#FFFFFF}
+.help{position:relative;display:inline-flex;vertical-align:middle;flex:none}
+.help>button{width:34px;height:34px;border-radius:50%;border:2px solid #C62828;background:#FFFFFF;color:#C62828;font:700 19px 'Atkinson Hyperlegible',sans-serif;cursor:help;display:inline-flex;align-items:center;justify-content:center;padding:0}
+.help:hover>button,.help:focus-within>button{background:#C62828;color:#FFFFFF}
+.tip{display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);width:330px;max-width:80vw;background:#2A1E10;color:#FFFFFF;padding:14px 16px;border-radius:12px;font:400 16px/1.5 'Atkinson Hyperlegible',sans-serif;text-align:left;white-space:normal;z-index:60;box-shadow:0 8px 24px rgba(42,30,16,.3)}
+.tip b{display:block;color:#FFD54F;font-size:17px;margin-bottom:4px}
+.help:hover .tip,.help:focus-within .tip{display:block}
+.tip.l{left:0;transform:none}.tip.r{left:auto;right:0;transform:none}
+.nohelp .help{display:none}
+.hrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+header>.hrow,header>.sim{flex:none}
+.lbl{width:250px;box-sizing:border-box;border:2px dashed #5E4B33;border-radius:10px;padding:12px 14px;background:#FFFFFF;display:flex;flex-direction:column;gap:2px;font-size:15px;line-height:1.35}
+.rmv{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border-radius:999px;border:2px solid #F3C9C4;background:#FFFFFF;color:#A61B1B;font:700 15px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;white-space:nowrap;flex:none}
+.rmv:hover{background:#FDE0DE;border-color:#C62828;color:#8E1414}
+.rmv.sim{background:#C62828;border-color:#C62828;color:#FFFFFF}
+.rmv.sim:hover{background:#A61B1B;border-color:#A61B1B;color:#FFFFFF}
+.rmv svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.ddrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:6px 8px;padding:3px 4px;border-bottom:1px solid #F0E6CC}
+.ddrow:last-child{border-bottom:none}
+.ddpanel{position:absolute;z-index:40;top:calc(100% + 6px);left:0;right:0;min-width:0;background:#FFFFFF;border:2px solid #2A1E10;border-radius:14px;box-shadow:0 10px 28px rgba(42,30,16,.25);padding:6px;box-sizing:border-box}
+.ddpanel.dr{left:auto;right:0;width:260px}
+.ddlist{max-height:300px;overflow-y:auto}
+.ddrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:6px 8px;padding:3px 4px;border-bottom:1px solid #F0E6CC}
+.ddrow:last-child{border-bottom:none}
+.mdl-bg{position:fixed;inset:0;z-index:100;background:rgba(42,30,16,.55);display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box}
+.mdl{width:min(980px,100%);max-height:calc(100vh - 32px);overflow-y:auto;background:#FFFFFF;border:2px solid #2A1E10;border-radius:18px;padding:24px;box-sizing:border-box;box-shadow:0 16px 40px rgba(42,30,16,.35);display:flex;flex-direction:column;gap:16px}
+.mdl>section.card{border:none;padding:0;border-radius:0;background:transparent;box-shadow:none}
+.mdl-h{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mdl-x{flex:none;margin-left:auto}
+</style>
+</helmet>
+<div class="{{appCls}}" style="display: flex; flex-wrap: wrap; min-height: 100vh">
+<nav aria-label="Menu principal" style="flex: 0 0 292px; background: #FFC93C; padding: 20px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 4px">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 0 8px 14px; text-decoration: none; color: #2A1E10">
+<svg width="44" height="52" viewBox="0 0 48 56" aria-hidden="true"><path d="M12 24 L24 54 L36 24 Z" fill="#C68B3E" stroke="#2A1E10" stroke-width="2.5" stroke-linejoin="round"></path><path d="M16 31 L32 31 M19 39 L29 39" stroke="#2A1E10" stroke-width="2"></path><circle cx="24" cy="16" r="13" fill="#C62828" stroke="#2A1E10" stroke-width="2.5"></circle><circle cx="19" cy="11" r="3" fill="#FFFFFF" opacity="0.7"></circle></svg>
+<span style="display: flex; flex-direction: column; line-height: 1"><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: 0.5px">BIG LAKE</span><span style="font-size: 16px; font-weight: 700; margin-top: 4px">Sorveteria</span></span>
+</a>
+<a class="nav" href="Main.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path></svg>Início</a>
+<a class="nav" href="Pedidos.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="12" rx="2"></rect><path d="M7 8V4h10v4M7 14h4"></path></svg>Vendas e Pedidos</a>
+<a class="nav on" aria-current="page" href="Clientes.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="4"></circle><path d="M2 21c0-4 3-6 7-6s7 2 7 6M16 4a4 4 0 010 8M22 21c0-3-2-5-4-6"></path></svg>Cadastros</a>
+<a class="nav" href="Producao.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="18" rx="2"></rect><path d="M9 2h6v4H9zM9 13l2 2 4-4"></path></svg>Produção e Receitas</a>
+<a class="nav" href="Estoque.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4zM3 7v10l9 4 9-4V7M12 11v10"></path></svg>Estoque e Insumos</a>
+<a class="nav" href="Perdas.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"></path></svg>Perdas</a>
+<a class="nav" href="Contas.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>Contas a pagar<span class="badge" aria-label="2 vencem logo">2</span></a>
+<a class="nav" href="Socios.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v9h9"></path></svg>Sócios</a>
+<a class="nav" href="Patrimonio.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l8-3 8 3v16M9 21v-5h6v5M9 9h.01M15 9h.01M9 13h.01M15 13h.01"></path></svg>Patrimônio</a>
+<a class="nav" href="Relatorios.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-5M12 16V6M17 16v-8"></path></svg>Relatórios</a>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; padding: 20px 32px 48px; box-sizing: border-box">
+<div style="zoom: {{zoom}}; max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px">
+<div class="top">
+<div class="hrow">
+<span class="bk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"></path></svg>Cópia de segurança feita hoje, 08:02</span>
+<span class="help"><button type="button" aria-label="Ajuda: cópia de segurança">?</button><span class="tip l" role="tooltip"><b>Cópia de segurança automática</b>Toda vez que o sistema é fechado, ele copia todos os dados para o pen drive e para uma pasta do computador. Se o computador estragar, nada se perde.</span></span>
+</div>
+<div class="hrow" style="gap: 8px">
+<span class="help"><button type="button" aria-label="Ajuda: tamanho da letra">?</button><span class="tip r" role="tooltip"><b>Tamanho da letra</b>A+ aumenta tudo na tela e A− diminui. Bom para quem enxerga melhor com letra grande. O tamanho padrão fica salvo em Configurações.</span></span>
+<button type="button" class="tb" aria-label="Diminuir a letra" onClick="{{zOut}}">A−</button>
+<button type="button" class="tb" aria-label="Aumentar a letra" onClick="{{zIn}}">A+</button>
+<button type="button" class="{{helpBtn}}" onClick="{{toggleHelp}}">{{helpTxt}}</button>
+<a class="tb" href="Config.dc.html">Configurações</a>
+</div>
+</div>
+
+<header style="display: flex; flex-wrap: nowrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div style="min-width: 0; flex: 1 1 auto">
+<p class="muted" style="margin: 0 0 4px; font-size: 18px">Clientes, fornecedores e produtos que a Big Lake vende</p>
+<div class="hrow"><h1 style="font-size: 44px">Cadastros</h1><span class="help"><button type="button" aria-label="Ajuda: cadastros">?</button><span class="tip l" role="tooltip"><b>Cadastros</b>Tudo o que se cadastra num lugar só. "Clientes" são quem compra por encomenda, "Fornecedores" são quem vende mercadoria para a Big Lake e "Produtos à venda" são as paletas, picolés, potes e açaí. O preço vem da categoria, definido em Receitas. Toque na aba para trocar.</span></span></div>
+</div>
+<div class="hrow" style="gap: 12px">
+<span class="sim">Simulação · dados de exemplo</span>
+<button type="button" class="{{addCls}}" onClick="{{toggleForm}}">{{addTxt}}</button>
+</div>
+</header>
+
+<nav class="seg" aria-label="Escolha o cadastro" style="align-self: flex-start">
+<a class="sg" href="Clientes.dc.html">Clientes (7)</a>
+<a class="sg" href="Fornecedores.dc.html">Fornecedores (5)</a>
+<a class="sg on" aria-current="page" href="Cardapio.dc.html">Produtos à venda</a>
+</nav>
+
+<sc-if value="{{isProd}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div class="hrow" style="justify-content: space-between">
+<div role="group" aria-label="Filtrar por tipo" class="hrow">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="6">
+<button type="button" class="{{t.cls}}" onClick="{{t.pick}}">{{t.label}}</button>
+</sc-for>
+</div>
+</div>
+
+<sc-if value="{{show}}" hint-placeholder-val="{{ false }}">
+<div class="mdl-bg">
+<div class="mdl" role="dialog" aria-modal="true" aria-label="Cadastrar produto">
+<section class="card" aria-label="Cadastrar produto" style="border-color: #2A1E10; display: flex; flex-direction: column; gap: 18px">
+<div class="mdl-h"><div class="hrow" style="gap: 12px"><h2 style="font-size: 28px">{{formTit}}</h2><sc-if value="{{editando}}" hint-placeholder-val="{{ false }}"><span class="tag warn">Editando um produto</span></sc-if></div><button type="button" class="btn2 mdl-x" onClick="{{toggleForm}}">✕ Fechar</button></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; align-items: end">
+<div style="position: relative">
+<div class="hrow" style="margin-bottom: 6px; gap: 8px"><span class="lb" style="margin: 0" id="v-cat">Categoria</span><span class="help"><button type="button" aria-label="Ajuda: categoria">?</button><span class="tip l" role="tooltip"><b>Categoria</b>O tipo do produto: paleta, picolé, pote, açaí. Se a Big Lake começar a vender algo novo, como milk-shake, crie a categoria aqui mesmo na lista. Ela passa a aparecer também nos filtros.</span></span></div>
+<button type="button" class="inp" aria-labelledby="v-cat" aria-expanded="{{catAberto}}" onClick="{{toggleCat}}" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; text-align: left; cursor: pointer; font-weight: 700"><span>{{catSel}}</span><span aria-hidden="true">{{catSeta}}</span></button>
+<sc-if value="{{catAberto}}" hint-placeholder-val="{{ false }}">
+<div data-ddp="1" style="position: absolute; z-index: 40; top: calc(100% + 6px); {{catPst}} background: #FFFFFF; border: 2px solid #2A1E10; border-radius: 14px; box-shadow: 0 10px 28px rgba(42,30,16,.25); padding: 8px; box-sizing: border-box">
+<div style="max-height: 300px; overflow-y: auto">
+<sc-for list="{{catItens}}" as="o" hint-placeholder-count="6">
+<div class="ddrow" style="{{o.rowBg}}">
+<button type="button" onClick="{{o.pick}}" style="{{o.st}}">{{o.marca}} {{o.label}}</button>
+<sc-if value="{{o.podeRem}}" hint-placeholder-val="{{ false }}"><button type="button" class="rmv" aria-label="Remover {{o.label}}" onClick="{{o.pedir}}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"></path></svg>Remover</button></sc-if>
+<sc-if value="{{o.emUso}}" hint-placeholder-val="{{ false }}"><span class="muted" style="font-size: 15px; padding: 0 10px; white-space: nowrap">em uso · {{o.uso}}</span></sc-if>
+<sc-if value="{{o.conf}}" hint-placeholder-val="{{ false }}"><span style="font-weight: 700; color: #8E1414; font-size: 15px; white-space: nowrap">Remover?</span><button type="button" class="rmv sim" onClick="{{o.rem}}">Sim</button><button type="button" class="rmv" onClick="{{o.nao}}">Não</button></sc-if>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 4px 2px; border-top: 2px solid #F0E2B6; margin-top: 4px; align-items: center">
+<label for="v-cat-n" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Nome novo</label>
+<input id="v-cat-n" class="inp" placeholder="Nova categoria, ex.: Milk-shake" value="{{novoNome}}" onChange="{{setNovoNome}}" style="flex: 1 1 120px; min-width: 0; min-height: 48px">
+<button type="button" class="btn" style="min-height: 48px; padding: 0 14px; flex: none" onClick="{{salvarCat}}">+ Criar</button>
+</div>
+<p class="muted" style="margin: 8px 6px 2px; font-size: 15px">Só dá para remover uma categoria que não tem produtos.</p>
+</div>
+</sc-if>
+</div>
+<div><label class="lb" for="v-nome">Nome / sabor</label><input id="v-nome" class="inp" value="{{ex.nome}}"></div>
+<div><div class="hrow" style="margin-bottom: 6px"><label class="lb" for="v-emb" style="margin: 0">Vendido como</label><span class="help"><button type="button" aria-label="Ajuda: vendido como">?</button><span class="tip l" role="tooltip"><b>Vendido como</b>Como o cliente leva o produto: uma unidade (paleta, picolé, casquinha), um pote ou um copo.</span></span></div><div style="position: relative"><button type="button" class="inp" id="v-emb" aria-haspopup="listbox" aria-expanded="{{ddVemb.aberto}}" onClick="{{ddVemb.toggle}}" style="display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; text-align: left; cursor: pointer; font-weight: 700"><span>{{ddVemb.sel}}</span><span aria-hidden="true">{{ddVemb.seta}}</span></button><sc-if value="{{ddVemb.aberto}}" hint-placeholder-val="{{ false }}"><div class="ddpanel" style="{{ddVemb.pst}}"><div class="ddlist" role="listbox"><sc-for list="{{ddVemb.itens}}" as="dI" hint-placeholder-count="4"><div class="ddrow"><button type="button" role="option" onClick="{{dI.pick}}" style="{{dI.st}}">{{dI.marca}} {{dI.label}}</button></div></sc-for></div></div></sc-if></div></div>
+<div><div class="hrow" style="margin-bottom: 6px"><label class="lb" for="v-peso" style="margin: 0">Peso ou volume</label><span class="help"><button type="button" aria-label="Ajuda: peso ou volume">?</button><span class="tip l" role="tooltip"><b>Peso ou volume</b>Quanto vem em cada um. Paleta e picolé se medem em gramas (g). Pote e copo, em litros (L) ou mililitros (ml).</span></span></div><div style="display: flex; gap: 8px"><input id="v-peso" class="inp" inputmode="decimal" value="{{ex.qtd}}" style="flex: 1 1 auto; min-width: 0"><label for="v-un" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Medida</label><div style="position: relative; flex: 0 0 104px; width: 104px"><button type="button" class="inp" id="v-un" aria-haspopup="listbox" aria-expanded="{{ddVun.aberto}}" onClick="{{ddVun.toggle}}" style="display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; text-align: left; cursor: pointer; font-weight: 700"><span>{{ddVun.sel}}</span><span aria-hidden="true">{{ddVun.seta}}</span></button><sc-if value="{{ddVun.aberto}}" hint-placeholder-val="{{ false }}"><div class="ddpanel" style="{{ddVun.pst}}"><div class="ddlist" role="listbox"><sc-for list="{{ddVun.itens}}" as="dI" hint-placeholder-count="4"><div class="ddrow"><button type="button" role="option" onClick="{{dI.pick}}" style="{{dI.st}}">{{dI.marca}} {{dI.label}}</button></div></sc-for></div></div></sc-if></div></div></div>
+<div><label class="lb" for="v-rec">Receita usada</label><div style="position: relative"><button type="button" class="inp" id="v-rec" aria-haspopup="listbox" aria-expanded="{{ddVrec.aberto}}" onClick="{{ddVrec.toggle}}" style="display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; text-align: left; cursor: pointer; font-weight: 700"><span>{{ddVrec.sel}}</span><span aria-hidden="true">{{ddVrec.seta}}</span></button><sc-if value="{{ddVrec.aberto}}" hint-placeholder-val="{{ false }}"><div class="ddpanel" style="{{ddVrec.pst}}"><div class="ddlist" role="listbox"><sc-for list="{{ddVrec.itens}}" as="dI" hint-placeholder-count="4"><div class="ddrow"><button type="button" role="option" onClick="{{dI.pick}}" style="{{dI.st}}">{{dI.marca}} {{dI.label}}</button></div></sc-for></div></div></sc-if></div></div>
+</div>
+<div class="hrow" style="justify-content: space-between; gap: 14px; padding: 14px 16px; border-radius: 12px; border: 2px solid #2A1E10; background: #FFFFFF">
+<div><div style="font-weight: 700; font-size: 18px">Preço de venda · fixo da categoria {{ex.catNome}}</div><div class="muted" style="font-size: 16px">O mesmo para todos os produtos desta categoria. Para mudar, vá em Produção e Receitas › Receitas.</div></div>
+<div class="hrow" style="gap: 18px">
+<div><div class="muted" style="font-weight: 700; font-size: 15px">Balcão</div><div style="font-size: 26px; font-weight: 700; font-variant-numeric: tabular-nums">{{ex.balR}}</div></div>
+<div><div class="muted" style="font-weight: 700; font-size: 15px">Atacado</div><div style="font-size: 26px; font-weight: 700; font-variant-numeric: tabular-nums">{{ex.ataR}}</div></div>
+<a class="btn2" href="Receitas.dc.html">Mudar em Receitas</a>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+<div style="background: #FFF0C2; border-radius: 12px; padding: 14px 16px"><div class="muted" style="font-weight: 700">Custo de cada um</div><div style="font-size: 28px; font-weight: 700; font-variant-numeric: tabular-nums">{{ex.custoTxt}}</div><div class="muted" style="font-size: 16px">vem de Produção e Receitas</div></div>
+<div style="background: #DDF3E3; border-radius: 12px; padding: 14px 16px"><div style="font-weight: 700; color: #14532D">Lucro no balcão</div><div style="font-size: 28px; font-weight: 700; color: #14532D; font-variant-numeric: tabular-nums">{{ex.lucroTxt}}</div><div style="font-size: 16px; color: #14532D">por unidade vendida</div></div>
+<div style="background: #DDF3E3; border-radius: 12px; padding: 14px 16px"><div style="font-weight: 700; color: #14532D">Lucro no atacado</div><div style="font-size: 28px; font-weight: 700; color: #14532D; font-variant-numeric: tabular-nums">{{ex.lucroAtaTxt}}</div><div style="font-size: 16px; color: #14532D">{{ex.lucroAtaObs}}</div></div>
+</div>
+<div class="hrow" style="gap: 12px">
+<button type="button" class="btn" style="min-width: 200px" onClick="{{salvar}}">{{salvarTxt}}</button>
+<button type="button" class="btn2" onClick="{{toggleForm}}">Cancelar</button>
+</div>
+</section>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{salvoMsg}}" hint-placeholder-val="{{ false }}">
+<div class="hrow" style="gap: 14px; padding: 14px 18px; border-radius: 12px; background: #DDF3E3; color: #14532D"><span style="font-weight: 700; font-size: 19px">✓ {{salvoMsg}}</span></div>
+</sc-if>
+<sc-if value="{{excluido}}" hint-placeholder-val="{{ false }}">
+<div class="hrow" style="justify-content: space-between; gap: 14px; padding: 14px 18px; border-radius: 12px; background: #DDF3E3; color: #14532D">
+<span style="font-weight: 700; font-size: 19px">✓ "{{excluidoNome}}" foi excluído da lista.</span>
+<button type="button" class="btn2" onClick="{{desfazer}}">Desfazer</button>
+</div>
+</sc-if>
+<section class="card" aria-label="Lista de produtos à venda" style="padding: 8px">
+<table class="tbl cmp">
+<thead><tr><th>Produto</th><th class="num">Custo</th><th class="num">Balcão</th><th class="num">Atacado</th><th class="num">Lucro no balcão</th><th></th></tr></thead>
+<tbody>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="12">
+<tr style="{{r.bg}}">
+<td><div style="font-weight: 700">{{r.nome}}</div><div class="muted" style="font-size: 16px">{{r.tipoNome}} · {{r.tam}}</div><sc-if value="{{r.conf}}" hint-placeholder-val="{{ false }}"><div style="font-weight: 700; color: #8E1414; margin-top: 4px">Excluir este produto?</div></sc-if></td>
+<td class="num">{{r.custoTxt}}</td>
+<td class="num" style="font-weight: 700">{{r.balTxt}}</td>
+<td class="num">{{r.ataTxt}}</td>
+<td class="num" style="font-weight: 700; color: #14532D">{{r.lucroTxt}}</td>
+<td style="text-align: right; white-space: nowrap">
+<sc-if value="{{r.normal}}" hint-placeholder-val="{{ true }}"><button type="button" class="see" onClick="{{r.editar}}">Editar</button> <button type="button" class="see" onClick="{{r.pedir}}">Excluir</button></sc-if>
+<sc-if value="{{r.conf}}" hint-placeholder-val="{{ false }}"><button type="button" class="see" style="background: #C62828; border-color: #C62828; color: #FFFFFF" onClick="{{r.sim}}">Sim</button> <button type="button" class="see" onClick="{{r.nao}}">Não</button></sc-if>
+</td>
+</tr>
+</sc-for>
+</tbody>
+</table>
+</section>
+</div>
+</sc-if>
+
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1500}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    try {
+      window.addEventListener('mousedown', (e) => {
+        const st = this.state; if (!(st.ddOpen || st.drop || st.dropCat || st.cdrop || st.tbOpen)) return;
+        if (e.target && e.target.closest && e.target.closest('[aria-expanded], .ddpanel, [data-ddp]')) return;
+        this.setState({ ddOpen: null, drop: false, dropCat: false, cdrop: false, tbOpen: false, rconf: null, crconf: null, tbConf: null });
+      });
+      const fecharFlutuante = (e) => {
+        const st = this.state; if (!(st.ddDir && st.ddDir.fx) || !(st.ddOpen || st.drop || st.dropCat || st.cdrop || st.tbOpen)) return;
+        if (e && e.target && e.target.closest && e.target.closest('.ddpanel, [data-ddp]')) return;
+        this.setState({ ddOpen: null, drop: false, dropCat: false, cdrop: false, tbOpen: false, rconf: null, crconf: null, tbConf: null });
+      };
+      window.addEventListener('scroll', fecharFlutuante, true);
+      window.addEventListener('resize', fecharFlutuante);
+    } catch (err) {}
+    this.state = { z: 1, help: true, f: 'todos', show: false, ed: null, salvoMsg: '', tipo: 'paleta', cats: [], novoNome: '', dropCat: false, rconf: null, semCat: [], excl: [], conf: null, ult: null };
+  }
+  shell() {
+    const s = this.state;
+    return {
+      zoom: s.z, appCls: s.help ? 'app' : 'app nohelp', helpBtn: s.help ? 'tb on' : 'tb', helpTxt: s.help ? '? Ajuda ligada' : '? Ajuda desligada',
+      zIn: () => this.setState({ z: Math.min(1.3, Math.round((this.state.z + 0.1) * 10) / 10) }),
+      zOut: () => this.setState({ z: Math.max(0.8, Math.round((this.state.z - 0.1) * 10) / 10) }),
+      toggleHelp: () => this.setState({ help: !this.state.help })
+    };
+  }
+  brl(n) { return n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); }
+  ddMk(id, opts, cur, onPick) {
+    const s = this.state, on = s.ddOpen === id, O = opts.map(o => Array.isArray(o) ? o : [o, o]);
+    const salvo = (s.ddv || {})[id], val = cur !== undefined && cur !== null ? cur : (O.some(o => o[0] === salvo) ? salvo : O[0][0]);
+    const atual = O.find(o => o[0] === val) || O[0];
+    return { sel: atual[1], aberto: on, seta: on ? '▲' : '▼', toggle: (e) => this.setState({ ddOpen: this.state.ddOpen === id ? null : id, ddDir: this.ddDir(e) }), pst: this.ddPst(s.ddDir),
+      itens: O.map(([v, l]) => ({ label: l, marca: v === val ? '✓' : '',
+        st: 'flex: 1 1 140px; min-height: 48px; padding: 0 12px; border: none; border-radius: 10px; background: ' + (v === val ? '#FFC93C' : 'transparent') + '; color: #2A1E10; font: 700 18px \'Atkinson Hyperlegible\', sans-serif; text-align: left; cursor: pointer',
+        pick: () => { this.setState({ ddOpen: null, ddv: { ...(this.state.ddv || {}), [id]: v } }); if (onPick) onPick(v); } })) };
+  }
+  ddDir(e) {
+    try {
+      const el = e.currentTarget, r = el.getBoundingClientRect(), box = el.closest('.mdl'), lim = box ? box.getBoundingClientRect().right : window.innerWidth;
+      const side = r.left + 400 > lim - 12 ? 'r' : 'l';
+      if (!el.closest('[role="dialog"]')) return side;
+      // Inside a modal: the list floats over the screen (it never makes the modal grow or scroll) and opens upward when there is no room below.
+      const z = this.state.z || 1, vw = window.innerWidth, vh = window.innerHeight;
+      const W = Math.min(Math.max(r.width, 400), vw - 32);
+      let left = side === 'r' ? r.right - W : r.left; left = Math.max(16, Math.min(left, vw - 16 - W));
+      const below = vh - r.bottom - 16, above = r.top - 16, up = below < 330 && above > below;
+      return { fx: true, up, left: left / z, w: W / z, y: (up ? vh - r.top + 6 : r.bottom + 6) / z, h: Math.max(160, (up ? above : below) - 6) / z };
+    } catch (err) { return 'l'; }
+  }
+  ddPst(dir) {
+    if (dir && dir.fx) return 'position: fixed; z-index: 300; left: ' + dir.left + 'px; right: auto; width: ' + dir.w + 'px; max-width: none; ' + (dir.up ? 'top: auto; bottom: ' + dir.y + 'px;' : 'bottom: auto; top: ' + dir.y + 'px;') + ' max-height: ' + dir.h + 'px; overflow-y: auto; display: flex; flex-direction: column;';
+    return (dir === 'r' ? 'left: auto; right: 0;' : 'left: 0; right: auto;') + ' width: max(100%, 400px); max-width: calc(100vw - 48px);';
+  }
+  renderVals() {
+    const s = this.state;
+    const TN = { paleta: 'Paleta', picole: 'Picolé', pote: 'Sorvete de pote', acai: 'Açaí', copo: 'Açaí no copo', balcao: 'Balcão' };
+    const PRECO = { paleta: [10, 7], picole: [7, 5.5], pote: [49, 45], acai: [56, 52], copo: [22, 18], balcao: [9, 7] };
+    const pr = (t) => PRECO[t] || [0, 0];
+    s.cats.forEach(c => { TN[c.id] = c.label; });
+    const P = [
+      { t: 'paleta', nome: 'Paleta de Morango recheada', tam: '1 unidade · 110 g', custo: 3.35, q: 64, min: 30 },
+      { t: 'paleta', nome: 'Paleta de Maracujá', tam: '1 unidade · 110 g', custo: 2.83, q: 48, min: 30 },
+      { t: 'paleta', nome: 'Paleta de Coco cremoso', tam: '1 unidade · 110 g', custo: 3.49, q: 12, min: 30 },
+      { t: 'picole', nome: 'Picolé de limão', tam: '1 unidade · 60 g', custo: 0.95, q: 210, min: 100 },
+      { t: 'picole', nome: 'Picolé cremoso de chocolate', tam: '1 unidade · 70 g', custo: 1.4, q: 160, min: 100 },
+      { t: 'pote', nome: 'Sorvete de Morango', tam: 'Pote 2 L', custo: 27.92, q: 18, min: 10 },
+      { t: 'pote', nome: 'Sorvete de Chocolate', tam: 'Pote 2 L', custo: 29.24, q: 22, min: 10 },
+      { t: 'acai', nome: 'Creme de açaí', tam: 'Pote 2 L', custo: 32.66, q: 8, min: 5 },
+      { t: 'copo', nome: 'Açaí no copo', tam: '500 ml · 2 acompanhamentos', custo: 9.14, q: null },
+      { t: 'balcao', nome: 'Casquinha', tam: '2 bolas', custo: 1.9, q: null }
+    ];
+    const T = [['todos', 'Todos'], ['paleta', 'Paletas'], ['picole', 'Picolés'], ['pote', 'Sorvete de pote'], ['acai', 'Açaí'], ['copo', 'Açaí no copo'], ['balcao', 'Balcão'], ...s.cats.map(c => [c.id, c.label])].filter(([id]) => !s.semCat.includes(id));
+    const tabs = T.map(([id, label]) => ({ label, cls: s.f === id ? 'tab on' : 'tab', pick: () => this.setState({ f: id }) }));
+    P.forEach((p, i) => { p.i = i; });
+    const vivos = P.filter(p => !s.excl.includes(p.i));
+    const rows = vivos.filter(p => s.f === 'todos' || p.t === s.f).map(p => {
+      const feito = p.q === null, baixo = !feito && p.q < p.min;
+      const un = p.tam.indexOf('Pote') === 0 ? ' potes' : ' un';
+      const bal = pr(p.t)[0], ata = pr(p.t)[1];
+      return { ...p, bal, ata, tipoNome: TN[p.t], custoTxt: this.brl(p.custo), balTxt: this.brl(bal), ataTxt: ata ? this.brl(ata) : '—', lucroTxt: this.brl(bal - p.custo),
+        freezer: feito ? 'Feito na hora' : p.q + un, baixo, cls: feito ? 'tag info' : (baixo ? 'tag low' : 'tag ok'),
+        normal: s.conf !== p.i, conf: s.conf === p.i, bg: s.conf === p.i ? 'background: #FDE0DE' : '',
+        editar: () => { const dv = { ...(this.state.ddv || {}) }; delete dv['v-rec']; this.setState({ show: true, ed: p.i, tipo: p.t, emb: null, un: null, dropCat: false, conf: null, salvoMsg: '', ddv: dv }); },
+        pedir: () => this.setState({ conf: p.i }), nao: () => this.setState({ conf: null }),
+        sim: () => this.setState({ excl: [...this.state.excl, p.i], conf: null, ult: p.i }) };
+    });
+    const EX = {
+      paleta: { nome: 'Paleta de Morango recheada', tam: '1 unidade · 110 g', emb: 'Unidade', qtd: '110', un: 'g', rec: 'Paleta de Morango recheada', custo: 3.35 },
+      picole: { nome: 'Picolé cremoso de chocolate', tam: '1 unidade · 70 g', emb: 'Unidade', qtd: '70', un: 'g', rec: 'Picolé cremoso de chocolate', custo: 1.4 },
+      pote: { nome: 'Sorvete de Morango', tam: 'Pote 2 L', emb: 'Pote', qtd: '2', un: 'L', rec: 'Sorvete de Morango · pote 2 L', custo: 27.92 },
+      acai: { nome: 'Creme de açaí', tam: 'Pote 2 L', emb: 'Pote', qtd: '2', un: 'L', rec: 'Creme de Açaí · pote 2 L', custo: 32.66 },
+      copo: { nome: 'Açaí no copo 500 ml', tam: '500 ml', emb: 'Copo', qtd: '500', un: 'ml', rec: 'Açaí no copo 500 ml', custo: 9.14 },
+      balcao: { nome: 'Casquinha 2 bolas', tam: '2 bolas', emb: 'Unidade', qtd: '140', un: 'g', rec: 'Sorvete do balcão', custo: 1.9 }
+    };
+    let e = EX[s.tipo] || { nome: '', tam: '', emb: 'Unidade', qtd: '', un: 'g', rec: 'Escolha a receita', custo: 0 };
+    const pe = s.ed !== null && s.ed !== undefined ? P[s.ed] : null;
+    if (pe) {
+      const m = pe.tam.match(/(\d+(?:,\d+)?)\s*(g|kg|ml|L)\b/);
+      const RECS = ['Paleta de Morango recheada', 'Paleta de Maracujá', 'Paleta de Coco cremoso', 'Sorvete de Morango · pote 2 L', 'Sorvete de Chocolate · pote 2 L', 'Creme de Açaí · pote 2 L'];
+      e = { ...e, nome: pe.nome, tam: pe.tam, custo: pe.custo, qtd: m ? m[1] : e.qtd, un: m ? m[2] : e.un,
+        emb: pe.tam.indexOf('Pote') === 0 ? 'Pote' : (pe.t === 'copo' ? 'Copo' : 'Unidade'),
+        rec: RECS.find(x => x.toLowerCase().indexOf(pe.nome.toLowerCase()) === 0) || pe.nome };
+    }
+    const fmt = (n) => n.toFixed(2).replace('.', ',');
+    e.bal = pr(s.tipo)[0]; e.ata = pr(s.tipo)[1];
+    const ex = { ...e, balR: PRECO[s.tipo] ? this.brl(e.bal) : 'defina em Receitas', ataR: PRECO[s.tipo] ? this.brl(e.ata) : '—', catNome: TN[s.tipo] || (s.cats.find(c => c.id === s.tipo) || {}).label || '', emb: s.emb || e.emb, un: s.un || e.un, balTxt: fmt(e.bal), ataTxt: e.ata ? fmt(e.ata) : '', custoTxt: this.brl(e.custo), lucroTxt: this.brl(e.bal - e.custo), lucroAtaTxt: e.ata ? this.brl(e.ata - e.custo) : '—', lucroAtaObs: e.ata ? 'por unidade no atacado' : 'não é vendido no atacado' };
+    const TP = [['paleta', 'Paleta'], ['picole', 'Picolé'], ['pote', 'Sorvete de pote'], ['acai', 'Açaí'], ['copo', 'Açaí no copo'], ['balcao', 'Balcão'], ...s.cats.map(c => [c.id, c.label])].filter(([id]) => !s.semCat.includes(id));
+    const catItens = TP.map(([id, label]) => { const on = s.tipo === id, n = vivos.filter(p => p.t === id).length, conf = s.rconf === id;
+      return { label, marca: on ? '✓' : '', st: 'flex: 1 1 150px; min-height: 48px; padding: 0 12px; border: none; border-radius: 10px; background: ' + (on ? '#FFC93C' : 'transparent') + '; color: #2A1E10; font: 700 18px \'Atkinson Hyperlegible\', sans-serif; text-align: left; cursor: pointer', rowBg: conf ? 'background: #FDE0DE; border-radius: 10px' : '',
+        pick: () => this.setState({ tipo: id, emb: null, un: null, dropCat: false, rconf: null }), podeRem: n === 0 && !conf, emUso: n > 0, uso: n === 1 ? '1 produto' : n + ' produtos', conf,
+        pedir: () => this.setState({ rconf: id }), nao: () => this.setState({ rconf: null }),
+        rem: () => { const resto = TP.filter(([x]) => x !== id); this.setState({ semCat: [...this.state.semCat, id], tipo: this.state.tipo === id && resto.length ? resto[0][0] : this.state.tipo, f: this.state.f === id ? 'todos' : this.state.f, rconf: null }); } }; });
+    const catSel = (TP.find(([id]) => id === s.tipo) || ['', 'Escolha'])[1];
+    const tipos = TP.map(([id, label]) => ({ label, cls: s.tipo === id ? 'opt on' : 'opt', pick: () => this.setState({ tipo: id, emb: null, un: null }) }));
+
+    return {
+      ...this.shell(), addCls: 'btn', addTxt: '+ Cadastrar produto',
+      ddVemb: this.ddMk('v-emb', [["Unidade", "Unidade"], ["Pote", "Pote"], ["Copo", "Copo"], ["Caixa", "Caixa"]], ex.emb, (v) => this.setState({ emb: v })),
+      ddVun: this.ddMk('v-un', [["g", "g"], ["kg", "kg"], ["ml", "ml"], ["L", "L"]], ex.un, (v) => this.setState({ un: v })),
+      ddVrec: this.ddMk('v-rec', [...new Set([ex.rec, 'Paleta de Morango recheada', 'Paleta de Maracujá', 'Paleta de Coco cremoso', 'Sorvete de Morango · pote 2 L', 'Sorvete de Chocolate · pote 2 L', 'Creme de Açaí · pote 2 L'])], undefined, null),
+      isProd: true,
+      tabs, rows, tipos, ex, show: s.show, toggleForm: () => this.setState({ show: !this.state.show, dropCat: false, ed: null }),
+      editando: !!pe, formTit: pe ? 'Editar produto' : 'Cadastrar produto à venda', salvarTxt: pe ? 'Salvar alterações' : 'Salvar produto',
+      salvoMsg: s.salvoMsg || '', salvar: () => this.setState({ show: false, dropCat: false, ed: null, salvoMsg: pe ? 'Alterações de "' + pe.nome + '" salvas.' : 'Produto cadastrado.' }),
+      setEmb: (ev) => this.setState({ emb: ev.target.value }), setUn: (ev) => this.setState({ un: ev.target.value }),
+      novoNome: s.novoNome, catItens, catSel, catAberto: s.dropCat, catSeta: s.dropCat ? '▲' : '▼',
+      toggleCat: (e) => this.setState({ dropCat: !this.state.dropCat, rconf: null, ddDir: this.ddDir(e) }), catPst: this.ddPst(s.ddDir),
+      excluido: s.ult !== null && s.excl.includes(s.ult), excluidoNome: s.ult !== null ? P[s.ult].nome + ' (' + P[s.ult].tam + ')' : '',
+      desfazer: () => this.setState({ excl: this.state.excl.filter(x => x !== this.state.ult), ult: null }),
+      setNovoNome: (ev) => this.setState({ novoNome: ev.target.value }),
+      salvarCat: () => {
+        const nome = this.state.novoNome.trim();
+        if (!nome) return;
+        const id = 'cat' + (this.state.cats.length + 1);
+        this.setState({ cats: [...this.state.cats, { id, label: nome }], tipo: id, emb: null, un: null, dropCat: false, novoNome: '' });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

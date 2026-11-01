@@ -1,0 +1,22 @@
+Planejar o que fazer e quanto custa cada receita Produção e Receitas ?
+
+[AJUDA: Produção e Receitas Em "Planejar produção" você diz o que quer fazer e o sistema confere se tem ingrediente no estoque. Em "Receitas" fica quanto custa fazer cada sorvete ou paleta e quanto sobra de lucro em cada um.]
+Simulação · dados de exemplo {{novoTxt}} Planejar produção Receitas {{mdlTit}} ✕ Fechar 1 Nome e ingredientes ?
+
+[AJUDA: Ingredientes da receita Coloque tudo o que vai na receita inteira (a panela toda), não de uma paleta só. O preço de cada ingrediente vem sozinho do último valor pago em Estoque e Insumos.]
+Nome da receita Categoria do produto {{ddRun.sel}} {{ddRun.seta}} {{dI.marca}} {{dI.label}} Ingrediente Quantidade na receita Preço pago Custo {{i.nome}} Quantidade de {{i.nome}} {{i.u}} {{i.pTxt}} {{i.cTxt}} Remover Nenhum ingrediente ainda. Toque em "+ Adicionar ingrediente" logo abaixo. Custo dos ingredientes {{ingTxt}} + Adicionar ingrediente Toque no ingrediente para colocar na receita Fechar {{d.nome}} {{d.pTxt}} Falta algum? Cadastre primeiro em Estoque e Insumos, com o preço pago. 2 Embalagem de cada unidade ?
+
+[AJUDA: Etiqueta, plástico e palito Marque o que vai em cada unidade pronta. O sistema multiplica pela quantidade que a receita rende. Ex.: 100 paletas usam 100 palitos, 100 saquinhos e 100 etiquetas. Receita que não usa, é só deixar desmarcado.]
+{{e.marca}} {{e.nome}} {{e.pTxt}} cada Item Preço de cada Quantidade Custo {{e.nome}} {{e.pTxt}} {{e.qTxt}} {{e.cTxt}} Custo da embalagem {{embTotTxt}} Esta receita não usa embalagem. Se usar, toque nos itens acima. 3 Quanto rende e quanto sobra ?
+
+[AJUDA: Rendimento e lucro Diga quantas unidades saem da receita inteira. O sistema divide o custo por elas e mostra quanto sobra de lucro em cada uma, pelo preço fixo de venda.]
+Quantas {{r.un}} essa receita rende? − + {{r.un}} Ingredientes {{ingTxt}} Embalagem {{embTotTxt}} Custo da receita inteira {{totTxt}} Custo de cada {{sing}} {{unTxt}} Vendendo no balcão ?
+
+[AJUDA: Vendendo no balcão O preço que o cliente paga na sorveteria. É o mesmo para todos os produtos da categoria {{r.catNome}}, seja qual for o sabor. Se mudar aqui, muda na categoria inteira, aqui e em Cadastros › Produtos à venda.]
+Preço de cada {{sing}} R$ igual para toda a categoria {{r.catNome}} Lucro em cada {{sing}} {{bal.lucroTxt}} {{bal.margTxt}} Lucro da receita inteira {{bal.loteTxt}} se vender as {{r.rend}} {{r.un}} no balcão Vendendo no atacado (pedidos de clientes) ?
+
+[AJUDA: Vendendo no atacado O preço cobrado nos pedidos de clientes (mercados, lanchonetes, buffets). Também é o mesmo para todos os sabores. É este preço que aparece em Vendas e Pedidos.]
+Preço de cada {{sing}} R$ igual para toda a categoria {{r.catNome}} Lucro em cada {{sing}} {{ata.lucroTxt}} {{ata.margTxt}} Lucro da receita inteira {{ata.loteTxt}} se vender as {{r.rend}} {{r.un}} nos pedidos Salvar receita Fechar sem salvar Receitas cadastradas ?
+
+[AJUDA: Receitas cadastradas Todas as receitas, do sabor que mais dá lucro para o que menos dá (o preço é o mesmo para todos). Toque em "Editar" para abrir a receita lá em cima. O sabor que menos dá lucro aparece em vermelho.]
+{{t.label}} ✓ {{msgTxt}} ✓ A receita "{{excluidaNome}}" foi excluída. Desfazer Receita Custo de cada Lucro no balcão Lucro no atacado {{c.nome}} {{c.rende}} menor lucro Excluir esta receita? {{c.custo}} {{c.lucro}} {{c.pct}} do preço {{c.lucroA}} {{c.pctA}} do preço Editar Excluir Sim Não Nenhuma receita deste tipo. A receita aberta lá em cima fica marcada em amarelo. "% do preço" é a parte do preço que vira lucro.

@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Big Lake · Início</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Baloo+2:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF7DE;color:#2A1E10;font-family:'Atkinson Hyperlegible',system-ui,sans-serif;font-size:18px;line-height:1.4}
+a{color:#A61B1B}a:hover{color:#7A1010}
+h1,h2,h3{font-family:'Baloo 2',sans-serif;line-height:1.15;margin:0}
+.nav{display:flex;align-items:center;gap:14px;min-height:50px;white-space:nowrap;padding:0 14px;border-radius:12px;color:#2A1E10;text-decoration:none;font-weight:700;font-size:19px}
+.nav:hover{background:#FFDD70;color:#2A1E10}
+.nav.on,.nav.on:hover{background:#2A1E10;color:#FFD54F}
+.badge{margin-left:auto;min-width:28px;height:28px;border-radius:14px;background:#C62828;color:#FFFFFF;font-size:15px;display:inline-flex;align-items:center;justify-content:center}
+@media (max-height:820px){.nav{min-height:43px}}
+.ic{width:26px;height:26px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;box-sizing:border-box;border-radius:12px;border:2px solid #C62828;background:#C62828;color:#FFFFFF;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;text-decoration:none}
+.btn:hover{background:#A61B1B;border-color:#A61B1B;color:#FFFFFF}
+.btn2{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 20px;box-sizing:border-box;border-radius:12px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 18px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;text-decoration:none}
+.btn2:hover{background:#FFF0C2;color:#2A1E10}
+.card{background:#FFFFFF;border:2px solid #F0E2B6;border-radius:18px;padding:24px;box-sizing:border-box}
+.tag{display:inline-block;padding:4px 12px;border-radius:999px;font-size:16px;font-weight:700;white-space:nowrap}
+.ok{background:#DDF3E3;color:#14532D}.low{background:#FDE0DE;color:#8E1414}.warn{background:#FFF0C2;color:#6B4A00}.info{background:#E3ECFA;color:#1E3A6E}
+.sim{display:inline-block;padding:6px 14px;border-radius:999px;background:#2A1E10;color:#FFD54F;font-size:15px;font-weight:700}
+.muted{color:#5E4B33}
+.num{font-variant-numeric:tabular-nums}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;padding:10px 14px;background:#FFFFFF;border:2px solid #F0E2B6;border-radius:14px}
+.bk{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:#14532D;font-size:16px}
+.tb{min-height:44px;min-width:44px;padding:0 12px;box-sizing:border-box;border-radius:10px;border:2px solid #2A1E10;background:#FFFFFF;color:#2A1E10;font:700 17px 'Atkinson Hyperlegible',sans-serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none}
+.tb:hover{background:#FFF0C2;color:#2A1E10}
+.tb.on,.tb.on:hover{background:#C62828;border-color:#C62828;color:#FFFFFF}
+.help{position:relative;display:inline-flex;vertical-align:middle;flex:none}
+.help>button{width:34px;height:34px;border-radius:50%;border:2px solid #C62828;background:#FFFFFF;color:#C62828;font:700 19px 'Atkinson Hyperlegible',sans-serif;cursor:help;display:inline-flex;align-items:center;justify-content:center;padding:0}
+.help:hover>button,.help:focus-within>button{background:#C62828;color:#FFFFFF}
+.tip{display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);width:330px;max-width:80vw;background:#2A1E10;color:#FFFFFF;padding:14px 16px;border-radius:12px;font:400 16px/1.5 'Atkinson Hyperlegible',sans-serif;text-align:left;white-space:normal;z-index:60;box-shadow:0 8px 24px rgba(42,30,16,.3)}
+.tip b{display:block;color:#FFD54F;font-size:17px;margin-bottom:4px}
+.help:hover .tip,.help:focus-within .tip{display:block}
+.tip.l{left:0;transform:none}.tip.r{left:auto;right:0;transform:none}
+.nohelp .help{display:none}
+.hrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+header>.hrow,header>.sim{flex:none}
+.tile{display:flex;flex-direction:column;gap:12px;padding:22px;border-radius:18px;text-decoration:none;min-height:140px;box-sizing:border-box;font-weight:700;font-size:21px}
+.tile .ic{width:40px;height:40px}
+.tile:hover{filter:brightness(0.95)}
+.row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #F0E6CC}
+.kpi{font-size:28px;font-weight:700;margin-top:6px;white-space:nowrap;font-variant-numeric:tabular-nums}
+</style>
+</helmet>
+<div class="{{appCls}}" style="display: flex; flex-wrap: wrap; min-height: 100vh">
+<nav aria-label="Menu principal" style="flex: 0 0 292px; background: #FFC93C; padding: 20px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 4px">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 0 8px 14px; text-decoration: none; color: #2A1E10">
+<svg width="44" height="52" viewBox="0 0 48 56" aria-hidden="true"><path d="M12 24 L24 54 L36 24 Z" fill="#C68B3E" stroke="#2A1E10" stroke-width="2.5" stroke-linejoin="round"></path><path d="M16 31 L32 31 M19 39 L29 39" stroke="#2A1E10" stroke-width="2"></path><circle cx="24" cy="16" r="13" fill="#C62828" stroke="#2A1E10" stroke-width="2.5"></circle><circle cx="19" cy="11" r="3" fill="#FFFFFF" opacity="0.7"></circle></svg>
+<span style="display: flex; flex-direction: column; line-height: 1"><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: 0.5px">BIG LAKE</span><span style="font-size: 16px; font-weight: 700; margin-top: 4px">Sorveteria</span></span>
+</a>
+<a class="nav on" aria-current="page" href="Main.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path></svg>Início</a>
+<a class="nav" href="Pedidos.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="12" rx="2"></rect><path d="M7 8V4h10v4M7 14h4"></path></svg>Vendas e Pedidos</a>
+<a class="nav" href="Clientes.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="4"></circle><path d="M2 21c0-4 3-6 7-6s7 2 7 6M16 4a4 4 0 010 8M22 21c0-3-2-5-4-6"></path></svg>Cadastros</a>
+<a class="nav" href="Producao.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="18" rx="2"></rect><path d="M9 2h6v4H9zM9 13l2 2 4-4"></path></svg>Produção e Receitas</a>
+<a class="nav" href="Estoque.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4zM3 7v10l9 4 9-4V7M12 11v10"></path></svg>Estoque e Insumos</a>
+<a class="nav" href="Perdas.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"></path></svg>Perdas</a>
+<a class="nav" href="Contas.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>Contas a pagar<span class="badge" aria-label="2 vencem logo">2</span></a>
+<a class="nav" href="Socios.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v9h9"></path></svg>Sócios</a>
+<a class="nav" href="Patrimonio.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l8-3 8 3v16M9 21v-5h6v5M9 9h.01M15 9h.01M9 13h.01M15 13h.01"></path></svg>Patrimônio</a>
+<a class="nav" href="Relatorios.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-5M12 16V6M17 16v-8"></path></svg>Relatórios</a>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; padding: 20px 32px 48px; box-sizing: border-box">
+<div style="zoom: {{zoom}}; max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px">
+<div class="top">
+<div class="hrow">
+<span class="bk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"></path></svg>Cópia de segurança feita hoje, 08:02</span>
+<span class="help"><button type="button" aria-label="Ajuda: cópia de segurança">?</button><span class="tip l" role="tooltip"><b>Cópia de segurança automática</b>Toda vez que o sistema é fechado, ele copia todos os dados para o pen drive e para uma pasta do computador. Se o computador estragar, nada se perde.</span></span>
+</div>
+<div class="hrow" style="gap: 8px">
+<span class="help"><button type="button" aria-label="Ajuda: tamanho da letra">?</button><span class="tip r" role="tooltip"><b>Tamanho da letra</b>A+ aumenta tudo na tela e A− diminui. Bom para quem enxerga melhor com letra grande. O tamanho padrão fica salvo em Configurações.</span></span>
+<button type="button" class="tb" aria-label="Diminuir a letra" onClick="{{zOut}}">A−</button>
+<button type="button" class="tb" aria-label="Aumentar a letra" onClick="{{zIn}}">A+</button>
+<button type="button" class="{{helpBtn}}" onClick="{{toggleHelp}}">{{helpTxt}}</button>
+<a class="tb" href="Config.dc.html">Configurações</a>
+</div>
+</div>
+
+<header style="display: flex; flex-wrap: nowrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div style="min-width: 0; flex: 1 1 auto">
+<p class="muted" style="margin: 0 0 4px; font-size: 18px">Sexta-feira, 16 de outubro de 2026</p>
+<div class="hrow"><h1 style="font-size: 44px">Bom dia, Carlos!</h1><span class="help"><button type="button" aria-label="Ajuda: tela inicial">?</button><span class="tip l" role="tooltip"><b>Tela inicial</b>É a primeira tela ao abrir o sistema. Mostra o resumo do mês, o que precisa de atenção e atalhos para as tarefas mais comuns.</span></span></div>
+</div>
+<span class="sim">Simulação · dados de exemplo</span>
+</header>
+
+<section aria-label="Atalhos" style="display: flex; flex-direction: column; gap: 12px">
+<div class="hrow"><span style="font-weight: 700; font-size: 20px">O que você quer fazer?</span><span class="help"><button type="button" aria-label="Ajuda: atalhos">?</button><span class="tip l" role="tooltip"><b>Atalhos</b>Botões grandes para as tarefas do dia a dia. Um clique e você já está na tela certa.</span></span></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px">
+<a class="tile" href="Pedidos.dc.html" style="background: #C62828; color: #FFFFFF"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="12" rx="2"></rect><path d="M7 8V4h10v4M7 14h4"></path></svg>Lançar vendas do dia</a>
+<a class="tile" href="Pedidos.dc.html" style="background: #FFC93C; color: #2A1E10"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"></rect><path d="M9 4h6v3H9zM9 12h6M9 16h4"></path></svg>Novo pedido de cliente</a>
+<a class="tile" href="Producao.dc.html" style="background: #FFFFFF; color: #2A1E10; border: 2px solid #F0E2B6"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7a5 5 0 0110 0v9H7z"></path><path d="M12 16v6M10 8v4"></path></svg>Planejar produção</a>
+<a class="tile" href="Estoque.dc.html" style="background: #FFFFFF; color: #2A1E10; border: 2px solid #F0E2B6"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4zM3 7v10l9 4 9-4V7M12 11v10"></path></svg>Chegou mercadoria</a>
+</div>
+</section>
+
+<section aria-label="Resumo" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+<div class="card"><div class="muted" style="font-weight: 700">Vendas de ontem</div><div class="kpi">R$ 1.382,50</div><div class="muted">dinheiro, cartão e Pix</div></div>
+<div class="card"><div class="muted" style="font-weight: 700">Vendas de outubro</div><div class="kpi">R$ 32.870,00</div><div class="muted">balcão + pedidos</div></div>
+<div class="card"><div class="muted" style="font-weight: 700">Despesas de outubro</div><div class="kpi">R$ 19.640,00</div><div class="muted">compras e contas pagas</div></div>
+<div class="card" style="background: #2A1E10; border-color: #2A1E10; color: #FFFFFF"><div class="hrow" style="justify-content: space-between"><span style="font-weight: 700; color: #FFD54F">Lucro até hoje</span><span class="help"><button type="button" aria-label="Ajuda: lucro">?</button><span class="tip r" role="tooltip"><b>Lucro líquido</b>É o que sobra: tudo o que entrou menos tudo o que saiu no mês até hoje. No fim do mês, esse valor é dividido entre os sócios.</span></span></div><div class="kpi">R$ 13.230,00</div><div>dividido no fim do mês</div></div>
+</section>
+
+<section class="card" aria-labelledby="t-pe">
+<div class="hrow" style="justify-content: space-between">
+<div class="hrow"><h2 id="t-pe" style="font-size: 28px">Meta para pagar as contas de outubro</h2><span class="help"><button type="button" aria-label="Ajuda: meta do mês">?</button><span class="tip l" role="tooltip"><b>Ponto de equilíbrio</b>Quanto a sorveteria precisa vender no mês para pagar todas as contas: aluguel, luz, salários e mercadoria. Quando a barra chega a 100%, tudo o que vender a mais é lucro.</span></span></div>
+<span class="tag warn">Faltam uns 3 dias de vendas</span>
+</div>
+<div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin: 16px 0 8px; font-size: 20px"><span>Já vendeu <b>R$ 32.870,00</b></span><span>Meta <b>R$ 38.500,00</b></span></div>
+<div role="img" aria-label="85% da meta atingida" style="height: 38px; background: #FFF0C2; border-radius: 10px; overflow: hidden; border: 2px solid #2A1E10"><div style="width: 85%; height: 100%; background: #F2B200; display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; box-sizing: border-box; font-weight: 700; font-size: 20px">85%</div></div>
+<p style="margin: 12px 0 0">Faltam <b>R$ 5.630,00</b>, cerca de 3 dias de vendas no ritmo atual. Depois disso, o que entrar é lucro.</p>
+<p class="muted" style="margin: 4px 0 0; font-size: 16px">Considera todas as contas previstas do mês, inclusive as que ainda vão vencer.</p>
+</section>
+
+<section aria-labelledby="t-av" style="display: flex; flex-direction: column; gap: 14px">
+<div class="hrow"><h2 id="t-av" style="font-size: 30px">Avisos de hoje</h2><span class="help"><button type="button" aria-label="Ajuda: avisos">?</button><span class="tip l" role="tooltip"><b>Avisos</b>O sistema confere sozinho estoque, validades, contas e custos, e mostra aqui só o que precisa de atenção. Não é preciso ficar procurando.</span></span></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 18px">
+
+<article class="card" style="border-color: #F2B200">
+<div class="hrow" style="justify-content: space-between; margin-bottom: 4px"><div class="hrow"><h3 style="font-size: 24px">Gordurinha</h3><span class="help"><button type="button" aria-label="Ajuda: gordurinha">?</button><span class="tip l" role="tooltip"><b>Gordurinha</b>A sobra de 10% em cima do lucro que foi colocada nos preços no último reajuste. Cada aumento de custo come um pedaço. Quando acabar, é hora de reajustar os preços.</span></span></div><span class="tag warn">Atenção</span></div>
+<p style="margin: 8px 0 10px">Restam <b>R$ 570,00</b> de R$ 1.500,00 por mês (38%).</p>
+<div style="height: 22px; background: #F0E6CC; border-radius: 8px; overflow: hidden; border: 2px solid #2A1E10"><div style="height: 100%; width: 38%; background: #F2B200"></div></div>
+<p class="muted" style="margin: 10px 0 0">Mais comeram: morango, leite e energia. No ritmo de agora, acaba por volta de fevereiro.</p>
+<div style="margin-top: 16px"><a class="btn2" href="Relatorios.dc.html">Ver em Relatórios › Gordurinha</a></div>
+</article>
+
+<article class="card">
+<div class="hrow" style="justify-content: space-between; margin-bottom: 4px"><h3 style="font-size: 24px">Estoque baixo</h3><span class="tag low">4 itens</span></div>
+<div class="row"><div><div style="font-weight: 700">Leite integral</div><div class="muted">mínimo 40 L</div></div><div class="num" style="font-size: 21px; font-weight: 700; color: #8E1414">12 L</div></div>
+<div class="row"><div><div style="font-weight: 700">Morango</div><div class="muted">mínimo 10 kg</div></div><div class="num" style="font-size: 21px; font-weight: 700; color: #8E1414">3,5 kg</div></div>
+<div class="row"><div><div style="font-weight: 700">Pote 2 L com tampa</div><div class="muted">mínimo 200 un</div></div><div class="num" style="font-size: 21px; font-weight: 700; color: #8E1414">45 un</div></div>
+<div class="row"><div><div style="font-weight: 700">Leite condensado</div><div class="muted">mínimo 24 un</div></div><div class="num" style="font-size: 21px; font-weight: 700; color: #8E1414">8 un</div></div>
+<div style="margin-top: 16px"><a class="btn2" href="Estoque.dc.html">Ver estoque</a></div>
+</article>
+
+<article class="card">
+<div class="hrow" style="justify-content: space-between; margin-bottom: 4px"><div class="hrow"><h3 style="font-size: 24px">Vencendo em breve</h3><span class="help"><button type="button" aria-label="Ajuda: validade">?</button><span class="tip r" role="tooltip"><b>Alerta de validade</b>Quando a mercadoria chega, anota-se a validade. O sistema avisa antes de vencer, para usar primeiro ou fazer uma promoção. Fruta vencida é dinheiro jogado fora.</span></span></div><span class="tag warn">3 itens</span></div>
+<div class="row"><div><div style="font-weight: 700">Morango · 3,5 kg</div><div class="muted">vence 18/10</div></div><span class="tag low">em 2 dias</span></div>
+<div class="row"><div><div style="font-weight: 700">Creme de leite · 6 L</div><div class="muted">vence 20/10</div></div><span class="tag warn">em 4 dias</span></div>
+<div class="row"><div><div style="font-weight: 700">Manga · 12 kg</div><div class="muted">vence 21/10</div></div><span class="tag warn">em 5 dias</span></div>
+<p class="muted" style="margin: 14px 0 0">Dica: use primeiro na produção ou faça uma promoção.</p>
+</article>
+
+<article class="card">
+<div class="hrow" style="justify-content: space-between; margin-bottom: 4px"><div class="hrow"><h3 style="font-size: 24px">Contas para pagar</h3><span class="help"><button type="button" aria-label="Ajuda: contas">?</button><span class="tip l" role="tooltip"><b>Contas a pagar</b>Mostra as contas que vencem nos próximos dias, para pagar em dia e não pagar juros. O aviso aparece com a antecedência escolhida em cada conta.</span></span></div><span class="tag warn">2 vencem logo</span></div>
+<div class="row"><div><div style="font-weight: 700">Energia elétrica</div><div class="muted">vence amanhã, 17/10</div></div><div class="num" style="font-size: 21px; font-weight: 700">R$ 2.950,00</div></div>
+<div class="row"><div><div style="font-weight: 700">Laticínios Vale Verde (boleto)</div><div class="muted">vence em 3 dias, 19/10</div></div><div class="num" style="font-size: 21px; font-weight: 700">R$ 1.970,00</div></div>
+<div style="margin-top: 16px"><a class="btn2" href="Contas.dc.html">Ver contas a pagar</a></div>
+</article>
+
+<article class="card" style="border-color: #C62828">
+<div class="hrow" style="justify-content: space-between; margin-bottom: 4px"><div class="hrow"><h3 style="font-size: 24px">O custo subiu</h3><span class="help"><button type="button" aria-label="Ajuda: aumento de custo">?</button><span class="tip r" role="tooltip"><b>Aviso de aumento de custo</b>Quando um ingrediente fica mais caro, o sistema recalcula o custo de tudo que usa ele, e mostra quanto o lucro de cada um caiu, já que o preço de venda é fixo.</span></span></div><span class="tag low">3 produtos</span></div>
+<p style="margin: 8px 0 4px">O <b>morango</b> passou de R$ 14,00 para <b>R$ 18,00</b> o quilo (+29%).</p>
+<div class="row"><span style="font-weight: 700">Paleta de Morango recheada</span><span>lucro de cada <b>R$ 6,85 → R$ 6,65</b></span></div>
+<div class="row"><span style="font-weight: 700">Sorvete de Morango · pote 2 L</span><span>lucro de cada <b>R$ 23,08 → R$ 21,08</b></span></div>
+<div style="margin-top: 16px"><a class="btn" href="Producao.dc.html">Ver detalhes</a></div>
+</article>
+
+<article class="card">
+<div class="hrow" style="justify-content: space-between; margin-bottom: 4px"><h3 style="font-size: 24px">Últimos pedidos</h3><span class="tag info">6 em outubro</span></div>
+<div class="row"><div><div style="font-weight: 700">Mercado Bom Preço</div><div class="muted">16/10 · 12 potes de 2 L</div></div><div class="num" style="font-size: 21px; font-weight: 700">R$ 540,00</div></div>
+<div class="row"><div><div style="font-weight: 700">Lanchonete Sabor &amp; Cia</div><div class="muted">15/10 · 4 caixas de picolé</div></div><div class="num" style="font-size: 21px; font-weight: 700">R$ 360,00</div></div>
+<div class="row"><div><div style="font-weight: 700">Buffet Festa Feliz</div><div class="muted">14/10 · 20 potes + 200 casquinhas</div></div><div class="num" style="font-size: 21px; font-weight: 700">R$ 1.480,00</div></div>
+<div style="margin-top: 16px"><a class="btn2" href="Pedidos.dc.html">Ver todos os pedidos</a></div>
+</article>
+</div>
+</section>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2400}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { z: 1, help: true };
+  }
+  shell() {
+    const s = this.state;
+    return {
+      zoom: s.z, appCls: s.help ? 'app' : 'app nohelp', helpBtn: s.help ? 'tb on' : 'tb', helpTxt: s.help ? '? Ajuda ligada' : '? Ajuda desligada',
+      zIn: () => this.setState({ z: Math.min(1.3, Math.round((this.state.z + 0.1) * 10) / 10) }),
+      zOut: () => this.setState({ z: Math.max(0.8, Math.round((this.state.z - 0.1) * 10) / 10) }),
+      toggleHelp: () => this.setState({ help: !this.state.help })
+    };
+  }
+  renderVals() {
+    return { ...this.shell() };
+  }
+}
+</script>
+</body>
+</html>

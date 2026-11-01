@@ -1,0 +1,19 @@
+Boletos, aluguel, luz, salários e fornecedores Contas a pagar ?
+
+[AJUDA: Contas a pagar Anote cada conta com o valor e o vencimento. O sistema avisa antes de vencer, na tela inicial e no menu (número vermelho), para nada atrasar e não pagar juros.]
+Simulação · dados de exemplo {{addTxt}} Vencem nos próximos 7 dias {{prox7Txt}} {{prox7Qtd}} Atrasadas R$ 0,00 nenhuma conta atrasada Pagas em outubro {{pagasTxt}} {{pagasQtd}} {{contaTit}} Editando uma conta ✕ Fechar O que é Valor (R$) Vencimento Tipo de conta ?
+
+[AJUDA: Tipo de conta Serve para separar os gastos nos relatórios: quanto foi de energia, de fornecedor, de funcionários. Toque para escolher. Na lista também dá para criar um tipo novo ou remover um que não usa mais.]
+{{tipoSel}} {{seta}} {{o.marca}} {{o.label}} Remover em uso · {{o.uso}} Remover? Sim Não Nome novo + Criar Só dá para remover um tipo que nenhuma conta usa. Já está paga? ?
+
+[AJUDA: Conta que já foi paga Para gastos que não chegam como boleto, como combustível no posto ou compra de emergência. Marque "Sim, já paguei": ao salvar, o sistema pergunta como foi pago. Se foi no cartão pessoal de um sócio, o valor volta para ele em Sócios.]
+{{o.label}} Repete todo mês? ?
+
+[AJUDA: Conta que se repete Aluguel, luz e salários vêm todo mês. Marcando "Sim", o sistema cria sozinho a conta do mês seguinte. Não é preciso cadastrar de novo.]
+{{o.label}} Avisar quantos dias antes? ?
+
+[AJUDA: Aviso antes de vencer Escolha com quantos dias de antecedência a conta deve aparecer nos avisos da tela inicial.]
+{{o.label}} {{salvarContaTxt}} Cancelar {{t.label}} Pagou uma conta? ?
+
+[AJUDA: Marcar como paga Depois de pagar, toque em "Marcar como paga" e diga como foi paga (dinheiro, Pix, boleto ou cartão). A conta sai dos avisos e o valor entra nas despesas do mês, que contam para o lucro dos sócios.]
+Vencimento Conta Repete Valor {{r.venc}} {{r.quando}} {{r.nome}} {{r.cat}}{{r.pagoInfo}} {{r.rep}} {{r.vTxt}} Editar {{r.acao}}

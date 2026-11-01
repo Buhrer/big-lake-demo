@@ -1,0 +1,16 @@
+Segurança dos dados e preferências Configurações ?
+
+[AJUDA: Configurações Abre pelo botão "Configurações" no alto de qualquer tela. Aqui ficam as cópias de segurança, o histórico do que foi feito, o tamanho da letra e os dados da empresa.]
+Simulação · dados de exemplo Cópia de segurança ?
+
+[AJUDA: Cópia automática Com a opção ligada, toda vez que o sistema é fechado ele salva uma cópia no pen drive e numa pasta do computador. Guarde o pen drive fora da loja. Se precisar, "Restaurar" volta tudo como estava na data escolhida.]
+Copiar sozinho ao fechar o sistema {{bkTxt}} Pen drive (E:) Conectado Pasta Documentos\BigLake OK Últimas cópias Hoje, 08:02 Completa Ontem, 22:15 Completa 14/10, 22:08 Completa Fazer cópia agora Restaurar uma cópia Tamanho da letra ?
+
+[AJUDA: Tamanho padrão Escolha o tamanho com que o sistema sempre abre. Dá para ajustar a qualquer momento com A+ e A− no alto da tela.]
+{{o.label}} Exemplo: Paleta de Morango recheada · R$ 10,00 Histórico do que foi feito ?
+
+[AJUDA: Histórico O sistema anota tudo o que foi alterado e quando: preço mudado, mercadoria que entrou, perda registrada, vendas do dia lançadas. Ajuda a achar e corrigir um erro de digitação.]
+Quando O que foi feito {{h.q}} {{h.o}} Dados da empresa ?
+
+[AJUDA: Dados da empresa Aparecem nos comprovantes de pedido e nos relatórios impressos.]
+Nome CNPJ Telefone Endereço Salvar dados Só no protótipo não vai para o sistema final As telas guardam o que você testar (contas, manutenções, pagamentos e cartões) para mostrar as ligações entre elas. Antes de apresentar, apague para voltar aos dados de exemplo. Apagar dados de teste ✓ Pronto, voltou aos dados de exemplo.
